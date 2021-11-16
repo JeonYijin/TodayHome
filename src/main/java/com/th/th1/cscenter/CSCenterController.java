@@ -1,6 +1,8 @@
 package com.th.th1.cscenter;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +32,7 @@ public class CSCenterController {
 	public ModelAndView cscenterAjax(CSCenterVO csCenterVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		Integer num = csCenterVO.getNum();		
-		List<CSCenterVO> csList = csCenterService.cscenterList(csCenterVO);
+		List<CSCenterVO> csList = csCenterService.cscenterList(csCenterVO);		
 		mv.addObject("csList", csList);
 		mv.addObject("num", num);
 		mv.setViewName("common/ajaxResult");
