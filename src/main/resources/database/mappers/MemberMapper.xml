@@ -3,6 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="com.th.th1.member.MemberDAO">
-
+	
+	<insert id="setMemberInsert" parameterType="MemberVO">
+		INSERT INTO member (memberNum, id, pw, nickname, role)
+		VALUES (0, #{id}, #{pw}, #{nickname}, #{role});
+	</insert>
+	
+	<delete id="setMemberDelete" parameterType="MemberVO">
+		delete from member where memberNum = #{memberNum}
+	</delete>
+	
   
   </mapper>
