@@ -66,7 +66,7 @@
 	<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
 	<label class="css-19szivi-Label euhjq6q2">비밀번호</label>
 	<div class="css-1mh39t-Description euhjq6q1">영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</div>
-	<input type="password" class="_3ASDR _1qwAY" value="" field="[object Object]" name="password" placeholder="비밀번호"></div>
+	<input type="password" class="_3ASDR _1qwAY" value="" field="[object Object]" name="pw" placeholder="비밀번호"></div>
 	<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
 	<label class="css-19szivi-Label euhjq6q2">비밀번호 확인</label>
 	<input type="password" class="_3ASDR _1qwAY" value="" field="[object Object]" name="confirmPassword" placeholder="비밀번호 확인">
