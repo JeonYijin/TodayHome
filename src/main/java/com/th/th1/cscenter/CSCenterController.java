@@ -17,12 +17,24 @@ public class CSCenterController {
 	private CSCenterService csCenterService;
 	
 	@GetMapping("/")
-	public ModelAndView cscenterList(CSCenterVO cscenterVO) throws Exception {
+	public ModelAndView cscenterList(CSCenterVO csCenterVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		List<CSCenterVO> csList = csCenterService.cscenterList(cscenterVO);	
+		List<CSCenterVO> csList = csCenterService.cscenterList(csCenterVO);	
 		mv.addObject("csList", csList);
 		mv.setViewName("cscenter/cscenter");
 		
+		return mv;
+	}
+	
+	@GetMapping("cscenterAjax")
+	public ModelAndView cscenterAjax(CSCenterVO csCenterVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		Integer num = csCenterVO.getNum();		
+		List<CSCenterVO> csList = csCenterService.cscenterList(csCenterVO);
+		mv.addObject("csList", csList);
+		mv.addObject("num", num);
+		mv.setViewName("common/ajaxResult");
+				
 		return mv;
 	}
 
