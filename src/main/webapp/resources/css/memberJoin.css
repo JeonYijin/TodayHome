@@ -152,6 +152,13 @@ label {
     -webkit-appearance: none;
 }
 
+.messege-essential-id, .messege-essential-pw, .messege-essential-nm, .messege-pwcheck {
+	padding-top: 10px;
+    font-size: 13px;
+    line-height: 21px;
+    color: rgb(255, 119, 119);
+}
+
 /* email */
 .email-input {
     display: flex;
@@ -486,6 +493,80 @@ input {
     color: rgb(255, 119, 119);
     line-height: 21px;
     word-break: keep-all;
+}
+
+.terms-head {
+	display: block;
+    margin: 0 0 12px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #292929;
+    line-height: 21px;
+    word-break: keep-all;
+}
+
+.terms-container {
+	border: solid 1px #dbdbdb;
+    padding: 0 23px 6px 16px;
+    margin-bottom: 30px;
+}
+
+.terms-container-agreeAll {
+	border-bottom: 1px solid #ededed;
+    height: 70px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    algin-items: center;
+}
+
+._4VN_z {
+    flex-direction: row;
+    padding-right: 6px;
+}
+
+._3xqzr {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.terms-label-agreeAll {
+	font-size: 14px;
+    color: #424242;
+    line-height: 18px;
+    font-weight: bold;
+}
+
+.terms-checkbox {
+	position: relative;
+    display: inline-block;
+    font-size: 0;
+    padding: 9px;
+}
+
+.term-text {
+	font-size: 14px;
+    color: #424242;
+    line-height: 18px;
+}
+
+.term-text-require {
+	color: #35c5f0;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.term-text-policy {
+	text-decoration: underline;
+}
+
+.term-text-option {
+	color: #bdbdbd;
+    font-size: 12px;
+    margin-left: 4px;
 }
 
 

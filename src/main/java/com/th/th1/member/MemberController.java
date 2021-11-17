@@ -28,4 +28,16 @@ public class MemberController {
 		return "redirect:../";
 	}
 	
+	//이용약관 
+	@GetMapping("usePolicy")
+	public String getUserPolicy() throws Exception {
+		return ("member/usePolicy");
+	}
+	
+	//개인정보수집 및 이용동의
+	@GetMapping("privacy")
+	public String getPrivacy() throws Exception {
+		return ("member/privacy");
+	}
+	
 }
