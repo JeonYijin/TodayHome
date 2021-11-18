@@ -52,7 +52,7 @@
 				
 			<section>
 				<div class="css-1ao9naj-Title e1ufx3to1">SNS계정으로 간편 로그인/회원가입</div>
-					<a datatype="facebook" class="css-j4mauu-SnsLoginLink e1ufx3to0" href="/users/auth/facebook">
+					<a datatype="facebook" class="css-j4mauu-SnsLoginLink e1ufx3to0" href="/oauth2/authorization/facebook">
 						<svg width="48" height="48" viewBox="0 0 48 48" preserveAspectRatio="xMidYMid meet">
 							<g fill="none" fill-rule="evenodd">
 								<path fill="#3B5998" d="M0 24C0 10.745 10.745 0 24 0s24 10.745 24 24-10.745 24-24 24S0 37.255 0 24z"></path>
@@ -60,7 +60,7 @@
 							</g>
 						</svg>
 					</a>
-					<a datatype="kakao" class="css-j4mauu-SnsLoginLink e1ufx3to0" href="/users/auth/kakao">
+					<a datatype="kakao" class="css-j4mauu-SnsLoginLink e1ufx3to0" href="/oauth2/authorization/kakao">
 						<svg width="48" height="48" viewBox="0 0 48 48" preserveAspectRatio="xMidYMid meet">
 							<g fill="none" fill-rule="evenodd">
 								<path fill="#FFEB00" d="M0 24C0 10.745 10.745 0 24 0s24 10.745 24 24-10.745 24-24 24S0 37.255 0 24z"></path>
@@ -68,7 +68,7 @@
 							</g>	
 						</svg>
 					</a>
-					<a datatype="naver" class="css-j4mauu-SnsLoginLink e1ufx3to0" href="/users/auth/naver">
+					<a datatype="naver" class="css-j4mauu-SnsLoginLink e1ufx3to0" href="/oauth2/authorization/naver">
 						<svg width="48" height="48" viewBox="0 0 48 48" preserveAspectRatio="xMidYMid meet">
 							<g fill="none" fill-rule="evenodd">
 								<path fill="#00C63B" d="M0 24C0 10.745 10.745 0 24 0s24 10.745 24 24-10.745 24-24 24S0 37.255 0 24z"></path>
