@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+   <definition name="layout-tiles" template="/WEB-INF/views/temp/layout.jsp">
+       <put-attribute name="header" value="/WEB-INF/views/temp/header.jsp" />
+       <put-attribute name="body" value="" />
+       <put-attribute name="footer" value="/WEB-INF/views/temp/footer.jsp" />
+   </definition>
+   
+   <!-- 
+	접미어가 web인 대상들만 tiles를 적용한다. (Ex. Controller Page Return)
+	*/* 방식으로 지정하여 접미어 상관없이 전체를 적용할수도 있다.
+   -->
+   <definition name="*" extends="layout-tiles">
+       <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
+   </definition>
+   <definition name="*/*" extends="layout-tiles">
+       <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
+   </definition>
+   <definition name="*/*/*" extends="layout-tiles">
+       <put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+   </definition>
+</tiles-definitions>

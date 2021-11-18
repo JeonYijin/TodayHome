@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,16 +40,16 @@
 				<section class="col-12 col-md-6 customer-center__faq">
 					<ul class="customer-center__faq__list">  <!-- 대표 faq 링크 보완 필요 -->
 						<li>
-							<a class="customer-center__faq__list" onclick="csAjax('de', 14);">배송은 얼마나 걸리나요?</a>
+							<a href="/cscenter/?category=de&num=14" class="customer-center__faq__list" onclick="csAjax('de', 14);">배송은 얼마나 걸리나요?</a>
 						</li>
 						<li>
-							<a class="customer-center__faq__list" onclick="csAjax('c/r', 20);">주문 취소는 어떻게 하나요?</a>
+							<a href="/cscenter/?category=c/r&num=20" class="customer-center__faq__list" onclick="csAjax('c/r', 20);">주문 취소는 어떻게 하나요?</a>
 						</li>
 						<li>
-							<a class="customer-center__faq__list" onclick="csAjax('etc', 38);">제품의 자세한 정보를 알고 싶어요</a>
+							<a href="/cscenter/?category=etc&num=38" class="customer-center__faq__list" onclick="csAjax('etc', 38);">제품의 자세한 정보를 알고 싶어요</a>
 						</li>
 						<li>
-							<a class="customer-center__faq__list" onclick="csAjax('r/e', 23);">제품이 불량일 때는?</a>
+							<a href="/cscenter/?category=r/e&num=23" class="customer-center__faq__list" onclick="csAjax('r/e', 23);">제품이 불량일 때는?</a>
 						</li>
 					</ul>
 				</section>
@@ -61,29 +61,29 @@
 		<article id="faq" class="faq">
 			<nav class="faq__nav">
 				<ul class="faq__nav__list">
-					<li class="faq__nav__item">
-						<a href="./cscenter">전체</a>
+					<li class="faq__nav__item entire">
+						<a href="/cscenter">전체</a>
 					</li>
-					<li class="faq__nav__item">
-						<a href="./cscenter?category=o/p">주문/결제</a>
+					<li class="faq__nav__item o/p">
+						<a href="/cscenter?category=o/p">주문/결제</a>
 					</li>
-					<li class="faq__nav__item">
-						<a href="./cscenter?category=de">배송관련</a>
+					<li class="faq__nav__item de">
+						<a href="/cscenter?category=de">배송관련</a>
 					</li>
-					<li class="faq__nav__item">
-						<a href="./cscenter?category=c/r">취소/환불</a>
+					<li class="faq__nav__item c/r">
+						<a href="/cscenter?category=c/r">취소/환불</a>
 					</li>	
-					<li class="faq__nav__item">
-						<a href="./cscenter?category=r/e">반품/교환</a>
+					<li class="faq__nav__item r/e">
+						<a href="/cscenter?category=r/e">반품/교환</a>
 					</li>
-					<li class="faq__nav__item">				
-						<a href="./cscenter?category=cer">증빙서류발급</a>
+					<li class="faq__nav__item cer">				
+						<a href="/cscenter?category=cer">증빙서류발급</a>
 					</li>
-					<li class="faq__nav__item">				
-						<a href="./cscenter?category=info">회원정보변경</a>
+					<li class="faq__nav__item info">				
+						<a href="/cscenter?category=info">회원정보변경</a>
 					</li>
-					<li class="faq__nav__item">				
-						<a href="./cscenter?category=etc">서비스/기타</a>
+					<li class="faq__nav__item etc">				
+						<a href="/cscenter?category=etc">서비스/기타</a>
 					</li>
 				</ul>
 			</nav>
@@ -91,9 +91,9 @@
 			<article class="faq__contents">
 				<c:forEach items="${csList}" var="list" varStatus="i">
 					<section id="section_${i.index}" class="faq__contents__group">
-						<input type="hidden" value="${i.index}" name="hidden_index"/>
-						<input type="hidden" value="${list.num}" name="hidden_num"/>
+						<input type="hidden" value="${i.index}" name="hidden_${i.index}"/>
 						<div id="question_${i.index}" class="faq__contents__item__question trigger" onclick="toggle(${i.index});">${list.question}</div>		
+						<input type="hidden" value="${list.num}" name="hidden_${list.num}" id="hidden_${list.num}"/>
 						<div id="answer_${i.index}" class="faq__contents__item__answer" style="display:none;">
 							<p><span>A.</span> ${list.answer}</p>
 						</div>
@@ -105,7 +105,14 @@
 	</div>
 </div>
 
+
 <script type="text/javascript">	
+
+
+//	$(document).ready(function(){
+//		var answered = $('#hidden_'+${num}).next().attr('style', 'display:block;');		
+//	});
+	
 	function toggle(index) {		
 		var divId = 'answer_'+index;
 		var answerId = $('#'+divId);
@@ -118,14 +125,9 @@
 			answerId.hide();
 		}
 	}
+
+
 	
-	$('#quest1').click(function(e){
-		e.preventDefault();
-		var uri = $(this).attr('href');
-		if(uri != '#'){
-			
-		}
-	})
 </script>
 <script type="text/javascript" src="../resources/js/cscenter_ajax.js"></script>
 </body>

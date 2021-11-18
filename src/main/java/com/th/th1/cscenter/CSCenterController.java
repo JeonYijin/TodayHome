@@ -21,7 +21,17 @@ public class CSCenterController {
 	@GetMapping("/")
 	public ModelAndView cscenterList(CSCenterVO csCenterVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		Integer num = csCenterVO.getNum();
+		String category = csCenterVO.getCategory();
+		System.out.println("========"+num);
+		System.out.println("========"+category);
 		List<CSCenterVO> csList = csCenterService.cscenterList(csCenterVO);	
+		if(num != null) {
+			mv.addObject("num", num);
+		}
+		if(category != null) {
+			mv.addObject("category", category);			
+		}
 		mv.addObject("csList", csList);
 		mv.setViewName("cscenter/cscenter");
 		
