@@ -23,5 +23,11 @@ public class MemberService {
 		return result;
 	}
 	
+	//닉네임 중복 확인
+	public Long getNicknameCheck(MemberVO memberVO) throws Exception {
+		Long count = memberDAO.getNicknameCheck(memberVO);
+		return count;
+	}
+	
 	
 }

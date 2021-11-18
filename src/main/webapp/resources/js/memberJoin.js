@@ -52,9 +52,23 @@ $('.pwcheck').blur(function(){
 
 /*닉네임*/
 //중복 금지
-$.ajax({
+
+$('.nickname').blur(function(){
+	let nickname = $('.nickname').val();
+	nickname = nickname.trim();
 	
-})
+	$.get('./nicknameCheckAjax?nickname='+nickname,function(data){
+		data = data.trim();
+		if(data == 0) {
+			$('.messege-nickname-check').show();
+		}else {
+			$('.messege-nickname-check').hide();
+		}
+	});
+	
+});
+
+
 
 
 /*약관 동의*/

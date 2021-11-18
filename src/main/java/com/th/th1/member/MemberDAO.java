@@ -10,5 +10,8 @@ public interface MemberDAO {
 	
 	//회원탈퇴
 	public int setMemberDelete(MemberVO memberVO) throws Exception;
+	
+	//닉네임 중복 확인
+	public Long getNicknameCheck(MemberVO memberVO) throws Exception;
 
 }

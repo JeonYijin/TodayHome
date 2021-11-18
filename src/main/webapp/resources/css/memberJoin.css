@@ -152,7 +152,8 @@ label {
     -webkit-appearance: none;
 }
 
-.messege-essential-id, .messege-essential-pw, .messege-essential-nm, .messege-pwcheck {
+.messege-essential-id, .messege-essential-pw, .messege-essential-nm, 
+.messege-pwcheck, .messege-nickname-check {
 	padding-top: 10px;
     font-size: 13px;
     line-height: 21px;

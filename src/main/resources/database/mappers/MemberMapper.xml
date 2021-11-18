@@ -13,5 +13,8 @@
 		delete from member where memberNum = #{memberNum}
 	</delete>
 	
+	<select id="getNicknameCheck" parameterType="MemberVO" resultType="Long">
+		select count(*) from member where nickname = #{nickname}
+	</select>
   
   </mapper>

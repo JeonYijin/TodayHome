@@ -40,4 +40,24 @@ public class MemberController {
 		return ("member/privacy");
 	}
 	
+	//닉네임 중복 확인
+	@GetMapping("nicknameCheckAjax")
+	public ModelAndView getNicknameCheckAjax(MemberVO memberVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		Long count = memberService.getNicknameCheck(memberVO);
+		
+		//result 0이면 사용 불가, 1이면 사용 가능
+		int result = 0;
+		if(count == 0) {
+			result = 1;
+		}
+		
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+	
+	
 }

@@ -35,5 +35,14 @@ class memberJoinTest {
 		
 		assertNotEquals(0, result);
 	}
+	
+	//@Test
+	void getNicknameCheckTest() throws Exception {
+		MemberVO memberVO = new MemberVO();
+		memberVO.setNickname("test");
+		Long count = memberDAO.getNicknameCheck(memberVO);
+		
+		assertEquals(1, count);
+	}
 
 }

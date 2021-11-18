@@ -96,9 +96,9 @@
 		<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
 		<label class="css-19szivi-Label euhjq6q2">닉네임</label>
 		<div class="css-1mh39t-Description euhjq6q1">다른 유저와 겹치지 않는 별명을 입력해주세요. (2~15자)</div>
-		<input class="_3ASDR _1qwAY essential-nm" value="" field="[object Object]" name="nickname" placeholder="별명 (2~15자)">
-		<!-- 필수입력 구문 -->
-		<div class="messege-essential-nm" style="display: none;">필수입력 항목입니다.</div>
+		<input class="_3ASDR _1qwAY essential-nm nickname" value="" field="[object Object]" name="nickname" placeholder="별명 (2~15자)">
+		<!-- 닉네임 중복 방지 구문 -->
+		<div class="messege-nickname-check" style="display: none;">사용 중인 별명입니다.</div>
 		</div>
 		
 		
