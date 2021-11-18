@@ -4,6 +4,7 @@
 
 #id,pw 보안
 .properties
+application.properties
 
 ### Eclipse ###
 .metadata
