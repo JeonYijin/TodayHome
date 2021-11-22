@@ -19,13 +19,6 @@
 	</properties>
 	<dependencies>
 	
-	<!-- 이메일 인증  -->
-	<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
-			<version>2.2.8.RELEASE</version>
-	</dependency>
-	
 	<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

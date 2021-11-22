@@ -1,5 +1,8 @@
 package com.th.th1.member;
 
+import java.io.InputStream;
+import java.util.Random;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.th.th1.sns.KakaoVO;
@@ -107,6 +111,8 @@ public class MemberController {
 		
 		return mv;
 	}
+	
+	
 	
 	
 }
