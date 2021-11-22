@@ -22,10 +22,19 @@ public class MemberController {
 	
 	//회원가입 폼 제출
 	@PostMapping("memberJoin")
-	public String setMemberInsert(MemberVO memberVO) throws Exception {
+	public ModelAndView setMemberInsert(MemberVO memberVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
 		int result = memberService.setMemberInsert(memberVO);
+		String message = "회원가입에 실패하였습니다. 다시 시도해주세요.";
+		if(result > 0){
+			message = "회원가입에 성공했습니다.";
+		}
 		
-		return "redirect:../";
+		mv.addObject("msg", message);
+		mv.addObject("url", "../");
+		mv.setViewName("common/result");
+		
+		return mv;
 	}
 	
 	//이용약관 

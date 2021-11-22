@@ -34,7 +34,7 @@
 		<path fill="#FFF" d="M21 25.231V34h-7V15h7l6 8.769V15h7v19h-7l-6-8.769z"></path></g></svg></a></li></ul></div>
 		
 		<!-- 회원가입 폼 -->
-		<form>
+		<form action="memberJoin" method="post">
 		<!-- 아이디 -->
 		<input id="member-id" type="hidden" name="id">
 		<div class="css-zmw5pi-FieldWrapperContainer euhjq6q3">
@@ -69,10 +69,32 @@
 		<!-- 필수입력 구문 -->
 		<div class="messege-essential-id" style="display: none;">필수입력 항목입니다.</div>
 		
-		
+		<!-- 인증 버튼 -->
 		<div class="css-4blp8p-ButtonWrapper e159epbo0">
 		<button class="_1eWD8 _2wuTD _27do9 css-cm2z8n-AuthButton e1vl96vf0" name="emailAuth" type="button">이메일 인증하기</button>
 		</div>
+		
+		<!-- 인증 코드 입력 창 -->
+		<div class="open expanded" style=" overflow: hidden; margin-bottom: 20px;">
+			<div class="css-1tfl31b-Wrapper eqepphp7"><div class="css-z7giky-Message eqepphp6">이메일로 전송된 인증코드를 입력해주세요.</div>
+			<div class="css-9ymgpz-InputContainer eqepphp5">
+			<div class="css-yj911q-InputTop eqepphp4">
+			<input type="text" placeholder="인증코드 6자리 입력" class="css-1k4vvi6-Input eqepphp3" value="">
+			<span class="css-1hulvgv-Timer eqepphp2">00:30</span>
+			<button class="_3Z6oR _3AsCW _2tsrJ css-17lrpjk-OKButton edfw59v0" type="button" disabled="">확인</button>
+			</div>
+			<div class="css-z40zes-ErrorMessage eqepphp1">인증코드가 만료되었습니다.</div>
+			</div>
+			<div class="css-1078ncf-EmailResendMessageWrapper eqepphp0">
+			<div class="css-1p2gvxk-ResendMessageWrapper ejevacd2">
+			<svg width="14" height="14" viewBox="0 0 14 14" fill="none" preserveAspectRatio="xMidYMid meet" class="css-12h4t7n-ResendMessageIcon ejevacd0">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M0.25 7C0.25 10.7279 3.27208 13.75 7 13.75C10.7279 13.75 13.75 10.7279 13.75 7C13.75 3.27208 10.7279 0.25 7 0.25C3.27208 0.25 0.25 3.27208 0.25 7ZM13 7C13 10.3137 10.3137 13 7 13C3.68629 13 1 10.3137 1 7C1 3.68629 3.68629 1 7 1C10.3137 1 13 3.68629 13 7ZM7.125 3.75C7.47018 3.75 7.75 4.02982 7.75 4.375C7.75 4.72018 7.47018 5 7.125 5C6.77982 5 6.5 4.72018 6.5 4.375C6.5 4.02982 6.77982 3.75 7.125 3.75ZM6.65 10.5H7.58333V5.83333H6.65V10.5Z" fill="#828C94">
+			</path></svg>
+			이메일을 받지 못하셨나요?
+			<a class="css-1nwgrls-ResendLink ejevacd1">이메일 재전송하기</a>
+			</div></div></div></div>
+		
+		
 		<div class="" style="display:;height:;transition:;overflow:hidden;margin-bottom:">
 		</div>
 		<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
@@ -110,7 +132,7 @@
 				<div class="terms-container-agreeAll">
 					<div class="_4VN_z _3xqzr">
 						<div class="terms-checkbox">
-							<input type="checkbox">
+							<input type="checkbox" class="checkbox-agreeAll">
 						</div>
 						
 						<div>
@@ -121,7 +143,7 @@
 				
 				<div class="_4VN_z _3xqzr">
 					<div class="terms-checkbox">
-							<input type="checkbox">
+							<input type="checkbox" class="checkbox-agree1">
 					</div>
 					<div class="term-text">
 						만 14세 이상입니다.
@@ -132,7 +154,7 @@
 				
 				<div class="_4VN_z _3xqzr">
 					<div class="terms-checkbox">
-							<input type="checkbox">
+							<input type="checkbox" class="checkbox-agree2">
 					</div>
 					<div class="term-text">
 						<a target="_blank" class="term-text-policy" href="./usePolicy">
@@ -145,7 +167,7 @@
 				
 				<div class="_4VN_z _3xqzr">
 					<div class="terms-checkbox">
-							<input type="checkbox">
+							<input type="checkbox" class="checkbox-agree3">
 					</div>
 					<div class="term-text">
 						<a target="_blank" class="term-text-policy" href="./privacy">
@@ -157,7 +179,7 @@
 				
 				<div class="_4VN_z _3xqzr">
 					<div class="terms-checkbox">
-							<input type="checkbox">
+							<input type="checkbox" class="checkbox-agree4">
 					</div>
 					<div class="term-text">
 						이벤트, 프로모션 알림 메일 및 SMS 수신

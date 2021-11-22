@@ -53,6 +53,11 @@ html {
     background-color: rgb(255, 255, 255);
 }
 
+.css-176q9ql-SignUpTitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 
 .css-i18bs4-SignUp {
     width: 360px;
@@ -181,20 +186,6 @@ label {
     width: 100%;
 }
 
-.form-control {
-    transition: .2s border-color, .2s box-shadow, .2s background-color;
-    display: block;
-    box-sizing: border-box;
-    height: 40px;
-    width: 100%;
-    padding: 0 15px;
-    line-height: 40px;
-    border-radius: 4px;
-    border: solid 1px #dbdbdb;
-    background-color: #ffffff;
-    color: #424242;
-    font-size: 12px;
-}
 
 .email-input__separator {
     -webkit-box-flex: 0;
@@ -315,6 +306,77 @@ option {
     margin-bottom: 30px;
 }
 
+/* 이메일 인증창 */
+.css-1tfl31b-Wrapper {
+    min-height: 143px;
+    box-sizing: border-box;
+    background: rgb(247, 248, 250);
+    padding: 20px 16px;
+}
+
+.css-z7giky-Message {
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 12px;
+}
+
+.css-9ymgpz-InputContainer {
+    border: 1px solid rgb(219, 219, 219);
+    min-height: 45px;
+    padding: 0px 16px;
+    background: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.css-1qwlzc8-InputContainer {
+    border: 1px solid rgb(255, 119, 119);
+    min-height: 45px;
+    padding: 0px 16px;
+    background: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.css-yj911q-InputTop {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 45px;    
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.css-1k4vvi6-Input {
+    border: none;
+    font-size: 15px;
+    line-height: 15px;
+    flex: 1 0 0px;
+    width: 0px;
+}
+
+.css-1hulvgv-Timer {
+    color: rgb(255, 119, 119);
+    margin-right: 20px;
+}
+
+.css-17lrpjk-OKButton.css-17lrpjk-OKButton {
+    white-space: pre;
+    height: 31px;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 7px 10px;
+    box-sizing: border-box;
+}
+
+.css-z40zes-ErrorMessage {
+    color: rgb(255, 119, 119);
+    font-size: 12px;
+    padding-bottom: 15px;
+}
+
+.css-1078ncf-EmailResendMessageWrapper {
+    margin-top: 10px;
+}
+
 /* pw */
 .css-19szivi-Label {
     display: block;
@@ -333,7 +395,7 @@ option {
     line-height: 1.4;
 }
 
-nput[type='number'], input[type='text'], input[type='password'], input[type='file'], input[type='tel'], input[type='email'], select, option, textarea, input[type='submit'], button {
+input[type='number'], input[type='text'], input[type='password'], input[type='file'], input[type='tel'], input[type='email'], select, option, textarea, input[type='submit'], button {
     -webkit-appearance: none;
     -moz-appearance: textfield;
 }
@@ -663,3 +725,17 @@ p {
 	font-family: "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
 }
 
+.form-control {
+    transition: border-color .2s,box-shadow .2s,background-color .2s;
+    display: block;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    padding: 0 15px;
+    line-height: 40px;
+    border-radius: 4px;
+    border: 1px solid #dbdbdb;
+    background-color: #fff;
+    color: #424242;
+    font-size: 12px;
+}

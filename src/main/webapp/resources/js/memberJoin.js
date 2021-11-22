@@ -50,25 +50,6 @@ $('.pwcheck').blur(function(){
 });
 
 
-/*닉네임*/
-//중복 금지
-
-$('.nickname').blur(function(){
-	let nickname = $('.nickname').val();
-	nickname = nickname.trim();
-	
-	$.get('./nicknameCheckAjax?nickname='+nickname,function(data){
-		data = data.trim();
-		if(data == 0) {
-			$('.messege-nickname-check').show();
-		}else {
-			$('.messege-nickname-check').hide();
-		}
-	});
-	
-});
-
-
 
 
 /*약관 동의*/
@@ -76,12 +57,6 @@ $('.nickname').blur(function(){
 
 
 
-
-
-
-$("#joinBtn").click(function(){
-	alert('click');
-});
 
 /*필수 입력 항목*/
 //아이디
@@ -116,12 +91,30 @@ $('.essential-pw').blur(function(){
 });
 
 //닉네임
-$('.essential-nm').blur(function(){
-	if($(this).val().trim() == '') {
-		$('.messege-essential-nm').show();
-	}else {
-		$('.messege-essential-nm').hide();
-	}
+$('.essential-nm').on({
+	//중복금지
+	keyup: function() {
+			let nickname = $('.nickname').val();
+			
+			$.get('./nicknameCheckAjax?nickname='+nickname,function(data){
+			data = data.trim();
+			if(data == 0) {
+				$('.messege-nickname-check').show();
+			}else {
+				$('.messege-nickname-check').hide();
+			}
+		});
+	},
 	
+	//필수입력 
+	blur: function() {
+		if($(this).val().trim() == '') {
+			$('.messege-essential-nm').show();
+		}else {
+			$('.messege-essential-nm').hide();
+		}
+	}
 });
+
+
 
