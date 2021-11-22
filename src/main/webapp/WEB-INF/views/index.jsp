@@ -8,5 +8,15 @@
 </head>
 <body>
 	<h1>Index</h1>
+	<a href="/member/memberLogin">로그인하기</a>
+	
+	<a href="https://kauth.kakao.com/oauth/logout?client_id=8ac307dc44008f3766d04dba03de3f8b&logout_redirect_uri=http://localhost/member/getLogout">카카오 로그아웃</a>
+ 
+ 
+	<a href="/member/memberLogout">로그아웃하기</a>
+	
+	<a href="/member/usePrincipal">정보조회</a>
+	
+	
 </body>
 </html>

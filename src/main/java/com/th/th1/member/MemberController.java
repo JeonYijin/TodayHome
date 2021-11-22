@@ -1,11 +1,16 @@
 package com.th.th1.member;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.th.th1.sns.KakaoVO;
 
 @Controller
 @RequestMapping("/member/**")
@@ -13,6 +18,41 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	//sns로그인시 가져올 데이터
+	@GetMapping("usePrincipal")
+	public void UserPrincipal(@AuthenticationPrincipal KakaoVO kakaoVO) throws Exception{
+		System.out.println(kakaoVO);
+		System.out.println(kakaoVO.getEmail());
+		
+		MemberVO memberVO = new MemberVO();
+		memberVO.setId(kakaoVO.getEmail());
+		
+	}
+	//로그인 폼 이동
+	@GetMapping("memberLogin")
+	public String getLogin() throws Exception{
+		return "member/login";
+	}
+	
+	//로그인
+	@PostMapping("memberLogin")
+	public String getLogin(MemberVO memberVO, HttpSession session) throws Exception{
+		memberVO = memberService.getLogin(memberVO);
+		if(memberVO != null) {
+			session.setAttribute("member", memberVO);
+		}
+		return "redirect:../";
+		
+	}
+	
+	//로그아웃
+	@GetMapping("memberLogout")
+	public String getLogout(HttpSession session) throws Exception{
+		session.invalidate();
+		return "redirect:../";
+	}
+	
 	
 	//회원가입 폼 이동
 	@GetMapping("memberJoin")

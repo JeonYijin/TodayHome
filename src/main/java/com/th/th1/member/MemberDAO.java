@@ -14,4 +14,7 @@ public interface MemberDAO {
 	//닉네임 중복 확인
 	public Long getNicknameCheck(MemberVO memberVO) throws Exception;
 
+	
+	//로그인
+	public MemberVO getLogin(MemberVO memberVO) throws Exception;
 }
