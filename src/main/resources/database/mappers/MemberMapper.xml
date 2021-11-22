@@ -4,12 +4,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="com.th.th1.member.MemberDAO">
 	
-	<!-- 로그인 -->
-	<select id="getLogin" parameterType="MemberVO" resultType="MemberVO">
-		select * from member where id=#{id} and pw=#{pw}
+	<insert id="setMemberInsert" parameterType="MemberVO">
+		INSERT INTO member (memberNum, id, pw, nickname, role)
+		VALUES (0, #{id}, #{pw}, #{nickname}, 1);
+	</insert>
+	
+	<delete id="setMemberDelete" parameterType="MemberVO">
+		delete from member where memberNum = #{memberNum}
+	</delete>
+	
+	<select id="getNicknameCheck" parameterType="MemberVO" resultType="Long">
+		select count(*) from member where nickname = #{nickname}
 	</select>
-	
-	
-	
   
- </mapper>
+  </mapper>
