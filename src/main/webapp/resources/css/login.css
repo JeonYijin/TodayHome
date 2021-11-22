@@ -1,4 +1,12 @@
 @charset "UTF-8";
+
+	.layout, .page, body, html {
+    	height: 100%;
+	}
+	body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    	margin: 0;
+   		padding: 0;
+	}
 	.css-1g13ixx-Form{
 		padding: 40px 0px;
 		align-items: center;
@@ -9,6 +17,7 @@
 		box-sizing: border-box;
 		flex-direction: column;
 		-webkit-bpx-pack: center;
+		justify-content: center;
 		
 	}
 	.css-1a5fr2v-LogoLink{

@@ -46,13 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		
 	}
 
-//	private ClientRegistration getRegistration(OAuth2ClientProperties clientProperties, String client) {
-//		if("facebook".equals(client)) {
-//			OAuth2ClientProperties.Registration registration = clientProperties.getRegistration().get("facebook");
-//			
-//		}
-//		return null;
-//	}
-	
+
 
 }

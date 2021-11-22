@@ -86,8 +86,8 @@
 		</div>
 		
 	</div>
-	</main>
 	<footer class="css-1a7naln-Footer ebon26m0">© &nbsp;<a href="https://www.bucketplace.co.kr/" target="_blank" rel="noopener noreferrer">bucketplace, Co., Ltd.</a>. All Rights Reserved</footer>
 	<iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="https://vars.hotjar.com/box-028f986f575e1b13474634857daa6bfc.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe>
+	</main>
 </body>
 </html>
