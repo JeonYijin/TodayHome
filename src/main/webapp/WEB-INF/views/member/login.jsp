@@ -43,7 +43,7 @@
 					
 				<section class="css-6ofxvx-Actions e5voaya4">
 					<a class="css-a6x0yj-ActionLink e5voaya3" href="/users/password/new">비밀번호 재설정</a>
-					<a class="css-a6x0yj-ActionLink e5voaya3" href="/normal_users/new">회원가입</a>
+					<a class="css-a6x0yj-ActionLink e5voaya3" href="./memberJoin">회원가입</a>
 				</section>
 			</form>
 			

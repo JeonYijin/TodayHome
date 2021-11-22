@@ -10,6 +10,12 @@ public class MemberService {
 	private MemberDAO memberDAO;
 	
 	
+	//로그인
+		public MemberVO getLogin(MemberVO memberVO) throws Exception{
+			return memberDAO.getLogin(memberVO);
+		}
+	
+	
 	//회원가입
 	public int setMemberInsert(MemberVO memberVO) throws Exception{
 		int result = memberDAO.setMemberInsert(memberVO);
