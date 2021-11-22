@@ -30,13 +30,13 @@ public class MemberController {
 		
 	}
 	//로그인 폼 이동
-	@GetMapping("getLogin")
+	@GetMapping("memberLogin")
 	public String getLogin() throws Exception{
 		return "member/login";
 	}
 	
 	//로그인
-	@PostMapping("getLogin")
+	@PostMapping("memberLogin")
 	public String getLogin(MemberVO memberVO, HttpSession session) throws Exception{
 		memberVO = memberService.getLogin(memberVO);
 		if(memberVO != null) {
@@ -47,7 +47,7 @@ public class MemberController {
 	}
 	
 	//로그아웃
-	@GetMapping("getLogout")
+	@GetMapping("memberLogout")
 	public String getLogout(HttpSession session) throws Exception{
 		session.invalidate();
 		return "redirect:../";
