@@ -3,7 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,windows,eclipse,maven
 
 #id,pw 보안
-.properties
+
 application.properties
 
 ### Eclipse ###
