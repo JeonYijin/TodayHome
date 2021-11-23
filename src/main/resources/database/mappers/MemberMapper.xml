@@ -5,7 +5,7 @@
  <mapper namespace="com.th.th1.member.MemberDAO">
 	
 	<insert id="setMemberInsert" parameterType="MemberVO">
-		INSERT INTO member (memberNum, id, pw, nickname, role)
+		INSERT INTO member (memberNum, id, pw, nickname, enabled)
 		VALUES (0, #{id}, #{pw}, #{nickname}, 1);
 	</insert>
 	
@@ -16,10 +16,31 @@
 	<select id="getNicknameCheck" parameterType="MemberVO" resultType="Long">
 		select count(*) from member where nickname = #{nickname}
 	</select>
+	
+	<!-- role 세팅 -->
+	<insert id="setMemberRoleInsert" parameterType="java.util.Map">
+		insert into member_role(id, num) values(#{id}, #{num})
+	</insert>
   
   	<!-- 로그인 -->
-	<select id="getLogin" parameterType="MemberVO" resultType="MemberVO">
-		select * from member where id=#{id} and pw=#{pw}
+	<select id="getLogin" parameterType="java.lang.String" resultMap="getLoginResult">
+		select  M.*, R.* from
+			member M inner join member_role MR
+			on M.id = MR.id
+			inner join role R
+			on MR.num = R.num
+			where M.id = #{username}
 	</select>
+	<resultMap type="MemberVO" id="getLoginResult">
+		<id column="memberNum" property="memberNum"/>
+		<result column="id" property="id"/>
+		<result column="pw" property="pw"/>
+		<result column="nickname" property="nickname"/>
+		<result column="enabled" property="enabled"/>
+		<collection property="roles" javaType="List" ofType="RoleVO">
+			<result column="num" property="num"/>
+  			<result column="roleName" property="roleName"/>
+		</collection>
+	</resultMap>
   
   </mapper>

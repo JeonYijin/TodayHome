@@ -7,17 +7,21 @@ import java.util.Map;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.core.userdetails.UserDetails;
 
-public class MemberVO implements OAuth2User {
+
+public class MemberVO implements UserDetails {
 
    private Integer memberNum;
    private String id;
    private String pw;
    private String nickname;
-   private Integer role;
+   //private Integer role;
    
-   private Map<String, Object> attributes;
+   	//private String role;
+	private boolean enabled;
+   
+	private List<RoleVO> roles;
    
    public Integer getMemberNum() {
       return memberNum;
@@ -43,31 +47,56 @@ public class MemberVO implements OAuth2User {
    public void setNickname(String nickname) {
       this.nickname = nickname;
    }
-   public Integer getRole() {
-      return role;
-   }
-   public void setRole(Integer role) {
-      this.role = role;
-   }
-@Override
-public Map<String, Object> getAttributes() {
-	// TODO Auto-generated method stub
-	return this.attributes;
+  
+
+public List<RoleVO> getRoles() {
+	return roles;
 }
-@Override
-public String getName() {
-	// TODO Auto-generated method stub
-	return null;
+public void setRoles(List<RoleVO> roles) {
+	this.roles = roles;
+}
+public void setEnabled(boolean enabled) {
+	this.enabled = enabled;
 }
 @Override
 public Collection<? extends GrantedAuthority> getAuthorities() {
 	List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-    authorities.add(new SimpleGrantedAuthority("ROLE_MEMBER"));
+	for(RoleVO roleVO:roles) {
+		authorities.add(new SimpleGrantedAuthority(roleVO.getRoleName()));
+	}
+	
 	return authorities;
 }
-public void setAttributes(Map<String, Object> attributes) {
-		this.attributes = attributes;
-	}
+@Override
+public String getPassword() {
+	// TODO Auto-generated method stub
+	return this.pw;
+}
+@Override
+public String getUsername() {
+	// TODO Auto-generated method stub
+	return this.id;
+}
+@Override
+public boolean isAccountNonExpired() {
+	// TODO Auto-generated method stub
+	return true;
+}
+@Override
+public boolean isAccountNonLocked() {
+	// TODO Auto-generated method stub
+	return true;
+}
+@Override
+public boolean isCredentialsNonExpired() {
+	// TODO Auto-generated method stub
+	return true;
+}
+@Override
+public boolean isEnabled() {
+	// TODO Auto-generated method stub
+	return this.enabled;
+}
 
    
    

@@ -20,7 +20,7 @@ class memberJoinTest {
 		memberVO.setId("test@test.com");
 		memberVO.setPw("1234");
 		memberVO.setNickname("test");
-		memberVO.setRole(0);
+		//memberVO.setRole(0);
 		
 		int result = memberDAO.setMemberInsert(memberVO);
 		

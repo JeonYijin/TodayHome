@@ -1,5 +1,7 @@
 package com.th.th1.member;
 
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -16,5 +18,8 @@ public interface MemberDAO {
 
 	
 	//로그인
-	public MemberVO getLogin(MemberVO memberVO) throws Exception;
+	public MemberVO getLogin(String username) throws Exception;
+	
+	//member_role insert
+		public int setMemberRoleInsert(Map<String, Object> map) throws Exception; 
 }
