@@ -19,29 +19,41 @@ import org.springframework.security.oauth2.client.registration.InMemoryClientReg
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 
+import com.th.th1.member.LoginService;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
 	private KakaoService KakaoService;
-	
+	@Autowired
+	private LoginService loginService;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO Auto-generated method stub
 		http
 			.authorizeRequests()
-			.antMatchers("/").permitAll()
-			.antMatchers("/oauth2/**", "/login/**").permitAll()
-			.anyRequest().permitAll()
+				.antMatchers("/").permitAll()
+				.antMatchers("/member/**").permitAll()
+				.antMatchers("/oauth2/**", "/login/**").permitAll()
+				.anyRequest().permitAll()
 			.and()
-			.oauth2Login()
+				.oauth2Login()
 							.userInfoEndpoint()
 							.userService(KakaoService)
 							
+							
 			.and()
+				.defaultSuccessUrl("/")
+			.and()
+			.formLogin()
+			.loginPage("/member/memberLogin")
+			.loginProcessingUrl("/member/memberLogin")
 			.defaultSuccessUrl("/")
+			.permitAll()
+		
 			;
 		
 	}

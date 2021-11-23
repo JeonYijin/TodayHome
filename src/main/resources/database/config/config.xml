@@ -9,6 +9,8 @@
 		<typeAlias type="com.th.th1.member.MemberVO" alias="MemberVO"/>
 		
 		
+		<typeAlias type="com.th.th1.picture.PictureVO" alias="PictureVO"/>
+		
 		<typeAlias type="java.lang.Long" alias="Long"/>
   	
   	</typeAliases>

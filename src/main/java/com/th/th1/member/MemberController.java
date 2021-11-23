@@ -4,6 +4,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,12 +14,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.th.th1.sns.KakaoVO;
 
+
 @Controller
 @RequestMapping("/member/**")
 public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private LoginService loginService;
 	
 	//sns로그인시 가져올 데이터
 	@GetMapping("usePrincipal")
@@ -37,11 +42,13 @@ public class MemberController {
 	
 	//로그인
 	@PostMapping("memberLogin")
-	public String getLogin(MemberVO memberVO, HttpSession session) throws Exception{
-		memberVO = memberService.getLogin(memberVO);
-		if(memberVO != null) {
-			session.setAttribute("member", memberVO);
-		}
+	public String getLogin(MemberVO memberVO, HttpSession session, OAuth2UserRequest auth2UserRequest ) throws Exception{
+		
+		System.out.println("로그인");
+		OAuth2User oAuth2User= loginService.loadUser(auth2UserRequest);
+//		if(memberVO != null) {
+//			session.setAttribute("member", memberVO);
+//		}
 		return "redirect:../";
 		
 	}

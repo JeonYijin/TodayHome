@@ -11,9 +11,7 @@ public class MemberService {
 	
 	
 	//로그인
-		public MemberVO getLogin(MemberVO memberVO) throws Exception{
-			return memberDAO.getLogin(memberVO);
-		}
+	
 	
 	
 	//회원가입
