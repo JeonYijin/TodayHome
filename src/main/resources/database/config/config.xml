@@ -6,5 +6,6 @@
   <configuration>
   	<typeAliases>
   		<typeAlias type="com.th.th1.cscenter.CSCenterVO" alias="CSCenterVO"/>
+  		<typeAlias type="com.th.th1.questions.QuestionsVO" alias="QuestionsVO"/>
   	</typeAliases>
   </configuration>

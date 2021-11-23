@@ -108,11 +108,6 @@
 
 <script type="text/javascript">	
 
-
-//	$(document).ready(function(){
-//		var answered = $('#hidden_'+${num}).next().attr('style', 'display:block;');		
-//	});
-	
 	function toggle(index) {		
 		var divId = 'answer_'+index;
 		var answerId = $('#'+divId);

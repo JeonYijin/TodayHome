@@ -9,7 +9,9 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-
+/**
+	
+	
 	 // TilesConfigurer
     @Bean
     public TilesConfigurer tilesConfigurer() {
@@ -32,5 +34,8 @@ public class WebConfig implements WebMvcConfigurer {
         tilesViewResolver.setOrder(1);  //뷰 우선순위
         return tilesViewResolver;
     }
+    
+    
+*/    
 }
 
