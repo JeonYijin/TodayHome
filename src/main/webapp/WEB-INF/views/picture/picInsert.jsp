@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,8 @@
 </head>
 <body>
 	<form method="post">
-	<input type="hidden" value="${member.memberNum}" name="memberNum">
+	<sec:authentication property="principal" var="memberVO"/>
+	<input type="hidden" value="${memberVO.memberNum}" name="memberNum">
 		<div class="css-8y5nyu-FormDiv e5zqozy1">
 			<div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false" data-sticky-ignore="false" data-direction="top" data-offset="0" class="sticky-container css-ospeve">
 				<div class="sticky-child css-vxajtd" style="position: relative;">

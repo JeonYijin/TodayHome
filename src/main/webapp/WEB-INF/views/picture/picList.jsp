@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h1>PicList page</h1>
+	<a href="./picInsert">글쓰기</a>
 </body>
 </html>

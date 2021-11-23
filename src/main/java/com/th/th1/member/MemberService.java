@@ -3,6 +3,8 @@ package com.th.th1.member;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,8 +32,11 @@ public class MemberService implements UserDetailsService{
 		System.out.println("일반로그인");
 		System.out.println(username);
 		MemberVO memberVO = null;
+		
 		try {
 			memberVO = memberDAO.getLogin(username);
+			System.out.println(memberVO.getMemberNum());
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
