@@ -84,6 +84,8 @@ $(".emailAuthBtn").click(function() {// 메일 입력 유효성 검사
 $('.pwcheck').blur(function(){
 	if($(this).val() != $('.essential-pw').val()) {
 		$('.messege-pwcheck').show();
+	}else if($(this).val() == $('.essential-pw').val()) {
+		$('.messege-pwcheck').hide();
 	}
 });
 
@@ -112,7 +114,6 @@ $('.checks').click(function(){
 		}
 	});
 	
-	alert(result);	
 	$('.checkbox-agreeAll').prop("checked", result);
 })
 
