@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +21,24 @@
 	
 	<a href="/picture/picList">사진</a>
 	
+	<sec:authorize access="isAuthenticated()" var="result">
+			<a href="./member/usePrincipal">usePrincipal</a>
+			<a href="./member/useSession">useSession</a>
+		
+		
+  		  	<h3>${result}</h3>
+  		  	<h3>MemberVO<sec:authentication property="principal" var="memberVO"/></h3>
+  		  	<h3>MemberVO ID : <sec:authentication property="principal.id" var="id"/></h3>
+  		  	<h3>${memberVO}</h3>
+  		  	<h3>${id}</h3>
+			<a href="./member/memberLogout">로그아웃</a>
+  		</sec:authorize>	
+  		
+		  <sec:authorize access="!isAuthenticated()" var="result">
+		  	<h3>${result}</h3>
+			<a href="./member/memberJoin">회원가입</a>
+			<a href="./member/memberLogin">로그인</a>
+		</sec:authorize>
 	
 </body>
 </html>
