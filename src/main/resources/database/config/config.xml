@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration
-  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-config.dtd">
-  
-  <configuration>
-  	<typeAliases>
-  		<typeAlias type="com.th.th1.cscenter.CSCenterVO" alias="CSCenterVO"/>
-  		<typeAlias type="com.th.th1.questions.QuestionsVO" alias="QuestionsVO"/>
-  	</typeAliases>
-  </configuration>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+
+		<typeAlias type="com.th.th1.cscenter.CSCenterVO" alias="CSCenterVO" />
+		<typeAlias type="com.th.th1.questions.QuestionsVO" alias="QuestionsVO" />
+
+
+		<typeAlias type="com.th.th1.member.MemberVO" alias="MemberVO" />
+
+
+		<typeAlias type="com.th.th1.picture.PictureVO" alias="PictureVO" />
+
+		<typeAlias type="java.lang.Long" alias="Long" />
+
+
+	</typeAliases>
+</configuration>

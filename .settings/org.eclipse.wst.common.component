@@ -11,7 +11,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
                 
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
-                
+
         <property name="context-root" value="th1"/>
                 
         <property name="java-output-path" value="/TodayHome/target/classes"/>

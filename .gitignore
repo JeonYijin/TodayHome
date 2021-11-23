@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/java,windows,eclipse,maven
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,windows,eclipse,maven
 
+#id,pw 보안
+
+application.properties
+
 ### Eclipse ###
 .metadata
 bin/
