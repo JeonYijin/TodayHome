@@ -60,7 +60,7 @@ $('.newfile').on('click', '.addButton', function(){
 	//$('.newfile').append(addfile);
 	$('.file').click();
 	//$('#addfile').attr('onchange', 'setThumbnail(event)');
-	$('.files').append(imagediv);
+	//$('.files').append(imagediv);
 	
 	
 })
