@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.th.th1.category.CategoryDAO">
+ 
+ 	
+ 	<select id="getSelectList" parameterType="PageVO" resultMap="getselectListResult">
+ 		select * from pr_page where page_category = #{page_category}
+ 	</select>
+ 	<resultMap type="PageVO" id="getselectListResult">
+		<id column="page_number" property="page_number"/>
+		<result column="page_title" property="page_title"/>
+		<result column="page_seller" property="page_seller"/>
+		<result column="page_category" property="page_category"/>
+		<result column="page_price" property="page_price"/>
+		
+		<collection property="products" javaType="List" ofType="ProductVO">
+			<id column="pr_number" property="pr_number"/>
+			<result column="page_number" property="page_number"/>
+			<result column="pr_name" property="pr_name"/>
+			<result column="pr_price" property="pr_price"/>
+			<result column="pr_category" property="pr_category"/>
+		</collection>
+		
+		<collection property="prFiles" javaType="List" ofType="PrFilesVO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="page_number" property="page_number"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
+ 	
+	<select id="getSelectPage" parameterType="PageVO" resultMap="getselectPageResult">
+		select * from pr_page where page_number = #{page_number}
+	</select>
+	<resultMap type="PageVO" id="getselectPageResult">
+		<id column="page_number" property="page_number"/>
+		<result column="page_title" property="page_title"/>
+		<result column="page_seller" property="page_seller"/>
+		<result column="page_category" property="page_category"/>
+		<result column="page_price" property="page_price"/>
+		
+		<collection property="products" javaType="List" ofType="ProductVO">
+			<id column="pr_number" property="pr_number"/>
+			<result column="page_number" property="page_number"/>
+			<result column="pr_name" property="pr_name"/>
+			<result column="pr_price" property="pr_price"/>
+			<result column="pr_category" property="pr_category"/>
+		</collection>
+		
+		<collection property="prFiles" javaType="List" ofType="PrFilesVO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="page_number" property="page_number"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
+  		
+  </mapper>
