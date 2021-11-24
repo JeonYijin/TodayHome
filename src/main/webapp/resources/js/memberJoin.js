@@ -83,9 +83,9 @@ $(".emailAuthBtn").click(function() {// 메일 입력 유효성 검사
 /*비밀번호 확인*/
 $('.pwcheck').blur(function(){
 	if($(this).val() != $('.essential-pw').val()) {
-		$('.messege-pwcheck').show();
+		$('.message-pwcheck').show();
 	}else if($(this).val() == $('.essential-pw').val()) {
-		$('.messege-pwcheck').hide();
+		$('.message-pwcheck').hide();
 	}
 });
 
@@ -123,9 +123,9 @@ $('.checks').click(function(){
 //아이디
 $('.essential-id').blur(function(){
 	if($(this).val().trim() == '') {
-		$('.messege-essential-id').show();
+		$('.message-essential-id').show();
 	}else {
-		$('.messege-essential-id').hide();
+		$('.message-essential-id').hide();
 	}
 	
 });
@@ -137,16 +137,16 @@ $('.essential-pw').blur(function(){
 	var eng = pw.search(/[a-z]/ig);
 	
 	if($(this).val().trim() == '') {
-		$('.messege-essential-pw').show();
-		$('.messege-essential-pw').text('필수입력 항목입니다.');
+		$('.message-essential-pw').show();
+		$('.message-essential-pw').text('필수입력 항목입니다.');
 	}else if(pw.length < 8 || (num < 0 || eng < 0)) {
-	    $('.messege-essential-pw').show();
-		$('.messege-essential-pw').text('비밀번호는 영문, 숫자를 포함하여 8자 이상이어야 합니다.');
+	    $('.message-essential-pw').show();
+		$('.message-essential-pw').text('비밀번호는 영문, 숫자를 포함하여 8자 이상이어야 합니다.');
 	}else if(pw.search(/\s/) != -1) {
-		$('.messege-essential-pw').show();
-		$('.messege-essential-pw').text('비밀번호는 공백 없이 입력해주세요.');
+		$('.message-essential-pw').show();
+		$('.message-essential-pw').text('비밀번호는 공백 없이 입력해주세요.');
 	}else {
-		$('.messege-essential-pw').hide();
+		$('.message-essential-pw').hide();
 	}
 	
 });
@@ -160,9 +160,9 @@ $('.essential-nm').on({
 			$.get('./nicknameCheckAjax?nickname='+nickname,function(data){
 			data = data.trim();
 			if(data == 0) {
-				$('.messege-nickname-check').show();
+				$('.message-nickname-check').show();
 			}else {
-				$('.messege-nickname-check').hide();
+				$('.message-nickname-check').hide();
 			}
 		});
 	},
@@ -170,9 +170,9 @@ $('.essential-nm').on({
 	//필수입력 
 	blur: function() {
 		if($(this).val().trim() == '') {
-			$('.messege-essential-nm').show();
+			$('.message-essential-nm').show();
 		}else {
-			$('.messege-essential-nm').hide();
+			$('.message-essential-nm').hide();
 		}
 	}
 });

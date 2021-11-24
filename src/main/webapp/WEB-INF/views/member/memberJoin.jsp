@@ -33,9 +33,11 @@
 		<li class="css-1balhvh-SNSItem e111gxds0"><a href="/users/auth/naver"><svg width="48" height="48" viewBox="0 0 48 48" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><path fill="#00C63B" d="M0 24C0 10.745 10.745 0 24 0s24 10.745 24 24-10.745 24-24 24S0 37.255 0 24z"></path>
 		<path fill="#FFF" d="M21 25.231V34h-7V15h7l6 8.769V15h7v19h-7l-6-8.769z"></path></g></svg></a></li></ul></div>
 		
-		<!-- 회원가입 폼 -->
+	<!-- 회원가입 폼 -->
+		
 		<form action="memberJoin" method="post">
 		<!-- 아이디 -->
+		
 		<input id="member-id" type="text" name="id">
 		<div class="css-zmw5pi-FieldWrapperContainer euhjq6q3">
 		<label class="css-19szivi-Label euhjq6q2">이메일</label>
@@ -69,7 +71,7 @@
 		</div></div></div>
 		
 		<!-- 필수입력 구문 -->
-		<div class="messege-essential-id" style="display: none;">필수입력 항목입니다.</div>
+		<div class="message-essential-id" style="display: none;">필수입력 항목입니다.</div>
 		
 		<!-- 인증 버튼 -->
 		<div class="css-4blp8p-ButtonWrapper e159epbo0">
@@ -104,17 +106,17 @@
 		<div class="css-1mh39t-Description euhjq6q1">영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</div>
 		<input type="password" id="password" class="_3ASDR _1qwAY essential-pw" value="" field="[object Object]" name="pw" placeholder="비밀번호">
 		<!-- 필수입력 구문 -->
-		<div class="messege-essential-pw" style="display: none;"></div>
+		<div class="message-essential-pw" style="display: none;"></div>
 		<!-- 비밀번호 조건 구문 -->
-		<div class="messege-condition-pw-length" style="display: none;">비밀번호는 영문, 숫자를 포함하여 8자 이상이어야 합니다.</div>
-		<div class="messege-condition-pw-blank" style="display: none;">비밀번호는 공백 없이 입력해주세요.</div>
+		<div class="message-condition-pw-length" style="display: none;">비밀번호는 영문, 숫자를 포함하여 8자 이상이어야 합니다.</div>
+		<div class="message-condition-pw-blank" style="display: none;">비밀번호는 공백 없이 입력해주세요.</div>
 		</div>
 		
 		<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
 		<label class="css-19szivi-Label euhjq6q2">비밀번호 확인</label>
 		<input type="password" class="_3ASDR _1qwAY pwcheck ess" value="" field="[object Object]" name="confirmPassword" placeholder="비밀번호 확인">
 		<!-- 비밀번호 일치 확인 구문 -->
-		<div class="messege-pwcheck" style="display: none;">비밀번호가 일치하지 않습니다.</div>
+		<div class="message-pwcheck" style="display: none;">비밀번호가 일치하지 않습니다.</div>
 		</div>
 		
 		<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
@@ -122,7 +124,7 @@
 		<div class="css-1mh39t-Description euhjq6q1">다른 유저와 겹치지 않는 별명을 입력해주세요. (2~15자)</div>
 		<input class="_3ASDR _1qwAY essential-nm nickname" value="" field="[object Object]" name="nickname" placeholder="별명 (2~15자)">
 		<!-- 닉네임 중복 방지 구문 -->
-		<div class="messege-nickname-check" style="display: none;">사용 중인 별명입니다.</div>
+		<div class="message-nickname-check" style="display: none;">사용 중인 별명입니다.</div>
 		</div>
 		
 		
@@ -195,8 +197,8 @@
 		
 		
 		<button id="joinBtn" class="_3Z6oR _3AsCW _2tsrJ css-1c1st7f-ButtonWrapper e1y3odo22" type="button">회원가입하기</button>
-		</form>
 		
+		</form>
 		
 		
 		
