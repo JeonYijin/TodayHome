@@ -67,13 +67,23 @@ class PictureDAOTest {
 		
 	}
 	
-	@Test
+	//@Test
 	void setPicDelete() throws Exception{
 		PictureVO pictureVO =new PictureVO();
 		pictureVO.setPost_id(3);
 		int result = pictureDAO.setPicDelete(pictureVO);
 		assertNotEquals(0, result);
 	}
-	
+	//@Test
+	void setPicFileInsert() throws Exception{
+		PictureFileVO pictureFileVO = new PictureFileVO();
+		pictureFileVO.setPicFilename("테스트");
+		pictureFileVO.setPicOriname("테스트");
+		pictureFileVO.setPost_id(1);
+		
+		int result = pictureDAO.setPicFileInsert(pictureFileVO);
+		assertNotEquals(0, result);
+		
+	}
 	
 }

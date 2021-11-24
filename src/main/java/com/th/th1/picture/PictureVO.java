@@ -1,6 +1,7 @@
 package com.th.th1.picture;
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -16,4 +17,6 @@ public class PictureVO {
 	private String area;
 	private String post_text;
 	private Integer hit;
+	
+	private List<PictureFileVO> pictureFileVO;
 }

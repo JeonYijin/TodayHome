@@ -24,4 +24,13 @@ public interface PictureDAO {
 	
 	//조회수 업데이트하기
 	public int setHitUpdate(PictureVO pictureVO) throws Exception;
+	
+	//파일 인서트
+	public int setPicFileInsert(PictureFileVO pictureFileVO) throws Exception;
+	
+	//파일 삭제하기
+	public int setPicFileDelete(PictureFileVO pictureFileVO) throws Exception;
+	
+	//파일 가져오기
+	public List<PictureVO> getPicFile(PictureFileVO pictureFileVO) throws Exception;
 }

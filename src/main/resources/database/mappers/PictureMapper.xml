@@ -30,9 +30,30 @@
   
   	<!-- 글 상세조회 -->
   	
-  	<select id="getPicOne" parameterType="PictureVO" resultType="PictureVO">
-  		select * from picture where post_id=#{post_id}
+  	<select id="getPicOne" parameterType="PictureVO" resultMap="getPicResult">
+  		select P.*, PF.* from
+			picture P left join picturefile PF
+			on P.post_id = PF.post_id
+		where P.post_id = #{post_id};
   	</select>
+  	<resultMap type="PictureVO" id="getPicResult">
+  		<id column="post_id" property="post_id"/>
+  		<result column="memberNum" property="memberNum"/>
+  		<result column="post_date" property="post_date"/>
+  		<result column="pyeongsu" property="pyeongsu"/>
+  		<result column="housetype" property="housetype"/>
+  		<result column="style" property="style"/>
+  		<result column="area" property="area"/>
+  		<result column="post_text" property="post_text"/>
+  		<result column="hit" property="hit"/>
+  		<collection property="pictureFileVO" javaType="List" ofType="PictureFileVO">
+  			<id column="picFilenum" property="picFilenum"/>
+  			<result column="picFilename" property="picFilename"/>
+  			<result column="picOriname" property="picOriname"/>
+  			<result column="post_id" property="post_id"/>
+  		</collection>
+  		
+  	</resultMap>
   
   	<!-- 글 조회수 업데이트 -->
   
@@ -40,4 +61,20 @@
   		update picture set hit = hit+1 where post_id = #{post_id}
   	</update>
   
+  	<!-- 파일 인서트 -->
+  	<insert id="setPicFileInsert" parameterType="PictureFileVO">
+  		insert into picturefile(picFilenum, picFilename, picOriname,post_id)
+  		values(0, #{picFilename},#{picOriname},#{post_id})
+  	</insert>
+  	
+  	<!-- 파일 가져오기 -->
+  	<select id="getPicFile" parameterType="PictureFileVO" resultType="PictureFileVO">
+  		select * from picturefile where picFilenum = #{picFilenum}
+  	</select>
+  	
+  	<!-- 파일 삭제하기 -->
+  	<delete id="setPicFileDelete" parameterType="PictureFileVO">
+  		delete from picturefile where picFilenum = #{picFilenum}
+  	</delete>
+  	
   </mapper>

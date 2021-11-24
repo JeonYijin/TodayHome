@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -24,16 +25,21 @@ public class PictureController {
 	
 	//글 쓰기
 	@PostMapping("picInsert")
-	public String setPicInsert(PictureVO pictureVO) throws Exception{
-		int result = pictureService.setPicInsert(pictureVO);
+	public String setPicInsert(PictureVO pictureVO, MultipartFile[] files) throws Exception{
+		int result = pictureService.setPicInsert(pictureVO, files);
+		System.out.println("글 삽입 후 result 값:" + result);
 		
 		return "redirect:./picList";
 	}
 	
 	//글 업데이트폼으로 이동
 	@GetMapping("picUpdate")
-	public String setPicUpdate() throws Exception{
-		return "/picture/picUpdate";
+	public ModelAndView setPicUpdate(PictureVO pictureVO, ModelAndView mv) throws Exception{
+		pictureVO = pictureService.getPicOne(pictureVO);
+		mv.setViewName("/picture/picUpdate");
+		mv.addObject("pic", pictureVO);
+		System.out.println("picture controller부터" +pictureVO.getPost_text() );
+		return mv;
 	}
 	
 	//글 업데이트하기

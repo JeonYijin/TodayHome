@@ -7,9 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../resources/css/picInsert.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
-	<form method="post">
+	<form method="post" enctype="multipart/form-data">
 	<sec:authentication property="principal" var="memberVO"/>
 	<input type="hidden" value="${memberVO.memberNum}" name="memberNum">
 		<div class="css-8y5nyu-FormDiv e5zqozy1">
@@ -63,7 +65,7 @@
 						
 						<div class="input-group select-input css-7kwypw-MetadataFormSelectInput e10hhfgx1">
 							<select name="pyeongsu" class="form-control empty">
-								<option value="" disabled>평수</option>
+								<option value="" disabled="" selected="selected">평수</option>
 								<option value="10평 미만">10평 미만</option>
 								<option value="10평대">10평대</option>
 								<option value="20평대">20평대</option>
@@ -81,7 +83,7 @@
 						
 						<div class="input-group select-input css-7kwypw-MetadataFormSelectInput e10hhfgx1">
 							<select name="housetype" class="form-control empty">
-								<option value="" disabled="">주거형태</option>
+								<option value="" disabled="" selected="selected">주거형태</option>
 								<option value="원룸&오피스텔">원룸&amp;오피스텔</option>
 								<option value="아파트">아파트</option>
 								<option value="빌라&연립">빌라&amp;연립</option>
@@ -100,7 +102,7 @@
 						
 						<div class="input-group select-input css-7kwypw-MetadataFormSelectInput e10hhfgx1">
 							<select name="style" class="form-control empty">
-								<option value="" disabled="">스타일</option>
+								<option value="" disabled="" selected="selected">스타일</option>
 								<option value="모던">모던</option>
 								<option value="북유럽">북유럽</option>
 								<option value="빈티지">빈티지</option>
@@ -125,16 +127,15 @@
 						<li class="css-6go531-OverviewListLi enz0n5n0"></li>
 					</ol>
 					
-					<ol class="e15j4pam0 css-5dor4c-CardListOl-ContainerCardList eg53srj2">
+					<ol class="e15j4pam0 css-5dor4c-CardListOl-ContainerCardList eg53srj2 list">
 						<li class="css-bvb3rb-CardListLi eg53srj1">
-							<div class="css-10n24i7-CardDiv e19p9qev2">
-								<div class="css-8e6x5e-CardItemDiv e1peeabv2">
-									<div class="css-4d4cqx-CardItemLeft e1peeabv1">
-										<button class="css-1h7vqm-UploadButton em8wpqo4" type="button">
+							<div class="css-10n24i7-CardDiv e19p9qev2 newfile">
+								<div class="css-8e6x5e-CardItemDiv e1peeabv2 ">
+									<div class="css-4d4cqx-CardItemLeft e1peeabv1 files ">
+									<input type="file" name="files" class= "file" accept="image/**" data-num="0" style="display:none;" onchange="setThumbnail(this, event);">
+										<button class="css-1h7vqm-UploadButton em8wpqo4 fileupload" type="button" >
 											<div class="css-k2po69-UploadButtonContent em8wpqo3">
-												<svg width="48" height="48" viewBox="0 0 48 48" fill="currentColor" preserveAspectRatio="xMidYMid meet" class="css-utuafj-UploadCameraIcon em8wpqo2">
-													<path d="M11.952 9.778l2.397-5.994A1.778 1.778 0 0 1 16 2.667h16c.727 0 1.38.442 1.65 1.117l2.398 5.994h10.174c.982 0 1.778.796 1.778 1.778v32c0 .981-.796 1.777-1.778 1.777H1.778A1.778 1.778 0 0 1 0 43.556v-32c0-.982.796-1.778 1.778-1.778h10.174zM24 38c6.075 0 11-4.925 11-11s-4.925-11-11-11-11 4.925-11 11 4.925 11 11 11z"></path>
-												</svg>
+												<svg width="48" height="48" viewBox="0 0 48 48" fill="currentColor" preserveAspectRatio="xMidYMid meet" class="css-utuafj-UploadCameraIcon em8wpqo2"><path d="M11.952 9.778l2.397-5.994A1.778 1.778 0 0 1 16 2.667h16c.727 0 1.38.442 1.65 1.117l2.398 5.994h10.174c.982 0 1.778.796 1.778 1.778v32c0 .981-.796 1.777-1.778 1.777H1.778A1.778 1.778 0 0 1 0 43.556v-32c0-.982.796-1.778 1.778-1.778h10.174zM24 38c6.075 0 11-4.925 11-11s-4.925-11-11-11-11 4.925-11 11 4.925 11 11 11z"></path></svg>
 												<span class="css-xvgt90-UploadTitle em8wpqo1">사진 올리기</span>
 												<span class="css-o7lg39-UploadDescription em8wpqo0">(*최대 10장까지)</span>
 											</div>
@@ -145,7 +146,7 @@
 										<div class="css-ryivqb-CardItemDescriptionDiv er05vzw3">
 												<div class="input-group select-input css-yk768g-CardItemDescriptionSelectInput er05vzw2">
 													<select name="area" class="form-control empty">
-														<option value="" disabled="">공간 (필수)</option>
+														<option value="" disabled="" selected="selected">공간 (필수)</option>
 														<option value="원룸">원룸</option>
 														<option value="거실">거실</option>
 														<option value="침실">침실</option>
@@ -191,6 +192,9 @@
 	
 	
 	
-	
+<script type="text/javascript" src="../resources/js/picInsertFileupload.js"></script> 
+
+
+</script>	
 </body>
 </html>

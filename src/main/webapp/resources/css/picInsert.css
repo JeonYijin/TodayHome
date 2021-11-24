@@ -286,7 +286,9 @@ option {
 .css-7kwypw-MetadataFormSelectInput .form-control {
     font-size: 15px;
 }
-
+select{
+	-webkit-appearance: none;
+}
 .select-input>.form-control>option {
     color: #424242;
 }
@@ -376,6 +378,15 @@ ol {
     text-align: center;
     box-sizing: border-box;
 }
+.css-utuafj-UploadCameraIcon {
+    margin: 0px 0px 12px;
+    color: rgb(164, 172, 179);
+}
+svg {
+    width: 48;
+    height: 48;
+    fill: currentcolor;
+}
 .css-1k7ciri-CardItemRight {
     flex: 1 0 0px;
     margin: 0px 12px;
@@ -429,4 +440,86 @@ element.style {
 }
 element.style {
     display: inline-block;
+}
+
+.css-190fdl2-CardAddButton {
+    border: none;
+    background: none rgb(245, 245, 245);
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    display: block;
+    width: 100%;
+    margin: 0px 0px 40px;
+    padding: 20px 0px;
+    color: rgb(117, 117, 117);
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 4px;
+    transition: opacity 0.1s ease 0s;
+}
+
+.css-1ejfrh0-ActionsDiv {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40px 16px 16px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.54));
+    color: rgb(255, 255, 255);
+    font-size: 0px;
+    line-height: 0;
+    transition: opacity 0.4s ease 0.3s;
+}
+
+.css-3m8peh-ActionButton {
+    padding: 0px;
+    border: none;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    position: relative;
+    display: inline-block;
+    margin: 0px 24px 0px 0px;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    transition: opacity 0.1s ease 0s;
+    z-index: 1;
+}
+svg {
+    width: 24;
+    height: 24;
+    fill: currentcolor;
+}
+
+.css-hdcpxp-ActionButton-ImageActionPc {
+    display: inline-block;
+}
+.css-hdcpxp-ActionButton-ImageActionPc {
+    padding: 0px;
+    border: none;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    position: relative;
+    margin: 0px 24px 0px 0px;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    transition: opacity 0.1s ease 0s;
+    z-index: 1;
+}
+li {
+    text-align: -webkit-match-parent;
 }
