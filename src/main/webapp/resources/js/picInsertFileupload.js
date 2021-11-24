@@ -13,8 +13,13 @@ let addButton= '<button type="button" class="css-190fdl2-CardAddButton eg53srj0 
 	//$('.newfile').append(file);
 	$('.file').click();
 	$('.files').append(imagediv);
-})
- 
+})/*
+$('.files').on('click', '.fileupload', function(){
+	$('.file').click();
+	
+	$('.files').append(imagediv);
+})*/
+
  function setThumbnail(obj, event){
 	let reader = new FileReader();
 	let num= $(obj).attr("data-num");
@@ -28,7 +33,7 @@ let addButton= '<button type="button" class="css-190fdl2-CardAddButton eg53srj0 
 		
 		document.querySelector('div#imageContainer'+num).appendChild(img);
 		
-		console.log('업로드')
+		console.log('썸네일 실행')
 	};
 	reader.readAsDataURL(event.target.files[0]);
 	console.log('이미지')
