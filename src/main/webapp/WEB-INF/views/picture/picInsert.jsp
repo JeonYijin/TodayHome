@@ -127,13 +127,13 @@
 						<li class="css-6go531-OverviewListLi enz0n5n0"></li>
 					</ol>
 					
+					<input type="file" name="files" class= "file" id="file" accept="image/**" data-num="0" style="display:none;" onchange="setThumbnail(this, event);">
 					<ol class="e15j4pam0 css-5dor4c-CardListOl-ContainerCardList eg53srj2 list">
 						<li class="css-bvb3rb-CardListLi eg53srj1">
 							<div class="css-10n24i7-CardDiv e19p9qev2 newfile">
 							<!-- img add  ----------------------------------------------------------------------->
 								<div class="css-8e6x5e-CardItemDiv e1peeabv2 ">
 									<div class="css-4d4cqx-CardItemLeft e1peeabv1 files ">
-									<input type="file" name="files" class= "file" id="file" accept="image/**" data-num="0" style="display:none;" onchange="setThumbnail(this, event);">
 										<button class="css-1h7vqm-UploadButton em8wpqo4 fileupload" type="button" >
 											<div class="css-k2po69-UploadButtonContent em8wpqo3">
 												<svg width="48" height="48" viewBox="0 0 48 48" fill="currentColor" preserveAspectRatio="xMidYMid meet" class="css-utuafj-UploadCameraIcon em8wpqo2"><path d="M11.952 9.778l2.397-5.994A1.778 1.778 0 0 1 16 2.667h16c.727 0 1.38.442 1.65 1.117l2.398 5.994h10.174c.982 0 1.778.796 1.778 1.778v32c0 .981-.796 1.777-1.778 1.777H1.778A1.778 1.778 0 0 1 0 43.556v-32c0-.982.796-1.778 1.778-1.778h10.174zM24 38c6.075 0 11-4.925 11-11s-4.925-11-11-11-11 4.925-11 11 4.925 11 11 11z"></path></svg>
@@ -185,6 +185,7 @@
 							</div>
 						</li>
 					</ol>
+					<button type="button" style="display: none;" class="css-190fdl2-CardAddButton eg53srj0 addButton">추가하기</button>
 				</div>
 			</div>
 		</div>
