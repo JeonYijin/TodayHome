@@ -16,10 +16,6 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 	
-	@ModelAttribute("category")
-	public String getCategory() {
-		return "";
-	}
 	
 	@GetMapping("/")
 	public ModelAndView getSelectList(PageVO pageVO) throws Exception {
