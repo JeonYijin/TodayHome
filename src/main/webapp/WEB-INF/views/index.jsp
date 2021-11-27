@@ -21,6 +21,8 @@
 	
 	<a href="/picture/picList">사진</a>
 	
+	<a href="/questions/new">커뮤니티-질문과답변 게시판</a>
+	
 	<sec:authorize access="isAuthenticated()" var="result">
 			<a href="./member/usePrincipal">usePrincipal</a>
 			<a href="./member/useSession">useSession</a>

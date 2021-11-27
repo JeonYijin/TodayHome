@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,5 +10,34 @@
 </head>
 <body>
 <h1>커뮤니티:질문과답변 게시판 입니다.</h1>
+
+<table>
+	<thead>
+		<tr>
+			<td>
+				WRITER
+			</td>
+			<td>
+				TITLE
+			</td>
+			<td>
+				CONTENTS
+			</td>			
+		</tr>	
+	</thead>
+	<tbody>
+		<c:forEach items="${list}" var="list">
+			<tr>
+				<td>${list.quests_nickname}</td>
+				<td><a href="/questions/selectOne?quests_num=${list.quests_num}">${list.quests_title}</a></td>
+				<td>${list.quests_contents}</td>
+			</tr>
+		</c:forEach>	
+	</tbody>
+</table>
+
+
+
+
 </body>
 </html>

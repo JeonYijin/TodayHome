@@ -1,6 +1,7 @@
 package com.th.th1.questions;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class QuestionsVO {
 
@@ -15,6 +16,8 @@ public class QuestionsVO {
 	private Integer ref;
 	private Integer step;
 	private Integer depth;
+	
+	private List<QuestionsFilesVO> files;
 	
 	
 	public Integer getQuests_num() {
