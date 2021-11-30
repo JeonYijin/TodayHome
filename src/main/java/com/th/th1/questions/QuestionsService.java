@@ -11,19 +11,28 @@ public class QuestionsService {
 	@Autowired
 	private QuestionsDAO questionsDAO;
 	
-	/** 질문과답변 상세페이지 */
+	/** 질문과답변 selectOne */
 	public QuestionsVO getQuestionOne(QuestionsVO questionsVO) throws Exception{
 		return questionsDAO.getQuestionOne(questionsVO);
 	}
 	
-	/* 질문과답변 List 가져오기 */ 
+	/* 질문과답변 list */ 
 	public List<QuestionsVO> getQuestionsList() throws Exception{
 		return questionsDAO.getQuestionsList();
 	}
 	
-	/* 질문과답변 질문글 upload */ 
+	/* 질문과답변 질문글 insert */ 
 	public int setQuestionInsert(QuestionsVO questionsVO) throws Exception {
 		return questionsDAO.setQuestionInsert(questionsVO);
 	}
 	
+	/** 질문과답변 modify */
+	public int setQuestionUpdate(QuestionsVO questionsVO) throws Exception {
+		return questionsDAO.setQuestionUpdate(questionsVO);
+	}
+	
+	/** 질문과답변 delete */
+	public int setQuestionDelete(QuestionsVO questionsVO) throws Exception {
+		return questionsDAO.setQuestionDelete(questionsVO);
+	}
 }

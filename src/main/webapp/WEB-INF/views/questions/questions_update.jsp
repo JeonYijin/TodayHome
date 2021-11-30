@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>    
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>           
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>questions update</title>
 <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -17,17 +17,18 @@
 	<hr>
 	<a href="http://localhost:8080/member/memberLogin">login</a>
 	
-	<form action="/questions/new" method="post" enctype="multipart/form-data">
+	<form action="/questions/update" method="post" enctype="multipart/form-data">
 	
 	<sec:authorize access="isAuthenticated()" var="result">
   		<sec:authentication property="principal.id" var="id"/>
   		<sec:authentication property="principal" var="memberVO"/>
-		<input type="text" name="quests_id" value="${id}" readonly/>
-		<input type="text" name="quests_nickname" value="${memberVO.nickname}" hidden="hidden"/>
+		<input type="text" name="quests_id" value="${id}" />
+		<input type="text" name="quests_nickname" value="${memberVO.nickname}" />
+		<input type="text" name="quests_num" value="${vo.quests_num}"/>
   	</sec:authorize>	
   	<br><br>
-	<input type="text" name="quests_title" id="quests_title" placeholder="제목을 입력해주세요!"/>
-	<textarea rows="5" cols="50" id="quests_contents" name="quests_contents"></textarea>
+	<input type="text" name="quests_title" id="quests_title" value="${vo.quests_title}" placeholder="제목을 입력해주세요!"/>
+	<textarea rows="5" cols="50" id="quests_contents" name="quests_contents">${vo.quests_contents}</textarea>
 	<script>
 		var ckeditor_config = {
 		resize_enaleb : false,
@@ -47,11 +48,5 @@
 </form>
 </div>
 
-<script type="text/javascript">
-	function addHashtag() {
-		window.open('${pageContext.request.contextPath}/questions/hashtag', '_blank', 
-				'toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600');
-	}
-</script>
 </body>
 </html>

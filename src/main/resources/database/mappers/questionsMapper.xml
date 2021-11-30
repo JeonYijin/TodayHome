@@ -9,14 +9,23 @@
 	</select>
 	
 	<select id="getQuestionOne" parameterType="QuestionsVO" resultType="QuestionsVO">
-		SELECT* FROM QUESTIONS
-		WHERE QUESTS_NUM=${quests_num}
+		SELECT * FROM QUESTIONS
+		WHERE QUESTS_NUM=#{quests_num}
 	</select>
-
-
 
 	<insert id="setQuestionInsert" parameterType="QuestionsVO">
 		INSERT INTO QUESTIONS
 		VALUES (null, #{quests_id}, #{quests_nickname}, #{quests_title}, #{quests_contents}, default, default, 1, 1, 0)
 	</insert>
+	
+	<update id="setQuestionUpdate" parameterType="QuestionsVO">
+		UPDATE QUESTIONS
+		SET QUESTS_CONTENTS=#{quests_contents}, QUESTS_TITLE=#{quests_title}
+		WHERE QUESTS_ID=#{quests_id} AND QUESTS_NUM=#{quests_num}
+	</update>
+	
+	<delete id="setQuestionDelete" parameterType="QuestionsVO">
+		DELETE FROM QUESTIONS
+		WHERE QUESTS_NUM=#{quests_num} AND QUESTS_ID=#{quests_id}
+	</delete>	
 </mapper>

@@ -8,6 +8,7 @@
 		<typeAlias type="com.th.th1.member.MemberVO" alias="MemberVO" />
 		<typeAlias type="com.th.th1.picture.PictureVO" alias="PictureVO" />
 		<typeAlias type="com.th.th1.member.RoleVO" alias="RoleVO" />
+		<typeAlias type="com.th.th1.q_reply.Q_ReplyVO" alias="Q_ReplyVO"/>
 		<typeAlias type="java.lang.Long" alias="Long" />
 		<typeAlias type="java.util.List" alias="List" />
 	</typeAliases>

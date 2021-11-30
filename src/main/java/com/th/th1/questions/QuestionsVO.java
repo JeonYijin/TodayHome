@@ -12,13 +12,7 @@ public class QuestionsVO {
 	private String quests_contents;
 	private Integer hits;
 	private Timestamp regDate;
-	
-	private Integer ref;
-	private Integer step;
-	private Integer depth;
-	
-	private List<QuestionsFilesVO> files;
-	
+
 	
 	public Integer getQuests_num() {
 		return quests_num;
@@ -62,25 +56,7 @@ public class QuestionsVO {
 	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
 	}
-	public Integer getRef() {
-		return ref;
-	}
-	public void setRef(Integer ref) {
-		this.ref = ref;
-	}
-	public Integer getStep() {
-		return step;
-	}
-	public void setStep(Integer step) {
-		this.step = step;
-	}
-	public Integer getDepth() {
-		return depth;
-	}
-	public void setDepth(Integer depth) {
-		this.depth = depth;
-	}
-	
+
 
 	
 }

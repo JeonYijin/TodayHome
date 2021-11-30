@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface QuestionsDAO {
 
-	
 	/** 질문과답변 상세페이지 */
 	public QuestionsVO getQuestionOne(QuestionsVO questionsVO) throws Exception;
 	
@@ -18,6 +17,10 @@ public interface QuestionsDAO {
 	
 	/* 질문과답변 질문글 upload */ 
 	public int setQuestionInsert(QuestionsVO questionsVO) throws Exception;
+	
+	public int setQuestionUpdate(QuestionsVO questionsVO) throws Exception;
+	
+	public int setQuestionDelete(QuestionsVO questionsVO) throws Exception;
 	
 	
 	

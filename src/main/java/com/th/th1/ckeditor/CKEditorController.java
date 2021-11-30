@@ -57,7 +57,7 @@ public class CKEditorController {
 	  out.write(bytes);
 	  out.flush(); // out에 저장된 데이터를 전송하고 초기화
 	  
-	  //String callback = req.getParameter("CKEditorFuncNum");
+	  //String callback = request.getParameter("CKEditorFuncNum");
 	  printWriter = response.getWriter();
 	  String fileUrl = "/ckUpload/" + uid + "_" +fileName; // 작성화면
 	  // 업로드시 메시지 출력

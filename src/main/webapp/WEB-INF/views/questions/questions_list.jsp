@@ -30,12 +30,14 @@
 			<tr>
 				<td>${list.quests_nickname}</td>
 				<td><a href="/questions/selectOne?quests_num=${list.quests_num}">${list.quests_title}</a></td>
-				<td>${list.quests_contents}</td>
 			</tr>
 		</c:forEach>	
 	</tbody>
 </table>
 
+<div>
+	<a href="${pageContext.request.contextPath}/questions/new">글쓰기</a>
+</div>
 
 
 
