@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.th.th1.member.MemberVO;
+
 @Controller
 @RequestMapping("/picture/**")
 public class PictureController {
@@ -63,6 +65,20 @@ public class PictureController {
 		mv.setViewName("/picture/picList");
 		List<PictureVO> pic = pictureService.getPicList();
 		mv.addObject("pic", pic);
+		
+		List<MemberVO> member = pictureService.getPicWriter();
+		mv.addObject("member", member);
+		
+		
+//		for(PictureVO pictureVO: pic) {
+//			MemberVO memberVO = new MemberVO();
+//			memberVO.setMemberNum(pictureVO.getMemberNum());
+//			memberVO = pictureService.getPicWriter(pictureVO);
+//			System.out.println("닉네임: "+ memberVO.getNickname());
+//			mv.addObject("nick", memberVO);
+//			
+//		}
+		
 		return mv;
 	}
 	

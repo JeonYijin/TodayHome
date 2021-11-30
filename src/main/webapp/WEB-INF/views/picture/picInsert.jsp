@@ -127,10 +127,10 @@
 						<li class="css-6go531-OverviewListLi enz0n5n0"></li>
 					</ol>
 					
-					<input type="file" name="files" class= "file" id="file" accept="image/**" data-num="0" style="display:none;" onchange="setThumbnail(this, event);">
+					<input type="file" name="files" class= "file0" id="file" accept="image/**" data-num="0" style="display:none;" onchange="setThumbnail(this, event);">
 					<ol class="e15j4pam0 css-5dor4c-CardListOl-ContainerCardList eg53srj2 list">
 						<li class="css-bvb3rb-CardListLi eg53srj1">
-							<div class="css-10n24i7-CardDiv e19p9qev2 newfile">
+							<div class="css-10n24i7-CardDiv e19p9qev2 newfile0">
 							<!-- img add  ----------------------------------------------------------------------->
 								<div class="css-8e6x5e-CardItemDiv e1peeabv2 ">
 									<div class="css-4d4cqx-CardItemLeft e1peeabv1 files ">
@@ -172,20 +172,14 @@
 												</div>
 											<textarea class="_3ASDR _1qwAY css-10wf1a7-CardItemDescriptionTextInput er05vzw1" field="[object Object]" name="post_text" placeholder="사진에 대해 설명해주세요." rows="6" style="overflow: hidden; overflow-wrap: break-word; height: 145px;"></textarea>
 											
-											<div class="keyword-input css-17nk9gk-CardItemDescriptionKeywordInput er05vzw0">
-												<div class="keyword-input__input-item" style="display: inline-block;">
-													<input class="keyword-input__input-item__input" placeholder="키워드" value="" style="box-sizing: content-box; width: 43px;">
-													<div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 15px; font-family: &quot;Noto Sans KR&quot;, &quot;Apple SD Gothic Neo&quot;, &quot;맑은 고딕&quot;, &quot;Malgun Gothic&quot;, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
-													<div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 15px; font-family: &quot;Noto Sans KR&quot;, &quot;Apple SD Gothic Neo&quot;, &quot;맑은 고딕&quot;, &quot;Malgun Gothic&quot;, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;">키워드</div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 								</div>
 							</div>
 						</li>
-					</ol>
 					<button type="button" style="display: none;" class="css-190fdl2-CardAddButton eg53srj0 addButton">추가하기</button>
+					</ol>
 				</div>
 			</div>
 		</div>
@@ -197,6 +191,6 @@
 <script type="text/javascript" src="../resources/js/picInsertFileupload.js"></script> 
 
 
-</script>	
+
 </body>
 </html>

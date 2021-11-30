@@ -4,9 +4,14 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.th.th1.member.MemberVO;
+
 @Mapper
 public interface PictureDAO {
 
+	//글쓴이
+	public List<MemberVO> getPicWriter() throws Exception;
+	
 	//사진 게시판 글쓰기
 	public int setPicInsert(PictureVO pictureVO) throws Exception;
 	
@@ -32,5 +37,5 @@ public interface PictureDAO {
 	public int setPicFileDelete(PictureFileVO pictureFileVO) throws Exception;
 	
 	//파일 가져오기
-	public List<PictureVO> getPicFile(PictureFileVO pictureFileVO) throws Exception;
+	public List<PictureFileVO> getPicFile(PictureFileVO pictureFileVO) throws Exception;
 }

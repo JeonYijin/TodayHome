@@ -4,6 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.th.th1.picture.PictureDAO">
 	
+	
+
+	
 	<!-- 사진게시판 글쓰기 -->
 	<insert id="setPicInsert" parameterType="PictureVO" useGeneratedKeys="true" keyProperty="post_id">
 		insert into picture(post_id, memberNum, post_date, pyeongsu, housetype, style, area, hit, post_text)
@@ -22,10 +25,20 @@
 		delete from picture where post_id=#{post_id}
 	</delete>
   
+  	<!-- 글쓴사람 가져오기 -->
+  	<select id="getPicWriter"  resultType="MemberVO">
+  		select M.nickname from 
+			member M right join picture P
+			on M.memberNum = P.MemberNum
+		
+  	</select>
+  
   	<!-- 글 리스트 조회 -->
   
-  	<select id="getPicList" resultType="PictureVO">
-  		select * from picture order by post_id desc
+  	<select id="getPicList" resultMap="getPicResult">
+  		select P.*, PF.* from
+			picture P left join picturefile PF
+			on P.post_id = PF.post_id
   	</select>
   
   	<!-- 글 상세조회 -->

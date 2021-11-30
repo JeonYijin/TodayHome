@@ -1,0 +1,293 @@
+@charset "UTF-8";
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 1136px;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 1px;
+}
+element.style {
+    position: sticky;
+    top: 81px;
+}
+.card-feed__filter-container {
+    margin-top: 5px;
+    z-index: 100;
+    transition: top .1s;
+}
+blockquote, body, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+body, html {
+    line-height: 1;
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.4px;
+}
+body, html {
+    font-size: 15px;
+}
+
+element.style {
+    position: relative;
+}
+.card-feed__filter-wrap {
+    padding: 10px 0 5px;
+    background-color: #fff;
+    z-index: 100;
+    transition: top .1s;
+}
+.filter-bar__control-list__left, .filter-bar__control-list__right {
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+}
+ul {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+/* .filter-bar__control-list__item--icon {
+    display: none;
+} */
+.filter-bar__control-list__item {
+    display: inline-block;
+    margin: 0 2px;
+    vertical-align: bottom;
+    font-size: 0;
+    line-height: 0;
+}
+li {
+    text-align: -webkit-match-parent;
+}
+.filter-bar__control-list__icon {
+    padding: 9px 8px 9px 0;
+}
+.filter-bar__control-list__icon {
+    margin: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: 0;
+    line-height: 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity .1s;
+}
+.drop-down {
+    position: relative;
+    display: inline-block;
+}
+.filter-bar-control__button.button {
+    font-size: 15px;
+    line-height: 19px;
+    padding: 7px 8px 6px;
+    border-radius: 4px;
+}
+.button--color-gray-0.disabled, .button--color-gray-0:disabled, .button--color-gray-4 {
+    background-color: #f5f5f5;
+    border-color: #f5f5f5;
+    color: #757575;
+}
+.button {
+    user-select: none;
+    display: inline-block;
+    margin: 0;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    background: none;
+    font-family: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: color .1s,background-color .1s,border-color .1s;
+    cursor: pointer;
+}
+.filter-bar-control__button.button>.icon {
+    width: 12px;
+    height: 12px;
+    margin-left: 5px;
+    vertical-align: -1px;
+}
+svg:not(:root) {
+    overflow: hidden;
+}svg{
+    width: 24;
+    height: 24;
+}
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+.filter-bar__tag-list:empty {
+    padding: 0;
+}
+.filter-bar__tag-list {
+    margin: 0;
+    padding: 5px 0;
+    list-style: none;
+    font-size: 0;
+    line-height: 0;
+    box-sizing: border-box;
+}
+.filter-bar__tag-list__item {
+    display: inline-block;
+    margin: 0 2px;
+    padding: 2px 0;
+}
+.filter-bar__tag.button {
+    display: block;
+    padding: 1px 8px 3px;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    border-radius: 26px;
+}
+.button--color-blue {
+    background-color: #35c5f0;
+    border-color: #35c5f0;
+    color: #fff;
+}
+.filter-bar__tag.button>.icon {
+    margin: 0 -4px 0 7px;
+    vertical-align: -1px;
+    color: #fff;
+}
+svg {
+    width: 12;
+    height: 12;
+    fill: currentcolor;
+}
+.filter-bar-control__button.button {
+    font-size: 15px;
+    line-height: 19px;
+    padding: 7px 8px 6px;
+    border-radius: 4px;
+}
+/* Dropdown Button */
+.dropbtn {
+   background-color: #f5f5f5;
+    border-color: #f5f5f5;
+    color:#757575;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #f5f5f5;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+	}
+
+
+.show {
+	display:block;
+}
+.col-lg-3 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    box-sizing: border-box;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.col-lg-3 {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.card-collection-item {
+    padding-bottom: 40px;
+}
+article {
+    display: block;
+}
+.card-item-writer {
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    min-height: 36px;
+    margin: 0 0 16px;
+    padding: 0 0 0 48px;
+}
+.card-item-writer__content {
+    flex: 0 0 auto;
+    margin-top: -5px;
+    font-size: 15px;
+    line-height: 19px;
+}
+address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: 400;
+}
+
+element.style {
+    padding-top: 0px;
+    padding-bottom: 9830px;
+    transform: translateY(0px);
+}
+body, html {
+    line-height: 1;
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.4px;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
