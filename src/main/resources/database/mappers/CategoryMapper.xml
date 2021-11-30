@@ -6,7 +6,10 @@
  
  	
  	<select id="getSelectList" parameterType="PageVO" resultMap="getselectListResult">
- 		select * from pr_page where page_category = #{page_category}
+ 		select * from pr_page
+		<if test="page_category != '0'">
+			where page_category = #{page_category}
+		</if>
  	</select>
  	<resultMap type="PageVO" id="getselectListResult">
 		<id column="page_number" property="page_number"/>
@@ -56,5 +59,16 @@
 			<result column="oriName" property="oriName"/>
 		</collection>
 	</resultMap>
+	
+	<select id="getSelectCount" parameterType="PageVO" resultType="Long">
+		select count(page_number) from pr_page
+		<if test="page_category != '0'">
+			where page_category = #{page_category}
+		</if>		
+	</select>
+	
+	<select id="getSelectCategoryName" parameterType="PageVO" resultType="String">
+		select category_name from pr_category where category_num = ${page_category}
+	</select>
   		
   </mapper>

@@ -1,5 +1,21 @@
 @charset "UTF-8";
 
+body, html {
+    line-height: 1;
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.4px;
+    font-size: 13px;
+}
+
+
+.commerce-category-list__title {
+    margin: 0 0 27px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
 .category-feed-container {
     position: relative;
 }
@@ -1738,3 +1754,4 @@ pattern {
 #ch-plugin-script-iframe {
     border-radius: 30px !important;
 }
+

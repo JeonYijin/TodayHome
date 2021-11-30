@@ -19,6 +19,13 @@ public class CategoryService {
 		return categoryDAO.getSelectPage(pageVO);
 	}
 	
+	public Long getSelectCount(PageVO pageVO) throws Exception {
+		return categoryDAO.getSelectCount(pageVO);
+	}
+	
+	public String getSelectCategoryName(PageVO pageVO) throws Exception {
+		return categoryDAO.getSelectCategoryName(pageVO);
+	}
 	
 
 }
