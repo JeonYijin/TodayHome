@@ -7,45 +7,180 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href="https://static.ohou.se/dist/css/routes-Content-QuestionForm-8f1bad75.chunk.css">
+<link rel="stylesheet" href="https://static.ohou.se/assets/v3/layout/application_react-790a108e6a9b26136290c8bea25696fec3e4701284512f9eed313b7dbb352615.css">
+<link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/preamble-97ede701.chunk.css">
+<link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/templates-Home-HomePage-f3a55bf4.chunk.css">
+<link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/21-0e75de9b.chunk.css">
+<link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/23-2ef16b9a.chunk.css">
+<link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/App-6e6c2f0c.chunk.css">
+<link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/routes-Content-QuestionForm-ab82d817.chunk.css">
+
+<style>
+ .css-1gyvuxu-KeywordButton {
+     border: none;
+     background: none rgb(247, 248, 250);
+     font-style: inherit;
+     font-variant: inherit;
+     font-weight: inherit;
+     font-stretch: inherit;
+     font-family: inherit;
+     display: inline-block;
+     padding: 6px 12px;
+     margin: 0px 8px 8px 0px;
+     color: rgb(194, 200, 204);
+     font-size: 14px;
+     line-height: 20px;
+     border-radius: 50px;
+     transition: opacity 0.1s ease 0s;
+  }
+
+  .css-1gyvuxu-KeywordButton::before {
+     content: "#";
+     color: rgb(47, 52, 56);
+  }
+</style>
+
 <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 
-<div class="inputArea">
-	<label for="gdsDes">커뮤니티-질문과답변</label>
-	<hr>
-	<a href="http://localhost:8080/member/memberLogin">login</a>
-	
-	<form action="/questions/new" method="post" enctype="multipart/form-data">
-	
-	<sec:authorize access="isAuthenticated()" var="result">
-  		<sec:authentication property="principal.id" var="id"/>
-  		<sec:authentication property="principal" var="memberVO"/>
-		<input type="text" name="quests_id" value="${id}" readonly/>
-		<input type="text" name="quests_nickname" value="${memberVO.nickname}" hidden="hidden"/>
-  	</sec:authorize>	
-  	<br><br>
-	<input type="text" name="quests_title" id="quests_title" placeholder="제목을 입력해주세요!"/>
-	<textarea rows="5" cols="50" id="quests_contents" name="quests_contents"></textarea>
-	<script>
-		var ckeditor_config = {
-		resize_enaleb : false,
-		enterMode : CKEDITOR.ENTER_BR,
-		shiftEnterMode : CKEDITOR.ENTER_P,
-		filebrowserUploadUrl : "${pageContext.request.contextPath}/ckeditor/ckUpload"
-		};
-								 
-		CKEDITOR.replace("quests_contents", ckeditor_config);
-	</script>
-	<button type="submit">제출</button>
-	
-	<div onclick="addHashtag()">
-		<p>#클릭하여 주요 키워드를 입력해주세요.(최대 5개)</p>
-	</div>
-	
-</form>
-</div>
+    <div class="editor">
+        <div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false"
+            data-sticky-ignore="false" data-direction="top" data-offset="0" class="sticky-container editor__header-wrap"
+            style="position: sticky; top: 0px;">
+            <div class="sticky-child editor__header" style="position: relative;">
+                <div class="editor-mobile-header">
+                    <div class="editor-mobile-header__top">
+                        <div class="editor-mobile-header__top-left"><button class="editor-back-button" type="button"
+                                title="뒤로"><svg class="icon" width="24" height="24" preserveAspectRatio="xMidYMid meet">
+                                    <path d="M3.7 12.5h18.8v-1H3.7l7.8-7.8-.7-.7L2 11.7l.3.3-.3.3 8.8 8.7.7-.7-7.8-7.8z"
+                                        fill="#000" fill-opacity=".7" fill-rule="evenodd"></path>
+                                </svg></button></div>
+                        <h1 class="editor-mobile-header__title">글쓰기</h1>
+                        <div class="editor-mobile-header__top-right"></div>
+                    </div>
+                    <div class="editor-mobile-header__bottom">
+                        <div class="editor-mobile-header__content"></div>
+                        <div class="editor-mobile-header__bottom-right"></div>
+                    </div>
+                </div>
+                <div class="editor-pc-header">
+                    <div class="editor-pc-header__content"><a class="editor-pc-header__logo" aria-label="오늘의집"
+                            href="/"><svg class="icon" width="74" height="30" viewBox="0 0 74 30"
+                                preserveAspectRatio="xMidYMid meet">
+                                <g fill="none" fill-rule="evenodd">
+                                    <path fill="#000"
+                                        d="M14.2 25.17H9.28V20.7a1.45 1.45 0 0 0-2.9 0v4.47H1.44a1.45 1.45 0 1 0 0 2.9H14.2a1.45 1.45 0 0 0 0-2.9M4.5 9.15c0-4.6 2.08-5.28 3.33-5.28 1.24 0 3.33.69 3.33 5.28v.36c0 4.6-2.09 5.28-3.33 5.28-1.25 0-3.34-.69-3.34-5.28v-.36zm3.33 8.54c3.84 0 6.23-3.13 6.23-8.18v-.36c0-5.05-2.39-8.18-6.23-8.18-3.85 0-6.24 3.13-6.24 8.18v.36c0 5.05 2.39 8.19 6.24 8.19zm25.54-7.34H17.81a1.45 1.45 0 0 0 0 2.9h15.56a1.45 1.45 0 1 0 0-2.9m-1.55 15.5c-7.08 1.83-9.45.79-10.14.25-.45-.35-.65-.8-.65-1.48v-.87h10.25c.8 0 1.46-.65 1.46-1.45v-5.08c0-.8-.66-1.45-1.46-1.45h-11.7a1.45 1.45 0 1 0 0 2.9h10.25v2.18H19.57c-.8 0-1.45.65-1.45 1.45v2.32a4.6 4.6 0 0 0 1.78 3.78c1.2.93 2.94 1.39 5.21 1.39 2.05 0 4.54-.38 7.44-1.13a1.45 1.45 0 1 0-.73-2.82M20.3 7.83h10.8a1.45 1.45 0 1 0 0-2.9h-9.35V1.45a1.45 1.45 0 1 0-2.9 0v4.93c0 .8.65 1.45 1.45 1.45">
+                                    </path>
+                                    <rect width="3" height="15" x="70" fill="#000" rx="1.5"></rect>
+                                    <path fill="#000"
+                                        d="M64.5 13.28a1.45 1.45 0 0 0 2.73-1c-.05-.13-1-2.68-3.38-4.5l3.7-4.1a1.45 1.45 0 0 0-1.09-2.42h-9.05a1.45 1.45 0 1 0 0 2.9h5.8l-6.88 7.64a1.45 1.45 0 1 0 2.16 1.95l3.41-3.8a8 8 0 0 1 2.6 3.33M69.56 26.52h-7.01a.82.82 0 0 1-.82-.82v-1.95h8.65v1.95c0 .45-.37.82-.82.82m2.27-9.37c-.8 0-1.45.65-1.45 1.45v2.25h-8.65V18.6a1.45 1.45 0 1 0-2.9 0v7.1a3.73 3.73 0 0 0 3.72 3.72h7.01a3.73 3.73 0 0 0 3.72-3.72v-7.1c0-.8-.65-1.45-1.45-1.45M42.46 3.87c2.22 0 2.33 4.24 2.33 5.08 0 .85-.11 5.09-2.33 5.09-2.21 0-2.32-4.24-2.32-5.08 0-.86.11-5.09 2.32-5.09m0 13.07c1.76 0 3.23-.93 4.14-2.62.71-1.34 1.1-3.2 1.1-5.36s-.39-4.02-1.1-5.37A4.6 4.6 0 0 0 42.46.97c-1.76 0-3.22.93-4.13 2.62-.72 1.35-1.1 3.2-1.1 5.37s.38 4.01 1.1 5.36a4.59 4.59 0 0 0 4.13 2.62">
+                                    </path>
+                                    <path fill="#000"
+                                        d="M51.4.49c-.8 0-1.45.65-1.45 1.45v17.78c-1.93.6-5.75 1.13-10.38 1.13h-2.2a1.45 1.45 0 0 0 0 2.9h2.2c2.64 0 7.21-.23 10.38-1.02v4.84a1.45 1.45 0 0 0 2.9 0V1.94c0-.8-.65-1.45-1.45-1.45">
+                                    </path>
+                                </g>
+                            </svg></a>
+                        <div class="editor-pc-header__center">
+                            <div class="editor-command-list-pc"></div>
+                        </div>
+                        <div class="editor-pc-header__right">
+                            <div class="editor__save-section">
+                                <div class="drop-down editor-draft-menu">
+                                    <div class="editor-draft-menu-pc-button"><button type="button"
+                                            class="editor-draft-menu-pc-button__save"><span
+                                                class="text-lg">임시저장</span><span class="text-md">저장</span></button>
+                                    </div>
+                                </div><button type="button" class="editor-submit-menu-pc-button"><span
+                                        class="text-lg">올리기</span><span class="text-md">올리기</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form name="">
+	        <div class="editor__top">
+	            <div class="editor-top-section">
+	                <div class="editor-top-sub-section"><button class="editor-top-sub-section-header" type="button"
+	                        id="id-14-header" aria-labelledby="id-14 -content" aria-expanded="true" disabled="">
+	                        <div class="editor-top-sub-section-header__left">
+	                            <div class="editor-top-sub-section-header__icon"><svg class="icon" width="25" height="25"
+	                                    viewBox="0 0 25 25" preserveAspectRatio="xMidYMid meet">
+	                                    <rect width="25" height="25" fill="#6ADFC4" rx="10"></rect>
+	                                    <g fill="#FFF" transform="translate(7 8)">
+	                                        <rect width="7" height="1.5" rx=".8"></rect>
+	                                        <rect width="11" height="1.5" y="4" rx=".8"></rect>
+	                                        <rect width="11" height="1.5" y="8" rx=".8"></rect>
+	                                    </g>
+	                                </svg></div>
+	                            <div class="editor-top-sub-section-header__title">질문과 답변 글 작성 가이드</div>
+	                            <div class="editor-top-sub-section-header__sub-title"></div>
+	                        </div>
+	                        <div class="editor-top-sub-section-header__right"></div>
+	                    </button>
+	                    <div class="open expanded" style="overflow: hidden;">
+	                        <div class="editor-top-sub-section-content" role="region" id="id-14 -content"
+	                            aria-labelledby="id-14-header">
+	                            <ul class="editor-top-guide-section">
+	                                <li>참고가 되는 사진을 같이 공유해주시면 더 좋은 답변을 얻을 수 있습니다.</li>
+	                                <li>비슷한 어려움을 겪는 유저를 위해 답변자에게 포인트를 지급하며, 답변이 달린 질문글은 삭제할 수 없습니다.</li>
+	                                <li>인테리어와 관련 없는 질문은 숨김 및 삭제될 수 있습니다.</li>
+	                                <li>상품/배송 등 쇼핑 관련 문의는&nbsp;<a href="/customer_center" target="_blank">고객센터</a>에서 요청해주세요.
+	                                </li>
+	                            </ul>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            
+		            <sec:authorize access="isAuthenticated()" var="result">
+		  				<sec:authentication property="principal.id" var="id"/>
+		  				<sec:authentication property="principal" var="memberVO"/>
+						<input type="text" name="quests_id" value="${id}" readonly/>
+						<input type="text" name="quests_nickname" value="${memberVO.nickname}" readonly/>
+		  			</sec:authorize>	
+		            
+		            <div class="editor-title-input"><input class="editor-title-input__text" type="text"
+		                    placeholder="제목을 입력해주세요." maxlength="30" value="" name="quests_title"/>
+		                <div class="editor-title-input__limit">0 / 30</div>
+		            </div>
+		        </div>
+		        <div class="editor__content-wrap">
+		            <div class="editor-content-list">
+		                <div class="editor-content-list__content editor__content">
+		                    <div class="editor-content-block-container editor-content-block-p-container">
+		                        <textarea rows="5" cols="50" id="quests_contents" name="quests_contents"></textarea>
+								<script>
+									var ckeditor_config = {
+									resize_enaleb : false,
+									enterMode : CKEDITOR.ENTER_BR,
+									shiftEnterMode : CKEDITOR.ENTER_P,
+									filebrowserUploadUrl : "${pageContext.request.contextPath}/ckeditor/ckUpload"
+									};
+															 
+									CKEDITOR.replace("quests_contents", ckeditor_config);
+								</script>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="editor__content css-1tlr0qw-BottomContainer ejkfmez1">
+		            <div class="css-j2pi9o-Div e1hr3zkg0"><button class="css-1gyvuxu-KeywordButton eqajx1g0" type="button">클릭하여
+		                    주요 키워드를 입력해주세요.(최대 5개)</button></div>
+		        </div>
+        </form>
+        <div class="editor-help-section"><button class="editor-help-section-button" type="button" title="도움말"><svg
+                    class="icon" width="28" height="28" viewBox="0 0 28 28" preserveAspectRatio="xMidYMid meet">
+                    <rect width="28" height="28" fill="#FFF" rx="10"></rect>
+                    <path fill="#828C94"
+                        d="M14.24 6.22c.56.06 1.1.15 1.65.27 1.66.47 2.64 1.8 2.77 3.56A3.24 3.24 0 0117.35 13c-.44.35-.9.66-1.35 1a2.2 2.2 0 00-1 1.95 1.24 1.24 0 01-.89 1.25 1.38 1.38 0 01-1.6-.48 1.3 1.3 0 01-.2-.65 4.32 4.32 0 011.78-3.63c.5-.38.97-.8 1.41-1.24.21-.25.34-.55.36-.87.08-.88-.49-1.45-1.4-1.51-1.1-.07-2.03.22-2.68 1.19a1.3 1.3 0 01-1.35.62c-.93-.15-1.34-.91-.95-1.79a4 4 0 011.94-1.93 6.75 6.75 0 012.82-.69zm.93 13.96c.01 1-.55 1.6-1.53 1.6s-1.63-.58-1.64-1.41c0-1.16.52-1.74 1.56-1.77.84-.03 1.72.49 1.61 1.58z">
+                    </path>
+                </svg></button></div>
+    </div>
 
 <script type="text/javascript">
 	function addHashtag() {

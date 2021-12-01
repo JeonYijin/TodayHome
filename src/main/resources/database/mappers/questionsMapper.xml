@@ -15,7 +15,7 @@
 
 	<insert id="setQuestionInsert" parameterType="QuestionsVO">
 		INSERT INTO QUESTIONS
-		VALUES (null, #{quests_id}, #{quests_nickname}, #{quests_title}, #{quests_contents}, default, default, 1, 1, 0)
+		VALUES (null, #{quests_id}, #{quests_nickname}, #{quests_title}, #{quests_contents}, default, default, 0)
 	</insert>
 	
 	<update id="setQuestionUpdate" parameterType="QuestionsVO">

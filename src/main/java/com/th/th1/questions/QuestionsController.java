@@ -128,18 +128,19 @@ public class QuestionsController {
 	@ResponseBody
 //	@RequestMapping(value = "/picture_write_reply.do")
 	@GetMapping("write_reply")
-	public QuestionsVO write_reply(@RequestParam int quests_num, @RequestParam String contents, @RequestParam String id) throws Exception {
+	public QuestionsVO write_reply(@RequestParam int quests_num, @RequestParam String contents, @RequestParam String id, @RequestParam String nickname) throws Exception {
 
 	    Q_ReplyVO replyVO = new Q_ReplyVO();
 
 	    // 게시물 번호 세팅
-	    replyVO.setRnum(quests_num);
+	    replyVO.setQnum(quests_num);
 
 	    // 댓글 내용 세팅
 	    replyVO.setContents(contents);
-
-	    // parameter로 받은 id를 통해 nickname 가져오기
-	   	/// [[이건 추후에]]
+	    
+	    // 댓글 글쓴이 세팅
+	    replyVO.setId(id);
+	    replyVO.setNickname(nickname);
 
 	    // +1된 댓글 갯수를 담아오기 위함
 	    QuestionsVO questionsVO = replyService.questionsWriteReply(replyVO);
