@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-=======
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
->>>>>>> origin/eo
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +9,6 @@
 </head>
 <body>
 	<h1>Index</h1>
-<<<<<<< HEAD
-	
-	<a href="/member/memberLogin">로그인하기</a>
-	
-	<a href="https://kauth.kakao.com/oauth/logout?client_id=8ac307dc44008f3766d04dba03de3f8b&logout_redirect_uri=http://localhost/member/memberLogout">카카오 로그아웃</a>
- 
- 
-	<a href="/member/memberLogout">로그아웃하기</a>
-=======
 	<sec:authorize access="isAuthenticated()" var="result">
 	<a href="/member/memberLogout">로그아웃하기</a>
 	</sec:authorize>
@@ -33,15 +21,11 @@
  
     <a href="/board/list">test</a>
 	
->>>>>>> origin/eo
 	
 	<a href="/member/usePrincipal">정보조회</a>
 	
 	<a href="/picture/picList">사진</a>
-<<<<<<< HEAD
-=======
 	<a href="/notice/list">공지사항</a>
->>>>>>> origin/eo
 	
 	
 </body>

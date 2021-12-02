@@ -19,10 +19,7 @@
 	</properties>
 	<dependencies>
 	
-<<<<<<< HEAD
 	
-=======
->>>>>>> origin/eo
 	<dependency>
 		    <groupId>org.springframework.security</groupId>
 		    <artifactId>spring-security-taglibs</artifactId>
@@ -94,6 +91,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
 
 </project>
