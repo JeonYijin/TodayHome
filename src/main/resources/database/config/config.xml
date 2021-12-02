@@ -7,15 +7,26 @@
   	<typeAliases>
 		
 		<typeAlias type="com.th.th1.member.MemberVO" alias="MemberVO"/>
+<<<<<<< HEAD
 		
+=======
+		<typeAlias type="com.th.th1.notice.NoticeVO" alias="NoticeVO"/>
+		<typeAlias type="com.th.th1.pr.PrVO" alias="PrVO"/>
+	
+		
+
+>>>>>>> origin/eo
 		
 		<typeAlias type="com.th.th1.picture.PictureVO" alias="PictureVO"/>
 		<typeAlias type="com.th.th1.member.RoleVO" alias="RoleVO"/>
 		
+<<<<<<< HEAD
 		<typeAlias type="com.th.th1.category.PageVO" alias="PageVO"/>
 		<typeAlias type="com.th.th1.category.ProductVO" alias="ProductVO"/>
 		<typeAlias type="com.th.th1.category.PrFilesVO" alias="PrFilesVO"/>
 		
+=======
+>>>>>>> origin/eo
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="java.util.List" alias="List"/>
 		

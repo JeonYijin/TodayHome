@@ -35,7 +35,10 @@ public class PictureController {
 	public String setPicUpdate() throws Exception{
 		return "/picture/picUpdate";
 	}
+<<<<<<< HEAD
 	
+=======
+>>>>>>> origin/eo
 	//글 업데이트하기
 	@PostMapping("picUpdate")
 	public String setPicUpdate(PictureVO pictureVO) throws Exception{
