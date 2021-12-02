@@ -57,6 +57,13 @@ public class QCommentController {
     	
         return commentService.commentDelete(cnum);
     }
+    
+    @PostMapping("recommentInsert")
+    @ResponseBody
+    private int reCommentInsert(QCommentVO commentVO) throws Exception {
+    	
+    	return commentService.reCommentInsert(commentVO);
+    }
 
 	
 }

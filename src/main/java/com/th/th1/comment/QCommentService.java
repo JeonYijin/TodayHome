@@ -30,4 +30,10 @@ public class QCommentService {
     public int commentDelete(int cnum) throws Exception{
     	return commentDAO.commentDelete(cnum);
     };
+    
+    public int reCommentInsert(QCommentVO commentVO) throws Exception{
+    	//1. 모댓글 조회
+    	
+    	return 1;
+    }
 }

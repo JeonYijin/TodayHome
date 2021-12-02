@@ -280,16 +280,49 @@ function commentList(){
                 a += '<path fill-rule="evenodd" class="heart" d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z"></path></svg></button>';
                 a += '<span class="comment-feed__item__footer__likes__count">'+value.heart+'</span></span>';
                 a += '<button class="comment-feed__item__footer__like-btn" type="button">좋아요</button>';
-                a += '<button class="comment-feed__item__footer__reply-btn" type="button">답글 달기</button>';
+                a += '<button class="comment-feed__item__footer__reply-btn" id="dap" type="button" qnum="+'+value.qnum+'" cnum="'+value.cnum+'">답글 달기</button>';
                 a += '<button class="comment-feed__item__footer__report-btn" type="button">신고</button>';
                 a += '</footer></article></li>';
             });
             
             $(".commentList").html(a);
             $(".comment-feed__list").html(a);
+            
+            
         }
     });
 }
+
+//대댓글 달기 form 생성 click event
+$('#dap').click(function(){ 
+	alert('click됨');
+	var b='';
+		b += '<form class="comment-feed__form comment-feed__item__reply-form comment-feed__item__reply-form--no-comments">';
+		b += '<input type="text" readonly name="cnum" value="'+cnum+'"/>';
+		b += '<input type="text" readonly name="qnum" value="'+${quest.quests_num}+'"/>';
+		b += '<div class="comment-feed__form__user">';
+		b += "<img src='https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36' srcset='https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x'>";
+		b += '</div>';
+		b += '<div class="comment-feed__form__input">';
+		b += '<div class="comment-feed__form__content">';
+		b += '<div class="comment-content-input">';
+		b += '<div class="comment-content-input__text comment-feed__form__content__text" data-ph="댓글을 남겨 보세요."';
+		b += 'contenteditable="true"><a class="comment-content-input__text__mention"';
+		b += 'href="/users/12242720">'+'@'+writer+'</a>&nbsp;</div>';
+		b += '</div>';
+		b += '<div class="photo-input-wrap comment-feed__form__content__photo"><ul class="photo-input"></ul></div>';
+		b += '</div>';
+		b += '<div class="comment-feed__form__actions"><button class="comment-feed__form__photo" aria-label="사진 업로드" type="button">';
+		b += '<svg width="24" height="20" viewBox="0 0 24 20" preserveAspectRatio="xMidYMid meet"><path fill="#292929" fill-rule="nonzero" d="M3.22 20C1.446 20 0 18.547 0 16.765V6.176c0-1.782 1.446-3.235 3.22-3.235h3.118L7.363.377A.586.586 0 0 1 7.903 0h8.195c.24.003.453.152.54.377l1.024 2.564h3.118c1.774 0 3.22 1.453 3.22 3.235v10.589C24 18.547 22.554 20 20.78 20H3.22zm0-1.176h17.56a2.037 2.037 0 0 0 2.05-2.06V6.177c0-1.15-.904-2.058-2.05-2.058h-3.512a.585.585 0 0 1-.54-.368l-1.024-2.574H8.296L7.27 3.75a.585.585 0 0 1-.54.368H3.22a2.037 2.037 0 0 0-2.05 2.058v10.589c0 1.15.904 2.059 2.05 2.059zM12 17.059c-3.064 0-5.561-2.51-5.561-5.588 0-3.08 2.497-5.589 5.561-5.589s5.561 2.51 5.561 5.589c0 3.079-2.497 5.588-5.561 5.588zm0-1.177a4.392 4.392 0 0 0 4.39-4.411A4.392 4.392 0 0 0 12 7.059a4.392 4.392 0 0 0-4.39 4.412A4.392 4.392 0 0 0 12 15.882z"></path></svg>';
+		b += '</button><button class="comment-feed__form__submit" aria-label="등록" type="submit" disabled="">등록</button>';
+		b += '</div>';
+		b += '</div>';
+		b += '</form>';
+		
+	//	$('.qna-detail__container container').append(b);
+		
+});
+
  
 //댓글 insert
 function commentInsert(insertData){

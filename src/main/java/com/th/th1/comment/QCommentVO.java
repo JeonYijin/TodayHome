@@ -7,12 +7,12 @@ import lombok.Data;
 @Data
 public class QCommentVO {
 
-	private Integer cnum;
-	private Integer qnum;
-	private String contents;
-	private String writer;
-	private Timestamp regDate;
-	private Integer heart;
+	private Integer cnum; //댓글번호
+	private Integer qnum; //소속글 번호
+	private String contents; //댓글내용
+	private String writer; //댓글쓴이
+	private Timestamp regDate; //댓글등록일
+	private Integer heart; //좋아요
 	
 	private Integer ref;
 	private Integer step;
