@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.th.th1.picture.PictureDAO">
+	
+	<!-- 사진게시판 글쓰기 -->
+	<insert id="setPicInsert" parameterType="PictureVO" useGeneratedKeys="true" keyProperty="post_id">
+		insert into picture(post_id, memberNum, post_date, pyeongsu, housetype, style, area, hit, post_text)
+		values(#{post_id}, #{memberNum}, now(), #{pyeongsu}, #{housetype}, #{style}, #{area}, 0, #{post_text});
+	</insert>
+	
+	
+	<!-- 글 수정하기 -->
+	<update id="setPicUpdate" parameterType="PictureVO">
+		update picture set post_date = now(), pyeongsu = #{pyeongsu}, housetype=#{housetype}, style=#{style}, area=#{area}, post_text=#{post_text} where post_id = #{post_id}
+	</update>
+	
+	<!-- 글 삭제하기 -->
+	
+	<delete id="setPicDelete" parameterType="PictureVO">
+		delete from picture where post_id=#{post_id}
+	</delete>
+  
+  	<!-- 글 리스트 조회 -->
+  
+  	<select id="getPicList" resultType="PictureVO">
+  		select * from picture order by post_id desc
+  	</select>
+  
+  	<!-- 글 상세조회 -->
+  	
+  	<select id="getPicOne" parameterType="PictureVO" resultType="PictureVO">
+  		select * from picture where post_id=#{post_id}
+  	</select>
+  
+  	<!-- 글 조회수 업데이트 -->
+  
+  	<update id="setHitUpdate" parameterType="PictureVO">
+  		update picture set hit = hit+1 where post_id = #{post_id}
+  	</update>
+  
+  </mapper>

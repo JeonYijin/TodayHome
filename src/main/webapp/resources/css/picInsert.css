@@ -1,0 +1,432 @@
+@charset "UTF-8";
+
+element.style{
+	position: relative;
+}
+
+.css-8y5nyu-FormDiv {
+    position: relative;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+div{
+	display: block;
+}
+html, body {
+    font-size: 15px;
+    line-height: 1;
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.4px;
+}
+.css-ospeve {
+    z-index: 500;
+}
+.css-vxajtd {
+    border-bottom: 1px solid rgb(219, 219, 219);
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    z-index: 500;
+}
+.css-13ye58v-HeaderPrimaryContent {
+    height: 79px;
+    padding: 0px 30px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    max-width: 1256px;
+    margin: 0px auto;
+    box-sizing: border-box;
+}
+.css-1lo2l38-HeaderPrimaryLogoLink {
+    margin-left: 30px;
+    display: block;
+    flex: 0 0 auto;
+    padding: 0px;
+    margin: 24px 0px 23px 60px;
+}
+a, button, [role=button], input[type=button], input[type=submit], input[type=reset] {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+.css-1lo2l38-HeaderPrimaryLogoLink > .icon {
+    width: 74px;
+    height: 32px;
+}
+a * {
+    border: none;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+.css-uieupm-HeaderPrimaryBackButton {
+    display: none;
+    margin: 0px;
+    border: none;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    flex: 0 0 auto;
+    padding: 2px;
+    text-align: center;
+    line-height: 0;
+    transition: opacity 0.1s ease 0s;
+}
+button{
+	text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+.css-1t3yl8n-HeaderPrimarySubmitSection {
+    flex: 0 0 auto;
+}
+.css-19t9f3f-HeaderPrimarySubmit{
+	margin: 0px;
+    border: none;
+    background: none transparent;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    position: relative;
+    display: inline-block;
+    width: auto;
+    transition: background-color 0.1s ease 0s, opacity 0.1s ease 0s;
+    padding: 3px 0px;
+    color: rgb(53, 197, 240);
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 21px;
+	
+}
+.css-19t9f3f-HeaderPrimarySubmit {
+	
+    padding: 11px 45px 12px;
+    background-color: rgb(53, 197, 240);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 22px;
+    border-radius: 4px;
+}
+.css-38vk11-HeaderSecondary {
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+.css-1dghme3-TabListUl{
+display: flex;
+    margin: 0px auto;
+    max-width: 1136px;
+}
+.css-1dghme3-TabListUl {
+    padding: 0px 60px;
+}
+ol, ul {
+    list-style: none;
+}
+ul {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.css-n17caq-TabItemLi {
+    flex: 0 0 auto;
+    margin-right: 15px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.css-d1mp0l-TabItemButton {
+    margin: 0px 0px -1px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    line-height: 21px;
+    color: rgb(53, 197, 240);
+}
+.css-d1mp0l-TabItemButton {
+    padding: 14px 5px 15px;
+    font-size: 15px;
+}
+.css-d1mp0l-TabItemButton {
+    padding-bottom: 13px;
+    border-bottom: 2px solid rgb(53, 197, 240);
+}
+.css-n17caq-TabItemLi {
+    flex: 0 0 auto;
+    margin-right: 15px;
+}
+.css-qn5q0d-TabItemButton {
+    margin: 0px 0px -1px;
+    border: none;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    line-height: 21px;
+    color: rgb(66, 66, 66);
+}
+.css-qn5q0d-TabItemButton {
+    padding: 14px 5px 15px;
+    font-size: 15px;
+}
+.css-1h3fsoj-HeaderNewIcon {
+    margin-left: 4px;
+    vertical-align: -1px;
+}
+svg{
+    width: 28;
+    height: 14;
+    fill: none;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+.css-1d7nn6z-FormContent {
+    max-width: 1003px;
+    box-sizing: border-box;
+}
+.css-1d7nn6z-FormContent {
+    margin: 30px auto 0px;
+    padding: 0px 30px;
+}
+.css-ogmp42-MetadataFormDiv {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.css-ogmp42-MetadataFormDiv {
+    margin: 0px 0px 40px;
+}
+.css-1iht2ie-MetadataFormSide {
+    flex: 0 1 auto;
+}
+.select-input {
+    position: relative;
+}
+.css-7kwypw-MetadataFormSelectInput {
+    display: inline-block;
+    margin: 0px 5px 10px;
+    width: auto;
+}
+.input-group {
+    flex: 1 0 auto;
+}
+.select-input>.form-control.empty {
+    color: #bdbdbd;
+}
+.select-input.input-group>.form-control {
+    width: 100%;
+}
+.form-control {
+    transition: .2s border-color, .2s box-shadow, .2s background-color;
+    display: block;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 15px;
+    line-height: 40px;
+    border-radius: 4px;
+    border: solid 1px #dbdbdb;
+    background-color: #ffffff;
+}
+.form-control {
+    flex: 1 0 auto;
+}
+.select-input>.form-control>option:disabled {
+    color: #bdbdbd;
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+.css-7kwypw-MetadataFormSelectInput .form-control {
+    font-size: 15px;
+}
+
+.select-input>.form-control>option {
+    color: #424242;
+}
+.select-input__icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    font-size: 0;
+    cursor: default;
+    color: rgba(0,0,0,.3);
+    pointer-events: none;
+}
+element.style {
+    fill: currentcolor;
+}
+element.style {
+    fill: currentcolor;
+}
+svg {
+    width: 10;
+    height: 10;
+}
+.css-40lbws-ContainerDiv {
+    display: flex;
+}
+.css-1om8smb-OverviewListOl-ContainerOverviewList {
+    width: 115px;
+}
+.css-1om8smb-OverviewListOl-ContainerOverviewList {
+    display: block;
+}
+.css-1om8smb-OverviewListOl-ContainerOverviewList {
+    margin-right: 10px;
+    margin-left: -125px;
+}
+.css-5dor4c-CardListOl-ContainerCardList {
+    flex: 1 0 0px;
+}
+ol {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.css-10n24i7-CardDiv {
+    padding: 0px 0px 40px;
+}
+.css-8e6x5e-CardItemDiv {
+    display: flex;
+    margin: 0px -12px;
+}
+.css-4d4cqx-CardItemLeft {
+    flex: 1 0 0px;
+    margin: 0px 12px;
+}
+.css-1h7vqm-UploadButton {
+    margin: 0px;
+    padding: 0px 0px 60%;
+    border: none;
+    background: none;
+    font: inherit;
+    display: block;
+    position: relative;
+    width: 100%;
+    transition: opacity 0.1s ease 0s;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.css-k2po69-UploadButtonContent {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(247, 248, 250);
+    border: 1px dashed rgb(218, 220, 224);
+    border-radius: 4px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.css-1k7ciri-CardItemRight {
+    flex: 1 0 0px;
+    margin: 0px 12px;
+}
+.css-ryivqb-CardItemDescriptionDiv {
+    margin: 0px 0px -10px;
+}
+.css-yk768g-CardItemDescriptionSelectInput {
+    margin: 0px 0px 10px;
+}
+element.style {
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 145px;
+}
+._3ASDR {
+    display: inline-block;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", "Noto Sans CJK KR", "맑은 고딕", "Malgun Gothic", sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    resize: none;
+    appearance: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(219, 219, 219);
+    border-image: initial;
+    border-radius: 4px;
+    transition: border-color 0.1s ease 0s, background-color 0.1s ease 0s;
+}
+.css-10wf1a7-CardItemDescriptionTextInput.css-10wf1a7-CardItemDescriptionTextInput {
+    margin: 0px 0px 10px;
+}
+._1qwAY {
+    padding: 8px 15px 9px;
+}
+.keyword-input {
+    margin: -3px;
+}
+.keyword-input__input-item {
+    margin: 3px;
+    max-width: calc(100% - 6px);
+    position: relative;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #757575;
+}
+element.style {
+    display: inline-block;
+}
