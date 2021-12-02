@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/23-2ef16b9a.chunk.css">
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/App-6e6c2f0c.chunk.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
 </head>
 <body>
 <main class="qna-detail">
@@ -26,11 +27,10 @@
                     <div class="qna-detail__content__header-top"><a class="qna-detail__content__header-subtitle"
                             href="/questions">질문과 답변</a></div>
                     <h1 class="qna-detail__content__header-title">${quest.quests_title}</h1>
-                    <address class="qna-detail-author qna-detail__content__header-author-section"><a
-                            class="qna-detail-author__profile-link" href="/users/2923954">
-                            <div class="qna-detail-author__profile-link__image"><img
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1544904334_.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c"
-                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1544904334_.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1544904334_.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1544904334_.jpeg?gif=1&amp;w=240&amp;h=240&amp;c=c 3x">
+                    <address class="qna-detail-author qna-detail__content__header-author-section">
+                    	<a class="qna-detail-author__profile-link" href="/users/2923954">
+                            <div class="qna-detail-author__profile-link__image">
+                            	<img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;h=72&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=240&amp;h=240&amp;c=c 3x">
                             </div>
                             <div class="qna-detail-author__profile-link__summary">
                                 <div class="qna-detail-author__profile-link__summary-section"><span
@@ -40,6 +40,12 @@
                         </a>
                         <div><a class="button button--color-gray-4 button--size-30 button--shape-4">팔로우</a></div>
                     </address>
+		                    <div class="qna-detail__content__action-group" style="display:none;">
+		                    	<a class="button button--color-gray-14-inverted button--size-30 button--shape-4 qna-detail__content__action-item" href="/questions/update?quests_id=${memberVO.id}&quests_num=${quest.quests_num}">수정</a>
+		                    	<button class="button button--color-gray-14-inverted button--size-30 button--shape-4 qna-detail__content__action-item qDelete" type="button">삭제</button>
+		                    </div>
+	              
+         
                 </header>
                 <section class="qna-detail__content__body">
                 	${quest.quests_contents}
@@ -110,6 +116,7 @@
 								  	<sec:authentication property="principal" var="memberVO"/>
 		                            <input type="hidden" name="qnum" value="${quest.quests_num}"/>
 		              				<input type="hidden" name="nickname" value="${memberVO.nickname}"/>
+		              				<input type="hidden" name="id" id="memberVO_id" value="${memberVO.id}"/>
 	              				
                             
                                 <div class="comment-feed__form__actions">
@@ -223,12 +230,28 @@
             </div>
         </div>
     </main>
+    
 </body>
-
-
+<script type="text/javascript">
+	var loginId = $('#memberVO_id').val();	
+	var writerId = '${quest.quests_id}';
+		                    		
+	if(loginId == writerId) {
+		$('.qna-detail__content__action-group').removeAttr('style');
+	}
+		                    	
+	let questsId = '${memberVO.id}';
+	let questsNum = '${quest.quests_num}';
+		                    		
+	$('.qDelete').click(function(){
+		if(confirm('정말로 삭제하시겠어요?')){
+			location.href='/questions/delete?quests_id='+questsId+'&quests_num='+questsNum;
+		};
+	})
+</script>s
 <script type="text/javascript">
 var qnum = '${quest.quests_num}'; //게시글 번호
- 
+
 $('[name=commentInsertBtn]').click(function(){ //댓글 등록 버튼 클릭시 
     var insertData = $('[name=comment-feed__form]').serialize(); //comment-feed__form의 내용을 가져옴
     commentInsert(insertData); //Insert 함수호출(아래)

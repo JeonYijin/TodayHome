@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.nimbusds.jose.shaded.json.JSONObject;
 import com.th.th1.member.MemberService;
 import com.th.th1.q_reply.Q_ReplyService;
 import com.th.th1.q_reply.Q_ReplyVO;
+
+import net.sf.json.JSONArray;
 
 @Controller 
 @RequestMapping("/questions/**")
@@ -65,6 +68,7 @@ public class QuestionsController {
 	
 	/* [질문과답변 새 질문 INSERT into DB] */
 	@PostMapping("new")
+	@ResponseBody
 	public ModelAndView setQuest(QuestionsVO questionsVO) throws Exception {
 		System.out.println("건너온 id : "+questionsVO.getQuests_id());
 		System.out.println("건너온 title : "+questionsVO.getQuests_title());
@@ -78,9 +82,17 @@ public class QuestionsController {
 		return mav;
 	}
 	
+	//해쉬태그 처리
+	@PostMapping("hashtag")
+	@ResponseBody
+	public int setHashtag(@RequestParam String hash_arr) throws Exception{
+		
+		return 100;
+	}
+	
 	/** [질문과답변 수정하기] */
 	@GetMapping("update")
-	public ModelAndView setUpdate(@RequestParam Integer quests_num) throws Exception {
+	public ModelAndView setUpdate(@RequestParam Integer quests_num, @RequestParam String quests_id) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		
 		QuestionsVO questionsVO = new QuestionsVO();
@@ -122,124 +134,6 @@ public class QuestionsController {
 		
 		return jsp;
 	}
-	
-	
-	// 모댓글 작성
-	@ResponseBody
-//	@RequestMapping(value = "/picture_write_reply.do")
-	@GetMapping("write_reply")
-	public QuestionsVO write_reply(@RequestParam int quests_num, @RequestParam String contents, @RequestParam String id, @RequestParam String nickname) throws Exception {
-
-	    Q_ReplyVO replyVO = new Q_ReplyVO();
-
-	    // 게시물 번호 세팅
-	    replyVO.setQnum(quests_num);
-
-	    // 댓글 내용 세팅
-	    replyVO.setContents(contents);
-	    
-	    // 댓글 글쓴이 세팅
-	    replyVO.setId(id);
-	    replyVO.setNickname(nickname);
-
-	    // +1된 댓글 갯수를 담아오기 위함
-	    QuestionsVO questionsVO = replyService.questionsWriteReply(replyVO);
-	    						
-
-	    return questionsVO;
-	}
-
-	// 대댓글 작성
-	@ResponseBody
-//	@RequestMapping(value = "/picture_write_rereply.do")
-	@GetMapping("write_rereply")
-	public QuestionsVO write_rereply(@RequestParam int rnum, @RequestParam int qnum, @RequestParam String contents,
-			@RequestParam String id)
-	        throws Exception {
-
-	    Q_ReplyVO replyVO = new Q_ReplyVO();
-
-	    // 게시물 번호 세팅
-	    replyVO.setQnum(qnum);
-
-	    // ref, step, depth는 ReplyVO에 int로 정의되어 있기 때문에 String인 num int로 변환해서 넣어준다. -->난 해당x
-	    // 모댓글 번호 rnum를 ref로 세팅한다.
-	    replyVO.setRef(rnum);
-
-	    // 대댓글은 깊이가 1이되어야 하므로 depth를 1로 세팅한다.
-	    replyVO.setDepth(1);
-
-	    // 대댓글 내용 세팅
-	    replyVO.setContents(contents);
-
-	    // 대댓글작성자 nick을 writer로 세팅
-//	    to.setWriter((String) session.getAttribute("nick"));  ---> [[추후에]]
-
-	    // +1된 댓글 갯수를 담아오기 위함
-	    QuestionsVO questionsVO = replyService.questionsWriteReReply(replyVO);
-	    
-	    return questionsVO;
-	}
-
-	// 댓글 리스트
-	@ResponseBody
-//	@RequestMapping(value = "/picture_replyList.do")
-	@GetMapping("replyList")
-	public ArrayList<Q_ReplyVO> reply_list(@RequestParam int quests_num, @RequestParam String id) throws Exception {
-
-	    Q_ReplyVO replyVO = new Q_ReplyVO();
-
-	    // 가져올 댓글 리스트의 게시물번호를 세팅
-	    replyVO.setQnum(quests_num);
-
-	    ArrayList<Q_ReplyVO> replyList = replyService.replyList(replyVO);
-
-	    return replyList;
-	}
-
-	// 모댓글 삭제
-	@ResponseBody
-//	@RequestMapping(value = "/picture_delete_reply.do")
-	@GetMapping("delete_reply")
-	public QuestionsVO picture_delete_reply(@RequestParam int rnum, @RequestParam int qnum) throws Exception {
-
-		Q_ReplyVO replyVO = new Q_ReplyVO();
-
-	    // 모댓글 번호 세팅
-	    replyVO.setRnum(rnum);
-	    // 게시물 번호 세팅
-	    replyVO.setQnum(qnum);
-
-	    // 갱신된 댓글 갯수를 담아오기 위함
-	    QuestionsVO questionsVO = replyService.questionsDeleteReply(replyVO);
-	    
-	    return questionsVO;
-	}
-
-	// 대댓글 삭제
-	@ResponseBody
-//	@RequestMapping(value = "/picture_delete_rereply.do")
-	@GetMapping("delete_rereply")
-	public QuestionsVO delete_rereply(@RequestParam int rnum, @RequestParam int qnum, @RequestParam int ref) throws Exception {
-
-		Q_ReplyVO replyVO = new Q_ReplyVO();
-
-	    // 대댓글 번호 세팅 - 대댓글 삭제하기 위해서 필요함
-		replyVO.setRnum(rnum);
-
-	    // 게시물 번호 세팅 - questions의 reply-1하기 위해 필요함
-		replyVO.setQnum(qnum);
-
-	    // ref 세팅(모댓글이 뭔지) - 모댓글은 삭제를 해도 대댓글이 있으면 남아있게 되는데 대댓글이 모두 삭제되었을 때 모댓글도 삭제하기 위해
-	    // 필요함
-	    replyVO.setRef(ref);
-
-	    // 갱신된 댓글 갯수를 담아오기 위함
-	    QuestionsVO questionsVO = replyService.pictureDeleteReReply(replyVO);
-	    
-	    return questionsVO;
-	}
-	
 	
 
 }

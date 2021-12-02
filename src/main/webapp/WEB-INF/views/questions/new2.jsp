@@ -41,6 +41,32 @@
      color: rgb(47, 52, 56);
   }
 </style>
+<style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+    
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%; /* Could be more or less, depending on screen size */                          
+        }
+ 
+</style>
+
 
 <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -95,14 +121,14 @@
                                                 class="text-lg">임시저장</span><span class="text-md">저장</span></button>
                                     </div>
                                 </div><button type="button" class="editor-submit-menu-pc-button"><span
-                                        class="text-lg">올리기</span><span class="text-md">올리기</span></button>
+                                        class="text-lg" name="">올리기</span><span class="text-md">올리기</span></button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <form name="">
+        <form method="post" name="question-feed__form">
 	        <div class="editor__top">
 	            <div class="editor-top-section">
 	                <div class="editor-top-sub-section"><button class="editor-top-sub-section-header" type="button"
@@ -140,13 +166,21 @@
 		            <sec:authorize access="isAuthenticated()" var="result">
 		  				<sec:authentication property="principal.id" var="id"/>
 		  				<sec:authentication property="principal" var="memberVO"/>
-						<input type="text" name="quests_id" value="${id}" readonly/>
-						<input type="text" name="quests_nickname" value="${memberVO.nickname}" readonly/>
+						id : <input type="text" name="quests_id" value="${id}" readonly/><br>
+						nickname : <input type="text" name="quests_nickname" value="${memberVO.nickname}" readonly/>
 		  			</sec:authorize>	
 		            
 		            <div class="editor-title-input"><input class="editor-title-input__text" type="text"
-		                    placeholder="제목을 입력해주세요." maxlength="30" value="" name="quests_title"/>
+		                    placeholder="제목을 입력해주세요." maxlength="29" value="" name="quests_title"/>
 		                <div class="editor-title-input__limit">0 / 30</div>
+		                <script type="text/javascript">
+		                /* Title 글자수 카운트 */
+		                	$('.editor-title-input__text').on('keyup', function(){
+		                		let strTitle=$(this).val();
+		                		strTitle.length;
+		                		$('.editor-title-input__limit').html(strTitle.length+'&nbsp;'+'/ 30');
+		                	})
+		                </script>
 		            </div>
 		        </div>
 		        <div class="editor__content-wrap">
@@ -181,12 +215,369 @@
                     </path>
                 </svg></button></div>
     </div>
+    
+     <!-- The Modal -->
+    <div id="myModal" class="modal">
+ 
+      <!-- Modal content -->
+      <div class="modal-content">
+                <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 24pt;">공지</span></b></span></p>
+                <div>
+					<div class="css-c6b9dy-ContentBody e4qt54a1">
+				        <dl class="css-drk099-GroupDl eele3ye3">
+				            <dt class="css-dp5u7g-GroupDt eele3ye2">일반</dt>
+				            <dd class="css-xdkdg4-GroupDd eele3ye1">
+				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>리모델링/올수리<span style="display:none;">,</span></label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>견적<span>,</span></label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>업체 추천<span>,</span></label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>셀프인테리어<span>,</span></label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>신혼</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>리폼</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>디자인 추천</label></div>
+				                    </li>
+				                </ul>
+				            </dd>
+				            <dt class="css-dp5u7g-GroupDt eele3ye2">부분 공정</dt>
+				            <dd class="css-xdkdg4-GroupDd eele3ye1">
+				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>가벽</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>단열</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>도배</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>마루</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>목공</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>몰딩</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>바닥</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>벽</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>붙박이</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>창호/창호</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>수리/복구</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>실리콘</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>외관/외벽</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>입주청소</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>장판</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>전기</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>조명</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>줄눈</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>천장</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>철거</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>콘센트</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>타일</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>페인트</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>필름</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>기타공정</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>기타청소</label></div>
+				                    </li>
+				                </ul>
+				            </dd>
+				            <dt class="css-dp5u7g-GroupDt eele3ye2">가구</dt>
+				            <dd class="css-xdkdg4-GroupDd eele3ye1">
+				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>가구배치/이동</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>냉장고</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>블라인드</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>손잡이</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>수전/싱크대</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>소파</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>식탁</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>유리</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>에어컨</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>침대</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>TV</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>기타가구</label></div>
+				                    </li>
+				                </ul>
+				            </dd>
+				            <dt class="css-dp5u7g-GroupDt eele3ye2">공간</dt>
+				            <dd class="css-xdkdg4-GroupDd eele3ye1">
+				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>단독주택</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>아파트</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>상가</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>원룸</label></div>
+				                    </li>
+				                </ul>
+				            </dd>
+				            <dt class="css-dp5u7g-GroupDt eele3ye2">평수</dt>
+				            <dd class="css-xdkdg4-GroupDd eele3ye1">
+				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>10평미만</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>10평대</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>20평대</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>30평대</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>40평대</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>50평이상</label></div>
+				                    </li>
+				                </ul>
+				            </dd>
+				            <dt class="css-dp5u7g-GroupDt eele3ye2">실내 공간</dt>
+				            <dd class="css-xdkdg4-GroupDd eele3ye1">
+				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>화장실</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>베란다</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>거실</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>주방</label></div>
+				                    </li>
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>현관</label></div>
+				                    </li>
+				                </ul>
+				            </dd>
+				            <dt class="css-dp5u7g-GroupDt eele3ye2">기타</dt>
+				            <dd class="css-xdkdg4-GroupDd eele3ye1">
+				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
+				                    <li>
+				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
+				                                    type="checkbox"><span class="check-img"></span>기타</label></div>
+				                    </li>
+				                </ul>
+				            </dd>
+				        </dl>
+				    </div>                
+                
+                </div>
+            <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px;" onClick="close_pop();">
+                <span class="pop_bt" style="font-size: 13pt;" >
+                     닫기
+                </span>
+            </div>
+            <br>
+            <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px;" onClick="get_pop();">
+                <span class="pop_bt" style="font-size: 13pt;" >
+                     확인
+                </span>
+            </div>
+      </div>
+    </div>
+    <div>
+    	<button type="button" id="modalBtn">Hashtag Modal</button>
+    </div>
+        <!--End Modal-->
+
+
 
 <script type="text/javascript">
-	function addHashtag() {
-		window.open('${pageContext.request.contextPath}/questions/hashtag', '_blank', 
-				'toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600');
-	}
+	$('#modalBtn').click(function(){
+		$('#myModal').show();
+	})
+     
+	//팝업 Close 기능
+    function close_pop(flag) {
+		$("input[type=checkbox]").prop("checked", false);
+    	$('#myModal').hide();
+    }; 
+    
+    var hash_arr;
+    
+    function get_pop() {
+    	var chbx_text = $("input[type=checkbox]:checked").parent().text();
+    	hash_arr = chbx_text.split(',');
+    	hash_arr = JSON.stringify(hash_arr);
+        jQuery.ajaxSettings.traditional = true;
+		
+    	$('#myModal').hide();
+    };
+    
+    $('.editor-submit-menu-pc-button').click(function(){
+    	console.log(hash_arr);
+    	var quests_id=$('[name=quests_id]').val();
+    	var quests_nickname=$('[name=quests_nickname]').val();
+    	var quests_title=$('[name=quests_title]').val();
+    	console.log(quests_id, quests_nickname, quests_contents, quests_title);
+    	
+    	//contents값(textarea값)은 ckeditor 때문에 javascript에서 가져올 수가 없어서 일단 제외 --> 추후 구글링해서 보강
+    	//대신 form submit 시 controller로 넘어는 간다
+    	if(quests_id!='' && quests_nickname!=''&&quests_title!=''){
+	    	$('[name=question-feed__form]').attr('action', '/questions/new');
+			
+	    	$.ajax({
+	    		url:'/questions/hashtag',
+	    		type:'post',
+	    		data: {hash_arr},
+	    		success:function(result){
+	    			console.log('뭐');
+	    		}
+	    	});
+	    	
+	    	$('[name=question-feed__form]').submit();
+    	}
+    	
+    })
+    
+ 
 </script>
+
 </body>
 </html>

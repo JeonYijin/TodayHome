@@ -4,26 +4,31 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.th.th1.questions.QuestionsDAO">
+	<!-- 질문과답변 list 받아오기 -->
 	<select id="getQuestionsList" resultType="QuestionsVO">
 		SELECT * FROM QUESTIONS
 	</select>
 	
+	<!-- 질문과답변 글하나 받아오기 -->
 	<select id="getQuestionOne" parameterType="QuestionsVO" resultType="QuestionsVO">
 		SELECT * FROM QUESTIONS
 		WHERE QUESTS_NUM=#{quests_num}
 	</select>
 
+	<!-- 질문과답변 insert -->
 	<insert id="setQuestionInsert" parameterType="QuestionsVO">
 		INSERT INTO QUESTIONS
 		VALUES (null, #{quests_id}, #{quests_nickname}, #{quests_title}, #{quests_contents}, default, default, 0)
 	</insert>
 	
+	<!-- 질문과답변 수정 -->
 	<update id="setQuestionUpdate" parameterType="QuestionsVO">
 		UPDATE QUESTIONS
 		SET QUESTS_CONTENTS=#{quests_contents}, QUESTS_TITLE=#{quests_title}
 		WHERE QUESTS_ID=#{quests_id} AND QUESTS_NUM=#{quests_num}
 	</update>
 	
+	<!-- 질문과답변 삭제 -->
 	<delete id="setQuestionDelete" parameterType="QuestionsVO">
 		DELETE FROM QUESTIONS
 		WHERE QUESTS_NUM=#{quests_num} AND QUESTS_ID=#{quests_id}
