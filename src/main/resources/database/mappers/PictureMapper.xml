@@ -35,11 +35,36 @@
   
   	<!-- 글 리스트 조회 -->
   
-  	<select id="getPicList" resultMap="getPicResult">
-  		select P.*, PF.* from
-			picture P left join picturefile PF
-			on P.post_id = PF.post_id
+  	<select id="getPicList" resultMap="PicMemResult">
+  		select P.*, PF.*, M.nickname from
+		picture P left join picturefile PF
+		on P.post_id = PF.post_id
+        inner join member M
+        on P.memberNum = M.memberNum
   	</select>
+  	<resultMap type="PictureVO" id="PicMemResult">
+  		<id column="post_id" property="post_id"/>
+  		<result column="memberNum" property="memberNum"/>
+  		<result column="post_date" property="post_date"/>
+  		<result column="pyeongsu" property="pyeongsu"/>
+  		<result column="housetype" property="housetype"/>
+  		<result column="style" property="style"/>
+  		<result column="area" property="area"/>
+  		<result column="post_text" property="post_text"/>
+  		<result column="hit" property="hit"/>
+  		
+  		<association property="memberVO" javaType="MemberVO">
+  			<id column="memberNum" property="memberNum"/>
+  			<result column="nickname" property="nickname"/>
+  		</association>
+  		<collection property="pictureFileVO" javaType="List" ofType="PictureFileVO">
+  			<id column="picFilenum" property="picFilenum"/>
+  			<result column="picFilename" property="picFilename"/>
+  			<result column="picOriname" property="picOriname"/>
+  			<result column="post_id" property="post_id"/>
+  			<result column="idx" property="idx"/>
+  		</collection>
+  	</resultMap>
   
   	<!-- 글 상세조회 -->
   	
@@ -64,6 +89,7 @@
   			<result column="picFilename" property="picFilename"/>
   			<result column="picOriname" property="picOriname"/>
   			<result column="post_id" property="post_id"/>
+  			<result column="idx" property="idx"/>
   		</collection>
   		
   	</resultMap>
@@ -76,8 +102,8 @@
   
   	<!-- 파일 인서트 -->
   	<insert id="setPicFileInsert" parameterType="PictureFileVO">
-  		insert into picturefile(picFilenum, picFilename, picOriname,post_id)
-  		values(0, #{picFilename},#{picOriname},#{post_id})
+  		insert into picturefile(picFilenum, picFilename, picOriname,post_id, idx)
+  		values(0, #{picFilename},#{picOriname},#{post_id} , #{idx})
   	</insert>
   	
   	<!-- 파일 가져오기 -->

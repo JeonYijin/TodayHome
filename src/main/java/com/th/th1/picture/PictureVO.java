@@ -3,6 +3,8 @@ package com.th.th1.picture;
 import java.sql.Date;
 import java.util.List;
 
+import com.th.th1.member.MemberVO;
+
 import lombok.Data;
 
 @Data
@@ -19,4 +21,5 @@ public class PictureVO {
 	private Integer hit;
 	
 	private List<PictureFileVO> pictureFileVO;
+	private MemberVO memberVO;
 }

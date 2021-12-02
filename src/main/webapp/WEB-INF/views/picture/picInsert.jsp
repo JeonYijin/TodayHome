@@ -142,6 +142,7 @@
 											</div>
 										</button>
 									</div>
+									
 								<!-- img add --------------------------------------------------------------- -->	
 									<div class="css-1k7ciri-CardItemRight e1peeabv0">
 										<div class="css-ryivqb-CardItemDescriptionDiv er05vzw3">

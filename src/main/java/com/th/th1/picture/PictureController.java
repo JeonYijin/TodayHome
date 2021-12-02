@@ -65,20 +65,6 @@ public class PictureController {
 		mv.setViewName("/picture/picList");
 		List<PictureVO> pic = pictureService.getPicList();
 		mv.addObject("pic", pic);
-		
-		List<MemberVO> member = pictureService.getPicWriter();
-		mv.addObject("member", member);
-		
-		
-//		for(PictureVO pictureVO: pic) {
-//			MemberVO memberVO = new MemberVO();
-//			memberVO.setMemberNum(pictureVO.getMemberNum());
-//			memberVO = pictureService.getPicWriter(pictureVO);
-//			System.out.println("닉네임: "+ memberVO.getNickname());
-//			mv.addObject("nick", memberVO);
-//			
-//		}
-		
 		return mv;
 	}
 	

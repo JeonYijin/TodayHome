@@ -9,6 +9,62 @@
 <title>Insert title here</title>
  <link rel="stylesheet" href="../resources/css/picList.css"> 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <style>
+/* Dropdown Button */
+.dropbtn {
+   background-color: #f5f5f5;
+    border-color: #f5f5f5;
+    color:#757575;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #f5f5f5;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1; 
+    }
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	font-size: 15px;
+	float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+	}
+
+
+.show {
+	display:block;
+}
+
+</style>
 </head>
 <body>
 	<h1>PicList page</h1>
@@ -138,7 +194,7 @@
 		<ul class="css-5g53pt-ListUl e6933zq1"></ul>
 	
 	<!-- 리스트 시작  -->
-		<div class="virtualized-list card-feed__content row" style="padding-top: 0px; padding-bottom: 9830px; transform: translateY(0px);">
+		<div class="virtualized-list card-feed__content row" ">
 			
 			<c:forEach items="${pic}" var="pic">
 			<div class="card-feed__item-wrap col-12 col-md-4 col-lg-3">
@@ -149,11 +205,9 @@
 										<div class="card-item-writer__header">
 											<a class="card-item-writer__link" href="#">
 												<!-- <img class="card-item-writer__image" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163272802669688346.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163272802669688346.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163272802669688346.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163272802669688346.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x"> -->
-												<c:forEach items="${member}" var="member">
-													<c:if test="${member.memberNum eq pic.memberNum}">
-													<span class="card-item-writer__name">${member.nickname}</span>
-													</c:if>
-												</c:forEach>
+												
+													<span class="card-item-writer__name">${pic.memberVO.nickname}</span>
+													
 											</a>
 											<span class="card-item-writer__separator"> </span>
 											<button class="card-item-writer__follow" type="button">팔로우</button>
@@ -163,20 +217,28 @@
 								</div>
 								
 								<div id="card-collection-item-10864619" class="card-collection-item__content">
-									<a class="card-collection-item__content__link" aria-describedby="card-collection-item-10864619" href="/contents/card_collections/10864619?affect_type=CardIndex&amp;affect_id=0"></a>
+									<a class="card-collection-item__content__link" aria-describedby="card-collection-item-10864619" href="./picOne?post_id=${pic.post_id}"></a>
 									<div class="expandable-text card-item-description card-collection-item__description">
 										<div class="card-item-description__content">${pic.post_text}</div>
 									</div>
 									<div class="card-collection-item__image">
 										<div class="card-item-image">
-										<%-- <img class="image" alt="" src="../resources/upload/pic/${pic.pictureFileVO.picOriname}"> --%>
-											<svg class="icon" width="18" height="18" viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet">
-												<g fill="none" fill-rule="evenodd">
-													<path stroke="#000" stroke-opacity=".14" stroke-width=".75" d="M14.27 3.85H15a2.62 2.62 0 0 1 2.62 2.63V15A2.62 2.62 0 0 1 15 17.63H6.49A2.62 2.62 0 0 1 3.85 15v-.73h7.8a2.63 2.63 0 0 0 2.62-2.62v-7.8zM.37 3A2.62 2.62 0 0 1 3 .37h8.52A2.62 2.62 0 0 1 14.15 3v8.52a2.62 2.62 0 0 1-2.63 2.63H3a2.62 2.62 0 0 1-2.63-2.63V3z"></path>
-													<path fill="#FFF" fill-opacity=".74" d="M14.64 4.22H15c1.25 0 2.26 1 2.26 2.26V15c0 1.24-1 2.25-2.25 2.25H6.48c-1.25 0-2.26-1-2.26-2.25v-.35h7.43a3 3 0 0 0 3-3V4.22zM.75 3C.75 1.76 1.75.75 3 .75h8.52c1.25 0 2.26 1 2.26 2.25v8.52c0 1.25-1 2.26-2.26 2.26H3c-1.24 0-2.25-1-2.25-2.26V3z"></path>
-												</g>
-											</svg>
-										</span>
+										
+										  <c:forEach items="${pic.pictureFileVO}" var="fileVO">
+										  	<c:if test="${fileVO.idx eq 1 }">
+										  		<img class="image" alt="" src="../resources/upload/picture/${fileVO.picFilename}">
+										  	</c:if>
+										  </c:forEach>
+											
+											<span class="card-item-image__collection-icon">
+												<svg class="icon" width="18" height="18" viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet">
+													<g fill="none" fill-rule="evenodd">
+														<path stroke="#000" stroke-opacity=".14" stroke-width=".75" d="M14.27 3.85H15a2.62 2.62 0 0 1 2.62 2.63V15A2.62 2.62 0 0 1 15 17.63H6.49A2.62 2.62 0 0 1 3.85 15v-.73h7.8a2.63 2.63 0 0 0 2.62-2.62v-7.8zM.37 3A2.62 2.62 0 0 1 3 .37h8.52A2.62 2.62 0 0 1 14.15 3v8.52a2.62 2.62 0 0 1-2.63 2.63H3a2.62 2.62 0 0 1-2.63-2.63V3z"></path>
+														<path fill="#FFF" fill-opacity=".74" d="M14.64 4.22H15c1.25 0 2.26 1 2.26 2.26V15c0 1.24-1 2.25-2.25 2.25H6.48c-1.25 0-2.26-1-2.26-2.25v-.35h7.43a3 3 0 0 0 3-3V4.22zM.75 3C.75 1.76 1.75.75 3 .75h8.52c1.25 0 2.26 1 2.26 2.25v8.52c0 1.25-1 2.26-2.26 2.26H3c-1.24 0-2.25-1-2.25-2.26V3z"></path>
+													</g>
+												</svg>
+											</span>
+										
 										<span class="card-item-image__view-count">${pic.hit}</span>
 										</div>
 									</div>
@@ -185,20 +247,20 @@
 											<svg class="icon icon--stroke" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path>
 											</svg>
-												<span class="count"></span>
+												<span class="count">20</span>
 										</button>
 										
 										<button class="card-item-action-list__action" type="button">
 											<svg class="icon icon--stroke" aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
-											</svg><span class="count"></span>
+											</svg><span class="count">20</span>
 										</button>
 										
 										<a class="card-item-action-list__action" href="/contents/card_collections/10864619?affect_type=CardIndex&amp;affect_id=0#comment">
 											<svg class="icon" aria-label="댓글 달기" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path fill="currentColor" fill-rule="nonzero" d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z"></path>
 											</svg>
-												<span class="count"></span>
+												<span class="count">20</span>
 										</a>
 										
 										
@@ -212,7 +274,7 @@
 												<div class="card-item-comment__writer__image">
 													<!-- <img class="image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 3x"> -->
 												</div>
-													<span class="card-item-comment__writer__name"></span>
+													<span class="card-item-comment__writer__name">댓글</span>
 											</a>
 													<span class="card-item-comment__writer__separator">: </span>
 										</address>

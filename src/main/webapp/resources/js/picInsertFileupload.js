@@ -53,11 +53,11 @@ let delNum=0;
 	console.log('이미지')
 	//추가버튼 보여주기
 	$('.addButton').attr('style', 'display:block');
-//사진 삭제 버튼 delButton
-let delButton= '<div class="btnControl'+delNum+'"><button type="button" class="reUpload'+delNum+'">다시올리기</button><button type="button" class="delete'+delNum+'">x</button><div>';
+	//사진 삭제 버튼 delButton
+	let delButton= '<div class="btnControl'+delNum+'"><button type="button" class="delete" title="'+delNum+'">x</button><div>';
 	//삭제 버튼 각 사진마다 보여주기
 	$('.newfile'+idNum+'').append(delButton);
-	//$('#imageContainer'+idNum+'').append(delButton);
+	$('.btnControl'+delNum+'').append(radio);
 
 }
 
@@ -74,28 +74,22 @@ $('.addButton').click(function(){
 
 
 //삭제하기 버튼 클릭시 사진 삭제
-$(document).on('click', '.delete'+idNum+'', function(){
-	alert('.delete'+idNum+'');
-	if(delNum<1){
+$(document).on('click', '.delete', function(){
+	alert($(this).attr("title"));
+	let titleNum = $(this).attr("title");
+	$('#imageContainer'+titleNum+'').remove();
+	$('.btnControl'+titleNum+'').remove()
+	if(titleNum==0){
 		$('.addButton').attr('style', 'display:none');		
 		$('.fileupload').attr('style', 'display:block');
 	}
-	console.log('#imageContainer'+idNum+'')
-	$('#imageContainer'+idNum+'').remove();
-	$('.delete'+idNum+'').parent('div').remove();
+	
 	
 	
 })
 
 
-//다시올리기 버튼 클릭시
-$('.delete'+idNum+'').on('click', 'reUpload'+idNum+'', function(){
-	alert('reupload');
-	$('#imageContainer'+idNum+'').remove();
-	$('.file'+idNum).click();
-	$('reUpload'+idNum+'').parent('div').remove();
-	
-})
+
 
 
 // 추가버튼을 클릭하면 추가되는 li 태그
@@ -117,3 +111,14 @@ function makeList(){
 	e.returnValue= text;
 	return text;
 }*/
+
+
+//--------------------------------------------------------------------------
+//각 사진별로 인덱스 주기 - 대표 이미지 설정
+ let radio = '<input type="radio" name="idx" value=1 style="display: inline;">';
+ 
+
+
+
+
+
