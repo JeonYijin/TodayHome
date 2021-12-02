@@ -2,7 +2,20 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="sample">
-
+ <mapper namespace="com.th.th1.Admin.AdminDAO">
+ 
+ 	<!-- 상품 페이지 등록 -->
+ 	<insert id="setInsertPage" parameterType="PageVO">
+ 		insert into pr_page values 
+ 		(0, #{page_title}, #{page_seller}, #{page_category}, #{page_price})
+ 	</insert>
+ 	
+ 	<insert id="setInsertPageFile" parameterType="PrFilesVO">
+ 		insert into pr_files values
+		(0, #{page_number}, #{fileName}, #{oriName})
+ 	</insert>
+	
+	
+	
   
-  </mapper>
+ </mapper>

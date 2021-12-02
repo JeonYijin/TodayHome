@@ -1,5 +1,8 @@
 package com.th.th1.category;
 
+import lombok.Data;
+
+@Data
 public class PrFilesVO {
 	
 	private Long fileNum;
