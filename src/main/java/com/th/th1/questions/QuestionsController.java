@@ -1,8 +1,11 @@
 package com.th.th1.questions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,12 +15,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.nimbusds.jose.shaded.json.JSONObject;
 import com.th.th1.member.MemberService;
 import com.th.th1.q_reply.Q_ReplyService;
 import com.th.th1.q_reply.Q_ReplyVO;
 
 import net.sf.json.JSONArray;
+
+
+
+
 
 @Controller 
 @RequestMapping("/questions/**")
@@ -86,6 +92,37 @@ public class QuestionsController {
 	@PostMapping("hashtag")
 	@ResponseBody
 	public int setHashtag(@RequestParam String hash_arr) throws Exception{
+
+		System.out.println(hash_arr);
+		
+		JSONArray array = new JSONArray();
+		System.out.println("jsonarray:이건 되니?:"+array);
+		
+		ArrayList<Object> arr1 = new ArrayList<Object>();
+        
+        
+	    for(int i=0; i<array.size(); i++){
+	        
+	        //JSONArray 형태의 값을 가져와 JSONObject 로 풀어준다.    
+	        JSONObject obj = (JSONObject)array.get(i);
+	                
+	        arr1.add(obj);
+	        System.out.println("arraylist 테스트:"+arr1.get(i));
+	    }
+
+
+		
+		
+		/*
+		 * StringBuffer sb = new StringBuffer();
+		 * 
+		 * if(hash_arr !=null&&hash_arr.length()!=0) { Pattern p
+		 * =Pattern.compile("[가-힣]"); Matcher m = p.matcher(hash_arr); while(m.find()){
+		 * sb.append(m.group()+","); } }
+		 * 
+		 * 
+		 * hash_arr=sb.toString(); System.out.println(hash_arr);
+		 */
 		
 		return 100;
 	}
