@@ -16,14 +16,27 @@ body, html {
     color: #000;
 }
 
-.category-feed-container {
+/* .category-feed-container {
     position: relative;
+   
+} */
+
+.category-feed__content__items {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
 }
+
 
 div {
     display: block;
 }
 
+
+.col-lg-4 {
+    padding-right: 10px;
+    padding-left: 10px;
+}
 .category-feed-wrap, .category-feed-wrap__no-breadcrumb {
     margin-top: 40px;
 }
