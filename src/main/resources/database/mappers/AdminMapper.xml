@@ -11,6 +11,10 @@
  	</insert>
  	
  	<insert id="setInsertPageFile" parameterType="PrFilesVO">
+ 		<selectKey resultType="Long" keyProperty="page_number" order="AFTER">
+ 			select last_insert_id()
+ 		</selectKey>
+ 	
  		insert into pr_files values
 		(0, #{page_number}, #{fileName}, #{oriName})
  	</insert>

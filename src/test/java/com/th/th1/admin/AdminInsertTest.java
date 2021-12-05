@@ -30,9 +30,15 @@ class AdminInsertTest {
 		
 	}
 	
-	@Test 
+	//@Test 
 	void setInsertPageFileTest() throws Exception {
-		PrFilesVO prFilesVO = new P
+		PrFilesVO prFilesVO = new PrFilesVO();
+		prFilesVO.setPage_number(3L);
+		prFilesVO.setFileName("fileName");
+		prFilesVO.setOriName("oriName");
+		
+		int result = adminDAO.setInsertPageFile(prFilesVO);
+		assertNotEquals(0, result);
 		
 	}
 
