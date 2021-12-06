@@ -10,15 +10,38 @@
 	</select>
 	
 	<!-- 질문과답변 글하나 받아오기 -->
-	<select id="getQuestionOne" parameterType="QuestionsVO" resultType="QuestionsVO">
-		SELECT * FROM QUESTIONS
-		WHERE QUESTS_NUM=#{quests_num}
+	<select id="getQuestionOne" parameterType="QuestionsVO" resultMap="hashtagResult">
+		SELECT Q.*, QH.HASHTAG_NAME
+		FROM QUESTIONS Q left join QUESTIONS_HASHTAG QH
+		ON (Q.QUESTS_NUM=QH.QUESTS_NUM)
+		WHERE Q.QUESTS_NUM=#{quests_num}
 	</select>
+	
+	<resultMap type="QuestionsVO" id="hashtagResult">
+		<id column="quests_num" property="quests_num"/>
+		<result column="quests_id" property="quests_id"/>
+		<result column="quests_nickname" property="quests_nickname"/>
+		<result column="quests_title" property="quests_title"/>
+		<result column="quests_contents" property="quests_contents"/>
+		<result column="hits" property="hits"/>
+		<result column="regDate" property="regDate"/>
+		<collection property="tags" javaType="List" ofType="HashtagVO">
+			<id column="num" property="num"/>
+			<result column="quests_num" property="quests_num"/>
+			<result column="hashtag_name" property="hashtag_name"/>
+		</collection>
+	</resultMap>
 
 	<!-- 질문과답변 insert -->
-	<insert id="setQuestionInsert" parameterType="QuestionsVO">
+	<insert id="setQuestionInsert" parameterType="QuestionsVO" useGeneratedKeys="true" keyProperty="quests_num">
 		INSERT INTO QUESTIONS
 		VALUES (null, #{quests_id}, #{quests_nickname}, #{quests_title}, #{quests_contents}, default, default, 0)
+	</insert>
+
+	<!-- Hashtag insert -->
+	<insert id="setHashtag" parameterType="com.th.th1.questions.HashtagVO">
+		INSERT INTO QUESTIONS_HASHTAG
+		VALUES (null, #{quests_num}, #{hashtag_name})
 	</insert>
 	
 	<!-- 질문과답변 수정 -->
@@ -33,4 +56,5 @@
 		DELETE FROM QUESTIONS
 		WHERE QUESTS_NUM=#{quests_num} AND QUESTS_ID=#{quests_id}
 	</delete>	
+
 </mapper>

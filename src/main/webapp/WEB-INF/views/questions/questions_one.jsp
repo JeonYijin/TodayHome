@@ -52,17 +52,11 @@
                 </section>
                 <footer class="qna-detail__footer">
                     <ul class="qna-detail__footer__keyword-list">
-                        <li class="qna-detail__footer__keyword-list-item"><a
-                                href="/questions?query=%EA%B2%AC%EC%A0%81">견적</a></li>
-                        <li class="qna-detail__footer__keyword-list-item"><a
-                                href="/questions?query=%EC%85%80%ED%94%84%EC%9D%B8%ED%85%8C%EB%A6%AC%EC%96%B4">셀프인테리어</a>
-                        </li>
-                        <li class="qna-detail__footer__keyword-list-item"><a
-                                href="/questions?query=%EB%8F%84%EB%B0%B0">도배</a></li>
-                        <li class="qna-detail__footer__keyword-list-item"><a
-                                href="/questions?query=%EC%95%84%ED%8C%8C%ED%8A%B8">아파트</a></li>
-                        <li class="qna-detail__footer__keyword-list-item"><a
-                                href="/questions?query=%ED%8E%98%EC%9D%B8%ED%8A%B8">페인트</a></li>
+                    	<c:forEach items="${quest.tags}" var="tag">
+                    		<li class="qna-detail__footer__keyword-list-item"><a
+                                href="/questions?query=%EA%B2%AC%EC%A0%81">${tag.hashtag_name}</a></li>
+                    	</c:forEach>
+                        
                     </ul>
                     <aside class="qna-detail-actions qna-detail__footer__action-group">
                         <div class="drop-down qna-detail-actions__wrapper"><button

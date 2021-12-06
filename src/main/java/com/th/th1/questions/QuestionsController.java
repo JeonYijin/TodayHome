@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.simple.JSONObject;
+import org.apache.commons.collections.map.HashedMap;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,15 +26,13 @@ import net.sf.json.JSONArray;
 
 
 
+
 @Controller 
 @RequestMapping("/questions/**")
 public class QuestionsController {
 
 	@Autowired
 	private QuestionsService questionsService;
-	
-	@Autowired
-	private Q_ReplyService replyService;
 	
 	
 	/* [질문과답변 전체리스트 조회] */
@@ -75,57 +74,33 @@ public class QuestionsController {
 	/* [질문과답변 새 질문 INSERT into DB] */
 	@PostMapping("new")
 	@ResponseBody
-	public ModelAndView setQuest(QuestionsVO questionsVO) throws Exception {
+	public ModelAndView setQuest(QuestionsVO questionsVO, @RequestParam String hash_arr) throws Exception {
 		System.out.println("건너온 id : "+questionsVO.getQuests_id());
 		System.out.println("건너온 title : "+questionsVO.getQuests_title());
 		System.out.println("건너온 contents : "+questionsVO.getQuests_contents());		
+		System.out.println("건너온 hash_arr : "+hash_arr);
+		String[] arr = hash_arr.split("\",");
+		
+		ArrayList<String> hashArr = new ArrayList<String>();
+		for(int i=0;i<arr.length-1;i++) {
+			String tag=null;
+			if(i==0) {
+				tag = arr[i].substring(2);
+			} else {
+				tag = arr[i].substring(1);
+			}
+			hashArr.add(tag);
+			System.out.println(hashArr.get(i));
+		}
 		
 		ModelAndView mav = new ModelAndView();
-		int result = questionsService.setQuestionInsert(questionsVO);
+		int result = questionsService.setQuestionInsert(questionsVO, hashArr);
 		mav.setViewName("redirect:/");
-		System.out.println("result : "+result);
+//		System.out.println("result : "+result);
 		
 		return mav;
 	}
 	
-	//해쉬태그 처리
-	@PostMapping("hashtag")
-	@ResponseBody
-	public int setHashtag(@RequestParam String hash_arr) throws Exception{
-
-		System.out.println(hash_arr);
-		
-		JSONArray array = new JSONArray();
-		System.out.println("jsonarray:이건 되니?:"+array);
-		
-		ArrayList<Object> arr1 = new ArrayList<Object>();
-        
-        
-	    for(int i=0; i<array.size(); i++){
-	        
-	        //JSONArray 형태의 값을 가져와 JSONObject 로 풀어준다.    
-	        JSONObject obj = (JSONObject)array.get(i);
-	                
-	        arr1.add(obj);
-	        System.out.println("arraylist 테스트:"+arr1.get(i));
-	    }
-
-
-		
-		
-		/*
-		 * StringBuffer sb = new StringBuffer();
-		 * 
-		 * if(hash_arr !=null&&hash_arr.length()!=0) { Pattern p
-		 * =Pattern.compile("[가-힣]"); Matcher m = p.matcher(hash_arr); while(m.find()){
-		 * sb.append(m.group()+","); } }
-		 * 
-		 * 
-		 * hash_arr=sb.toString(); System.out.println(hash_arr);
-		 */
-		
-		return 100;
-	}
 	
 	/** [질문과답변 수정하기] */
 	@GetMapping("update")

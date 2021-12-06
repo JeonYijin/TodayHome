@@ -13,7 +13,15 @@ public class QuestionsVO {
 	private Integer hits;
 	private Timestamp regDate;
 
+	private List<HashtagVO> tags;
 	
+	
+	public List<HashtagVO> getTags() {
+		return tags;
+	}
+	public void setTags(List<HashtagVO> tags) {
+		this.tags = tags;
+	}
 	public Integer getQuests_num() {
 		return quests_num;
 	}

@@ -206,6 +206,7 @@
 		            <div class="css-j2pi9o-Div e1hr3zkg0"><button class="css-1gyvuxu-KeywordButton eqajx1g0" type="button">클릭하여
 		                    주요 키워드를 입력해주세요.(최대 5개)</button></div>
 		        </div>
+		        <input type="hidden" id="str_hashtags" name="hash_arr"/>
         </form>
         <div class="editor-help-section"><button class="editor-help-section-button" type="button" title="도움말"><svg
                     class="icon" width="28" height="28" viewBox="0 0 28 28" preserveAspectRatio="xMidYMid meet">
@@ -234,27 +235,27 @@
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>견적<span>,</span></label></div>
+				                                    type="checkbox"><span class="check-img"></span>견적<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>업체 추천<span>,</span></label></div>
+				                                    type="checkbox"><span class="check-img"></span>업체 추천<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>셀프인테리어<span>,</span></label></div>
+				                                    type="checkbox"><span class="check-img"></span>셀프인테리어<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>신혼</label></div>
+				                                    type="checkbox"><span class="check-img"></span>신혼<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>리폼</label></div>
+				                                    type="checkbox"><span class="check-img"></span>리폼<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>디자인 추천</label></div>
+				                                    type="checkbox"><span class="check-img"></span>디자인 추천<span style="display:none;">,</span></label></div>
 				                    </li>
 				                </ul>
 				            </dd>
@@ -263,107 +264,107 @@
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>가벽</label></div>
+				                                    type="checkbox"><span class="check-img"></span>가벽<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>단열</label></div>
+				                                    type="checkbox"><span class="check-img"></span>단열<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>도배</label></div>
+				                                    type="checkbox"><span class="check-img"></span>도배<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>마루</label></div>
+				                                    type="checkbox"><span class="check-img"></span>마루<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>목공</label></div>
+				                                    type="checkbox"><span class="check-img"></span>목공<span style="display:none;">,</span><span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>몰딩</label></div>
+				                                    type="checkbox"><span class="check-img"></span>몰딩<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>바닥</label></div>
+				                                    type="checkbox"><span class="check-img"></span>바닥<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>벽</label></div>
+				                                    type="checkbox"><span class="check-img"></span>벽<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>붙박이</label></div>
+				                                    type="checkbox"><span class="check-img"></span>붙박이<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>창호/창호</label></div>
+				                                    type="checkbox"><span class="check-img"></span>창호/창호<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>수리/복구</label></div>
+				                                    type="checkbox"><span class="check-img"></span>수리/복구<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>실리콘</label></div>
+				                                    type="checkbox"><span class="check-img"></span>실리콘<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>외관/외벽</label></div>
+				                                    type="checkbox"><span class="check-img"></span>외관/외벽<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>입주청소</label></div>
+				                                    type="checkbox"><span class="check-img"></span>입주청소<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>장판</label></div>
+				                                    type="checkbox"><span class="check-img"></span>장판<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>전기</label></div>
+				                                    type="checkbox"><span class="check-img"></span>전기<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>조명</label></div>
+				                                    type="checkbox"><span class="check-img"></span>조명<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>줄눈</label></div>
+				                                    type="checkbox"><span class="check-img"></span>줄눈<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>천장</label></div>
+				                                    type="checkbox"><span class="check-img"></span>천장<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>철거</label></div>
+				                                    type="checkbox"><span class="check-img"></span>철거<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>콘센트</label></div>
+				                                    type="checkbox"><span class="check-img"></span>콘센트<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>타일</label></div>
+				                                    type="checkbox"><span class="check-img"></span>타일<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>페인트</label></div>
+				                                    type="checkbox"><span class="check-img"></span>페인트<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>필름</label></div>
+				                                    type="checkbox"><span class="check-img"></span>필름<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>기타공정</label></div>
+				                                    type="checkbox"><span class="check-img"></span>기타공정<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>기타청소</label></div>
+				                                    type="checkbox"><span class="check-img"></span>기타청소<span style="display:none;">,</span></label></div>
 				                    </li>
 				                </ul>
 				            </dd>
@@ -372,51 +373,51 @@
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>가구배치/이동</label></div>
+				                                    type="checkbox"><span class="check-img"></span>가구배치/이동<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>냉장고</label></div>
+				                                    type="checkbox"><span class="check-img"></span>냉장고<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>블라인드</label></div>
+				                                    type="checkbox"><span class="check-img"></span>블라인드<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>손잡이</label></div>
+				                                    type="checkbox"><span class="check-img"></span>손잡이<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>수전/싱크대</label></div>
+				                                    type="checkbox"><span class="check-img"></span>수전/싱크대<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>소파</label></div>
+				                                    type="checkbox"><span class="check-img"></span>소파<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>식탁</label></div>
+				                                    type="checkbox"><span class="check-img"></span>식탁<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>유리</label></div>
+				                                    type="checkbox"><span class="check-img"></span>유리<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>에어컨</label></div>
+				                                    type="checkbox"><span class="check-img"></span>에어컨<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>침대</label></div>
+				                                    type="checkbox"><span class="check-img"></span>침대<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>TV</label></div>
+				                                    type="checkbox"><span class="check-img"></span>TV<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>기타가구</label></div>
+				                                    type="checkbox"><span class="check-img"></span>기타가구<span style="display:none;">,</span></label></div>
 				                    </li>
 				                </ul>
 				            </dd>
@@ -425,19 +426,19 @@
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>단독주택</label></div>
+				                                    type="checkbox"><span class="check-img"></span>단독주택<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>아파트</label></div>
+				                                    type="checkbox"><span class="check-img"></span>아파트<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>상가</label></div>
+				                                    type="checkbox"><span class="check-img"></span>상가<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>원룸</label></div>
+				                                    type="checkbox"><span class="check-img"></span>원룸<span style="display:none;">,</span></label></div>
 				                    </li>
 				                </ul>
 				            </dd>
@@ -446,27 +447,27 @@
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>10평미만</label></div>
+				                                    type="checkbox"><span class="check-img"></span>10평미만<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>10평대</label></div>
+				                                    type="checkbox"><span class="check-img"></span>10평대<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>20평대</label></div>
+				                                    type="checkbox"><span class="check-img"></span>20평대<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>30평대</label></div>
+				                                    type="checkbox"><span class="check-img"></span>30평대<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>40평대</label></div>
+				                                    type="checkbox"><span class="check-img"></span>40평대<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>50평이상</label></div>
+				                                    type="checkbox"><span class="check-img"></span>50평이상<span style="display:none;">,</span></label></div>
 				                    </li>
 				                </ul>
 				            </dd>
@@ -475,23 +476,23 @@
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>화장실</label></div>
+				                                    type="checkbox"><span class="check-img"></span>화장실<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>베란다</label></div>
+				                                    type="checkbox"><span class="check-img"></span>베란다<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>거실</label></div>
+				                                    type="checkbox"><span class="check-img"></span>거실<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>주방</label></div>
+				                                    type="checkbox"><span class="check-img"></span>주방<span style="display:none;">,</span></label></div>
 				                    </li>
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>현관</label></div>
+				                                    type="checkbox"><span class="check-img"></span>현관<span style="display:none;">,</span></label></div>
 				                    </li>
 				                </ul>
 				            </dd>
@@ -500,7 +501,7 @@
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
 				                        <div class="form-check"><label class="form-check-label"><input class="form-check"
-				                                    type="checkbox"><span class="check-img"></span>기타</label></div>
+				                                    type="checkbox"><span class="check-img"></span>기타<span style="display:none;">,</span></label></div>
 				                    </li>
 				                </ul>
 				            </dd>
@@ -525,7 +526,6 @@
     	<button type="button" id="modalBtn">Hashtag Modal</button>
     </div>
         <!--End Modal-->
-
 
 
 <script type="text/javascript">
@@ -561,15 +561,7 @@
     	//대신 form submit 시 controller로 넘어는 간다
     	if(quests_id!='' && quests_nickname!=''&&quests_title!=''){
 	    	$('[name=question-feed__form]').attr('action', '/questions/new');
-			
-	    	$.ajax({
-	    		url:'/questions/hashtag',
-	    		type:'post',
-	    		data: {hash_arr},
-	    		success:function(result){
-	    			console.log('뭐');
-	    		}
-	    	});
+			$('[name=hash_arr]').val(hash_arr);
 	    	
 	    	$('[name=question-feed__form]').submit();
     	}
