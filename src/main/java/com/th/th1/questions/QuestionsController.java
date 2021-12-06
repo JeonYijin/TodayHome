@@ -22,11 +22,6 @@ import com.th.th1.q_reply.Q_ReplyVO;
 
 import net.sf.json.JSONArray;
 
-
-
-
-
-
 @Controller 
 @RequestMapping("/questions/**")
 public class QuestionsController {
@@ -54,7 +49,8 @@ public class QuestionsController {
 	public ModelAndView getSelectOne(QuestionsVO questionsVO) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		questionsVO = questionsService.getQuestionOne(questionsVO);
-		
+		System.out.println("hungry:"+questionsVO.getTags().get(0));
+		List<HashtagVO> hashList = questionsService.getHashtag(questionsVO);
 		mav.setViewName("questions/questions_one");
 		mav.addObject("quest", questionsVO);
 		
@@ -79,6 +75,22 @@ public class QuestionsController {
 		System.out.println("건너온 title : "+questionsVO.getQuests_title());
 		System.out.println("건너온 contents : "+questionsVO.getQuests_contents());		
 		System.out.println("건너온 hash_arr : "+hash_arr);
+		
+		String[] url1 = questionsVO.getQuests_contents().split("src=\\\"");
+//		System.out.println("url1 : "+url1[1]);
+		String[] url2 = null;
+		if(url1 != null) {
+			url2 = url1[1].split("\"");			
+			String url = url2[0];
+			System.out.println("ck image url test : "+url);
+			
+			questionsVO.setThumbnail(url);
+		} else {
+			questionsVO.setThumbnail(null);
+		}
+		
+		
+		
 		String[] arr = hash_arr.split("\",");
 		
 		ArrayList<String> hashArr = new ArrayList<String>();

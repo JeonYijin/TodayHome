@@ -55,4 +55,8 @@ public class QuestionsService {
 		return questionsDAO.setQuestionDelete(questionsVO);
 	}
 	
+	public List<HashtagVO> getHashtag(QuestionsVO questionsVO) throws Exception {
+		return questionsDAO.getHashtag(questionsVO);
+	}
+	
 }

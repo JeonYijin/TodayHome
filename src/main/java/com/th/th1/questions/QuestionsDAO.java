@@ -28,6 +28,7 @@ public interface QuestionsDAO {
 	/** 질문과답변 질문글 delete */
 	public int setQuestionDelete(QuestionsVO questionsVO) throws Exception;
 	
+	public List<HashtagVO> getHashtag(QuestionsVO questionsVO) throws Exception;
 	
 	
 	
