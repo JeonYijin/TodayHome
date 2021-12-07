@@ -18,4 +18,6 @@ public interface QCommentDAO {
     // 댓글 삭제
     public int commentDelete(int cnum) throws Exception;
 
+    // 해당글의 댓글 갯수를 Question글에 insert
+    public int setCountIntoQuestions(int count, int cnum) throws Exception;
 }

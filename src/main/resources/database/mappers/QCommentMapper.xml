@@ -26,4 +26,5 @@
         where cnum=#{cnum}
     </delete>
 
+
  </mapper>

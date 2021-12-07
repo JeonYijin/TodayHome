@@ -8,14 +8,20 @@ import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.th.th1.comment.QCommentDAO;
+
 @Service
 public class QuestionsService {
 
 	@Autowired
 	private QuestionsDAO questionsDAO;
 	
+	
 	/** 질문과답변 selectOne */
 	public QuestionsVO getQuestionOne(QuestionsVO questionsVO) throws Exception{
+		//조회수 update
+		int result = questionsDAO.updateViewsCount(questionsVO.getQuests_num());
+				
 		return questionsDAO.getQuestionOne(questionsVO);
 	}
 	
@@ -58,5 +64,6 @@ public class QuestionsService {
 	public List<HashtagVO> getHashtag(QuestionsVO questionsVO) throws Exception {
 		return questionsDAO.getHashtag(questionsVO);
 	}
+	
 	
 }

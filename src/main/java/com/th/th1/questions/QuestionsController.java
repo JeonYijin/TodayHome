@@ -32,10 +32,13 @@ public class QuestionsController {
 	
 	/* [질문과답변 전체리스트 조회] */
 	@GetMapping("/")
-	public ModelAndView getList() throws Exception {
+	public ModelAndView getList(QuestionsVO questionsVO) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		
 		List<QuestionsVO> list = questionsService.getQuestionsList();
+//		System.out.println("글1의 댓글갯수: "+list.get(0).getReply());
+//		System.out.println("글2의 댓글갯수: "+list.get(1).getReply());
+//		System.out.println("글3의 댓글갯수: "+list.get(2).getReply());				
 		
 		mav.addObject("list", list);
 		mav.setViewName("questions/questions_list");
@@ -50,6 +53,8 @@ public class QuestionsController {
 		ModelAndView mav = new ModelAndView();
 		questionsVO = questionsService.getQuestionOne(questionsVO);
 		System.out.println("hungry:"+questionsVO.getTags().get(0));
+		System.out.println("selectOne 작성시간:"+questionsVO.getRegDate());
+		System.out.println("selectOne 조회수:"+questionsVO.getReply());
 		List<HashtagVO> hashList = questionsService.getHashtag(questionsVO);
 		mav.setViewName("questions/questions_one");
 		mav.addObject("quest", questionsVO);
@@ -76,20 +81,17 @@ public class QuestionsController {
 		System.out.println("건너온 contents : "+questionsVO.getQuests_contents());		
 		System.out.println("건너온 hash_arr : "+hash_arr);
 		
-		String[] url1 = questionsVO.getQuests_contents().split("src=\\\"");
-//		System.out.println("url1 : "+url1[1]);
-		String[] url2 = null;
-		if(url1 != null) {
+		if(questionsVO.getQuests_contents() != null && questionsVO.getQuests_contents().contains("src")) {
+			String[] url1 = questionsVO.getQuests_contents().split("src=\\\"");
+			String[] url2 = null;
 			url2 = url1[1].split("\"");			
 			String url = url2[0];
 			System.out.println("ck image url test : "+url);
-			
-			questionsVO.setThumbnail(url);
+			questionsVO.setThumbnail(url);			
 		} else {
 			questionsVO.setThumbnail(null);
 		}
-		
-		
+
 		
 		String[] arr = hash_arr.split("\",");
 		
@@ -107,7 +109,7 @@ public class QuestionsController {
 		
 		ModelAndView mav = new ModelAndView();
 		int result = questionsService.setQuestionInsert(questionsVO, hashArr);
-		mav.setViewName("redirect:/");
+		mav.setViewName("redirect:/questions");
 //		System.out.println("result : "+result);
 		
 		return mav;
@@ -136,7 +138,7 @@ public class QuestionsController {
 		int result = questionsService.setQuestionUpdate(questionsVO);
 		System.out.println("리절트~:"+result);
 		if(result == 1) {
-			mav.setViewName("redirect:/");
+			mav.setViewName("redirect:/questions");
 		} else {
 			mav.setViewName("questions/questions_update?quests_num="+questionsVO.getQuests_num());
 		}
@@ -151,7 +153,7 @@ public class QuestionsController {
 		String jsp = "";
 		
 		if(result==1) {
-			jsp="redirect:/";
+			jsp="redirect:/questions";
 		} else {
 			jsp="questions/questions_update?quests_num="+questionsVO.getQuests_num();
 		}

@@ -30,6 +30,13 @@ public interface QuestionsDAO {
 	
 	public List<HashtagVO> getHashtag(QuestionsVO questionsVO) throws Exception;
 	
+	/** 댓글수 +1 update*/
+	public int plusReplyCount(int qnum) throws Exception;
 	
+	/** 댓글수 -1 update*/
+	public int minusReplyCount(int qnum) throws Exception;
+	
+	/** 조회수 업데이트 */
+	public int updateViewsCount(int qnum) throws Exception;
 	
 }

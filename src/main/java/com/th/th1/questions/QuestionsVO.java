@@ -16,6 +16,7 @@ public class QuestionsVO {
 	private Timestamp regDate;
 	private String thumbnail;
 	
+	private Integer reply; //댓글 갯수
 	private List<HashtagVO> tags;	
 	
 }

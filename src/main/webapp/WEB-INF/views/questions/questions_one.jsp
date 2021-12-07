@@ -76,8 +76,8 @@
                                     </g>
                                 </svg><span class="qna-detail-actions__action__label">공유</span></button></div>
                     </aside>
-                    <div class="qna-detail__footer__metadata"><time>(작성 시간)</time><span>조회<span
-                                class="qna-detail__footer__metadata-view-count-value">(조회수)</span></span><span><button
+                    <div class="qna-detail__footer__metadata"><time>${quest.regDate}</time><span>조회<span
+                                class="qna-detail__footer__metadata-view-count-value">${quest.reply}</span></span><span><button
                                 class="qna-detail__footer__metadata-report-link" type="button">신고</button></span></div>
                 </footer>
                 <section class="qna-detail__comment-section">
@@ -226,6 +226,8 @@
     </main>
     
 </body>
+
+
 <script type="text/javascript">
 	var loginId = $('#memberVO_id').val();	
 	var writerId = '${quest.quests_id}';
@@ -242,7 +244,7 @@
 			location.href='/questions/delete?quests_id='+questsId+'&quests_num='+questsNum;
 		};
 	})
-</script>s
+</script>
 <script type="text/javascript">
 var qnum = '${quest.quests_num}'; //게시글 번호
 
@@ -282,12 +284,21 @@ function commentList(){
             $(".commentList").html(a);
             $(".comment-feed__list").html(a);
             
+            $.ajax({
+            	url : '/comment/count',
+            	type : 'get',
+            	data : {'qnum':qnum},
+            	success : function(data){
+            		$('.comment-feed__header__count').html(data);		
+            	}
+            });
             
         }
     });
 }
 
 //대댓글 달기 form 생성 click event
+//대댓글기능 보완 필요
 $('#dap').click(function(){ 
 	alert('click됨');
 	var b='';
@@ -325,9 +336,11 @@ function commentInsert(insertData){
         type : 'post',
         data : insertData,
         success : function(data){
-            if(data == 1) {
+            if(data != 1) {
                 commentList(); //댓글 작성 후 댓글 목록 reload
                 $('.comment-feed__form__content__text').html('');
+                //변경된 댓글수 page에 반영
+                $('.comment-feed__header__count').html(data);
             }
         }
     });
@@ -347,17 +360,6 @@ function commentDelete(cnum){
 $(document).ready(function(){
     commentList(); //페이지 로딩시 댓글 목록 출력 
 });
- 
-
-//보완 필요 -- 댓글수 가감시 즉시 반영돼야 함 --> questions table에서 data 받아와야 함 
-	$.ajax({
-		url : '/comment/count',
-		type : 'get',
-		data : {qnum : qnum},
-		success : function(data){
-			$('.comment-feed__header__count').html(data);
-		}
-	});
 
 </script>
 <script type="text/javascript">

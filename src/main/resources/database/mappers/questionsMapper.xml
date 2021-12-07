@@ -19,6 +19,7 @@
 		<result column="quests_contents" property="quests_contents"/>
 		<result column="hits" property="hits"/>
 		<result column="regDate" property="regDate"/>
+		<result column="reply" property="reply"/>
 		<collection property="tags" javaType="List" ofType="HashtagVO">
 			<id column="num" property="num"/>
 			<result column="quests_num" property="quests_num"/>
@@ -42,6 +43,7 @@
 		<result column="quests_contents" property="quests_contents"/>
 		<result column="hits" property="hits"/>
 		<result column="regDate" property="regDate"/>
+		<result column="reply" property="reply"/>
 		<collection property="tags" javaType="List" ofType="HashtagVO">
 			<id column="num" property="num"/>
 			<result column="quests_num" property="quests_num"/>
@@ -78,5 +80,25 @@
 		DELETE FROM QUESTIONS
 		WHERE QUESTS_NUM=#{quests_num} AND QUESTS_ID=#{quests_id}
 	</delete>	
+	
+	<!-- 댓글수 +1 update -->
+	<update id="plusReplyCount" parameterType="int">
+		UPDATE QUESTIONS
+		SET REPLY=REPLY+1
+		WHERE QUESTS_NUM=#{qnum}
+	</update>
+	
+	<!-- 댓글수 -1 update -->
+	<update id="minusReplyCount" parameterType="int">
+		UPDATE QUESTIONS
+		SET REPLY=REPLY-1
+		WHERE QUESTS_NUM=#{qnum}
+	</update>
+	
+	<update id="updateViewsCount" parameterType="int">
+		UPDATE QUESTIONS
+		SET HITS=HITS+1
+		WHERE QUESTS_NUM=#{qnum}
+	</update>
 
 </mapper>

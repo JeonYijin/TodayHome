@@ -184,8 +184,8 @@
                                 </div>
                                 <div class="css-t3gvvz-QuestionStats e1amn78m2">
                                     <div class="css-hbjh7j-QuestionStatsItem e1amn78m1">${lists.regDate}</div>
-                                    <div class="css-hbjh7j-QuestionStatsItem e1amn78m1">댓글 0</div>
-                                    <div class="css-hbjh7j-QuestionStatsItem e1amn78m1">${lists.hits}</div>
+                                    <div class="css-hbjh7j-QuestionStatsItem e1amn78m1">댓글 ${lists.reply}</div>
+                                    <div class="css-hbjh7j-QuestionStatsItem e1amn78m1">조회 ${lists.hits}</div>
                                 </div>
                             </div>
                             <ul class="e1amn78m0 css-3qi429-KeywordList-QuestionKeywordList e83svgi2">
