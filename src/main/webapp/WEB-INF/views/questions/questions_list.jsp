@@ -155,52 +155,53 @@
                     class="_3Z6oR _3AsCW _1BDvx css-107ia2q-PanelButton-PanelNewButton ehxcasx0"
                     href="/questions/new">질문하기</a></div>
         </div>
-        <div class="css-1amvimq-FeedItemList evxc8q72"><a class="css-2acggu-ItemLink e1lj374k2"
-                href="/questions/2378"><span class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span
-                    class="css-wk63b1-ItemText e1lj374k0">오늘의집 인테리어 멘토를 만나보세요🏆</span></a><a
-                class="css-2acggu-ItemLink e1lj374k2" href="/questions/3703"><span
-                    class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span class="css-wk63b1-ItemText e1lj374k0">답변
-                    이벤트 안내 및 활동 주의사항 📢</span></a><a class="css-2acggu-ItemLink e1lj374k2" href="/questions/12549"><span
-                    class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span class="css-wk63b1-ItemText e1lj374k0">빠르고 정확한
-                    인테리어 답변을 받는 방법은?</span></a>
+        <div class="css-1amvimq-FeedItemList evxc8q72">
+        	<c:forEach items="${list}" var="lists">
+	        	<c:if test="${lists.notice eq 1}">
+	        		<a class="css-2acggu-ItemLink e1lj374k2" href="/questions/selectOne?quests_num=${lists.quests_num}"><span class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span
+	                    class="css-wk63b1-ItemText e1lj374k0">${lists.quests_title}</span></a>
+	            </c:if>
+            </c:forEach>        
             <c:forEach items="${list}" var="lists">
-                <div class="css-1edegka-QuestionContainer e1amn78m14"><a class="css-qa3x0s-QuestionLink e1amn78m8"
-                        href="./questions/selectOne?quests_num=${lists.quests_num}"></a>
-                    <div class="css-av0u4k-QuestionContent e1amn78m9">
-                    	<c:if test="${lists.thumbnail ne null}">
-	                        <div class="css-17vr42v-QuestionImageContainer e1amn78m13">
-	                        	<img class="css-l9iija-QuestionImage e1amn78m12" src="/resources${lists.thumbnail}"/>
+	            <c:if test="${empty lists.notice}">
+	                <div class="css-1edegka-QuestionContainer e1amn78m14"><a class="css-qa3x0s-QuestionLink e1amn78m8"
+	                        href="./questions/selectOne?quests_num=${lists.quests_num}"></a>
+	                    <div class="css-av0u4k-QuestionContent e1amn78m9">
+	                    	<c:if test="${lists.thumbnail ne null}">
+		                        <div class="css-17vr42v-QuestionImageContainer e1amn78m13">
+		                        	<img class="css-l9iija-QuestionImage e1amn78m12" src="/resources${lists.thumbnail}"/>
+		                        </div>
+	                        </c:if>
+	                        <div class="css-13xsgfl-QuestionTitle e1amn78m11"><span>${lists.quests_title}</span></div>
+	                        <div class="css-6kkt2h-QuestionDescription e1amn78m10"><span>${lists.list_contents}</span>
 	                        </div>
-                        </c:if>
-                        <div class="css-13xsgfl-QuestionTitle e1amn78m11"><span>${lists.quests_title}</span></div>
-                        <div class="css-6kkt2h-QuestionDescription e1amn78m10"><span>${lists.list_contents}</span>
-                        </div>
-                        <div class="css-1egl09a-QuestionFooter e1amn78m7">
-                            <div class="css-15rrev1-QuestionFooterRow e1amn78m6">
-                                <div class="css-ksfmz3-QuestionAuthor e1amn78m5">
-                                    <div class="css-1kglkcx-QuestionAuthorImageContainer e1amn78m4"><img
-                                            class="css-1k5etid-QuestionAuthorImage e1amn78m3" alt=""
-                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36&amp;h=36&amp;c=c"
-                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36&amp;h=36&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;h=72&amp;c=c 3x">
-                                    </div>${lists.quests_nickname}
-                                </div>
-                                <div class="css-t3gvvz-QuestionStats e1amn78m2">
-                                    <div class="css-hbjh7j-QuestionStatsItem e1amn78m1">${lists.regDate}</div>
-                                    <div class="css-hbjh7j-QuestionStatsItem e1amn78m1">댓글 ${lists.reply}</div>
-                                    <div class="css-hbjh7j-QuestionStatsItem e1amn78m1">조회 ${lists.hits}</div>
-                                </div>
-                            </div>
-                            <ul class="e1amn78m0 css-3qi429-KeywordList-QuestionKeywordList e83svgi2">
-                                <c:forEach items="${lists.tags}" var="hashtagVO">
-                                    <li class="css-vdlu9i-KeywordListItem e83svgi1">
-                                        <button type="button"
-                                            class="css-1rp83u8-KeywordItem e83svgi0">${hashtagVO.hashtag_name}</button>
-                                    </li>
-                                </c:forEach>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+	                        <div class="css-1egl09a-QuestionFooter e1amn78m7">
+	                            <div class="css-15rrev1-QuestionFooterRow e1amn78m6">
+	                                <div class="css-ksfmz3-QuestionAuthor e1amn78m5">
+	                                    <div class="css-1kglkcx-QuestionAuthorImageContainer e1amn78m4"><img
+	                                            class="css-1k5etid-QuestionAuthorImage e1amn78m3" alt=""
+	                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36&amp;h=36&amp;c=c"
+	                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36&amp;h=36&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;h=72&amp;c=c 3x">
+	                                    </div>${lists.quests_nickname}
+	                                </div>
+	                                <div class="css-t3gvvz-QuestionStats e1amn78m2">
+	                                    <div class="css-hbjh7j-QuestionStatsItem e1amn78m1">${lists.regDate}</div>
+	                                    <div class="css-hbjh7j-QuestionStatsItem e1amn78m1">댓글 ${lists.reply}</div>
+	                                    <div class="css-hbjh7j-QuestionStatsItem e1amn78m1">조회 ${lists.hits}</div>
+	                                </div>
+	                            </div>
+	                            <ul class="e1amn78m0 css-3qi429-KeywordList-QuestionKeywordList e83svgi2">
+	                                <c:forEach items="${lists.tags}" var="hashtagVO">
+	                                    <li class="css-vdlu9i-KeywordListItem e83svgi1">
+	                                        <button type="button"
+	                                            class="css-1rp83u8-KeywordItem e83svgi0">${hashtagVO.hashtag_name}</button>
+	                                    </li>
+	                                </c:forEach>
+	                            </ul>
+	                        </div>
+	                    </div>
+	                </div>
+                </c:if>
             </c:forEach>
         </div>
     </div>

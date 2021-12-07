@@ -113,8 +113,18 @@
                             <div class="editor-command-list-pc"></div>
                         </div>
                         <div class="editor-pc-header__right">
+                        <form method="post" name="question-feed__form">
                             <div class="editor__save-section">
                                 <div class="drop-down editor-draft-menu">
+                                	<sec:authorize access="isAuthenticated()" var="result">
+						  				<sec:authentication property="principal" var="memberVO"/>
+						  				<c:forEach items="${memberVO.roles}" var="role">
+						  					<c:if test="${role.num eq 2}">
+			                                	<div class="editor-draft-menu-pc-button" style="border:transparent;"><label class="form-check-label"><input class="notice-check"
+				                                    type="checkbox" value="1" name="notice"/><span class="check-img"></span>공지 등록</label></div>
+						  					</c:if>
+						  				</c:forEach>
+		  							</sec:authorize>	
                                     <div class="editor-draft-menu-pc-button"><button type="button"
                                             class="editor-draft-menu-pc-button__save"><span
                                                 class="text-lg">임시저장</span><span class="text-md">저장</span></button>
@@ -127,7 +137,7 @@
                 </div>
             </div>
         </div>
-        <form method="post" name="question-feed__form">
+        
 	        <div class="editor__top">
 	            <div class="editor-top-section">
 	                <div class="editor-top-sub-section"><button class="editor-top-sub-section-header" type="button"
@@ -160,8 +170,7 @@
 	                        </div>
 	                    </div>
 	                </div>
-	            </div>
-	            
+	            </div>	            
 		            <sec:authorize access="isAuthenticated()" var="result">
 		  				<sec:authentication property="principal.id" var="id"/>
 		  				<sec:authentication property="principal" var="memberVO"/>
@@ -535,7 +544,7 @@
      
 	//팝업 Close 기능
     function close_pop(flag) {
-		$("input[type=checkbox]").prop("checked", false);
+		$("form-check").prop("checked", false);
     	$('#myModal').hide();
     }; 
     
@@ -556,15 +565,13 @@
     	var quests_nickname=$('[name=quests_nickname]').val();
     	var quests_title=$('[name=quests_title]').val();
 		
-		//textarea 내 tag들을 제외(특히 <img> 얘를 제외한(공백은 포함)) 순수 text		
+		//textarea 내 tag들을 제외한(특히 <img> 얘를 제외한(공백은 포함)) 순수 text		
 		var editorContent = CKEDITOR.instances.quests_contents.getData();
 		var convertContent = editorContent.replace(/(<([^>]+)>)/ig,"");
 		$('[name=list_contents]').val(convertContent);
 		
-    	console.log(quests_id, quests_nickname, quests_contents, quests_title);
-    	
-    	//contents값(textarea값)은 ckeditor 때문에 javascript에서 가져올 수가 없어서 일단 제외 --> 추후 구글링해서 보강
-    	//대신 form submit 시 controller로 넘어는 간다
+    	console.log(quests_id, quests_nickname, quests_contents, quests_title);  	
+    	 
     	if(quests_id!='' && quests_nickname!=''&&quests_title!=''){
 	    	$('[name=question-feed__form]').attr('action', '/questions/new');
 			$('[name=hash_arr]').val(hash_arr);

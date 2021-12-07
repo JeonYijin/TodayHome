@@ -43,7 +43,7 @@ public class QuestionsController {
 		mav.addObject("list", list);
 		mav.setViewName("questions/questions_list");
 		
-		return mav;		
+		return mav;
 	}
 	
 	

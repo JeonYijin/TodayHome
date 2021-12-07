@@ -25,6 +25,8 @@
         delete from q_comment
         where cnum=#{cnum}
     </delete>
+    
+    <!-- 좋아요 관련 기능: 클릭시 +1, 취소시 -1, 좋아요갯수 select  -->
 
 
  </mapper>

@@ -22,6 +22,7 @@
 		<result column="regDate" property="regDate"/>
 		<result column="reply" property="reply"/>
 		<result column="thumbnail" property="thumbnail"/>
+		<result column="notice" property="notice"/>
 		<collection property="tags" javaType="List" ofType="HashtagVO">
 			<id column="num" property="num"/>
 			<result column="quests_num" property="quests_num"/>
@@ -46,6 +47,7 @@
 		<result column="hits" property="hits"/>
 		<result column="regDate" property="regDate"/>
 		<result column="reply" property="reply"/>
+		<result column="notice" property="notice"/>
 		<collection property="tags" javaType="List" ofType="HashtagVO">
 			<id column="num" property="num"/>
 			<result column="quests_num" property="quests_num"/>
@@ -55,10 +57,11 @@
 
 	<!-- 질문과답변 insert -->
 	<insert id="setQuestionInsert" parameterType="QuestionsVO" useGeneratedKeys="true" keyProperty="quests_num">
-		INSERT INTO QUESTIONS (quests_num, quests_id, quests_nickname, quests_title, quests_contents, list_contents, hits, regDate, reply, thumbnail)
-		VALUES (null, #{quests_id}, #{quests_nickname}, #{quests_title}, #{quests_contents}, #{list_contents}, default, default, 0, #{thumbnail})
+		INSERT INTO QUESTIONS (quests_num, quests_id, quests_nickname, quests_title, quests_contents, list_contents, hits, regDate, reply, thumbnail, notice)
+		VALUES (null, #{quests_id}, #{quests_nickname}, #{quests_title}, #{quests_contents}, #{list_contents}, default, default, 0, #{thumbnail}, #{notice})
 	</insert>
 	
+	<!-- 해시태그 가져오기 -->
 	<select id="getHashtag" parameterType="QuestionsVO" resultType="HashtagVO">
 		SELECT * FROM QUESTIONS_HASHTAG
 		WHERE QUESTS_NUM=#{quests_num}
@@ -97,6 +100,7 @@
 		WHERE QUESTS_NUM=#{qnum}
 	</update>
 	
+	<!-- 조회수 증가 -->
 	<update id="updateViewsCount" parameterType="int">
 		UPDATE QUESTIONS
 		SET HITS=HITS+1
