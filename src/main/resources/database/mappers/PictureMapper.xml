@@ -100,6 +100,10 @@
   		update picture set hit = hit+1 where post_id = #{post_id}
   	</update>
   
+  
+  
+  
+  
   	<!-- 파일 인서트 -->
   	<insert id="setPicFileInsert" parameterType="PictureFileVO">
   		insert into picturefile(picFilenum, picFilename, picOriname,post_id, idx)
@@ -115,5 +119,77 @@
   	<delete id="setPicFileDelete" parameterType="PictureFileVO">
   		delete from picturefile where picFilenum = #{picFilenum}
   	</delete>
+  	
+  	
+  	
+  	
+  	<!-- 댓글 인서트 -->
+  	
+  	<insert id="setCommentInsert" parameterType="PicCommentVO" useGeneratedKeys="true" keyProperty="comment_num">
+  		insert into piccomment(comment_num, comment_text, memberNum, post_id, comment_date, ref, step, depth)
+  		values(#{comment_num}, #{comment_text}, #{memberNum}, #{post_id}, now(), 0,0,0)
+  	</insert>
+  	
+  	<!-- 댓글 수정 -->
+  	<update id="setCommentUpdate" parameterType="PicCommentVO">
+  		update piccomment set comment_text = #{comment_text}, comment_date=now()
+  	</update>
+  	
+  	<!-- 댓글 삭제 -->
+  	<delete id="setCommentDelete" parameterType="PicCommentVO">
+  		delete from piccomment where comment_num = #{comment_num}
+  	</delete>
+  	
+  	<!-- 댓글 조회 -->
+  	<select id="getComment" parameterType="PicCommentVO" resultMap="getCommentResult">
+  		select PC.*, M.nickname from
+  		piccomment PC inner join member M
+  		on PC.memberNum = M.memberNum
+  		where post_id = #{post_id}
+  	</select>
+  	<resultMap type="PicCommentVO" id="getCommentResult">
+  		<id column="comment_num" property="comment_num"/>
+  		<result column="comment_text" property="comment_text"/>
+  		<result column="memberNum" property="memberNum"/>
+  		<result column="post_id" property="post_id"/>
+  		<result column="comment_date" property="comment_date"/>
+  		<result column="ref" property="ref"/>
+  		<result column="step" property="step"/>
+  		<result column="depth" property="depth"/>
+  		
+  		<collection property="memberVO" javaType="List" ofType="MemberVO">
+  			<id column="memberNum" property="memberNum"/>
+  			<result column="nickname" property="nickname"/>		
+  		</collection>
+  	</resultMap>
+  	
+  	
+  	<!-- 댓글에 답댓글 달기 -->
+  	<insert id="setReplyComment" parameterType="PicCommentVO" useGeneratedKeys="true" keyProperty="comment_num">
+  		insert into piccomment(comment_num, comment_text, memberNum, post_id, comment_date, ref, step, depth)
+  		values(0, #{comment_text}, #{memberNum}, #{post_id}, now(), 
+	  		(select R.ref from (select * from piccomment where comment_num=#{comment_num}) R),
+	  		(select S.step+1 from (select * from piccomment where comment_num=#{comment_num}) S),
+	  		(select D.depth+1 from(select * from piccomment where comment_num=#{comment_num}) D)
+  		)
+  	</insert>
+  	<!-- 답댓글 달기전에 ref, step 업데이트 -->
+  	<update id="setReplyUpdate" parameterType="PicCommentVO">
+		update piccomment set step=step+1 where 
+		ref=(select R.ref from (select * from piccomment where comment_num=#{comment_num})R)
+		and
+		step > (select S.step from (select * from piccomment where comment_num=#{comment_num})S)
+	</update>
+  	<!-- 원댓글 쓸때 ref 업데이트해주기 -->
+  	<update id="setRefUpdate" parameterType="PicCommentVO">
+		update piccomment set ref =#{comment_num} where comment_num = #{comment_num}
+	</update>
+  	
+  
+  	<!-- 댓글 개수 가져오기 -->
+  	<select id="getCommentCount" parameterType="PicCommentVO" resultType="Long">
+  		select count(*) count from piccomment where post_id=#{post_id}
+  	</select>
+  
   	
   </mapper>

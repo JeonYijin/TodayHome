@@ -27,7 +27,6 @@ public class PictureService {
 		
 		//글 먼저 인서트
 		int result = pictureDAO.setPicInsert(pictureVO);
-		
 	
 		
 		//글 인서트하고 파일 인서트
@@ -70,10 +69,6 @@ public class PictureService {
 		return pictureDAO.getPicList();
 	}
 	
-	//글쓴이 조회
-	public List<MemberVO> getPicWriter() throws Exception{
-		return pictureDAO.getPicWriter();
-	}
 	
 	//글 상세조회 + 조회수 업데이트
 	public PictureVO getPicOne(PictureVO pictureVO) throws Exception{
@@ -85,5 +80,45 @@ public class PictureService {
 	public List<PictureFileVO> getPicFile(PictureFileVO pictureFileVO) throws Exception{
 		return pictureDAO.getPicFile(pictureFileVO);
 	}
+	
+	
+	//댓글쓰기
+	public int setCommentInsert(PicCommentVO picCommentVO) throws Exception{
+		int result = pictureDAO.setCommentInsert(picCommentVO);
+		result = pictureDAO.setRefUpdate(picCommentVO);
+		System.out.println("comment_num:"+picCommentVO.getComment_num());
+		
+		return result;
+	}
+	
+	//댓글 수정
+	public int setCommentUpdate(PicCommentVO picCommentVO) throws Exception{
+		return pictureDAO.setCommentUpdate(picCommentVO);
+	}
+	
+	//댓글 삭제
+	public int setCommentDelete(PicCommentVO picCommentVO) throws Exception{
+		return pictureDAO.setCommentDelete(picCommentVO);
+	}
+	
+	//댓글 조회
+	public List<PicCommentVO> getComment(PicCommentVO picCommentVO) throws Exception{
+		return pictureDAO.getComment(picCommentVO);
+	}
+	
+	//답댓글 쓰기
+	public int setReplyComment(PicCommentVO picCommentVO) throws Exception{
+		int result = pictureDAO.setReplyUpdate(picCommentVO);
+		 result = pictureDAO.setReplyComment(picCommentVO);
+		System.out.println("comment_num cc:"+picCommentVO.getComment_num());
+		System.out.println(picCommentVO.getStep());
+		return result;
+	}
+	
+	//댓글 개수 가져오기
+	public Long getCommentCount(PicCommentVO picCommentVO) throws Exception{
+		return pictureDAO.getCommentCount(picCommentVO);
+	}
+
 	
 }

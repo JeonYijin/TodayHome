@@ -116,7 +116,6 @@ function makeList(){
 //--------------------------------------------------------------------------
 //각 사진별로 인덱스 주기 - 대표 이미지 설정
  let radio = '<input type="radio" name="idx" value=1 style="display: inline;">';
- 
 
 
 

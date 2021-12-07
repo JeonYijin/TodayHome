@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../resources/css/picOne.css">
+<link rel="stylesheet" href="../resources/css/picComment.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<h1>PicOne page</h1>
@@ -97,7 +100,7 @@
 								</div>
 								<div class="css-1qjg72w-Div e17u2gy12">
 									<dt class="css-1sjfyqs-Dt e17u2gy11">댓글</dt>
-									<dd class="css-yn8cvv-Dd e17u2gy10">0</dd>
+									<dd class="css-yn8cvv-Dd e17u2gy10">${count}</dd>
 								</div>
 								<div class="css-1qjg72w-Div e17u2gy12">
 									<dt class="css-1sjfyqs-Dt e17u2gy11">공유</dt>
@@ -107,29 +110,118 @@
 							</dl>
 						</div>
 						
-						<div class="css-igg39q-SectionDiv ek1gwp50">
+						<div class="css-igg39q-SectionDiv ek1gwp50" style="margin-bottom: 150px;">
 							<section class="comment-feed">
 								<h1 class="comment-feed__header">댓글&nbsp;
-									<span class="comment-feed__header__count zero">0</span>
+									<span class="comment-feed__header__count zero">${count}</span>
 								</h1>
-								<form class="comment-feed__form">
+								<!-- 댓글 등록-->
+								
+								<form class="comment-feed__form comment_add" method="post" id="form">
 									<div class="comment-feed__form__user">
-										<img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=144 3x">
+										<!-- <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=144 3x"> -->
+										<img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x">
 									</div>
 									<div class="comment-feed__form__input">
 										<div class="comment-feed__form__content">
 											<div class="comment-content-input">
-												<div class="comment-content-input__text comment-feed__form__content__text" data-ph="칭찬과 격려의 댓글은 작성자에게 큰 힘이 됩니다 :)" contenteditable="true"></div>
+											<!-- 댓글 내용이 담기는 div -->
+												<input name="post_id" value="${picOne.post_id}"  id="post_id" type="hidden">
+												<sec:authentication property="principal" var="member"/>
+												<input name="memberNum" value="${member.memberNum}" id="memberNum" type="hidden">
+												<input name="comment_text" type="text" id= "comment_text" class="comment-content-input__text comment-feed__form__content__text" placeholder="칭찬과 격려의 댓글은 작성자에게 큰 힘이 됩니다 :)" >
+												<!-- <div  class="comment-content-input__text comment-feed__form__content__text" data-ph="칭찬과 격려의 댓글은 작성자에게 큰 힘이 됩니다 :)" contenteditable="true"></div> -->
 											</div>
 										</div>
 										
 										<div class="comment-feed__form__actions">
-											<button class="comment-feed__form__submit" aria-label="등록" type="submit" disabled="">등록</button>
+											<button class="comment-feed__form__submit add" aria-label="등록" type="button" >등록</button>
 										</div>
 									</div>
 								</form>
 								
-								<ul class="comment-feed__list"></ul>
+								<%-- <sec:authorize access="!isAuthenticated()">
+								<p>로그인하면 댓글 작성이 가능합니다.</p>
+								<a href="../member/memberLogin">로그인하러 가기</a>
+								</sec:authorize> --%>
+								<!-- 댓글 리스트 보여주기 -->
+								<ul class="comment-feed__list commentList">
+									<c:forEach items="${comment}" var="comment" varStatus="status" >
+									<sec:authentication property="principal" var="loginMember"/>
+									<c:forEach items="${comment.memberVO}" var="member">
+									
+									<c:if test="${member.memberNum eq loginMember.memberNum}">
+										<li class="comment-feed__list__item" id="comment${status.index}">
+										<!-- 답댓글일 경우 앞에 margin 주기 -->
+											<c:forEach begin="1" end="${comment.depth }">
+												<div style="margin-left: 20px;"></div>
+											</c:forEach>
+											<article class="comment-feed__item self">
+												<p class="comment-feed__item__content">
+													<a href="#" class="comment-feed__item__content__author" >
+														<img class="comment-feed__item__content__author__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x">
+														<span class="comment-feed__item__content__author__name">${loginMember.nickname}</span>
+													</a>
+													<span class="comment-feed__item__content__content">${comment.comment_text}&nbsp;</span>
+												</p>
+												<footer class="comment-feed__item__footer">
+													<time class="comment-feed__item__footer__time">${comment.comment_date}</time>
+													<span class="comment-feed__item__footer__likes zero">
+														<button class="comment-feed__item__footer__likes__icon" type="button">
+															<svg class="badge" width="15" height="14" preserveAspectRatio="xMidYMid meet">
+																<path fill-rule="evenodd" class="heart" d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z"></path>
+															</svg>
+														</button>
+														<span class="comment-feed__item__footer__likes__count">0</span>
+													</span>
+													
+													<input id="comment_num${status.index}" value="${comment.comment_num}" type="hidden">
+													<button class="comment-feed__item__footer__like-btn" type="button">좋아요</button>
+													<button class="comment-feed__item__footer__reply-btn" id="replyBtn${status.index}" type="button">답글 달기</button>
+													<button class="comment-feed__item__footer__delete-btn" id="deleteBtn${status.index}" type="button">삭제</button>
+													
+												</footer>
+										</article>
+										</li>
+									</c:if>
+									<c:if test="${member.memberNum ne loginMember.memberNum}">
+										<li class="comment-feed__list__item" id="comment${status.index}">
+											
+											<article class="comment-feed__item">
+												<p class="comment-feed__item__content">
+													<a href="/users/5990463" class="comment-feed__item__content__author">
+														<img class="comment-feed__item__content__author__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x">
+														<!-- <img class="comment-feed__item__content__author__image" alt="" src=""> -->
+															<c:if test="${member.memberNum eq comment.memberNum}">
+																<span class="comment-feed__item__content__author__name">${member.nickname}</span>
+															</c:if>
+													</a>
+													<span class="comment-feed__item__content__content">${comment.comment_text}</span>
+												</p>
+												
+												<footer class="comment-feed__item__footer">
+													<time class="comment-feed__item__footer__time">${comment.comment_date}</time>
+														<span class="comment-feed__item__footer__likes zero">
+															<button class="comment-feed__item__footer__likes__icon" type="button">
+																<svg class="badge" width="15" height="14" preserveAspectRatio="xMidYMid meet">
+																	<path fill-rule="evenodd" class="heart" d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z"></path>
+																</svg>
+															</button>
+															<span class="comment-feed__item__footer__likes__count">0</span>
+														</span>
+														<input id="comment_num${status.index}" value="${comment.comment_num}" type="hidden">
+														<button  class="comment-feed__item__footer__like-btn" >좋아요</button>
+														<button class="comment-feed__item__footer__reply-btn" id="replyBtn${status.index}" >답글 달기</button>
+														<button class="comment-feed__item__footer__report-btn" id="reportBtn${status.index}" >신고</button>
+														
+												</footer>
+											
+											</article>
+										</li>
+										</c:if>
+									</c:forEach>
+									</c:forEach>
+								</ul>
 							</section>
 						</div>
 					</div>
@@ -170,7 +262,7 @@
 										</div>
 									</div>
 									
-									<!-- <address class="css-cta4ra-AuthorAddress e1v9tg6s6">
+									 <address class="css-cta4ra-AuthorAddress e1v9tg6s6">
 										<div class="css-9pbsgo-AuthorAuthor e1v9tg6s5">
 											<div class="css-1p7q7e9-AuthorTitle e1v9tg6s4">
 												<a class="css-kp67iu-AuthorLink e1v9tg6s3" href="/users/2624519">
@@ -217,9 +309,9 @@
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 			
-				<!-- <div data-sticky-enabled="false" data-sticky-disabled="true" data-sticky-always="false" data-sticky-ignore="true" data-direction="bottom" data-offset="0" class="sticky-container content-detail-floating-wrap content-detail-floating-wrap--overlay">
+				 <div data-sticky-enabled="false" data-sticky-disabled="true" data-sticky-always="false" data-sticky-ignore="true" data-direction="bottom" data-offset="0" class="sticky-container content-detail-floating-wrap content-detail-floating-wrap--overlay">
 					<div class="sticky-child content-detail-floating" style="position: relative;">
 						<div class="css-t9d8mb-ContentDiv e4tbu8a1">
 							<button class="content-detail-floating-action content-detail-floating-action--horizontal" title="좋아요" type="button">
@@ -256,10 +348,156 @@
 							</div>
 						</div>
 					</div>
-				</div> -->
+				</div>
 			</div>
-		</div>
- --%>
+		</div> --%>
 
+<script type="text/javascript">
+	
+//add 버튼 눌렀을때 댓글 등록하기
+$('.add').click(function(){
+	alert('등록');
+	let post_id = $('#post_id').val();
+	let memberNum = $('#memberNum').val();
+	let comment_text = $('#comment_text').val();
+	
+	console.log(post_id, memberNum, comment_text);
+	
+	$.ajax({
+		type:"POST",
+		url:"./picCommentInsert",
+		data: {
+			post_id:post_id,
+			memberNum:memberNum,
+			comment_text:comment_text
+		},
+		success:function(result){
+			console.log(result.trim());
+			console.log("댓글 등록 성공");
+			getComment();
+		},
+		error:function(xhr, status, error){
+	          console.log(error);
+	    }
+
+	});
+	
+});
+
+//댓글 가져오기 function
+
+ function getComment(){
+	let post_id = $('#post_id').val();
+	
+	$.ajax({
+		type:"GET",	
+		url:"./picCommentSelect",
+		data:{
+			post_id:post_id
+		},
+		success:function(comment){
+			console.log("댓글 가져오기 성공");
+			console.log(comment);
+			
+			//result= result.trim();
+			//$('.commentList').html(result);
+			//console.log($('.commentList').html(result));
+		},
+		error:function(xhr, status, error){
+	          console.log(error);
+	    }
+		
+	});
+};
+ 
+
+ //삭제 버튼 클릭시 댓글 삭제하기
+ // -----------------댓글수 가져와서 i 한계 변경하기
+ for(let i=0; i<100; i++){
+	 $('#deleteBtn'+i).click(function(){
+		 console.log(i)
+		 let comment_num = $('#comment_num'+i).val();
+		 console.log("conum:" + comment_num);
+		 $.ajax({
+			 type:"GET",
+			 url: "./picCommentDelete",
+			 data: {
+				 comment_num:comment_num
+			 },
+			 success:function(result){
+				 console.log("댓글 삭제 성공")
+			 },
+			 error:function(xhr, status, error){
+				 console.log(error);
+			 }
+		 });  
+		 
+		 
+	 });
+ };
+ 
+ // 신고버튼 클릭시 경고창
+ for(let i=0; i<100; i++){
+	 $('#reportBtn'+i).click(function(){
+		 alert('신고되었습니다.');
+	 })
+ }
+ 
+
+//답댓글달기 -- 답댓글 margin left 걸기
+	for(let i=0; i<100; i++){
+		$('#replyBtn'+i).click(function(){
+			alert('답글');
+			let comment_num = $('#comment_num'+i).val();
+			console.log('comment_num:'+comment_num)
+			//답글 누르면 댓글쓰는 폼 띄우기
+			let replyForm = '<form class="comment-feed__form comment_add" method="post" id="form" style="margin-left:20px;">';
+			replyForm= replyForm+'<div class="comment-feed__form__user">';
+			replyForm= replyForm+'<img  src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x"></div>';
+			/* replyForm= replyForm+'<img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=144 3x"></div>'; */
+			replyForm= replyForm+'<div class="comment-feed__form__input"><div class="comment-feed__form__content"><div class="comment-content-input">';
+			/* replyForm= replyForm+'<input name="post_id" value="${picOne.post_id}"  id="post_id" type="hidden"><sec:authentication property="principal" var="member"/>'; */
+			replyForm= replyForm+'<input name="comment_text" type="text" id= "reply_text" class="comment-content-input__text comment-feed__form__content__text" placeholder="칭찬과 격려의 댓글은 작성자에게 큰 힘이 됩니다 :)" >';
+			replyForm= replyForm+'</div></div><div class="comment-feed__form__actions">';
+			replyForm= replyForm+'<button class="comment-feed__form__submit addReply" aria-label="등록" type="button" >등록</button></div></div></form>';
+			
+			$('#comment'+i).append(replyForm);
+			
+			//답댓글 등록
+			let post_id = $('#post_id').val();
+			let memberNum = $('#memberNum').val();
+			
+			$('.addReply').click(function(){
+				let comment_text = $('#reply_text').val();
+				console.log(post_id, comment_text)
+				$.ajax({
+					type:"POST",
+					url:"./picReplyComment",
+					data:{
+						post_id:post_id,
+						memberNum:memberNum,
+						comment_text:comment_text,
+						comment_num:comment_num
+					},
+					success:function(result){
+						if(result>=1){
+							console.log("답댓글 달기 성공")
+						}
+					},
+					error:function(xhr, status, error){
+						console.log(error);
+					}
+				});
+				
+			});
+			
+			
+		});
+	};
+ 
+ 
+ 
+ 
+</script>
 </body>
 </html>

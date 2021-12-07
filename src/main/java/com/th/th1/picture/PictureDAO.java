@@ -9,8 +9,34 @@ import com.th.th1.member.MemberVO;
 @Mapper
 public interface PictureDAO {
 
-	//글쓴이
-	public List<MemberVO> getPicWriter() throws Exception;
+	//댓글 쓰기
+	public int setCommentInsert(PicCommentVO picCommentVO) throws Exception;
+	
+	//댓글 수정
+	public int setCommentUpdate(PicCommentVO picCommentVO) throws Exception;
+	
+	//댓글 삭제
+	public int setCommentDelete(PicCommentVO picCommentVO) throws Exception;
+	
+	//댓글 조회
+	public List<PicCommentVO> getComment(PicCommentVO picCommentVO) throws Exception;
+	
+	//답댓글 쓰기
+	public int setReplyComment(PicCommentVO picCommentVO) throws Exception;
+	
+	//답댓글 업데이트
+	public int setReplyUpdate(PicCommentVO picCommentVO) throws Exception;
+	
+	//답댓글 ref 업데이트
+	public int setRefUpdate(PicCommentVO picCommentVO) throws Exception;
+	
+	//댓글 개수 가져오기
+	public Long getCommentCount(PicCommentVO picCommentVO) throws Exception;
+	
+	
+	
+	
+	
 	
 	//사진 게시판 글쓰기
 	public int setPicInsert(PictureVO pictureVO) throws Exception;
@@ -29,6 +55,10 @@ public interface PictureDAO {
 	
 	//조회수 업데이트하기
 	public int setHitUpdate(PictureVO pictureVO) throws Exception;
+	
+	
+	
+	
 	
 	//파일 인서트
 	public int setPicFileInsert(PictureFileVO pictureFileVO) throws Exception;

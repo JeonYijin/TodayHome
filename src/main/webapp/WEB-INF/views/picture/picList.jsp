@@ -255,14 +255,14 @@
 												<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
 											</svg><span class="count">20</span>
 										</button>
-										
 										<a class="card-item-action-list__action" href="/contents/card_collections/10864619?affect_type=CardIndex&amp;affect_id=0#comment">
 											<svg class="icon" aria-label="댓글 달기" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path fill="currentColor" fill-rule="nonzero" d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z"></path>
 											</svg>
-												<span class="count">20</span>
+										 <c:forEach items="${count}" var="count">
+												<span class="count">${count}</span>
+										 </c:forEach> 
 										</a>
-										
 										
 									</aside>
 								</div>

@@ -300,17 +300,19 @@ section {
 .comment-feed__header__count {
     color: #35c5f0;
 }
-comment-feed__form {
-    display: flex;
-    position: relative;
-}
 .comment-feed__form {
     margin-bottom: 30px;
 }
-
+.comment-feed__form {
+    display: flex;
+    position: relative;
+}
 .comment-feed__form__user {
     -webkit-box-flex: 0;
     flex: 0 0 auto;
+}
+fieldset, img {
+    border: 0;
 }
 .comment-feed__form__user>img {
     width: 30px;
@@ -351,7 +353,7 @@ comment-feed__form {
     box-sizing: border-box;
 }
 div{
-    -webkit-user-modify: read-write;
+    /* -webkit-user-modify: read-write; */
     -webkit-line-break: after-white-space;
 }
 .comment-feed__form__actions {
@@ -411,7 +413,7 @@ element.style {
     transform-origin: 0px 0px;
 }
 div {
-    -webkit-user-modify: read-write;
+   /*  -webkit-user-modify: read-write; */
     -webkit-line-break: after-white-space;
 }
 element.style {
