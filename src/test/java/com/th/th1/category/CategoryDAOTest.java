@@ -14,24 +14,24 @@ class CategoryDAOTest {
 	@Autowired
 	private CategoryDAO categoryDAO;
 
-	//@Test
-	void getSelectListTest() throws Exception {
-		
-		PageVO pageVO = new PageVO();
-		pageVO.setPage_category("test");
-		List<PageVO> ar = categoryDAO.getSelectList(pageVO);
-		
-		assertNotNull(ar);
-	}
-	
-	//@Test
-	void getSelectListPage() throws Exception {
-		
-		PageVO pageVO = new PageVO();
-		pageVO.setPage_number(1L);
-		pageVO = categoryDAO.getSelectPage(pageVO);
-		
-		assertNotNull(pageVO);
-	}
+//	//@Test
+//	void getSelectListTest() throws Exception {
+//		
+//		ProductVO pageVO = new ProductVO();
+//		pageVO.setPage_category("test");
+//		List<ProductVO> ar = categoryDAO.getSelectList(pageVO);
+//		
+//		assertNotNull(ar);
+//	}
+//	
+//	//@Test
+//	void getSelectListPage() throws Exception {
+//		
+//		ProductVO pageVO = new ProductVO();
+//		pageVO.setPage_number(1L);
+//		pageVO = categoryDAO.getSelectPage(pageVO);
+//		
+//		assertNotNull(pageVO);
+//	}
 
 }

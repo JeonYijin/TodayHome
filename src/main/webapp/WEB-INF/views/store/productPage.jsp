@@ -33,12 +33,8 @@
                                 <img
                                     class="production-selling-cover-image__entry__image"
                                     tabindex="0"
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/160575127145960446.jpg?gif=1&amp;w=480&amp;h=480&amp;c=c"
-                                    srcset="
-                                        https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/160575127145960446.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c   1.5x,
-                                        https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/160575127145960446.jpg?gif=1&amp;w=960&amp;h=960&amp;c=c   2x,
-                                        https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/160575127145960446.jpg?gif=1&amp;w=1440&amp;h=1440&amp;c=c 3x
-                                    "
+                                    src="../upload/store/${product.prFiles[0].fileName}"
+                                    srcset=""
                                 />
                                 <div class="production-selling-cover-image__timer--pc"></div>
                             </div>
@@ -62,7 +58,7 @@
                             <button class="production-selling-cover-image__list__btn" type="button" aria-label="8개 중 1번째 항목">
                                 <img
                                     class="image"
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c"
+                                   src="../upload/store/${product.prFiles[0].fileName}"
                                     srcset="
                                         https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,
                                         https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,
@@ -181,15 +177,15 @@
         <div class="production-selling-overview__content col-12 col-md-6 col-lg-5">
             <div class="production-selling-header">
                 <h1 class="production-selling-header__title">
-                    <p class="production-selling-header__title__brand-wrap"><a class="production-selling-header__title__brand" href="/brands/home?query=%EB%A6%AC%EC%83%98&amp;affect_type=ProductSaleDetail&amp;affect_id=310649">${pageVO.page_seller}</a></p>
+                    <p class="production-selling-header__title__brand-wrap"><a class="production-selling-header__title__brand" href="/brands/home?query=%EB%A6%AC%EC%83%98&amp;affect_type=ProductSaleDetail&amp;affect_id=310649">${product.pr_seller}</a></p>
                     <div class="production-selling-header__title__name-wrap">
-                        <span class="production-selling-header__title__name">${pageVO.page_title}</span>
+                        <span class="production-selling-header__title__name">${product.pr_name}</span>
                         <div class="production-selling-header__action">
                             <button class="production-selling-header__action__button production-selling-header__action__button-scrap" type="button">
                                 <svg class="icon--stroke" aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
                                     <path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
                                 </svg>
-                                <span class="count">43,499</span>
+                                <span class="count">${product.pr_scrap}</span>
                             </button>
                             <div class="drop-down">
                                 <button class="production-selling-header__action__button" type="button">
@@ -270,10 +266,10 @@
                     </p>
                     <div class="production-selling-header__price">
                         <span class="production-selling-header__price__price-wrap">
-                            <span class="production-selling-header__price__discount"><span class="number">37</span><span class="percent">%</span></span>
-                            <del class="production-selling-header__price__original"><span class="number">249,000</span><span class="won">원</span></del><span class="production-selling-header__price__separator"></span>
+                            <span class="production-selling-header__price__discount"><span class="number">${product.pr_discount}</span><span class="percent">%</span></span>
+                            <del class="production-selling-header__price__original"><span class="number">${product.pr_price}</span><span class="won">원</span></del><span class="production-selling-header__price__separator"></span>
                             <span class="production-selling-header__price__price">
-                                <span class="number">${pageVO.page_price}</span><span class="won">원</span>
+                                <span class="number">${product.pr_dPrice}</span><span class="won">원</span>
                                 <span class="production-selling-header__price__badge">
                                     <svg class="icon" width="30" height="20" viewBox="0 0 30 20" preserveAspectRatio="xMidYMid meet">
                                         <rect width="30" height="20" fill="#F77" rx="4"></rect>
@@ -285,47 +281,11 @@
                                 </span>
                             </span>
                         </span>
-                        <span class="production-selling-header__price__coupon">
-                            <span class="number">141,000</span><span class="won">원</span>
-                            <a class="production-selling-header__price__coupon__reason" href="/competitions/222">
-                                첫구매할인가 (앱 전용) <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" preserveAspectRatio="xMidYMid meet"><path d="M2.5 8.2L5.63 5 2.5 1.8l.94-.97L7.5 5 3.44 9.17z"></path></svg>
-                            </a>
-                        </span>
+                        
                     </div>
-                    <div class="css-zra6ao-Wrapper e1gkvgq70">
-                        <button type="button" class="css-1rb4f0b-Button emhbdh42">
-                            <div class="css-1mfv81o-LeftSection emhbdh41"><span>최대 10,000원 할인쿠폰</span></div>
-                            <svg width="28" height="46" fill="none" preserveAspectRatio="xMidYMid meet">
-                                <g>
-                                    <path
-                                        d="M0 1h7.468c.592 0 1.191.215 1.864.595.452.255.857.534 1.294.834l.004.003c.251.173.514.353.801.54.88.572 1.937.903 3.069.903s2.19-.331 3.069-.903c.287-.187.548-.367.8-.54l.005-.003c.437-.3.842-.579 1.294-.834.673-.38 1.273-.595 1.864-.595H29V0h-7.468c-1.386 0-2.603.835-3.777 1.64a35.96 35.96 0 01-.732.494 4.617 4.617 0 01-2.523.741 4.617 4.617 0 01-2.524-.741 35.92 35.92 0 01-.731-.494C10.07.835 8.854 0 7.468 0H0v1zM7.468 45H0v1h7.468c1.386 0 2.603-.835 3.777-1.64l.002-.002c.245-.168.488-.334.73-.492a4.617 4.617 0 012.523-.741c.935 0 1.804.273 2.523.741.243.158.485.324.73.492l.002.002c1.174.805 2.391 1.64 3.777 1.64H29v-1h-7.468c-.591 0-1.191-.215-1.864-.595a17.204 17.204 0 01-1.294-.834 37.248 37.248 0 00-.805-.543 5.618 5.618 0 00-3.069-.903c-1.132 0-2.19.331-3.069.903-.289.188-.552.37-.805.543-.437.3-.842.579-1.294.834-.673.38-1.272.595-1.864.595z"
-                                        fill="#6CD5F4"
-                                    ></path>
-                                    <path d="M14.5 4v38" stroke="#DADCE0" stroke-dasharray="5 3"></path>
-                                </g>
-                            </svg>
-                            <div class="css-1jsyla1-RightSection emhbdh40">
-                                <svg aria-label="다운로드" width="30" height="30" fill="none" preserveAspectRatio="xMidYMid meet">
-                                    <path d="M30 15c0 8.284-6.716 15-15 15-8.284 0-15-6.716-15-15C0 6.716 6.716 0 15 0c8.284 0 15 6.716 15 15z" fill="#E5F9FF"></path>
-                                    <path d="M17.5 13.5h3.333L15 19.333 9.167 13.5H12.5v-5h5v5zM9.167 22.667V21h11.666v1.667H9.167z" fill="#35C5F0"></path>
-                                </svg>
-                            </div>
-                        </button>
-                    </div>
+                    
                 </div>
-                <div class="production-selling-header__info-wrap">
-                    <div class="production-selling-header__promotion">
-                        <div class="production-selling-header__promotion__title-wrap"><span>혜택</span></div>
-                        <div class="production-selling-header__promotion__content-wrap">
-                            <p class="production-selling-header__promotion__entry"><b>468P</b> 적립 (WELCOME 0.3% 적립)</p>
-                            <p class="production-selling-header__promotion__entry">
-                                <button class="production-selling-header__promotion__entry__button" type="button">
-                                    월 22,286원 (7개월) 무이자할부
-                                    <svg class="icon" width="10" height="10" viewBox="0 0 10 10" fill="currentColor" preserveAspectRatio="xMidYMid meet"><path d="M2.5 8.2L5.63 5 2.5 1.8l.94-.97L7.5 5 3.44 9.17z"></path></svg>
-                                </button>
-                            </p>
-                        </div>
-                    </div>
+              
                     <div class="production-selling-header__delivery">
                         <div class="production-selling-header__delivery__title-wrap"><span>배송</span></div>
                         <div class="production-selling-header__delivery__content-wrap">
@@ -355,7 +315,7 @@
                                 fill="#3F474D"
                             ></path>
                         </svg>
-                        <div class="css-1h8edc9-Info e3xbt9p5"><span class="css-1pec80b-BrandName e3xbt9p4">리샘</span></div>
+                        <div class="css-1h8edc9-Info e3xbt9p5"><span class="css-1pec80b-BrandName e3xbt9p4">${product.pr_seller}</span></div>
                     </div>
                     <div class="css-1yj9pi0-Button e3xbt9p0">
                         <span>브랜드홈</span><svg width="14" height="14" fill="none" preserveAspectRatio="xMidYMid meet"><path d="M4.083 11.375L8.312 7 4.083 2.625l.803-.875L9.916 7l-5.03 5.25-.803-.875z" fill="#828C94"></path></svg>

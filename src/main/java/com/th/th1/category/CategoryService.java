@@ -11,20 +11,20 @@ public class CategoryService {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
-	public List<PageVO> getSelectList(PageVO pageVO) throws Exception {
-		return categoryDAO.getSelectList(pageVO);
+	public List<ProductVO> getSelectList(ProductVO productVO) throws Exception {
+		return categoryDAO.getSelectList(productVO);
 	}
 	
-	public PageVO getSelectPage(PageVO pageVO) throws Exception {
-		return categoryDAO.getSelectPage(pageVO);
+	public ProductVO getSelectPage(ProductVO productVO) throws Exception {
+		return categoryDAO.getSelectPage(productVO);
 	}
 	
-	public Long getSelectCount(PageVO pageVO) throws Exception {
-		return categoryDAO.getSelectCount(pageVO);
+	public Long getSelectCount(ProductVO productVO) throws Exception {
+		return categoryDAO.getSelectCount(productVO);
 	}
 	
-	public String getSelectCategoryName(PageVO pageVO) throws Exception {
-		return categoryDAO.getSelectCategoryName(pageVO);
+	public String getSelectCategoryName(ProductVO productVO) throws Exception {
+		return categoryDAO.getSelectCategoryName(productVO);
 	}
 	
 

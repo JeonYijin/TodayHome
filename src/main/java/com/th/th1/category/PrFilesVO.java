@@ -6,7 +6,7 @@ import lombok.Data;
 public class PrFilesVO {
 	
 	private Long fileNum;
-	private Long page_number;
+	private Long pr_number;
 	private String fileName;
 	private String oriName;
 	

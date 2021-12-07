@@ -5,70 +5,67 @@
  <mapper namespace="com.th.th1.category.CategoryDAO">
  
  	
- 	<select id="getSelectList" parameterType="PageVO" resultMap="getselectListResult">
- 		select * from pr_page
-		<if test="page_category != '0'">
-			where page_category = #{page_category}
+ 	<select id="getSelectList" parameterType="ProductVO" resultMap="getselectListResult">
+ 		select P.*, PF.* from
+		pr P left join pr_files PF
+		on (P.pr_number = PF.pr_number)
+		<if test="pr_category != '0'">
+			where pr_category = #{pr_category}
 		</if>
- 	</select>
- 	<resultMap type="PageVO" id="getselectListResult">
-		<id column="page_number" property="page_number"/>
-		<result column="page_title" property="page_title"/>
-		<result column="page_seller" property="page_seller"/>
-		<result column="page_category" property="page_category"/>
-		<result column="page_price" property="page_price"/>
+		order by P.pr_number desc
 		
-		<collection property="products" javaType="List" ofType="ProductVO">
-			<id column="pr_number" property="pr_number"/>
-			<result column="page_number" property="page_number"/>
-			<result column="pr_name" property="pr_name"/>
-			<result column="pr_price" property="pr_price"/>
-			<result column="pr_category" property="pr_category"/>
-		</collection>
+ 		
+ 	</select>
+ 	<resultMap type="ProductVO" id="getselectListResult">
+		<id column="pr_number" property="pr_number"/>
+		<result column="pr_name" property="pr_name"/>
+		<result column="pr_seller" property="pr_seller"/>
+		<result column="pr_category" property="pr_category"/>
+		<result column="pr_price" property="pr_price"/>
+		<result column="pr_discount" property="pr_discount"/>
+		<result column="pr_dPrice" property="pr_dPrice"/>
+		<result column="pr_rate" property="pr_rate"/>
+		<result column="pr_scrap" property="pr_scrap"/>
 		
 		<collection property="prFiles" javaType="List" ofType="PrFilesVO">
 			<id column="fileNum" property="fileNum"/>
-			<result column="page_number" property="page_number"/>
+			<result column="pr_number" property="pr_number"/>
 			<result column="fileName" property="fileName"/>
 			<result column="oriName" property="oriName"/>
 		</collection>
 	</resultMap>
  	
-	<select id="getSelectPage" parameterType="PageVO" resultMap="getselectPageResult">
-		select * from pr_page where page_number = #{page_number}
+	<select id="getSelectPage" parameterType="ProductVO" resultMap="getselectPageResult">
+		select * from pr where pr_number = #{pr_number}
 	</select>
-	<resultMap type="PageVO" id="getselectPageResult">
-		<id column="page_number" property="page_number"/>
-		<result column="page_title" property="page_title"/>
-		<result column="page_seller" property="page_seller"/>
-		<result column="page_category" property="page_category"/>
-		<result column="page_price" property="page_price"/>
-		
-		<collection property="products" javaType="List" ofType="ProductVO">
-			<id column="pr_number" property="pr_number"/>
-			<result column="page_number" property="page_number"/>
-			<result column="pr_name" property="pr_name"/>
-			<result column="pr_price" property="pr_price"/>
-			<result column="pr_category" property="pr_category"/>
-		</collection>
+	<resultMap type="ProductVO" id="getselectPageResult">
+		<id column="pr_number" property="pr_number"/>
+		<result column="pr_name" property="pr_name"/>
+		<result column="pr_seller" property="pr_seller"/>
+		<result column="pr_category" property="pr_category"/>
+		<result column="pr_price" property="pr_price"/>
+		<result column="pr_discount" property="pr_discount"/>
+		<result column="pr_dPrice" property="pr_dPrice"/>
+		<result column="pr_rate" property="pr_rate"/>
+		<result column="pr_scrap" property="pr_scrap"/>
 		
 		<collection property="prFiles" javaType="List" ofType="PrFilesVO">
 			<id column="fileNum" property="fileNum"/>
-			<result column="page_number" property="page_number"/>
+			<result column="pr_number" property="pr_number"/>
 			<result column="fileName" property="fileName"/>
 			<result column="oriName" property="oriName"/>
 		</collection>
 	</resultMap>
 	
-	<select id="getSelectCount" parameterType="PageVO" resultType="Long">
-		select count(page_number) from pr_page
-		<if test="page_category != '0'">
-			where page_category = #{page_category}
+	<select id="getSelectCount" parameterType="ProductVO" resultType="Long">
+		select count(pr_number) from pr
+		<if test="pr_category != '0'">
+			where pr_category = #{pr_category}
 		</if>		
 	</select>
 	
-	<select id="getSelectCategoryName" parameterType="PageVO" resultType="String">
-		select category_name from pr_category where category_num = ${page_category}
+	<select id="getSelectCategoryName" parameterType="ProductVO" resultType="String">
+		select category_name from pr_category where category_num = ${pr_category}
 	</select>
   		
   </mapper>

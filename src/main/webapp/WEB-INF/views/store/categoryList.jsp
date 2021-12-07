@@ -27,95 +27,95 @@
             <div class="category-feed row">
                 <div class="category-feed__side-bar col-12 col-md-3">
                     <section class="commerce-category-list">
-                        <h2 class="commerce-category-list__title"><a href="/store/category?page_category=0">가구</a></h2>
+                        <h2 class="commerce-category-list__title"><a href="/store/category?pr_category=0">가구</a></h2>
                         <ul class="commerce-category-tree commerce-category-list__categories">
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=1">침대</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=1">침대</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=2">매트리스/토퍼</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=2">매트리스/토퍼</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=3">소파</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=3">소파</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=4">테이블/책상</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=4">테이블/책상</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=5">거실장/TV장</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=5">거실장/TV장</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=6">서랍/수납장</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=6">서랍/수납장</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=7">진열장/책장</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=7">진열장/책장</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=8">선반</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=8">선반</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=9">행거/옷장</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=9">행거/옷장</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=10">의자</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=10">의자</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=11">화장대/콘솔</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=11">화장대/콘솔</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=12">거울</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=12">거울</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=13">가벽/파티션</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=13">가벽/파티션</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=14">야외가구</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=14">야외가구</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?page_category=15">유아동가구</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=15">유아동가구</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
@@ -153,7 +153,7 @@
                                     <a class="link" href="/store/category?category=0">가구</a>
                                     
                                     <c:choose>
-	                                    <c:when test="${page_category eq '0'}">
+	                                    <c:when test="${product.pr_category eq '0'}">
 	                                    	</li>
 	                                    </c:when>
 	                                    
@@ -163,7 +163,7 @@
 		                                    </path></svg>
 		                                    </li>
 		                                    <li class="commerce-category-breadcrumb__entry">
-		                                    <a class="link" href="/store/category?category=${page_category}">${categoryN}</a>
+		                                    <a class="link" href="/store/category?category=${product.pr_category}">${categoryN}</a>
 		                                    </li>
 	                                    </c:otherwise>
                                     </c:choose>
@@ -250,12 +250,12 @@
 		<!-- 상품 목록 --------------------------------------------- -->
 		
 		<div class="category-feed__content__items">
-		<c:forEach var="page" items="${pages}">
+		<c:forEach var="product" items="${products}">
 			<div class="category-feed__content__item-wrap col-4 col-lg-4" style="">
 	  		<article class="production-item" id="product-310649">
-	    		<a class="production-item__overlay" href="./page?page_number=${page.page_number}"></a>
+	    		<a class="production-item__overlay" href="./page?pr_number=${product.pr_number}"></a>
 			<div class="production-item-image production-item__image">
-	 		 <img class="image" alt="" src="" srcset="">
+	 		 <img class="image" alt="" src="../upload/store/${product.prFiles[0].fileName}" srcset="">
 	    		<button class="production-item-scrap-badge production-item-image__scrap-badge" type="button">
 		      		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="inactive-icon">
 		        	<defs>
@@ -285,13 +285,13 @@
 				</div>
 				<div class="production-item__content">
 	  			<h1 class="production-item__header">
-	 			<span class="production-item__header__brand">${page.page_seller}</span>
-	 			<span class="production-item__header__name">${page.page_title }</span>
+	 			<span class="production-item__header__brand">${product.pr_seller}</span>
+	 			<span class="production-item__header__name">${product.pr_name}</span>
 				</h1>
 				<span class="production-item-price">
-	  			<span class="production-item-price__rate">37<span class="percentage">% </span>
+	  			<span class="production-item-price__rate">${product.pr_discount}<span class="percentage">% </span>
 				</span>
-				<span class="production-item-price__price">${page.page_price}</span></span>
+				<span class="production-item-price__price">${product.pr_dPrice}</span></span>
 	  			<p class="production-item-stats production-item-stats--review">
 	    		<svg class="icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 	     		 <path fill="currentColor" fill-rule="evenodd" d="M12 19.72l-5.677 2.405c-.76.322-1.318-.094-1.247-.906l.533-6.142-4.042-4.656c-.54-.624-.317-1.283.477-1.467l6.006-1.39L11.23 2.28c.426-.707 1.122-.699 1.542 0l3.179 5.282 6.006 1.391c.805.187 1.011.851.477 1.467l-4.042 4.656.533 6.142c.072.822-.497 1.224-1.247.906L12 19.72z">

@@ -14,7 +14,6 @@
 		<typeAlias type="com.th.th1.picture.PictureVO" alias="PictureVO"/>
 		<typeAlias type="com.th.th1.member.RoleVO" alias="RoleVO"/>
 		
-		<typeAlias type="com.th.th1.category.PageVO" alias="PageVO"/>
 		<typeAlias type="com.th.th1.category.ProductVO" alias="ProductVO"/>
 		<typeAlias type="com.th.th1.category.PrFilesVO" alias="PrFilesVO"/>
 		

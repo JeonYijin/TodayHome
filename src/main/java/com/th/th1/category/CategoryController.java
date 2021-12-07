@@ -18,15 +18,15 @@ public class CategoryController {
 	
 	
 	@GetMapping("category")
-	public ModelAndView getSelectList(PageVO pageVO) throws Exception {
+	public ModelAndView getSelectList(ProductVO productVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		List<PageVO> ar = categoryService.getSelectList(pageVO);
-		Long count = categoryService.getSelectCount(pageVO);
-		String categoryN = categoryService.getSelectCategoryName(pageVO);
-		
+		List<ProductVO> ar = categoryService.getSelectList(productVO);
+		System.out.println("size :"+ ar.size());
+		Long count = categoryService.getSelectCount(productVO);
+		String categoryN = categoryService.getSelectCategoryName(productVO);
 		mv.addObject("categoryN", categoryN);
 		mv.addObject("count", count);
-		mv.addObject("pages", ar);
+		mv.addObject("products", ar);
 		mv.setViewName("store/categoryList");
 		
 		return mv;
@@ -34,14 +34,14 @@ public class CategoryController {
 	
 	
 	@GetMapping("page")
-	public ModelAndView getSelectPage(PageVO pageVO) throws Exception {
+	public ModelAndView getSelectPage(ProductVO productVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		pageVO = categoryService.getSelectPage(pageVO);
-		String categoryN = categoryService.getSelectCategoryName(pageVO);
+		productVO = categoryService.getSelectPage(productVO);
+		String categoryN = categoryService.getSelectCategoryName(productVO);
 		
 		mv.addObject("categoryN", categoryN);
-		mv.addObject("pageVO", pageVO);
+		mv.addObject("product", productVO);
 		mv.setViewName("store/productPage");
 		
 		return mv;

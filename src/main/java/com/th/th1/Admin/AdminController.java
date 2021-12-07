@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.th.th1.category.PageVO;
+import com.th.th1.category.ProductVO;
 
 @Controller
 @RequestMapping("/admin/**")
@@ -28,15 +28,15 @@ public class AdminController {
 	
 	//상품 등록 폼 이동
 	@GetMapping("productUpload") 
-	public String setInsertPage() throws Exception {
+	public String setInsertProduct() throws Exception {
 		return "admin/productUpload";
 	}
 	
 	//상품 등록 폼 제출
 	@PostMapping("productUpload")
-	public String setInsertPage(PageVO pageVO, @RequestParam("pageFile") MultipartFile [] files) throws Exception {
-		int result = adminService.setInsertPage(pageVO, files);
-		return "redirect:./admin";
+	public String setInsertProduct(ProductVO productVO, @RequestParam("productFile") MultipartFile [] files) throws Exception {
+		int result = adminService.setInsertProduct(productVO, files);
+		return "redirect:../admin";
 	}
 	
 	

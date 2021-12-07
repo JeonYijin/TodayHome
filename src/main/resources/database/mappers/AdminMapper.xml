@@ -5,18 +5,14 @@
  <mapper namespace="com.th.th1.Admin.AdminDAO">
  
  	<!-- 상품 페이지 등록 -->
- 	<insert id="setInsertPage" parameterType="PageVO">
- 		insert into pr_page values 
- 		(0, #{page_title}, #{page_seller}, #{page_category}, #{page_price})
+ 	<insert id="setInsertProduct" parameterType="ProductVO" useGeneratedKeys="true" keyProperty="pr_number">
+ 		insert into pr values 
+ 		(0, #{pr_name}, #{pr_seller}, #{pr_category}, #{pr_price}, #{pr_discount}, #{pr_dPrice}, 0, 0)
  	</insert>
  	
- 	<insert id="setInsertPageFile" parameterType="PrFilesVO">
- 		<selectKey resultType="Long" keyProperty="page_number" order="AFTER">
- 			select last_insert_id()
- 		</selectKey>
- 	
+ 	<insert id="setInsertProductFile" parameterType="PrFilesVO">
  		insert into pr_files values
-		(0, #{page_number}, #{fileName}, #{oriName})
+		(0, #{pr_number}, #{fileName}, #{oriName})
  	</insert>
 	
 	
