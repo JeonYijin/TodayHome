@@ -67,7 +67,6 @@
  
 </style>
 
-
 <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -188,6 +187,8 @@
 		                <div class="editor-content-list__content editor__content">
 		                    <div class="editor-content-block-container editor-content-block-p-container">
 		                        <textarea rows="5" cols="50" id="quests_contents" name="quests_contents"></textarea>
+								<input type="hidden" name="list_contents" id="list_contents"/>
+								<button type="button" id="btnn">dd</button>
 								<script>
 									var ckeditor_config = {
 									resize_enaleb : false,
@@ -196,7 +197,7 @@
 									filebrowserUploadUrl : "${pageContext.request.contextPath}/ckeditor/ckUpload"
 									};
 															 
-									CKEDITOR.replace("quests_contents", ckeditor_config);
+									CKEDITOR.replace("quests_contents", ckeditor_config);									
 								</script>
 		                    </div>
 		                </div>
@@ -527,7 +528,6 @@
     </div>
         <!--End Modal-->
 
-
 <script type="text/javascript">
 	$('#modalBtn').click(function(){
 		$('#myModal').show();
@@ -555,6 +555,12 @@
     	var quests_id=$('[name=quests_id]').val();
     	var quests_nickname=$('[name=quests_nickname]').val();
     	var quests_title=$('[name=quests_title]').val();
+		
+		//textarea 내 tag들을 제외(특히 <img> 얘를 제외한(공백은 포함)) 순수 text		
+		var editorContent = CKEDITOR.instances.quests_contents.getData();
+		var convertContent = editorContent.replace(/(<([^>]+)>)/ig,"");
+		$('[name=list_contents]').val(convertContent);
+		
     	console.log(quests_id, quests_nickname, quests_contents, quests_title);
     	
     	//contents값(textarea값)은 ckeditor 때문에 javascript에서 가져올 수가 없어서 일단 제외 --> 추후 구글링해서 보강
@@ -566,9 +572,11 @@
 	    	$('[name=question-feed__form]').submit();
     	}
     	
-    })
-    
- 
+    }) 
+</script>
+<script type="text/javascript">
+
+
 </script>
 
 </body>

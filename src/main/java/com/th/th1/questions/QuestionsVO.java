@@ -16,6 +16,7 @@ public class QuestionsVO {
 	private Timestamp regDate;
 	private String thumbnail;
 	
+	private String list_contents; //리스트 노출용 글내용(리스트게시판에 한정해서 사용)
 	private Integer reply; //댓글 갯수
 	private List<HashtagVO> tags;	
 	

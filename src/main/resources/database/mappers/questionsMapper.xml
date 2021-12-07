@@ -17,9 +17,11 @@
 		<result column="quests_nickname" property="quests_nickname"/>
 		<result column="quests_title" property="quests_title"/>
 		<result column="quests_contents" property="quests_contents"/>
+		<result column="list_contents" property="list_contents"/>
 		<result column="hits" property="hits"/>
 		<result column="regDate" property="regDate"/>
 		<result column="reply" property="reply"/>
+		<result column="thumbnail" property="thumbnail"/>
 		<collection property="tags" javaType="List" ofType="HashtagVO">
 			<id column="num" property="num"/>
 			<result column="quests_num" property="quests_num"/>
@@ -53,8 +55,8 @@
 
 	<!-- 질문과답변 insert -->
 	<insert id="setQuestionInsert" parameterType="QuestionsVO" useGeneratedKeys="true" keyProperty="quests_num">
-		INSERT INTO QUESTIONS
-		VALUES (null, #{quests_id}, #{quests_nickname}, #{quests_title}, #{quests_contents}, default, default, 0, #{thumbnail})
+		INSERT INTO QUESTIONS (quests_num, quests_id, quests_nickname, quests_title, quests_contents, list_contents, hits, regDate, reply, thumbnail)
+		VALUES (null, #{quests_id}, #{quests_nickname}, #{quests_title}, #{quests_contents}, #{list_contents}, default, default, 0, #{thumbnail})
 	</insert>
 	
 	<select id="getHashtag" parameterType="QuestionsVO" resultType="HashtagVO">

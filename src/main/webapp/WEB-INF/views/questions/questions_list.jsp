@@ -167,11 +167,13 @@
                 <div class="css-1edegka-QuestionContainer e1amn78m14"><a class="css-qa3x0s-QuestionLink e1amn78m8"
                         href="./questions/selectOne?quests_num=${lists.quests_num}"></a>
                     <div class="css-av0u4k-QuestionContent e1amn78m9">
-                        <div class="css-17vr42v-QuestionImageContainer e1amn78m13"><img
-                                class="css-l9iija-QuestionImage e1amn78m12" src="../resources${lists.thumbnail}" />
-                        </div>
+                    	<c:if test="${lists.thumbnail ne null}">
+	                        <div class="css-17vr42v-QuestionImageContainer e1amn78m13">
+	                        	<img class="css-l9iija-QuestionImage e1amn78m12" src="/resources${lists.thumbnail}"/>
+	                        </div>
+                        </c:if>
                         <div class="css-13xsgfl-QuestionTitle e1amn78m11"><span>${lists.quests_title}</span></div>
-                        <div class="css-6kkt2h-QuestionDescription e1amn78m10"><span>${lists.quests_contents}</span>
+                        <div class="css-6kkt2h-QuestionDescription e1amn78m10"><span>${lists.list_contents}</span>
                         </div>
                         <div class="css-1egl09a-QuestionFooter e1amn78m7">
                             <div class="css-15rrev1-QuestionFooterRow e1amn78m6">

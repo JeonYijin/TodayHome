@@ -77,7 +77,7 @@
                                 </svg><span class="qna-detail-actions__action__label">공유</span></button></div>
                     </aside>
                     <div class="qna-detail__footer__metadata"><time>${quest.regDate}</time><span>조회<span
-                                class="qna-detail__footer__metadata-view-count-value">${quest.reply}</span></span><span><button
+                                class="qna-detail__footer__metadata-view-count-value">${quest.hits}</span></span><span><button
                                 class="qna-detail__footer__metadata-report-link" type="button">신고</button></span></div>
                 </footer>
                 <section class="qna-detail__comment-section">
@@ -132,13 +132,7 @@
                         </ul>
                     </section>
                 </section>
-                <aside class="qna-detail-aside qna-detail__aside">
-                    <div class="qna-detail-aside__section">
-                        <h2 class="qna-detail-aside__section__header">인테리어 궁금한 것 물어보세요!</h2><button
-                            class="button button--color-blue button--size-60 button--shape-4 qna-detail-aside__section__new-question-button"
-                            type="button">질문하러 가기</button>
-                    </div>
-                </aside>
+                
             </section>
             <nav class="qna-detail__container__sidebar">
                 <div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false"
@@ -187,6 +181,11 @@
                                     <h2 class="qna-detail-aside__section__header">인테리어 궁금한 것 물어보세요!</h2><button
                                         class="button button--color-blue button--size-60 button--shape-4 qna-detail-aside__section__new-question-button"
                                         type="button">질문하러 가기</button>
+                                        <script>
+                                        	$('.qna-detail-aside__section__new-question-button').click(function(){
+                                        		location.href="${pageContext.request.contextPath}/questions/new";
+                                        	});
+                                        </script>
                                 </div>
                             </aside>
                         </div>
