@@ -20,8 +20,18 @@
 	<a href="/member/usePrincipal">정보조회</a>
 	
 	<a href="/picture/picList">사진</a>
-	
-	<a href="/questions">커뮤니티-질문과답변 게시판</a>
+	<hr>
+	<div>
+		<a href="/questions" style="color:red;">커뮤니티-질문과답변 게시판</a>
+	</div>
+	<hr>
+	<div>
+		<a href="/housewarming" style="color:green;">집들이 게시판</a>
+	</div>
+	<hr>
+	<div>
+		<a href="/housewarming/write" style="color:olive;">집들이 글쓰기 게시판</a>
+	</div>
 	
 	<sec:authorize access="isAuthenticated()" var="result">
 			<a href="./member/usePrincipal">usePrincipal</a>
