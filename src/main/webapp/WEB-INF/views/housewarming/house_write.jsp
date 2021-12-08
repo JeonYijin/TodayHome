@@ -299,30 +299,6 @@
                                     </div>
                                 </div>
                                 <div class="editor-form-group">
-                                    <div class="editor-form-group__label">방향</div>
-                                    <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input"><span
-                                                class="css-10hheuw-EditorFieldColumn e13w87p50">
-                                                <div class="input-group select-input"><select name="metadata.direction"
-                                                        class="form-control empty">
-                                                        <option value="" disabled="">선택해주세요.</option>
-                                                        <option value="0">남향</option>
-                                                        <option value="1">서향</option>
-                                                        <option value="2">동향</option>
-                                                        <option value="3">북향</option>
-                                                        <option value="4">남서향</option>
-                                                        <option value="5">남동향</option>
-                                                        <option value="6">북서향</option>
-                                                        <option value="7">북동향</option>
-                                                    </select><span class="select-input__icon"><svg class="icon"
-                                                            width="10" height="10" preserveAspectRatio="xMidYMid meet"
-                                                            style="fill: currentcolor;">
-                                                            <path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
-                                                        </svg></span></div>
-                                            </span></div>
-                                    </div>
-                                </div>
-                                <div class="editor-form-group">
                                     <div class="editor-form-group__label">준공연차</div>
                                     <div class="editor-form-group__content">
                                         <div class="editor-form-group__input"><span
@@ -461,26 +437,6 @@
                                                                     class="radio-img"></span>전문가</label></div>
                                                     </li>
                                                 </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="editor-form-group">
-                                    <div class="editor-form-group__label">세부 시공 범위</div>
-                                    <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input">
-                                            <div class="css-raswpu-EditorFieldPanelRow etqfq8p0">
-                                                <div class="panel-input">
-                                                    <div class="drop-down panel-drop-down panel-input__input-wrap">
-                                                        <button class="panel-input__input form-control empty"
-                                                            type="button">선택해주세요.</button><span
-                                                            class="panel-input__icon"><svg class="icon" width="10"
-                                                                height="10" preserveAspectRatio="xMidYMid meet"
-                                                                style="fill: currentcolor;">
-                                                                <path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
-                                                            </svg></span></div>
-                                                    <ul class="panel-input__tag-list"></ul>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
