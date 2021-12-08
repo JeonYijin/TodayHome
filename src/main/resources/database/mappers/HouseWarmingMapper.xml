@@ -4,5 +4,11 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.th.th1.housewarming.HouseWarmingDAO">
-
+	<insert id="setHouseWarming" parameterType="HouseWarmingVO">
+		INSERT INTO HOUSEWARMING 
+		VALUES (null, #{house_title}, #{house_contents}, #{house_writer}, default, default, default, 
+		default, '임시String', default, #{house_kind}, #{house_space}, #{house_rooms}, #{house_years}, 
+		#{house_region}, #{family_kind}, #{family_count}, #{working_area}, #{worker}, #{working_period}, 
+		#{total_budget}, null)
+	</insert>
 </mapper>
