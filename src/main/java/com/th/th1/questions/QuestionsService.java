@@ -65,5 +65,10 @@ public class QuestionsService {
 		return questionsDAO.getHashtag(questionsVO);
 	}
 	
+	/** 해시태그로 글 검색 */
+	public List<QuestionsVO> selectFromHashtag(String hashtag) throws Exception {
+		return questionsDAO.selectFromHashtag(hashtag);
+	}
+	
 	
 }

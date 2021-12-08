@@ -119,7 +119,7 @@
                                 	<sec:authorize access="isAuthenticated()" var="result">
 						  				<sec:authentication property="principal" var="memberVO"/>
 						  				<c:forEach items="${memberVO.roles}" var="role">
-						  					<c:if test="${role.num eq 2}">
+						  					<c:if test="${role.num eq 1}">
 			                                	<div class="editor-draft-menu-pc-button" style="border:transparent;"><label class="form-check-label"><input class="notice-check"
 				                                    type="checkbox" value="1" name="notice"/><span class="check-img"></span>공지 등록</label></div>
 						  					</c:if>

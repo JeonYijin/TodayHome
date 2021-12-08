@@ -194,7 +194,7 @@
 	                                <c:forEach items="${lists.tags}" var="hashtagVO">
 	                                    <li class="css-vdlu9i-KeywordListItem e83svgi1">
 	                                        <button type="button"
-	                                            class="css-1rp83u8-KeywordItem e83svgi0">${hashtagVO.hashtag_name}</button>
+	                                            class="css-1rp83u8-KeywordItem e83svgi0"><a href="/questions/fromHashtag?hashtag=${hashtagVO.hashtag_name}">${hashtagVO.hashtag_name}</a></button>
 	                                    </li>
 	                                </c:forEach>
 	                            </ul>
@@ -206,9 +206,6 @@
         </div>
     </div>
     </div>
-</div>
-<div>
-	<a href="${pageContext.request.contextPath}/questions/new">글쓰기</a>
 </div>
 
 </body>

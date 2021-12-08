@@ -106,5 +106,34 @@
 		SET HITS=HITS+1
 		WHERE QUESTS_NUM=#{qnum}
 	</update>
+	
+	<!-- 해시태그로 글 검색 -->
+	<select id="selectFromHashtag" parameterType="java.lang.String" resultMap="selectHashtag">
+		select q.*, qh.*
+		from questions q inner join questions_hashtag qh
+		on (q.quests_num=qh.quests_num)
+		inner join hashtag h
+		on (qh.hashtag_name=h.hashtag_name)
+		where h.hashtag_name=#{hashtag};
+	</select>
+	
+	<resultMap type="QuestionsVO" id="selectHashtag">
+		<id column="quests_num" property="quests_num"/>
+		<result column="quests_id" property="quests_id"/>
+		<result column="quests_nickname" property="quests_nickname"/>
+		<result column="quests_title" property="quests_title"/>
+		<result column="quests_contents" property="quests_contents"/>
+		<result column="list_contents" property="list_contents"/>
+		<result column="hits" property="hits"/>
+		<result column="regDate" property="regDate"/>
+		<result column="reply" property="reply"/>
+		<result column="thumbnail" property="thumbnail"/>
+		<result column="notice" property="notice"/>
+		<collection property="tags" javaType="List" ofType="HashtagVO">
+			<id column="num" property="num"/>
+			<result column="quests_num" property="quests_num"/>
+			<result column="hashtag_name" property="hashtag_name"/>
+		</collection>
+	</resultMap>
 
 </mapper>

@@ -160,6 +160,20 @@ public class QuestionsController {
 		
 		return jsp;
 	}
+
+	/** [질문과답변 해시태그로 검색] */
+	@GetMapping("fromHashtag")
+	public ModelAndView selectFromHashtag(@RequestParam String hashtag) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		List<QuestionsVO> lists = questionsService.selectFromHashtag(hashtag);
+		for(int i=0;i<lists.size();i++) {
+			System.out.println(lists.get(i).getQuests_title());
+		}
+		mav.addObject("list", lists);
+		mav.setViewName("questions/questions_list");
+		
+		return mav;
+	}
 	
 
 }

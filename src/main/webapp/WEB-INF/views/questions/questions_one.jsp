@@ -109,7 +109,7 @@
                                 
 								  	<sec:authentication property="principal" var="memberVO"/>
 		                            <input type="hidden" name="qnum" value="${quest.quests_num}"/>
-		              				<input type="hidden" name="nickname" value="${memberVO.nickname}"/>
+		              				<input type="hidden" name="nickname" id="memberVO_nickname" value="${memberVO.nickname}"/>
 		              				<input type="hidden" name="id" id="memberVO_id" value="${memberVO.id}"/>
 	              				
                             
@@ -246,6 +246,7 @@
 </script>
 <script type="text/javascript">
 var qnum = '${quest.quests_num}'; //게시글 번호
+var loginNick = $('#memberVO_nickname').val(); //로그인한 계정의 nickname
 
 $('[name=commentInsertBtn]').click(function(){ //댓글 등록 버튼 클릭시 
     var insertData = $('[name=comment-feed__form]').serialize(); //comment-feed__form의 내용을 가져옴
@@ -276,7 +277,11 @@ function commentList(){
                 a += '<span class="comment-feed__item__footer__likes__count">'+value.heart+'</span></span>';
                 a += '<button class="comment-feed__item__footer__like-btn" type="button">좋아요</button>';
                 a += '<button class="comment-feed__item__footer__reply-btn" id="dap" type="button" qnum="+'+value.qnum+'" cnum="'+value.cnum+'">답글 달기</button>';
-                a += '<button class="comment-feed__item__footer__report-btn" type="button">신고</button>';
+                if(value.writer==loginNick){
+                	a += '<button class="comment-feed__item__footer__delete-btn" type="button" onclick="commentDelete('+value.cnum+')">삭제</button>';
+                } else {
+                	a += '<button class="comment-feed__item__footer__report-btn" type="button">신고</button>';
+                }
                 a += '</footer></article></li>';
             });
             
@@ -295,6 +300,7 @@ function commentList(){
         }
     });
 }
+
 
 //대댓글 달기 form 생성 click event
 //대댓글기능 보완 필요

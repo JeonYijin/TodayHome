@@ -39,4 +39,7 @@ public interface QuestionsDAO {
 	/** 조회수 업데이트 */
 	public int updateViewsCount(int qnum) throws Exception;
 	
+	/** 해시태그로 글 검색 */
+	public List<QuestionsVO> selectFromHashtag(String hashtag) throws Exception;
+	
 }
