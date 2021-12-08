@@ -76,10 +76,10 @@ public class PictureController {
 	
 	//글 리스트 조회하기
 	@GetMapping("picList")
-	public ModelAndView getPicList(FeelingVO feelingVO) throws Exception{
+	public ModelAndView getPicList(FeelingVO feelingVO, PictureVO pictureVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/picture/picList");
-		List<PictureVO> pic = pictureService.getPicList();
+		List<PictureVO> pic = pictureService.getPicList(pictureVO);
 		mv.addObject("pic", pic);
 
 		//댓글 개수를 모을 list
@@ -89,9 +89,9 @@ public class PictureController {
 		
 		
 		//각 게시글마다의 댓글 수 가져오기
-		for(PictureVO pictureVO: pic) {
+		for(PictureVO pictureVOs: pic) {
 			PicCommentVO picCommentVO = new PicCommentVO();
-			picCommentVO.setPost_id(pictureVO.getPost_id());
+			picCommentVO.setPost_id(pictureVOs.getPost_id());
 			picCommentVO = pictureService.getCommentCount(picCommentVO);
 			countList.add(picCommentVO);
 		}

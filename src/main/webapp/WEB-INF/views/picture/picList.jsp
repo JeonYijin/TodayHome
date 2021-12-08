@@ -165,7 +165,7 @@
 						<nav class="layout-navigation-secondary__menu">
 							<a class="layout-navigation-secondary__menu__item" href="/">홈</a>
 							<a class="layout-navigation-secondary__menu__item" href="/contents/follow/feed">팔로잉</a>
-							<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="/contents/card_collections">사진</a>
+							<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="./picList">사진</a>
 							<a class="layout-navigation-secondary__menu__item" href="/projects?writer=self">집들이</a>
 							<a class="layout-navigation-secondary__menu__item" href="/advices">노하우</a>
 							<a class="layout-navigation-secondary__menu__item" href="/projects?writer=pro">전문가집들이</a>
@@ -173,23 +173,7 @@
 							<a class="layout-navigation-secondary__menu__item" href="/questions">질문과답변</a>
 							<a class="layout-navigation-secondary__menu__item" href="/competitions/feed">이벤트</a>
 						</nav>
-						<!-- <div class="layout-navigation-app-download layout-navigation__bar__app-download">
-							<a class="layout-navigation-app-download__link" href="/3d_intro">
-								<svg class="icon" width="20" height="20" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid meet">
-									<g fill="none" fill-rule="evenodd">
-										<path fill="#35C5F0" d="M16.41 0H3.59A3.59 3.59 0 0 0 0 3.59v12.82A3.59 3.59 0 0 0 3.59 20h12.82A3.59 3.59 0 0 0 20 16.41V3.59A3.59 3.59 0 0 0 16.41 0"></path>
-										<path  fill="rgb(255, 255, 255)" d="M14.75 10.34c-.74 0-1.33-.6-1.33-1.34 0-.74.6-1.34 1.33-1.34s1.32.6 1.32 1.34c0 .74-.59 1.34-1.32 1.34zm-1 3.53H6.12V8.75l3.82-2.7 2.2 1.55a3.01 3.01 0 0 0-.35 1.4 3 3 0 0 0 1.98 2.83v2.04zm1-7.87c-.34 0-.66.06-.97.17l-3.17-2.24a1.18 1.18 0 0 0-1.35 0L4.5 7.28a1.2 1.2 0 0 0-.51.98v6.54c0 .66.53 1.2 1.19 1.2h9.5a1.2 1.2 0 0 0 1.18-1.2v-3.02A3 3 0 0 0 17.7 9c0-1.65-1.32-3-2.96-3z"></path>
-									</g>
-								</svg>
-							3D인테리어
-								<svg class="icon-beta" width="30" height="14" preserveAspectRatio="xMidYMid meet">
-									<g fill="none" fill-rule="evenodd">
-										<rect width="30" height="14" fill="#757575" rx="7"></rect>
-										<path fill="#FFF" fill-rule="nonzero" d="M7.1 10.59c1.52 0 2.24-.82 2.24-1.96 0-1-.53-1.48-1.33-1.64v-.03c.76-.26 1.05-.78 1.05-1.5 0-1.09-.64-1.73-2.12-1.73H4.69v6.86h2.4zm-.37-3.94h-.9V4.64h.95c.74 0 1.13.25 1.13.99 0 .78-.5 1.02-1.18 1.02zm.2 3.02h-1.1v-2.2h1.04c.82 0 1.26.3 1.26 1.09 0 .75-.42 1.11-1.2 1.11zm7.65.92v-.97h-2.92V7.54h2.22v-.96h-2.22V4.7h2.86v-.97h-4.01v6.86h4.07zm3.8 0V4.7h1.83v-.97h-4.83v.97h1.85v5.89h1.15zm2.92 0l.58-1.74h2.39l.58 1.74h1.2l-2.3-6.86h-1.18l-2.34 6.86h1.07zm2.68-2.66h-1.83l.9-2.74h.03l.9 2.74z"></path>
-									</g>
-								</svg>
-							</a>
-						</div> -->
+					
 					</div>
 				</div>
 			</div>
@@ -235,13 +219,13 @@
 											</svg>
 										</button>
 										<div class="dropdown-content" id="house">
-											<a href="#">원룸&amp;오피스텔</a>
-											<a href="#">아파트</a>
-											<a href="#">빌라&amp;연립</a>
-											<a href="#">단독주택</a>
-											<a href="#">사무공간</a>
-											<a href="#">상업공간</a>
-											<a href="#">기타</a> 
+											<a href="./picList?kind=housetype&search=원룸">원룸&amp;오피스텔</a>
+											<a href="./picList?kind=housetype&search=아파트">아파트</a>
+											<a href="./picList?kind=housetype&search=빌라">빌라&amp;연립</a>
+											<a href="./picList?kind=housetype&search=단독주택">단독주택</a>
+											<a href="./picList?kind=housetype&search=사무공간">사무공간</a>
+											<a href="./picList?kind=housetype&search=상업공간">상업공간</a>
+											<a href="./picList?kind=housetype&search=기타">기타</a> 
 										</div>
 									</div>
 								</li>
@@ -254,19 +238,19 @@
 											</svg>
 										</button>
 										<div class="dropdown-content" id="area">
-											<a href="#">원룸</a>
-											<a href="#">거실</a>
-											<a href="#">침실</a> 
-											<a href="#">주방</a> 
-											<a href="#">아이방</a> 
-											<a href="#">드레스룸</a> 
-											<a href="#">서재&amp;작업실</a> 
-											<a href="#">베란다</a> 
-											<a href="#">사무공간</a> 
-											<a href="#">상업공간</a> 
-											<a href="#">가구&amp;소품</a>
-											<a href="#">현관</a> 
-											<a href="#">외관&amp;기타</a>  
+											<a href="./picList?kind=area&search=원룸">원룸</a>
+											<a href="./picList?kind=area&search=거실">거실</a>
+											<a href="./picList?kind=area&search=침실">침실</a> 
+											<a href="./picList?kind=area&search=주방">주방</a> 
+											<a href="./picList?kind=area&search=아이방">아이방</a> 
+											<a href="./picList?kind=area&search=드레스룸">드레스룸</a> 
+											<a href="./picList?kind=area&search=서재">서재&amp;작업실</a> 
+											<a href="./picList?kind=area&search=베란다">베란다</a> 
+											<a href="./picList?kind=area&search=사무공간">사무공간</a> 
+											<a href="./picList?kind=area&search=상업공간">상업공간</a> 
+											<a href="./picList?kind=area&search=가구">가구&amp;소품</a>
+											<a href="./picList?kind=area&search=현관">현관</a> 
+											<a href="./picList?kind=area&search=외관">외관&amp;기타</a>  
 										</div>
 									</div>
 								</li>
@@ -279,12 +263,12 @@
 											</svg>
 										</button>
 										<div class="dropdown-content" id="pyeong">
-											<a href="#">10평 미만</a>
-											<a href="#">10평대</a>
-											<a href="#">20평대</a> 
-											<a href="#">30평대</a>
-											<a href="#">40평대</a>
-											<a href="#">50평 이상</a> 
+											<a href="./picList?kind=pyeongsu&search=10평미만">10평 미만</a>
+											<a href="./picList?kind=pyeongsu&search=10평대">10평대</a>
+											<a href="./picList?kind=pyeongsu&search=20">20평대</a> 
+											<a href="./picList?kind=pyeongsu&search=30">30평대</a>
+											<a href="./picList?kind=pyeongsu&search=40">40평대</a>
+											<a href="./picList?kind=pyeongsu&search=50">50평 이상</a> 
 										</div>
 									</div>
 								</li>
@@ -297,14 +281,14 @@
 											</svg>
 										</button>
 										<div class="dropdown-content" id="style">
-											<a href="#">모던</a>
-											<a href="#">북유럽</a>
-											<a href="#">빈티지</a>
-											<a href="#">내추럴</a>
-											<a href="#">프로방스&amp;로맨틱</a>
-											<a href="#">클래식&amp;앤틱</a> 
-											<a href="#">한국&amp;아시아</a>
-											<a href="#">유니크</a>
+											<a href="./picList?kind=style&search=모던">모던</a>
+											<a href="./picList?kind=style&search=북유럽">북유럽</a>
+											<a href="./picList?kind=style&search=빈티지">빈티지</a>
+											<a href="./picList?kind=style&search=내추럴">내추럴</a>
+											<a href="./picList?kind=style&search=프로방스">프로방스&amp;로맨틱</a>
+											<a href="./picList?kind=style&search=클래식">클래식&amp;앤틱</a> 
+											<a href="./picList?kind=style&search=한국">한국&amp;아시아</a>
+											<a href="./picList?kind=style&search=유니크">유니크</a>
 										</div>
 									</div>
 								</li>
@@ -312,7 +296,18 @@
 					
 							</ul>
 						</div>
-						<ul class="filter-bar__tag-list"></ul>
+							<ul class="filter-bar__tag-list">
+								<li class="filter-bar__tag-list__item">
+									<button class="button button--color-blue button--size-50 button--shape-4 filter-bar__tag" type="button">원룸&amp;오피스텔
+										<svg class="icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">
+											<path d="M6 4.94L3.879 2.817l-1.061 1.06L4.939 6 2.818 8.121l1.06 1.061L6 7.061l2.121 2.121 1.061-1.06L7.061 6l2.121-2.121-1.06-1.061L6 4.939zM6 12A6 6 0 1 1 6 0a6 6 0 0 1 0 12z"></path>
+										</svg>
+									</button>
+								</li>
+							<li class="filter-bar__tag-list__item">
+							<button class="filter-bar__tag-list__clear" type="button">초기화</button>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>

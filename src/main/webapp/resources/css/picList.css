@@ -143,6 +143,7 @@ svg:not(:root) {
     margin: 0 2px;
     padding: 2px 0;
 }
+
 .filter-bar__tag.button {
     display: block;
     padding: 1px 8px 3px;
@@ -156,6 +157,12 @@ svg:not(:root) {
     border-color: #35c5f0;
     color: #fff;
 }
+.button--color-blue-light-very-more {
+    background-color: #e8f4fb;
+    border-color: #e8f4fb;
+    color: #35c5f0;
+}
+
 .filter-bar__tag.button>.icon {
     margin: 0 -4px 0 7px;
     vertical-align: -1px;
@@ -165,6 +172,21 @@ svg {
     width: 12;
     height: 12;
     /* fill: currentcolor; */
+}
+.filter-bar__tag-list__clear {
+    margin: 0;
+    padding: 2px 10px;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    text-decoration: none;
+    text-align: center;
+    color: #35c5f0;
+    cursor: pointer;
+    transition: opacity .1s;
 }
 .filter-bar-control__button.button {
     font-size: 15px;

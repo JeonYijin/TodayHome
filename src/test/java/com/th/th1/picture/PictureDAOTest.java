@@ -60,12 +60,12 @@ class PictureDAOTest {
 	}
 	
 	//@Test
-	void getPicList() throws Exception{
-		List<PictureVO> pic = pictureDAO.getPicList();
-		//assertNotEquals(0, pic.size());
-		assertNotNull(pic);
-		
-	}
+//	void getPicList() throws Exception{
+//		List<PictureVO> pic = pictureDAO.getPicList();
+//		//assertNotEquals(0, pic.size());
+//		assertNotNull(pic);
+//		
+//	}
 	
 	//@Test
 	void setPicDelete() throws Exception{

@@ -35,12 +35,20 @@
   
   	<!-- 글 리스트 조회 -->
   	 <!-- 리스트에서 검색 -->
-  	<select id="getPicList" resultMap="PicMemResult">
+  	<select id="getPicList" resultMap="PicMemResult" parameterType="PictureVO">
   		select P.*, PF.*, M.nickname from
 		picture P left join picturefile PF
 		on P.post_id = PF.post_id
         inner join member M
         on P.memberNum = M.memberNum
+        where
+        	<choose>
+        		<when test="kind == 'housetype'">housetype</when>
+        		<when test="kind == 'area'">area</when>
+        		<when test="kind == 'pyeongsu'">pyeongsu</when>
+        		<otherwise>style</otherwise>
+        	</choose>
+        like concat('%', #{search}, '%')
   	</select>
   	<resultMap type="PictureVO" id="PicMemResult">
   		<id column="post_id" property="post_id"/>

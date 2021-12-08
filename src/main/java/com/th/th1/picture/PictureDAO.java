@@ -73,7 +73,7 @@ public interface PictureDAO {
 	public int setPicDelete(PictureVO pictureVO) throws Exception;
 
 	//글 리스트 조회하기
-	public List<PictureVO> getPicList() throws Exception;
+	public List<PictureVO> getPicList(PictureVO pictureVO) throws Exception;
 	
 	//글 상세조회하기
 	public PictureVO getPicOne(PictureVO pictureVO) throws Exception;

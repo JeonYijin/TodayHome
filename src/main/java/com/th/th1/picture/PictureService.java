@@ -92,8 +92,8 @@ public class PictureService {
 	}
 	
 	//글 리스트 조회
-	public List<PictureVO> getPicList() throws Exception{
-		return pictureDAO.getPicList();
+	public List<PictureVO> getPicList(PictureVO pictureVO) throws Exception{
+		return pictureDAO.getPicList(pictureVO);
 	}
 	
 	

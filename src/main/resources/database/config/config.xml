@@ -13,6 +13,7 @@
 		<typeAlias type="com.th.th1.picture.PictureVO" alias="PictureVO"/>
 		<typeAlias type="com.th.th1.picture.PictureFileVO" alias="PictureFileVO"/>
 		<typeAlias type="com.th.th1.picture.PicCommentVO" alias="PicCommentVO"/>
+		<typeAlias type="com.th.th1.pictureUtil.PictureUtil" alias="PictureUtil"/>
 		<typeAlias type="com.th.th1.member.RoleVO" alias="RoleVO"/>
 		
 		<typeAlias type="java.lang.Long" alias="Long"/>
