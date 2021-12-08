@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file ="./import_house/write_css.jsp" %>     
+<%@include file ="./import_house/write_css.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,7 +98,7 @@
                                 <li>간단한 자기 소개 후 집에 관한 이야기를 들려주세요. (집 공간 사진 최소 15장 이상)</li>
                                 <li>집 사진/소개글 관련해서 고민이 될 땐 이 링크를 참고해주세요.<ul>
                                         <li>혼자 사는 경우 (<a
-                                                href="https://ohouseproject.notion.site/b4ea386a07f94a1f9c544f4d0e5cff3b"
+                                                href="https://ohouseproject.notion.site/ohouseproject/b4ea386a07f94a1f9c544f4d0e5cff3b"
                                                 target="_blank" rel="noopener noreferrer">바로가기</a>)</li>
                                         <li>함께 사는 경우 (<a
                                                 href="https://ohouseproject.notion.site/7e6fdc44b042452a9bda246373666c7d"
@@ -128,7 +130,7 @@
                                         <path d="M8.27 15.2l2.48 2.47"></path>
                                     </g>
                                 </svg></div>
-                         <form method="post">
+                         <form method="post" name="house-feed__form" enctype="multipart/form-data">
                             <div class="editor-top-sub-section-header__title">필수 정보 입력</div>
                             <div class="editor-top-sub-section-header__sub-title">공간을 이해하는데 필요한 정보이니 최대한 꼼꼼하게 입력해주세요.
                             </div>
@@ -153,17 +155,17 @@
                                                     class="css-10hheuw-EditorFieldColumn e13w87p50">
                                                     <div class="input-group select-input"><select
                                                             name="house_kind" class="form-control empty">
-                                                            <option value="" disabled="">선택해주세요.</option>
-                                                            <option value="0">본인 방</option>
-                                                            <option value="1">원룸</option>
-                                                            <option value="2">오피스텔</option>
-                                                            <option value="3">빌라&amp;연립</option>
-                                                            <option value="4">아파트</option>
-                                                            <option value="5">단독주택</option>
-                                                            <option value="6">협소주택</option>
-                                                            <option value="7">상업공간</option>
-                                                            <option value="8">사무공간</option>
-                                                            <option value="9">기타</option>
+                                                            <option value="">선택해주세요.</option>
+                                                            <option value="본인 방">본인 방</option>
+                                                            <option value="원룸">원룸</option>
+                                                            <option value="오피스텔">오피스텔</option>
+                                                            <option value="빌라&amp;연립">빌라&amp;연립</option>
+                                                            <option value="아파트">아파트</option>
+                                                            <option value="단독주택">단독주택</option>
+                                                            <option value="협소주택">협소주택</option>
+                                                            <option value="상업공간">상업공간</option>
+                                                            <option value="사무공간">사무공간</option>
+                                                            <option value="기타">기타</option>
                                                         </select><span class="select-input__icon"><svg class="icon"
                                                                 width="10" height="10"
                                                                 preserveAspectRatio="xMidYMid meet"
@@ -181,7 +183,7 @@
                                         <div class="editor-form-group__input"><span
                                                 class="css-10hheuw-EditorFieldColumn e13w87p50">
                                                 <div class="css-naoun-InputContainer eyipm3c1"><input placeholder=""
-                                                        name="house_space" class="form-control"
+                                                        name="house_space" class="form-control" type="number"
                                                         value=""><span class="css-vqzo03-InputSuffix eyipm3c0">평</span>
                                                 </div>
                                             </span></div>
@@ -194,37 +196,13 @@
                                                 class="css-10hheuw-EditorFieldColumn e13w87p50">
                                                 <div class="input-group select-input"><select name="house_rooms"
                                                         class="form-control empty">
-                                                        <option value="" disabled="">선택해주세요.</option>
-                                                        <option value="0">1개</option>
-                                                        <option value="1">1.5개</option>
-                                                        <option value="2">2개</option>
-                                                        <option value="3">3개</option>
-                                                        <option value="4">4개</option>
-                                                        <option value="5">5개 이상</option>
-                                                    </select><span class="select-input__icon"><svg class="icon"
-                                                            width="10" height="10" preserveAspectRatio="xMidYMid meet"
-                                                            style="fill: currentcolor;">
-                                                            <path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
-                                                        </svg></span></div>
-                                            </span></div>
-                                    </div>
-                                </div>
-                                <div class="editor-form-group">
-                                    <div class="editor-form-group__label">준공연차</div>
-                                    <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input"><span
-                                                class="css-10hheuw-EditorFieldColumn e13w87p50">
-                                                <div class="input-group select-input"><select
-                                                        name="house_years" class="form-control empty">
-                                                        <option value="" disabled="">선택해주세요.</option>
-                                                        <option value="0">입주예정</option>
-                                                        <option value="1">~2년 미만</option>
-                                                        <option value="2">2년~4년</option>
-                                                        <option value="3">5년~10년</option>
-                                                        <option value="4">11년~15년</option>
-                                                        <option value="5">16년~20년</option>
-                                                        <option value="6">21년~25년</option>
-                                                        <option value="7">26년 이상 </option>
+                                                        <option value="">선택해주세요.</option>
+                                                        <option value="1개">1개</option>
+                                                        <option value="1.5개">1.5개</option>
+                                                        <option value="2개">2개</option>
+                                                        <option value="3개">3개</option>
+                                                        <option value="4개">4개</option>
+                                                        <option value="5개 이상">5개 이상</option>
                                                     </select><span class="select-input__icon"><svg class="icon"
                                                             width="10" height="10" preserveAspectRatio="xMidYMid meet"
                                                             style="fill: currentcolor;">
@@ -264,12 +242,12 @@
                                                     <div class="input-group select-input"><select
                                                             name="family_kind" class="form-control empty">
                                                             <option value="" disabled="">선택해주세요.</option>
-                                                            <option value="0">싱글라이프</option>
-                                                            <option value="1">신혼/부부가 사는집</option>
-                                                            <option value="2">자녀가 있는 집</option>
-                                                            <option value="3">부모님과 함께 사는 집</option>
-                                                            <option value="4">룸메이트와 함께 사는 집</option>
-                                                            <option value="5">기타</option>
+                                                            <option value="싱글라이프">싱글라이프</option>
+                                                            <option value="신혼/부부가 사는집">신혼/부부가 사는집</option>
+                                                            <option value="자녀가 있는 집">자녀가 있는 집</option>
+                                                            <option value="부모님과 함께 사는 집">부모님과 함께 사는 집</option>
+                                                            <option value="룸메이트와 함께 사는 집">룸메이트와 함께 사는 집</option>
+                                                            <option value="기타">기타</option>
                                                         </select><span class="select-input__icon"><svg class="icon"
                                                                 width="10" height="10"
                                                                 preserveAspectRatio="xMidYMid meet"
@@ -281,18 +259,6 @@
                                     </div>
                                 </div>
                                 <div class="editor-form-group">
-                                    <div class="editor-form-group__label">가족 구성원수</div>
-                                    <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input"><span
-                                                class="css-10hheuw-EditorFieldColumn e13w87p50">
-                                                <div class="css-naoun-InputContainer eyipm3c1"><input placeholder=""
-                                                        name="family_count" class="form-control"
-                                                        value=""><span class="css-vqzo03-InputSuffix eyipm3c0">명</span>
-                                                </div>
-                                            </span></div>
-                                    </div>
-                                </div>
-                                <div class="editor-form-group">
                                     <div class="editor-form-group__label">작업 분야<span
                                             class="editor-form-group__required">*</span></div>
                                     <div class="editor-form-group__content">
@@ -300,56 +266,17 @@
                                                 class="css-10hheuw-EditorFieldColumn e13w87p50">
                                                 <div class="input-group select-input"><select name="working_area"
                                                         class="form-control empty">
-                                                        <option value="" disabled="">선택해주세요.</option>
-                                                        <option value="0">홈스타일링</option>
-                                                        <option value="1">리모델링</option>
-                                                        <option value="2">부분시공</option>
-                                                        <option value="3">건축</option>
+                                                        <option value="">선택해주세요.</option>
+                                                        <option value="홈스타일링">홈스타일링</option>
+                                                        <option value="리모델링">리모델링</option>
+                                                        <option value="부분시공">부분시공</option>
+                                                        <option value="건축">건축</option>
                                                     </select><span class="select-input__icon"><svg class="icon"
                                                             width="10" height="10" preserveAspectRatio="xMidYMid meet"
                                                             style="fill: currentcolor;">
                                                             <path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
                                                         </svg></span></div>
                                             </span></div>
-                                    </div>
-                                </div>
-                                <div class="editor-form-group">
-                                    <div class="editor-form-group__label">작업자<span
-                                            class="editor-form-group__required">*</span></div>
-                                    <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input">
-                                            <div class="css-pvwpix-EditorFieldRow eslktj0">
-                                                <ul class="radio-group-input editor-metadata-form__input-radio">
-                                                    <li>
-                                                        <div class="form-radio"><label class="form-radio-label"><input
-                                                                    class="form-radio" type="radio"
-                                                                    name="worker"><span
-                                                                    class="radio-img"></span>셀프 • DIY</label></div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="form-radio"><label class="form-radio-label"><input
-                                                                    class="form-radio" type="radio"
-                                                                    name="metadata.worker"><span
-                                                                    class="radio-img"></span>반셀프<div class="drop-down">
-                                                                    <button type="button"
-                                                                        class="editor-metadata-form-tooltip__button"><svg
-                                                                            class="icon" width="13" height="13"
-                                                                            viewBox="0 0 13 13"
-                                                                            preserveAspectRatio="xMidYMid meet">
-                                                                            <path fill="#BDBDBD"
-                                                                                d="M6.5 13a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13zm0-.87A5.63 5.63 0 1 0 6.5.87a5.63 5.63 0 0 0 0 11.26zM5.76 8.7h1.5v1.47h-1.5V8.7zM4.9 3c.4-.26.89-.39 1.47-.39.77 0 1.4.18 1.9.55.52.37.77.9.77 1.62 0 .44-.11.82-.33 1.12-.13.18-.38.41-.74.7l-.36.28c-.2.15-.33.33-.4.53a2.3 2.3 0 0 0-.06.6H5.79c.02-.57.07-.97.16-1.19.09-.21.32-.47.68-.75l.37-.3c.12-.08.22-.18.3-.29.13-.19.2-.39.2-.61 0-.26-.07-.5-.23-.7-.15-.22-.42-.32-.82-.32-.4 0-.67.13-.84.39a1.5 1.5 0 0 0-.24.8H3.9c.04-.96.38-1.64 1.01-2.04z">
-                                                                            </path>
-                                                                        </svg></button></div></label></div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="form-radio"><label class="form-radio-label"><input
-                                                                    class="form-radio" type="radio"
-                                                                    name="metadata.worker"><span
-                                                                    class="radio-img"></span>전문가</label></div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="editor-form-group">
@@ -381,7 +308,7 @@
                                                     width="132" class="css-11rd77j-EditorFieldColumn e13w87p50">
                                                     <div class="css-naoun-InputContainer eyipm3c1"><input
                                                             name="total_budget" class="form-control"
-                                                            value=""><span
+                                                            value="" type="number"><span
                                                             class="css-vqzo03-InputSuffix eyipm3c0">만원</span></div>
                                                 </span></div>
                                         </div>
@@ -392,13 +319,29 @@
                     </div>
                 </div>
             </div>
-            <div class="editor-cover-image-input"><button class="editor-cover-image-input__empty" type="button">
-                    <p class="editor-cover-image-input__empty__text"><span class="pc-verbose">드래그 앤 드롭이나 추가하기
-                            버튼으로<br></span>커버 사진을 업로드해주세요.</p>
-                    <p class="editor-cover-image-input__empty__size-text">* 권장 사이즈: 1920 x 1080, 최소 1400 x 930 (3:2 비율)
-                    </p>
+            
+            <!-- security -->
+            <sec:authorize access="isAuthenticated()" var="result">
+		  		<sec:authentication property="principal.id" var="id"/>
+		 		<sec:authentication property="principal" var="memberVO"/>
+				id : <input type="text" name="house_id" value="${id}" readonly/><br>
+				nickname : <input type="text" name="house_writer" value="${memberVO.nickname}" readonly/>
+		  	</sec:authorize>	
+            <!-- security -->
+			
+            <div class="editor-cover-image-input">
+            	<button class="editor-cover-image-input__empty" type="button">
+                    <p class="editor-cover-image-input__empty__text"><span class="pc-verbose">추가하기 버튼으로<br></span>커버 사진을 업로드해주세요.</p>
+                    <p class="editor-cover-image-input__empty__size-text">* 권장 사이즈: 1920 x 1080, 최소 1400 x 930 (3:2 비율)</p>
                     <div class="editor-cover-image-input__empty__upload">커버 사진 추가하기</div>
-                </button></div>
+                </button>
+           </div>
+           
+           	<div id="hidden-man">
+           		<input type="file" id="thumbnail-input" name="thumbnail" hidden="hidden"/>
+           		<img id="View" src="#" hidden="hidden"/>
+           	</div>
+           	
             <div class="editor-title-input">
             <input class="editor-title-input__text" type="text" name="house_title" placeholder="제목을 입력해주세요." maxlength="30" value=""/>
                 <div class="editor-title-input__limit">0 / 30</div>
@@ -430,5 +373,7 @@
                     </path>
                 </svg></button></div>
     </div>
+    
+<script type="text/javascript" src="../resources/js/housewarming/house_write.js"></script>    
 </body>
 </html>
