@@ -267,31 +267,13 @@
                                     <div class="editor-form-group__label">평수<span
                                             class="editor-form-group__required">*</span></div>
                                     <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input">
-                                            <div class="css-pvwpix-EditorFieldRow eslktj0">
-                                                <ul class="radio-group-input editor-metadata-form__input-radio">
-                                                    <li>
-                                                        <div class="form-radio"><label class="form-radio-label"><input
-                                                                    class="form-radio" type="radio"
-                                                                    name="metadata.area.type"><span
-                                                                    class="radio-img"></span>단층</label></div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="form-radio"><label class="form-radio-label"><input
-                                                                    class="form-radio" type="radio"
-                                                                    name="metadata.area.type"><span
-                                                                    class="radio-img"></span>2층 단독/협소주택 </label></div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="form-radio"><label class="form-radio-label"><input
-                                                                    class="form-radio" type="radio"
-                                                                    name="metadata.area.type"><span
-                                                                    class="radio-img"></span>3층 이상 단독/협소주택 </label>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        <div class="editor-form-group__input"><span
+                                                class="css-10hheuw-EditorFieldColumn e13w87p50">
+                                                <div class="css-naoun-InputContainer eyipm3c1"><input placeholder=""
+                                                        name="house_space" class="form-control"
+                                                        value=""><span class="css-vqzo03-InputSuffix eyipm3c0">평</span>
+                                                </div>
+                                            </span></div>
                                     </div>
                                 </div>
                                 <div class="editor-form-group">
@@ -380,9 +362,8 @@
                                                                     <path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
                                                                 </svg></span></div>
                                                     </div>
-                                                </span><span class="css-10hheuw-EditorFieldColumn e13w87p50"><input
-                                                        name="metadata.buildingName" placeholder="(선택) 아파트/건물명"
-                                                        class="form-control" value=""></span></div>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -409,26 +390,6 @@
                                                                 <path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
                                                             </svg></span></div>
                                                 </span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="editor-form-group">
-                                    <div class="editor-form-group__label">반려동물 유무</div>
-                                    <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input">
-                                            <div class="css-raswpu-EditorFieldPanelRow etqfq8p0">
-                                                <div class="panel-input">
-                                                    <div class="drop-down panel-drop-down panel-input__input-wrap">
-                                                        <button class="panel-input__input form-control empty"
-                                                            type="button">선택해주세요.</button><span
-                                                            class="panel-input__icon"><svg class="icon" width="10"
-                                                                height="10" preserveAspectRatio="xMidYMid meet"
-                                                                style="fill: currentcolor;">
-                                                                <path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
-                                                            </svg></span></div>
-                                                    <ul class="panel-input__tag-list"></ul>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -550,83 +511,13 @@
                                     <div class="editor-form-group__content">
                                         <div class="editor-form-group__input">
                                             <div class="css-pvwpix-EditorFieldRow eslktj0"><span
-                                                    class="css-12vjwus-LabelSpan e14o32zb1" width="82">총예산</span><span
                                                     width="132" class="css-11rd77j-EditorFieldColumn e13w87p50">
                                                     <div class="css-naoun-InputContainer eyipm3c1"><input
                                                             name="metadata.budget2.total" class="form-control"
                                                             value=""><span
                                                             class="css-vqzo03-InputSuffix eyipm3c0">만원</span></div>
                                                 </span></div>
-                                            <div class="css-pvwpix-EditorFieldRow eslktj0"><span
-                                                    class="css-12vjwus-LabelSpan e14o32zb1" width="82">공사/시공</span><span
-                                                    width="132" class="css-11rd77j-EditorFieldColumn e13w87p50">
-                                                    <div class="css-naoun-InputContainer eyipm3c1"><input
-                                                            name="metadata.budget2.construction" class="form-control"
-                                                            value=""><span
-                                                            class="css-vqzo03-InputSuffix eyipm3c0">만원</span></div>
-                                                </span></div>
-                                            <div class="css-pvwpix-EditorFieldRow eslktj0"><span
-                                                    class="css-12vjwus-LabelSpan e14o32zb1" width="82">홈스타일링</span><span
-                                                    width="132" class="css-11rd77j-EditorFieldColumn e13w87p50">
-                                                    <div class="css-naoun-InputContainer eyipm3c1"><input
-                                                            name="metadata.budget2.styling" class="form-control"
-                                                            value=""><span
-                                                            class="css-vqzo03-InputSuffix eyipm3c0">만원</span></div>
-                                                </span></div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="editor-form-group">
-                                    <div class="editor-form-group__label">링크</div>
-                                    <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input">
-                                            <div class="editor-link-url-input">
-                                                <div class="editor-link-url-input-item">
-                                                    <div class="editor-link-url-input-item__row">
-                                                        <div class="editor-link-url-input-item__field-left"><input
-                                                                placeholder="URL 주소를 입력해주세요."
-                                                                class="form-control editor-link-url-input-item__input"
-                                                                value=""></div>
-                                                    </div>
-                                                    <div class="editor-link-url-input-item__row">
-                                                        <div class="editor-link-url-input-item__field"><input
-                                                                placeholder="표시할 내용"
-                                                                class="form-control editor-link-url-input-item__input"
-                                                                value=""></div>
-                                                        <div class="editor-link-url-input-item__actions"><button
-                                                                class="editor-link-url-input-item__action" type="button"
-                                                                title="추가"><svg class="icon" width="29" height="29"
-                                                                    viewBox="-3 -5 29 29"
-                                                                    preserveAspectRatio="xMidYMid meet">
-                                                                    <path
-                                                                        d="M10.8 3.8v5H5.7c-.4 0-.7.3-.7.7 0 .4.3.7.7.7h5.1v5c0 .4.3.7.7.7.4 0 .7-.3.7-.7v-5h5.1c.4 0 .7-.3.7-.7 0-.4-.3-.7-.7-.7h-5.1v-5c0-.4-.3-.7-.7-.7-.4 0-.7.3-.7.7z"
-                                                                        fill="#525B61" stroke="#525B61"
-                                                                        stroke-width=".5"></path>
-                                                                </svg></button><button
-                                                                class="editor-link-url-input-item__action" type="button"
-                                                                title="삭제" disabled=""><svg class="icon" width="29"
-                                                                    height="29" viewBox="-3 -11 29 29"
-                                                                    preserveAspectRatio="xMidYMid meet">
-                                                                    <path
-                                                                        d="M10.8 2.8H5.7c-.4 0-.7.3-.7.7 0 .4.3.7.7.7h11.6c.4 0 .7-.3.7-.7 0-.4-.3-.7-.7-.7h-6.5z"
-                                                                        fill="#525B61" stroke="#525B61"
-                                                                        stroke-width=".5"></path>
-                                                                </svg></button></div>
-                                                    </div>
-                                                </div>
-                                                <p class="editor-metadata-form__input-footnote">URL은 최대 4개까지 입력할 수 있습니다.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="editor-form-group">
-                                    <div class="editor-form-group__label">저작권 표기(C)</div>
-                                    <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input"><span
-                                                class="css-10hheuw-EditorFieldColumn e13w87p50"><input
-                                                    name="metadata.copyright" placeholder="사진 저작자를 입력해주세요."
-                                                    class="form-control" value=""></span></div>
                                     </div>
                                 </div>
                             </div>
