@@ -16,5 +16,20 @@ public interface HouseWarmingDAO {
 	public int getCountBoard(String style_category) throws Exception;
 	
 	// 글 리스트 가져오기
-	public List<HouseWarmingVO> getHouseBoard(Map<String, Object> map) throws Exception;
+	public List<HouseWarmingVO> getHouseList(Map<String, Object> map) throws Exception;
+	
+	// 글 하나 가져오기
+	public HouseWarmingVO getSelectOne(HouseWarmingVO houseVO) throws Exception;
+	
+	// 글 삭제하기
+	public int setDeleteBoard(HouseWarmingVO houseVO) throws Exception;
+	
+	// 글 수정
+	public int setUpdateBoard(HouseWarmingVO houseVO) throws Exception;
+	
+	// 조회수 +1 증가
+	public int setHitsUp(int house_num) throws Exception;
+	
+	
+	
 }

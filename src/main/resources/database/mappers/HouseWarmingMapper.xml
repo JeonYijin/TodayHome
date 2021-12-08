@@ -21,10 +21,39 @@
 		WHERE style_category>-1
 	</select>
 	
-	<select id="getHouseBoard" parameterType="hashmap" resultType="HouseWarmingVO">
+	<!-- 글 리스트 가져오기 -->
+	<select id="getHouseList" parameterType="hashmap" resultType="HouseWarmingVO">
 		SELECT * FROM HOUSEWARMING
 		WHERE style_category>-1
 		ORDER BY house_num desc
+	</select>	
+	
+	<!-- 글 하나 가져오기 -->
+	<select id="getSelectOne" parameterType="HouseWarmingVO" resultType="HouseWarmingVO">
+		SELECT * FROM HOUSEWARMING
+		WHERE HOUSE_NUM=#{house_num}
 	</select>
+	
+	<!-- 글 삭제 -->
+	<delete id="setDeleteBoard" parameterType="HouseWarmingVO">
+		DELETE FROM HOUSEWARMING
+		WHERE HOUSE_WRITER=#{house_writer} and HOUSE_NUM=#{house_num}
+	</delete>
+	
+	<!-- 글 수정 -->
+	<update id="setUpdateBoard" parameterType="HouseWarmingVO">
+		UPDATE HOUSEWARMING 
+		SET HOUSE_TITLE=#{house_title}, HOUSE_CONTENTS=#{house_contents}, HOUSE_THUMBNAIL=#{house_thumbnail}, HOUSE_KIND=#{house_kind}, HOUSE_SPACE=#{house_space},
+			HOUSE_ROOMS=#{house_rooms}, HOUSE_REGION=#{house_region}, FAMILY_KIND=#{family_kind}, WORKING_AREA=#{working_area}, TOTAL_BUDGET=#{total_budget}, STYLE_CATEGORY=#{style_category}
+		WHERE HOUSE_NUM=#{house_num} AND HOUSE_WRITER=#{house_writer}
+	</update>
+	
+	<!-- 조회수 +1 증가 -->
+	<update id="setHitsUp" parameterType="int">
+		UPDATE HOUSEWARMING
+		SET HOUSE_HITS=HOUSE_HITS+1
+		WHERE HOUSE_NUM=#{house_num}
+	</update>
+
 	
 </mapper>

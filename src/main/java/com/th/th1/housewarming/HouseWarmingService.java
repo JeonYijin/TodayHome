@@ -43,8 +43,28 @@ public class HouseWarmingService {
 	}
 	
 	// 글 리스트 가져오기
-	public List<HouseWarmingVO> getHouseBoard(Map<String, Object> map) throws Exception {
-		return houseDAO.getHouseBoard(map);
+	public List<HouseWarmingVO> getHouseList(Map<String, Object> map) throws Exception {
+		return houseDAO.getHouseList(map);
+	}
+	
+	// 글 하나 가져오기
+	public HouseWarmingVO getSelectOne(HouseWarmingVO houseVO) throws Exception {
+		return houseDAO.getSelectOne(houseVO);
+	}
+	
+	// 글 삭제하기
+	public int setDeleteBoard(HouseWarmingVO houseVO) throws Exception {
+		return houseDAO.setDeleteBoard(houseVO);
+	}
+	
+	// 글 수정
+	public int setUpdateBoard(HouseWarmingVO houseVO) throws Exception {
+		return houseDAO.setUpdateBoard(houseVO);
+	}
+	
+	//조회수 +1 증가
+	public int setHitsUp(int house_num) throws Exception {
+		return houseDAO.setHitsUp(house_num);
 	}
 	
 	
