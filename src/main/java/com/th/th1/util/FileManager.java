@@ -63,19 +63,23 @@ public class FileManager {
 	}
 	
 	//3. ServletContext 사용
-	public String getUseServletContext(String filePath, MultipartFile multipartFile) throws Exception {
-		filePath = servletContext.getRealPath(filePath);
-		File file = new File(filePath);
-		
+	public String getUseServletContext(File file, MultipartFile multipartFile) throws Exception {
+		//폴더 없으면 폴더 생성하기
 		if(!file.exists()) {
 			file.mkdirs();
 		}
-		
-		//파일 저장
-		//1. 유니크한 이름 만들기
-		String fileName = "";
-		fileName = UUID.randomUUID().toString()+"_"+multipartFile.getOriginalFilename();
-	
-		return fileName;
+				
+		//파일 이름 uuid로 생성하기
+		String fileName = UUID.randomUUID().toString();
+		fileName = fileName+"_"+multipartFile.getOriginalFilename();
+		System.out.println("파일명:" + fileName);
+			
+		file = new File(file, fileName);
+				
+		multipartFile.transferTo(file);
+				
+		return fileName;				
 	}
+	
 }
+
