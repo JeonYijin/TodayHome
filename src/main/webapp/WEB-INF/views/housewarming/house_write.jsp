@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 <title>집들이 글쓰기 페이지</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
+
 </head>
 <body>
  	<div class="editor">
@@ -115,6 +116,7 @@
                         </div>
                     </div>
                 </div>
+                 <form method="post" name="house-feed__form" enctype="multipart/form-data">
                 <div class="editor-top-sub-section"><button class="editor-top-sub-section-header" type="button"
                         id="id-2-header" aria-labelledby="id-2 -content" aria-expanded="true">
                         <div class="editor-top-sub-section-header__left">
@@ -130,7 +132,6 @@
                                         <path d="M8.27 15.2l2.48 2.47"></path>
                                     </g>
                                 </svg></div>
-                         <form method="post" name="house-feed__form" enctype="multipart/form-data">
                             <div class="editor-top-sub-section-header__title">필수 정보 입력</div>
                             <div class="editor-top-sub-section-header__sub-title">공간을 이해하는데 필요한 정보이니 최대한 꼼꼼하게 입력해주세요.
                             </div>
@@ -142,7 +143,7 @@
                                     d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
                             </svg></div>
                     </button>
-                    <div class="open expanded" style="overflow: hidden;">
+                    <div class="open expanded" style="overflow: hidden; height: 0px; display: none;">
                         <div class="editor-top-sub-section-content" role="region" id="id-2 -content"
                             aria-labelledby="id-2-header">
                             <div class="editor-metadata-form">
@@ -182,9 +183,9 @@
                                     <div class="editor-form-group__content">
                                         <div class="editor-form-group__input"><span
                                                 class="css-10hheuw-EditorFieldColumn e13w87p50">
-                                                <div class="css-naoun-InputContainer eyipm3c1"><input placeholder=""
+                                                <div class="css-naoun-InputContainer eyipm3c1"><input placeholder="평수를 입력해주세요"
                                                         name="house_space" class="form-control" type="number"
-                                                        value=""><span class="css-vqzo03-InputSuffix eyipm3c0">평</span>
+                                                        value=""><span hidden="hidden" class="css-vqzo03-InputSuffix eyipm3c0">평</span>
                                                 </div>
                                             </span></div>
                                     </div>
@@ -280,27 +281,6 @@
                                     </div>
                                 </div>
                                 <div class="editor-form-group">
-                                    <div class="editor-form-group__label">기간</div>
-                                    <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input">
-                                            <div class="css-pvwpix-EditorFieldRow eslktj0">
-                                                <ul class="radio-group-input editor-metadata-form__input-radio">
-                                                    <li>
-                                                        <div class="form-radio"><label class="form-radio-label"><input
-                                                                    class="form-radio" type="radio" name="working_period"><span
-                                                                    class="radio-img"></span>주</label></div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="form-radio"><label class="form-radio-label"><input
-                                                                    class="form-radio" type="radio" name="working_period"><span
-                                                                    class="radio-img"></span>개월</label></div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="editor-form-group">
                                     <div class="editor-form-group__label">예산</div>
                                     <div class="editor-form-group__content">
                                         <div class="editor-form-group__input">
@@ -308,8 +288,8 @@
                                                     width="132" class="css-11rd77j-EditorFieldColumn e13w87p50">
                                                     <div class="css-naoun-InputContainer eyipm3c1"><input
                                                             name="total_budget" class="form-control"
-                                                            value="" type="number"><span
-                                                            class="css-vqzo03-InputSuffix eyipm3c0">만원</span></div>
+                                                            value="" type="number" placeholder="만원 단위로 입력해주세요"><span
+                                                            class="css-vqzo03-InputSuffix eyipm3c0" hidden="hidden">만원</span></div>
                                                 </span></div>
                                         </div>
                                     </div>

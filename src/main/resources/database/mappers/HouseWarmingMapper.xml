@@ -10,7 +10,7 @@
 		INSERT INTO HOUSEWARMING 
 		VALUES (null, #{house_title}, #{house_contents}, #{house_writer}, default, default, default, 
 		default, #{house_thumbnail}, default, #{house_kind}, #{house_space}, #{house_rooms}, #{house_region}, 
-		#{family_kind}, #{working_area}, #{working_period}, 
+		#{family_kind}, #{working_area}, 
 		#{total_budget}, -1)
 	</insert>
 	

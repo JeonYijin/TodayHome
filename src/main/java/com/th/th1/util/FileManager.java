@@ -13,11 +13,35 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class FileManager {
-	
-	@Autowired
-	private ServletContext servletContext;
+/*	
 	@Autowired
 	private ResourceLoader resourceLoader;
+*/	
+
+	//3. ServletContext 사용
+	public String getUseServletContext(File file, MultipartFile multipartFile) throws Exception {
+		//폴더 없으면 폴더 생성하기
+		if(!file.exists()) {
+			file.mkdirs();
+		}
+				
+		//파일 이름 uuid로 생성하기
+		String fileName = UUID.randomUUID().toString();
+		fileName = fileName+"_"+multipartFile.getOriginalFilename();
+		System.out.println("파일명:" + fileName);
+			
+		file = new File(file, fileName);
+				
+		multipartFile.transferTo(file);
+				
+		return fileName;				
+	}
+	
+	
+	
+	
+		
+/**	
 	
 	//1. ClassPathResource
 	public String getUseClassPathResource(String filePath, MultipartFile multipartFile) throws Exception {
@@ -61,25 +85,8 @@ public class FileManager {
 		
 		return fileName;
 	}
-	
-	//3. ServletContext 사용
-	public String getUseServletContext(File file, MultipartFile multipartFile) throws Exception {
-		//폴더 없으면 폴더 생성하기
-		if(!file.exists()) {
-			file.mkdirs();
-		}
-				
-		//파일 이름 uuid로 생성하기
-		String fileName = UUID.randomUUID().toString();
-		fileName = fileName+"_"+multipartFile.getOriginalFilename();
-		System.out.println("파일명:" + fileName);
-			
-		file = new File(file, fileName);
-				
-		multipartFile.transferTo(file);
-				
-		return fileName;				
-	}
+
+*/
 	
 }
 

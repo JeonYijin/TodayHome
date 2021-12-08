@@ -14,7 +14,6 @@ public class HouseWarmingVO {
 	private String house_region; // 지역
 	private String family_kind; // 가족형태
 	private String working_area; // 작업분야
-	private String working_period; // 작업기간
 	
 	private Integer total_budget; // 예산 (maybe, 소숫점 자리까지 입력하면 반올림요청 alert ON)
 	/** [필수정보입력part END] */
