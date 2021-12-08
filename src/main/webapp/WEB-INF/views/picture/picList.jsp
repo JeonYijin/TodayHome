@@ -296,7 +296,7 @@
 					
 							</ul>
 						</div>
-							<ul class="filter-bar__tag-list">
+							<!-- <ul class="filter-bar__tag-list">
 								<li class="filter-bar__tag-list__item">
 									<button class="button button--color-blue button--size-50 button--shape-4 filter-bar__tag" type="button">원룸&amp;오피스텔
 										<svg class="icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">
@@ -307,7 +307,7 @@
 							<li class="filter-bar__tag-list__item">
 							<button class="filter-bar__tag-list__clear" type="button">초기화</button>
 							</li>
-						</ul>
+						</ul> -->
 					</div>
 				</div>
 			</div>

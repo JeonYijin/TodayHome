@@ -22,7 +22,7 @@ public class PictureVO {
 	
 	private String kind;
 	private String search;
-	
+	private String order;
 	
 	public String getKind() {
 		return kind;
@@ -41,6 +41,17 @@ public class PictureVO {
 
 	public void setSearch(String search) {
 		this.search = search;
+	}
+	
+	public String getOrder() {
+		if(this.order==null) {
+			this.order="post_date";
+		}
+		return order;
+	}
+	
+	public void setOrder(String order) {
+		this.order = order;
 	}
 	
 	

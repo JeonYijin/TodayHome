@@ -49,6 +49,13 @@
         		<otherwise>style</otherwise>
         	</choose>
         like concat('%', #{search}, '%')
+        order by 
+        	<choose>
+        		<when test="order == 'best'">hit</when>
+        		<when test="order == 'recent'">post_date</when>
+        		<otherwise>memberNum</otherwise>
+        	</choose>
+        	desc
   	</select>
   	<resultMap type="PictureVO" id="PicMemResult">
   		<id column="post_id" property="post_id"/>
