@@ -29,7 +29,14 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 	
 	@PostMapping("write")
 	public String setWrite(HouseWarmingVO houseVO) throws Exception {
-		return "";
+		
+		int result = houseService.setHouseWarming(houseVO);
+		String resultPath = "./";
+		if(result==1) {
+			resultPath="redirect:/housewarming";
+		}
+		
+		return resultPath;
 	}
 	
 }
