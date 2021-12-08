@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>집들이 글쓰기 페이지</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 </head>
 <body>
  	<div class="editor">
@@ -46,97 +47,6 @@
                                     </path>
                                 </g>
                             </svg></a>
-                        <div class="editor-pc-header__center">
-                            <div class="editor-command-list-pc"><button class="editor-command-list-pc-button"
-                                    aria-pressed="false" title="사진 추가" type="button"><svg class="icon"
-                                        viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet">
-                                        <g fill-rule="evenodd" fill="none">
-                                            <rect rx="4" height="29" width="29"></rect>
-                                            <g stroke-width="1.6" stroke="#525b61" transform="translate(4 4)">
-                                                <rect rx="4" height="19.4" width="19.4" y=".8" x=".8"></rect>
-                                                <path stroke-linejoin="round"
-                                                    d="M.8 15.24L5.98 9.7l7.11 6.11 3.88-3.05 3.23 2.5"></path>
-                                                <circle r="2.03" cy="6.87" cx="14.13"></circle>
-                                            </g>
-                                        </g>
-                                    </svg></button><span class="editor-command-list-pc__divider"></span><button
-                                    class="editor-command-list-pc-button editor-command-list-pc-button--disabled"
-                                    disabled="" aria-pressed="false" title="제목" type="button"><span
-                                        class="project-editor-command-list-content__icon-h2">제목</span></button><button
-                                    class="editor-command-list-pc-button editor-command-list-pc-button--disabled"
-                                    disabled="" aria-pressed="false" title="본문" type="button"><span
-                                        class="project-editor-command-list-content__icon-p">본문</span></button><span
-                                    class="editor-command-list-pc__divider"></span><button
-                                    class="editor-command-list-pc-button editor-command-list-pc-button--disabled"
-                                    disabled="" aria-pressed="false" title="굵게" type="button"><svg class="icon"
-                                        width="29" height="29" viewBox="0 0 29 29" preserveAspectRatio="xMidYMid meet">
-                                        <g fill="none" fill-rule="evenodd">
-                                            <rect width="29" height="29" rx="4"></rect>
-                                            <path
-                                                d="M8 6h5.46c2.49 0 4.3.34 5.42 1.03 1.13.68 1.69 1.77 1.69 3.27.04.89-.22 1.76-.74 2.5a2.96 2.96 0 01-1.96 1.17v.12c1.11.24 1.9.69 2.39 1.35.52.77.78 1.7.73 2.62a4.27 4.27 0 01-1.73 3.64c-1.16.87-2.73 1.3-4.71 1.3H8zm3.72 6.73h2.16c1.01 0 1.74-.15 2.2-.45.47-.36.73-.92.68-1.5a1.49 1.49 0 00-.74-1.4 4.94 4.94 0 00-2.34-.43h-1.96zm0 2.86V20h2.43c1.02 0 1.78-.19 2.26-.57.52-.43.79-1.08.73-1.74 0-1.4-1.04-2.11-3.12-2.11z"
-                                                fill="#525b61" fill-rule="nonzero"></path>
-                                        </g>
-                                    </svg></button><button
-                                    class="editor-command-list-pc-button editor-command-list-pc-button--disabled"
-                                    disabled="" aria-pressed="false" title="이탤릭" type="button"><svg class="icon"
-                                        viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet">
-                                        <g fill-rule="evenodd" fill="none">
-                                            <rect rx="4" height="29" width="29"></rect>
-                                            <g fill="#525b61" transform="translate(9 5)">
-                                                <rect rx="1" height="2" width="8" y="16"></rect>
-                                                <rect rx="1" height="2" width="8" y="1" x="3"></rect>
-                                                <rect rx="1" height="17" width="2" y="1.04" x="4.55"
-                                                    transform="rotate(10 5.55 9.54)"></rect>
-                                            </g>
-                                        </g>
-                                    </svg></button><button
-                                    class="editor-command-list-pc-button editor-command-list-pc-button--disabled"
-                                    disabled="" aria-pressed="false" title="밑줄" type="button"><svg class="icon"
-                                        viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet">
-                                        <g fill-rule="evenodd" fill="none">
-                                            <rect rx="4" height="29" width="29"></rect>
-                                            <g transform="translate(6 7)">
-                                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.1"
-                                                    stroke="#525b61"
-                                                    d="M3.19 0v5.35c0 3.5 2.38 6.34 5.31 6.34 2.93 0 5.31-2.84 5.31-6.34V0">
-                                                </path>
-                                                <rect rx="1" height="2.13" width="17" y="14.88" fill="#525b61"></rect>
-                                            </g>
-                                        </g>
-                                    </svg></button><span class="editor-command-list-pc__divider"></span><button
-                                    class="editor-command-list-pc-button editor-command-list-pc-button--disabled"
-                                    disabled="" aria-pressed="false" title="검은색" type="button"><svg class="icon"
-                                        width="29" height="29" viewBox="0 0 29 29" preserveAspectRatio="xMidYMid meet"
-                                        style="color: rgb(66, 66, 66);">
-                                        <circle fill="currentColor" cx="14.5" cy="14.5" r="8.5"></circle>
-                                    </svg></button><button
-                                    class="editor-command-list-pc-button editor-command-list-pc-button--disabled"
-                                    disabled="" aria-pressed="false" title="빨간색" type="button"><svg class="icon"
-                                        width="29" height="29" viewBox="0 0 29 29" preserveAspectRatio="xMidYMid meet"
-                                        style="color: rgb(255, 119, 119);">
-                                        <circle fill="currentColor" cx="14.5" cy="14.5" r="8.5"></circle>
-                                    </svg></button><button
-                                    class="editor-command-list-pc-button editor-command-list-pc-button--disabled"
-                                    disabled="" aria-pressed="false" title="파란색" type="button"><svg class="icon"
-                                        width="29" height="29" viewBox="0 0 29 29" preserveAspectRatio="xMidYMid meet"
-                                        style="color: rgb(53, 197, 240);">
-                                        <circle fill="currentColor" cx="14.5" cy="14.5" r="8.5"></circle>
-                                    </svg></button><span class="editor-command-list-pc__divider"></span>
-                                <div class="drop-down"><button
-                                        class="editor-command-list-pc-button editor-command-list-pc-button--disabled"
-                                        disabled="" aria-pressed="false" title="링크" type="button"><svg class="icon"
-                                            viewBox="0 0 29 29" height="29" width="29"
-                                            preserveAspectRatio="xMidYMid meet">
-                                            <g fill-rule="evenodd" fill="none">
-                                                <rect rx="4" height="29" width="29"></rect>
-                                                <path fill-rule="nonzero" fill="#525b61" stroke-width=".2"
-                                                    stroke="#525b61"
-                                                    d="M14.24 8.82l2.51-2.52a4.37 4.37 0 012.7-1.29 4.24 4.24 0 014.5 3.6 4.25 4.25 0 01-1.19 3.62l-4.24 4.24a4.2 4.2 0 01-5.98 0 2.47 2.47 0 01-.33-.37.64.64 0 01.07-.88v0a.68.68 0 011 .05 2.85 2.85 0 002.28 1.1c.75 0 1.49-.3 2.04-.85l4.2-4.2c.5-.5.82-1.15.9-1.84a2.92 2.92 0 00-1.99-3.02 2.93 2.93 0 00-2.95.72l-1.9 1.91-.68.67a.68.68 0 01-.94 0v0a.68.68 0 010-.94zm.48 11.4a.68.68 0 000-.94v0a.68.68 0 00-.94 0l-2.53 2.53a2.89 2.89 0 01-2.93.72 2.9 2.9 0 01-1.15-4.8l4.26-4.26a2.85 2.85 0 012.05-.85c.78 0 1.5.3 2.05.85l.28.3c.23.32.69.37.99.1l.02-.03a.66.66 0 00.07-.85 4.15 4.15 0 00-3.64-1.68 4.38 4.38 0 00-2.79 1.28l-4.23 4.2A4.24 4.24 0 009.22 24a4.2 4.2 0 003-1.24z">
-                                                </path>
-                                            </g>
-                                        </svg></button></div>
-                            </div>
-                        </div>
                         <div class="editor-pc-header__right">
                             <div class="editor__save-section">
                                 <div class="drop-down editor-draft-menu">
@@ -218,6 +128,7 @@
                                         <path d="M8.27 15.2l2.48 2.47"></path>
                                     </g>
                                 </svg></div>
+                         <form method="post">
                             <div class="editor-top-sub-section-header__title">필수 정보 입력</div>
                             <div class="editor-top-sub-section-header__sub-title">공간을 이해하는데 필요한 정보이니 최대한 꼼꼼하게 입력해주세요.
                             </div>
@@ -241,7 +152,7 @@
                                             <div class="css-pvwpix-EditorFieldRow eslktj0"><span
                                                     class="css-10hheuw-EditorFieldColumn e13w87p50">
                                                     <div class="input-group select-input"><select
-                                                            name="metadata.housingType.type" class="form-control empty">
+                                                            name="house_kind" class="form-control empty">
                                                             <option value="" disabled="">선택해주세요.</option>
                                                             <option value="0">본인 방</option>
                                                             <option value="1">원룸</option>
@@ -281,7 +192,7 @@
                                     <div class="editor-form-group__content">
                                         <div class="editor-form-group__input"><span
                                                 class="css-10hheuw-EditorFieldColumn e13w87p50">
-                                                <div class="input-group select-input"><select name="metadata.roomNumber"
+                                                <div class="input-group select-input"><select name="house_rooms"
                                                         class="form-control empty">
                                                         <option value="" disabled="">선택해주세요.</option>
                                                         <option value="0">1개</option>
@@ -304,7 +215,7 @@
                                         <div class="editor-form-group__input"><span
                                                 class="css-10hheuw-EditorFieldColumn e13w87p50">
                                                 <div class="input-group select-input"><select
-                                                        name="metadata.buildingAge" class="form-control empty">
+                                                        name="house_years" class="form-control empty">
                                                         <option value="" disabled="">선택해주세요.</option>
                                                         <option value="0">입주예정</option>
                                                         <option value="1">~2년 미만</option>
@@ -351,7 +262,7 @@
                                             <div class="css-pvwpix-EditorFieldRow eslktj0"><span
                                                     class="css-10hheuw-EditorFieldColumn e13w87p50">
                                                     <div class="input-group select-input"><select
-                                                            name="metadata.family.type" class="form-control empty">
+                                                            name="family_kind" class="form-control empty">
                                                             <option value="" disabled="">선택해주세요.</option>
                                                             <option value="0">싱글라이프</option>
                                                             <option value="1">신혼/부부가 사는집</option>
@@ -375,7 +286,7 @@
                                         <div class="editor-form-group__input"><span
                                                 class="css-10hheuw-EditorFieldColumn e13w87p50">
                                                 <div class="css-naoun-InputContainer eyipm3c1"><input placeholder=""
-                                                        name="metadata.numberOfFamilyMembers" class="form-control"
+                                                        name="family_count" class="form-control"
                                                         value=""><span class="css-vqzo03-InputSuffix eyipm3c0">명</span>
                                                 </div>
                                             </span></div>
@@ -387,7 +298,7 @@
                                     <div class="editor-form-group__content">
                                         <div class="editor-form-group__input"><span
                                                 class="css-10hheuw-EditorFieldColumn e13w87p50">
-                                                <div class="input-group select-input"><select name="metadata.workType"
+                                                <div class="input-group select-input"><select name="working_area"
                                                         class="form-control empty">
                                                         <option value="" disabled="">선택해주세요.</option>
                                                         <option value="0">홈스타일링</option>
@@ -412,7 +323,7 @@
                                                     <li>
                                                         <div class="form-radio"><label class="form-radio-label"><input
                                                                     class="form-radio" type="radio"
-                                                                    name="metadata.worker"><span
+                                                                    name="worker"><span
                                                                     class="radio-img"></span>셀프 • DIY</label></div>
                                                     </li>
                                                     <li>
@@ -449,12 +360,12 @@
                                                 <ul class="radio-group-input editor-metadata-form__input-radio">
                                                     <li>
                                                         <div class="form-radio"><label class="form-radio-label"><input
-                                                                    class="form-radio" type="radio"><span
+                                                                    class="form-radio" type="radio" name="working_period"><span
                                                                     class="radio-img"></span>주</label></div>
                                                     </li>
                                                     <li>
                                                         <div class="form-radio"><label class="form-radio-label"><input
-                                                                    class="form-radio" type="radio"><span
+                                                                    class="form-radio" type="radio" name="working_period"><span
                                                                     class="radio-img"></span>개월</label></div>
                                                     </li>
                                                 </ul>
@@ -469,7 +380,7 @@
                                             <div class="css-pvwpix-EditorFieldRow eslktj0"><span
                                                     width="132" class="css-11rd77j-EditorFieldColumn e13w87p50">
                                                     <div class="css-naoun-InputContainer eyipm3c1"><input
-                                                            name="metadata.budget2.total" class="form-control"
+                                                            name="total_budget" class="form-control"
                                                             value=""><span
                                                             class="css-vqzo03-InputSuffix eyipm3c0">만원</span></div>
                                                 </span></div>
@@ -488,18 +399,29 @@
                     </p>
                     <div class="editor-cover-image-input__empty__upload">커버 사진 추가하기</div>
                 </button></div>
-            <div class="editor-title-input"><input class="editor-title-input__text" type="text"
-                    placeholder="제목을 입력해주세요." maxlength="30" value="">
+            <div class="editor-title-input">
+            <input class="editor-title-input__text" type="text" name="house_title" placeholder="제목을 입력해주세요." maxlength="30" value=""/>
                 <div class="editor-title-input__limit">0 / 30</div>
             </div>
         </div>
         <div class="editor__content-wrap">
             <div class="editor-content-list">
                 <div class="editor-content-list__content editor__content">
-                    <div class="editor-content-block-placeholder">내용을 입력해주세요.</div>
+                    <textarea rows="5" cols="50" id="house_contents" name="house_contents"></textarea>
+					<script>
+						var ckeditor_config = {
+							resize_enaleb : false,
+							enterMode : CKEDITOR.ENTER_BR,
+							shiftEnterMode : CKEDITOR.ENTER_P,
+							filebrowserUploadUrl : "${pageContext.request.contextPath}/ckeditor/ckUpload"
+						};
+															 
+							CKEDITOR.replace("house_contents", ckeditor_config);									
+					</script>
                 </div>
             </div>
         </div>
+        </form>
         <div class="editor-help-section"><button class="editor-help-section-button" type="button" title="도움말"><svg
                     class="icon" width="28" height="28" viewBox="0 0 28 28" preserveAspectRatio="xMidYMid meet">
                     <rect width="28" height="28" fill="#FFF" rx="10"></rect>
