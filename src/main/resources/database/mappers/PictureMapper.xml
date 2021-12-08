@@ -34,7 +34,7 @@
   	</select>
   
   	<!-- 글 리스트 조회 -->
-  
+  	 <!-- 리스트에서 검색 -->
   	<select id="getPicList" resultMap="PicMemResult">
   		select P.*, PF.*, M.nickname from
 		picture P left join picturefile PF
@@ -69,10 +69,12 @@
   	<!-- 글 상세조회 -->
   	
   	<select id="getPicOne" parameterType="PictureVO" resultMap="getPicResult">
-  		select P.*, PF.* from
+  		select P.*, PF.*, M.nickname from
 			picture P left join picturefile PF
 			on P.post_id = PF.post_id
-		where P.post_id = #{post_id};
+			inner join Member M
+			on P.memberNum = M.memberNum
+		where P.post_id = #{post_id}
   	</select>
   	<resultMap type="PictureVO" id="getPicResult">
   		<id column="post_id" property="post_id"/>
@@ -84,6 +86,10 @@
   		<result column="area" property="area"/>
   		<result column="post_text" property="post_text"/>
   		<result column="hit" property="hit"/>
+  		<association property="memberVO" javaType="MemberVO">
+  			<id column="memberNum" property="memberNum"/>
+  			<result column="nickname" property="nickname"/>
+  		</association>
   		<collection property="pictureFileVO" javaType="List" ofType="PictureFileVO">
   			<id column="picFilenum" property="picFilenum"/>
   			<result column="picFilename" property="picFilename"/>
@@ -100,6 +106,7 @@
   		update picture set hit = hit+1 where post_id = #{post_id}
   	</update>
   
+ 
   
   
   
@@ -111,8 +118,8 @@
   	</insert>
   	
   	<!-- 파일 가져오기 -->
-  	<select id="getPicFile" parameterType="PictureFileVO" resultType="PictureFileVO">
-  		select * from picturefile where picFilenum = #{picFilenum}
+  	<select id="getPicFile" parameterType="PictureVO" resultType="PictureFileVO">
+  		select * from picturefile where post_id = #{post_id}
   	</select>
   	
   	<!-- 파일 삭제하기 -->
@@ -187,9 +194,49 @@
   	
   
   	<!-- 댓글 개수 가져오기 -->
-  	<select id="getCommentCount" parameterType="PicCommentVO" resultType="Long">
-  		select count(*) count from piccomment where post_id=#{post_id}
+  	<select id="getCommentCount" parameterType="PicCommentVO" resultType="PicCommentVO">
+  		select count(*) count, post_id from piccomment where post_id=#{post_id}
   	</select>
   
+  	
+  	
+  	
+  	<!-- 하트 클릭시 insert -->
+  	<insert id="setHeartInsert" parameterType="FeelingVO">
+  		insert into feeling(heart, post_id, memberNum) values(0, #{post_id}, #{memberNum})
+  	</insert>
+  	
+  	<!-- 꽉찬 하트 클릭시 delete -->
+  	<delete id="setHeartDelete" parameterType="FeelingVO">
+  		delete from feeling where post_id=#{post_id} and memberNum=#{memberNum}
+  	</delete>
+  	
+  	
+  	<!-- 로그인 한 사람이 하트 누른 게시글 가져오기 -->
+  	<select id="getHeartPost" parameterType="FeelingVO" resultType="FeelingVO">
+  		select post_id from feeling where memberNum = #{memberNum}
+  	</select>
+  	
+  	
+  	<!-- 게시글 당 하트 수 구하기 -->
+  	<select id="getHeart" parameterType="FeelingVO" resultType="FeelingVO">
+  		select count(*) count from feeling where post_id = #{post_id}
+  	</select>
+  	
+  	
+  	<!-- 스크랩 클릭시 insert -->
+	<insert id="setScrapInsert" parameterType="ScrapingVO">
+		insert into scraping(scrap, post_id, memberNum) values(0, #{post_id}, #{memberNum})
+	</insert>  	
+  	
+  	<!-- 꽉찬 스크랩 클릭시 delete -->
+  	<delete id="setScrapDelete" parameterType="ScrapingVO">
+  		delete from scraping where post_id = #{post_id} and memberNum = #{memberNum}
+  	</delete>
+  	
+  	<!-- 게시글 당 스크랩 개수 가져오기 -->
+  	<select id="getScrap" parameterType="ScrapingVO" resultType="ScrapingVO">
+  		select count(*) scrapCount from scraping where post_id = #{post_id}
+  	</select>
   	
   </mapper>

@@ -53,12 +53,18 @@ body, html {
 }
 /* 게시글 css */
 .css-opdmar-Col-ContentCol {
+    box-sizing: border-box;
+    width: 100%;
+    padding-bottom: 40px;
+}
+.css-opdmar-Col-ContentCol {
     padding-left: 10px;
     padding-right: 10px;
 }
 .css-opdmar-Col-ContentCol {
     width: 66.6667%;
 }
+
 /* 게시글 상단 평수, 하우스타입 등 css */
 .css-18d5kj7-HeaderDiv {
     display: flex;
@@ -416,17 +422,17 @@ div {
    /*  -webkit-user-modify: read-write; */
     -webkit-line-break: after-white-space;
 }
-element.style {
-    position: relative;
+ element.style {
+   position: relative;
     box-sizing: border-box;
-    height: 266.203px;
+    height: 806px;
 }
 .css-1moe4n7 {
     display: flex;
     flex-direction: column;
     min-height: 600px;
     padding: 40px 0px;
-}
+} 
 element.style {
     position: relative;
     box-sizing: border-box;
@@ -449,20 +455,6 @@ element.style {
     margin: 0px 5px;
     color: rgb(66, 66, 66);
 }
-._3aUSM {
-    border-radius: 8px;
-}
-._2tsrJ, ._3VkGp {
-    font-size: 17px;
-    line-height: 26px;
-}
-._2tsrJ {
-    padding: 11px 10px;
-}
-._1SCvK {
-    background-color: #f5f5f5;
-    border-color: #f5f5f5;
-}
 ._3Z6oR {
     user-select: none;
     box-sizing: border-box;
@@ -476,6 +468,56 @@ element.style {
     background: none;
     text-decoration: none;
     transition: color 0.1s ease 0s, background-color 0.1s ease 0s, border-color 0.1s ease 0s;
+}
+._1SCvK {
+    background-color: #f5f5f5;
+    border-color: #f5f5f5;
+}
+._2tsrJ {
+    padding: 11px 10px;
+}
+._2tsrJ, ._3VkGp {
+    font-size: 17px;
+    line-height: 26px;
+}
+._3aUSM {
+    border-radius: 8px;
+}
+.css-13w5lgd-ActionButtonIcon {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 0;
+    vertical-align: -3px;
+}
+.css-esg54n-ActionHeartIcon-IconSvg {
+    fill: transparent;
+    stroke: rgb(66, 66, 66);
+    stroke-width: 1.1px;
+    transition: fill 0.1s ease 0s;
+}
+svg {
+    width: 24;
+    height: 24;
+}
+.css-36arso-ActionButtonCount {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 22px;
+    vertical-align: 4px;
+}
+/* .css-1uts5l0-ActionButton.css-1uts5l0-ActionButton {
+    flex: 1 0 0px;
+    display: block;
+    margin: 0px 5px;
+    color: rgb(66, 66, 66);
+} */
+.css-1qgnuj8-ActionScrapIcon-IconSvg {
+    fill: transparent;
+    stroke: rgb(66, 66, 66);
+    stroke-width: 1.1px;
+    transition: fill 0.1s ease 0s;
 }
 .drop-down {
     position: relative;
@@ -497,31 +539,31 @@ element.style {
     line-height: 0;
     transition: opacity 0.1s ease 0s;
 }
-svg{
-    width: 1em;
-    height: 1em;
-}
-svg:not(:root) {
-    overflow: hidden;
-}
 g{
     fill: currentcolor;
     transform: translate(11, 3);
 }
+/* svg{
+    width: 1em;
+    height: 1em;
+} */
+svg:not(:root) {
+    overflow: hidden;
+}
 :not(svg) {
     transform-origin: 0px 0px;
 }
-circle{
+circle1{
     cx: 1.5;
     cy: 1.5;
     r: 1.5;
 }
-circle{
+circle2{
     cx: 1.5;
     cy: 8.5;
     r: 1.5;
 }
-circle{
+circle3{
     cx: 1.5;
     cy: 15.5;
     r: 1.5;
@@ -538,7 +580,7 @@ circle{
     font-style: normal;
     font-weight: 400;
 }
-css-9pbsgo-AuthorAuthor {
+.css-9pbsgo-AuthorAuthor {
     margin: 0px 5px 0px 60px;
     min-width: 0px;
 }
@@ -611,7 +653,7 @@ a * {
     border-color: #35c5f0;
     color: #fff;
 }
-._3Z6oR {
+/* ._3Z6oR {
     user-select: none;
     display: inline-block;
     box-sizing: border-box;
@@ -627,7 +669,7 @@ a * {
     text-decoration: none;
     transition: color 0.1s ease 0s, background-color 0.1s ease 0s, border-color 0.1s ease 0s;
     border-radius: 4px;
-}
+} */
 .css-1blnoph-SideBarContent {
     flex: 1 0 auto;
 }
@@ -650,7 +692,6 @@ ul {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    padding-inline-start: 40px;
 }
 
 .card-detail-pc-related-card-list__item {
@@ -697,8 +738,60 @@ li {
     transition: background-color .1s;
 }
 
+/* 드롭다운 */
+.animated-popout {
+    transform-origin: 50% 0;
+    box-sizing: border-box;
+}
+.drop-down__content {
+    z-index: 1000;
+}
+.animated-popout.open-active {
+    pointer-events: auto;
+}
+.popout--axis-1.popout--dir-2 .animated-popout {
+    transform: translateY(-10px);
+}
+.animated-popout.open.open.open {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: opacity .2s,transform .2s;
+}
 
-
+.content-detail-dropdown-list {
+    position: relative;
+    min-width: 140px;
+    padding: 9px 7px;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    box-shadow: 0 4px 10px 0 rgb(63 71 77 / 20%);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.content-detail-dropdown-list-item {
+    display: block;
+}
+.content-detail-dropdown-list-item__button {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 9px 10px 10px;
+    border: none;
+    color: #424242;
+    background-color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 23px;
+    font-weight: 400;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: left;
+    transition: background-color .1s;
+}
+.popout--axis-1.popout--dir-2 .content-detail-dropdown-list {
+    margin-top: 8px;
+}
 
 
 

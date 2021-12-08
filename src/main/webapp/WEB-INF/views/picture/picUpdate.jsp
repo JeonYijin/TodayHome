@@ -128,14 +128,70 @@
 						<div class="input-group select-input css-7kwypw-MetadataFormSelectInput e10hhfgx1">
 							<select name="housetype" class="form-control empty">
 								<c:choose>
-								<option value="" disabled="" selected="selected">주거형태</option>
-								<option value="원룸&오피스텔">원룸&amp;오피스텔</option>
-								<option value="아파트">아파트</option>
-								<option value="빌라&연립">빌라&amp;연립</option>
-								<option value="단독주택">단독주택</option>
-								<option value="사무공간">사무공간</option>
-								<option value="상업공간">상업공간</option>
-								<option value="기타">기타</option>
+									<c:when test="${pic.housetype eq'원룸&오피스텔'}">
+										<option value="원룸&오피스텔" selected="selected">원룸&amp;오피스텔</option>
+										<option value="아파트">아파트</option>
+										<option value="빌라&연립">빌라&amp;연립</option>
+										<option value="단독주택">단독주택</option>
+										<option value="사무공간">사무공간</option>
+										<option value="상업공간">상업공간</option>
+										<option value="기타">기타</option>
+									</c:when>
+									<c:when test="${pic.housetype eq'아파트'}">
+										<option value="원룸&오피스텔">원룸&amp;오피스텔</option>
+										<option value="아파트" selected="selected">아파트</option>
+										<option value="빌라&연립">빌라&amp;연립</option>
+										<option value="단독주택">단독주택</option>
+										<option value="사무공간">사무공간</option>
+										<option value="상업공간">상업공간</option>
+										<option value="기타">기타</option>
+									</c:when>
+									<c:when test="${pic.housetype eq'빌라&연립'}">
+										<option value="원룸&오피스텔">원룸&amp;오피스텔</option>
+										<option value="아파트">아파트</option>
+										<option value="빌라&연립" selected="selected">빌라&amp;연립</option>
+										<option value="단독주택">단독주택</option>
+										<option value="사무공간">사무공간</option>
+										<option value="상업공간">상업공간</option>
+										<option value="기타">기타</option>
+									</c:when>
+									
+									<c:when test="${pic.housetype eq'단독주택'}">
+										<option value="원룸&오피스텔">원룸&amp;오피스텔</option>
+										<option value="아파트">아파트</option>
+										<option value="빌라&연립">빌라&amp;연립</option>
+										<option value="단독주택" selected="selected">단독주택</option>
+										<option value="사무공간">사무공간</option>
+										<option value="상업공간">상업공간</option>
+										<option value="기타">기타</option>
+									</c:when>
+									<c:when test="${pic.housetype eq'사무공간'}">
+										<option value="원룸&오피스텔">원룸&amp;오피스텔</option>
+										<option value="아파트">아파트</option>
+										<option value="빌라&연립">빌라&amp;연립</option>
+										<option value="단독주택">단독주택</option>
+										<option value="사무공간">사무공간</option>
+										<option value="상업공간">상업공간</option>
+										<option value="기타">기타</option>
+									</c:when>
+									<c:when test="${pic.housetype eq '상업공간'}">
+										<option value="원룸&오피스텔">원룸&amp;오피스텔</option>
+										<option value="아파트">아파트</option>
+										<option value="빌라&연립">빌라&amp;연립</option>
+										<option value="단독주택">단독주택</option>
+										<option value="사무공간">사무공간</option>
+										<option value="상업공간" selected="selected">상업공간</option>
+										<option value="기타">기타</option>
+									</c:when>
+									<c:when test="${pic.housetype eq'기타'}">
+										<option value="원룸&오피스텔">원룸&amp;오피스텔</option>
+										<option value="아파트">아파트</option>
+										<option value="빌라&연립">빌라&amp;연립</option>
+										<option value="단독주택">단독주택</option>
+										<option value="사무공간">사무공간</option>
+										<option value="상업공간">상업공간</option>
+										<option value="기타" selected="selected">기타</option>
+									</c:when>
 								</c:choose>
 							</select>
 							
@@ -148,15 +204,89 @@
 						
 						<div class="input-group select-input css-7kwypw-MetadataFormSelectInput e10hhfgx1">
 							<select name="style" class="form-control empty">
-								<option value="" disabled="" selected="selected">스타일</option>
-								<option value="모던">모던</option>
-								<option value="북유럽">북유럽</option>
-								<option value="빈티지">빈티지</option>
-								<option value="내추럴">내추럴</option>
-								<option value="프로방스&로맨틱">프로방스&amp;로맨틱</option>
-								<option value="클래식&앤틱">클래식&amp;앤틱</option>
-								<option value="한국&아시아">한국&amp;아시아</option>
-								<option value="유니크">유니크</option>
+								<c:choose>
+									<c:when test="${pic.style eq'모던'}">
+										<option value="모던" selected="selected">모던</option>
+										<option value="북유럽">북유럽</option>
+										<option value="빈티지">빈티지</option>
+										<option value="내추럴">내추럴</option>
+										<option value="프로방스&로맨틱">프로방스&amp;로맨틱</option>
+										<option value="클래식&앤틱">클래식&amp;앤틱</option>
+										<option value="한국&아시아">한국&amp;아시아</option>
+										<option value="유니크">유니크</option>
+									</c:when>
+									<c:when test="${pic.style eq'북유럽'}">
+										<option value="모던">모던</option>
+										<option value="북유럽" selected="selected">북유럽</option>
+										<option value="빈티지">빈티지</option>
+										<option value="내추럴">내추럴</option>
+										<option value="프로방스&로맨틱">프로방스&amp;로맨틱</option>
+										<option value="클래식&앤틱">클래식&amp;앤틱</option>
+										<option value="한국&아시아">한국&amp;아시아</option>
+										<option value="유니크">유니크</option>
+									</c:when>
+									<c:when test="${pic.style eq'빈티지'}">
+										<option value="모던">모던</option>
+										<option value="북유럽">북유럽</option>
+										<option value="빈티지" selected="selected">빈티지</option>
+										<option value="내추럴" >내추럴</option>
+										<option value="프로방스&로맨틱">프로방스&amp;로맨틱</option>
+										<option value="클래식&앤틱">클래식&amp;앤틱</option>
+										<option value="한국&아시아">한국&amp;아시아</option>
+										<option value="유니크">유니크</option>
+									</c:when>
+									<c:when test="${pic.style eq'내추럴'}">
+										<option value="모던">모던</option>
+										<option value="북유럽">북유럽</option>
+										<option value="빈티지">빈티지</option>
+										<option value="내추럴" selected="selected">내추럴</option>
+										<option value="프로방스&로맨틱">프로방스&amp;로맨틱</option>
+										<option value="클래식&앤틱">클래식&amp;앤틱</option>
+										<option value="한국&아시아">한국&amp;아시아</option>
+										<option value="유니크">유니크</option>
+									</c:when>
+									<c:when test="${pic.style eq'프로방스&로맨틱'}">
+										<option value="모던">모던</option>
+										<option value="북유럽">북유럽</option>
+										<option value="빈티지">빈티지</option>
+										<option value="내추럴">내추럴</option>
+										<option value="프로방스&로맨틱" selected="selected">프로방스&amp;로맨틱</option>
+										<option value="클래식&앤틱">클래식&amp;앤틱</option>
+										<option value="한국&아시아">한국&amp;아시아</option>
+										<option value="유니크">유니크</option>
+									</c:when>
+									<c:when test="${pic.style eq'클래식&앤틱'}">
+										<option value="모던">모던</option>
+										<option value="북유럽">북유럽</option>
+										<option value="빈티지">빈티지</option>
+										<option value="내추럴">내추럴</option>
+										<option value="프로방스&로맨틱">프로방스&amp;로맨틱</option>
+										<option value="클래식&앤틱" selected="selected">클래식&amp;앤틱</option>
+										<option value="한국&아시아">한국&amp;아시아</option>
+										<option value="유니크">유니크</option>
+									</c:when>
+									<c:when test="${pic.style eq'한국&아시아'}">
+										<option value="모던">모던</option>
+										<option value="북유럽">북유럽</option>
+										<option value="빈티지">빈티지</option>
+										<option value="내추럴">내추럴</option>
+										<option value="프로방스&로맨틱">프로방스&amp;로맨틱</option>
+										<option value="클래식&앤틱">클래식&amp;앤틱</option>
+										<option value="한국&아시아" selected="selected">한국&amp;아시아</option>
+										<option value="유니크">유니크</option>
+									</c:when>
+									<c:when test="${pic.style eq'유니크'}">
+										<option value="모던">모던</option>
+										<option value="북유럽">북유럽</option>
+										<option value="빈티지">빈티지</option>
+										<option value="내추럴">내추럴</option>
+										<option value="프로방스&로맨틱">프로방스&amp;로맨틱</option>
+										<option value="클래식&앤틱">클래식&amp;앤틱</option>
+										<option value="한국&아시아">한국&amp;아시아</option>
+										<option value="유니크" selected="selected">유니크</option>
+									</c:when>
+								
+								</c:choose>
 							</select>
 							
 							<span class="select-input__icon">
@@ -177,6 +307,7 @@
 					<ol class="e15j4pam0 css-5dor4c-CardListOl-ContainerCardList eg53srj2 list">
 						<li class="css-bvb3rb-CardListLi eg53srj1">
 							<div class="css-10n24i7-CardDiv e19p9qev2 newfile0">
+							<c:if test="${empty files }">
 							<!-- img add  ----------------------------------------------------------------------->
 								<div class="css-8e6x5e-CardItemDiv e1peeabv2 ">
 									<div class="css-4d4cqx-CardItemLeft e1peeabv1 files ">
@@ -189,26 +320,241 @@
 										</button>
 									</div>
 								<!-- img add --------------------------------------------------------------- -->	
+								</c:if>
+								
 									<div class="css-1k7ciri-CardItemRight e1peeabv0">
 										<div class="css-ryivqb-CardItemDescriptionDiv er05vzw3">
 												<div class="input-group select-input css-yk768g-CardItemDescriptionSelectInput er05vzw2">
 												
 													<select name="area" class="form-control empty">
-														<option value="" disabled="" selected="selected">공간 (필수)</option>
+													<c:choose>
+														<c:when test="${pic.area eq '원룸' }">
+															<option value="원룸" selected="selected">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '거실' }">
+															<option value="원룸">원룸</option>
+															<option value="거실" selected="selected">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '침실' }">
 														<option value="원룸">원룸</option>
-														<option value="거실">거실</option>
-														<option value="침실">침실</option>
-														<option value="주방">주방</option>
-														<option value="욕실">욕실</option>
-														<option value="아이방">아이방</option>
-														<option value="드레스룸">드레스룸</option>
-														<option value="서재&작업실">서재&amp;작업실</option>
-														<option value="베란다">베란다</option>
-														<option value="사무공간">사무공간</option>
-														<option value="상업공간">상업공간</option>
-														<option value="가구&소품">가구&amp;소품</option>
-														<option value="현관">현관</option>
-														<option value="외관&기타">외관&amp;기타</option>
+															<option value="거실">거실</option>
+															<option value="침실" selected="selected">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '주방' }">
+															<option value="원룸">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방" selected="selected">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '욕실' }">
+															<option value="원룸">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실" selected="selected">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '아이방' }">
+															<option value="원룸">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방" selected="selected">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '드레스룸' }">
+															<option value="원룸">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸" selected="selected">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '서재&작업실' }">
+															<option value="원룸">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실" selected="selected">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '베란다' }">
+															<option value="원룸">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다" selected="selected">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '사무공간' }">
+															<option value="원룸">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간" selected="selected">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '상업공간' }">
+															<option value="원룸">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간" selected="selected">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '가구&소품' }">
+															<option value="원룸">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품" selected="selected">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '현관' }">
+															<option value="원룸">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관" selected="selected">현관</option>
+															<option value="외관&기타">외관&amp;기타</option>
+														</c:when>
+														<c:when test="${pic.area eq '외관&기타' }">
+															<option value="원룸">원룸</option>
+															<option value="거실">거실</option>
+															<option value="침실">침실</option>
+															<option value="주방">주방</option>
+															<option value="욕실">욕실</option>
+															<option value="아이방">아이방</option>
+															<option value="드레스룸">드레스룸</option>
+															<option value="서재&작업실">서재&amp;작업실</option>
+															<option value="베란다">베란다</option>
+															<option value="사무공간">사무공간</option>
+															<option value="상업공간">상업공간</option>
+															<option value="가구&소품">가구&amp;소품</option>
+															<option value="현관">현관</option>
+															<option value="외관&기타" selected="selected">외관&amp;기타</option>
+														</c:when>
+														
+														
+													</c:choose>	
 													</select>
 													
 													<span class="select-input__icon">
@@ -219,19 +565,22 @@
 												</div>
 											<textarea class="_3ASDR _1qwAY css-10wf1a7-CardItemDescriptionTextInput er05vzw1" field="[object Object]" name="post_text" placeholder="사진에 대해 설명해주세요." rows="6" style="overflow: hidden; overflow-wrap: break-word; height: 145px;">${pic.post_text}</textarea>
 											
-											<div class="keyword-input css-17nk9gk-CardItemDescriptionKeywordInput er05vzw0">
-												<div class="keyword-input__input-item" style="display: inline-block;">
-													<input class="keyword-input__input-item__input" placeholder="키워드" value="" style="box-sizing: content-box; width: 43px;">
-													<div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 15px; font-family: &quot;Noto Sans KR&quot;, &quot;Apple SD Gothic Neo&quot;, &quot;맑은 고딕&quot;, &quot;Malgun Gothic&quot;, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
-													<div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 15px; font-family: &quot;Noto Sans KR&quot;, &quot;Apple SD Gothic Neo&quot;, &quot;맑은 고딕&quot;, &quot;Malgun Gothic&quot;, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;">키워드</div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 								</div>
+															
+								<c:if test="${not empty files }">
+									<c:forEach items="${files}" var="file" varStatus="status">
+										<div>
+										<input type="hidden" value="${file.picFilenum}" id="picFile${status.index}">
+										<img alt="" src="../resources/upload/picture/${file.picFilename}"><button type="button" id="del${status.index}">X</button>
+										</div>
+									</c:forEach>
+								</c:if>
 							</div>
 						</li>
-					<button type="button" style="display: none;" class="css-190fdl2-CardAddButton eg53srj0 addButton">추가하기</button>
+					<button type="button" style="display: block;" class="css-190fdl2-CardAddButton eg53srj0 addButton">추가하기</button>
 					</ol>
 				</div>
 			</div>
@@ -242,7 +591,35 @@
 	
 	
 <script type="text/javascript" src="../resources/js/picInsertFileupload.js"></script> 
+<script type="text/javascript">
+for(let i=0; i<100; i++){
+	$('#del'+i).click(function(){
+		let picFilenum = $('#picFile'+i).val();
+		console.log("fileNum", picFilenum);
+		//alert(i);
+		$(this).parent().remove();
+		//ajax로 실제로 사진 파일 지워주기
+		$.ajax({
+			type:"POST",
+			url:"./picFileDelete",
+			data:{
+				picFilenum: picFilenum	
+			},
+			success:function(result){
+				console.log("파일삭제 성공")
+			},
+			error:function(error){
+				console.log(error);
+			}
+		});
+		
+		
+	})
+	
+	
+}
 
+</script>
 
 
 </body>

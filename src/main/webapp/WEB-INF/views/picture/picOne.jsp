@@ -9,11 +9,142 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../resources/css/picOne.css">
 <link rel="stylesheet" href="../resources/css/picComment.css">
+<link rel="stylesheet" href="../resources/css/picheader.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
-	<h1>PicOne page</h1>
+	<!-- <h1>PicOne page</h1> -->
 	<div class="layout">
+		<header class="layout-navigation-bar">
+			<div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="true" data-sticky-ignore="false" data-direction="top" data-offset="0" class="sticky-container layout-navigation-primary-wrap" style="">
+				<div class="sticky-child layout-navigation-primary" style="position: relative;">
+					<div class="layout-navigation-primary__content">
+						<div class="layout-navigation-primary__leftmost">
+							<button class="layout-navigation-bar-icon layout-navigation-bar-drawer-button" title="메뉴" aria-label="메뉴" type="button">
+								<svg class="icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+									<path fill="currentColor" d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+								</svg>
+							</button>
+						</div>
+						<div class="layout-navigation-primary__left">
+							<a class="layout-navigation-logo layout-navigation__bar__logo" aria-label="오늘의집" href="/">
+								<svg class="icon" width="74" height="30" viewBox="0 0 74 30" preserveAspectRatio="xMidYMid meet">
+									<g fill="none" fill-rule="evenodd">
+										<path fill="#000" d="M14.2 25.17H9.28V20.7a1.45 1.45 0 0 0-2.9 0v4.47H1.44a1.45 1.45 0 1 0 0 2.9H14.2a1.45 1.45 0 0 0 0-2.9M4.5 9.15c0-4.6 2.08-5.28 3.33-5.28 1.24 0 3.33.69 3.33 5.28v.36c0 4.6-2.09 5.28-3.33 5.28-1.25 0-3.34-.69-3.34-5.28v-.36zm3.33 8.54c3.84 0 6.23-3.13 6.23-8.18v-.36c0-5.05-2.39-8.18-6.23-8.18-3.85 0-6.24 3.13-6.24 8.18v.36c0 5.05 2.39 8.19 6.24 8.19zm25.54-7.34H17.81a1.45 1.45 0 0 0 0 2.9h15.56a1.45 1.45 0 1 0 0-2.9m-1.55 15.5c-7.08 1.83-9.45.79-10.14.25-.45-.35-.65-.8-.65-1.48v-.87h10.25c.8 0 1.46-.65 1.46-1.45v-5.08c0-.8-.66-1.45-1.46-1.45h-11.7a1.45 1.45 0 1 0 0 2.9h10.25v2.18H19.57c-.8 0-1.45.65-1.45 1.45v2.32a4.6 4.6 0 0 0 1.78 3.78c1.2.93 2.94 1.39 5.21 1.39 2.05 0 4.54-.38 7.44-1.13a1.45 1.45 0 1 0-.73-2.82M20.3 7.83h10.8a1.45 1.45 0 1 0 0-2.9h-9.35V1.45a1.45 1.45 0 1 0-2.9 0v4.93c0 .8.65 1.45 1.45 1.45"></path>
+											<rect width="3" height="15" x="70" fill="#000" rx="1.5"></rect>
+										<path fill="#000" d="M64.5 13.28a1.45 1.45 0 0 0 2.73-1c-.05-.13-1-2.68-3.38-4.5l3.7-4.1a1.45 1.45 0 0 0-1.09-2.42h-9.05a1.45 1.45 0 1 0 0 2.9h5.8l-6.88 7.64a1.45 1.45 0 1 0 2.16 1.95l3.41-3.8a8 8 0 0 1 2.6 3.33M69.56 26.52h-7.01a.82.82 0 0 1-.82-.82v-1.95h8.65v1.95c0 .45-.37.82-.82.82m2.27-9.37c-.8 0-1.45.65-1.45 1.45v2.25h-8.65V18.6a1.45 1.45 0 1 0-2.9 0v7.1a3.73 3.73 0 0 0 3.72 3.72h7.01a3.73 3.73 0 0 0 3.72-3.72v-7.1c0-.8-.65-1.45-1.45-1.45M42.46 3.87c2.22 0 2.33 4.24 2.33 5.08 0 .85-.11 5.09-2.33 5.09-2.21 0-2.32-4.24-2.32-5.08 0-.86.11-5.09 2.32-5.09m0 13.07c1.76 0 3.23-.93 4.14-2.62.71-1.34 1.1-3.2 1.1-5.36s-.39-4.02-1.1-5.37A4.6 4.6 0 0 0 42.46.97c-1.76 0-3.22.93-4.13 2.62-.72 1.35-1.1 3.2-1.1 5.37s.38 4.01 1.1 5.36a4.59 4.59 0 0 0 4.13 2.62"></path><path fill="#000" d="M51.4.49c-.8 0-1.45.65-1.45 1.45v17.78c-1.93.6-5.75 1.13-10.38 1.13h-2.2a1.45 1.45 0 0 0 0 2.9h2.2c2.64 0 7.21-.23 10.38-1.02v4.84a1.45 1.45 0 0 0 2.9 0V1.94c0-.8-.65-1.45-1.45-1.45"></path>
+									</g>
+								</svg>
+							</a>
+						</div>
+						<nav class="layout-navigation-primary__menu">
+							<a class="layout-navigation-primary__menu__item layout-navigation-primary__menu__item--active layout-navigation-primary__menu__item--open" href="/">커뮤니티</a>
+							<a class="layout-navigation-primary__menu__item" href="/store">스토어</a>
+							<a class="layout-navigation-primary__menu__item" href="/experts">인테리어시공</a>
+						</nav>
+						<div class="layout-navigation-primary__right">
+							<div class="layout-navigation-bar-search">
+								<div class="layout-navigation-search" id="id-12">
+									<div class="layout-navigation-search__header">
+										<div id="id-12-combobox" class="layout-navigation-search__combobox" role="combobox" aria-haspopup="listbox" aria-expanded="false">
+											<div class="layout-navigation-search__input">
+												<input class="layout-navigation-search__input__text" type="text" autocomplete="off" size="1" id="id-12-input" aria-autocomplete="list" placeholder="오늘의집 통합검색" aria-label="오늘의집 통합검색" value="">
+												<svg class="layout-navigation-search__input__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" preserveAspectRatio="xMidYMid meet">
+													<path d="M22 22l-5-5"></path>
+													<circle cx="11" cy="11" r="8"></circle>
+												</svg>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<button class="layout-navigation-bar-icon layout-navigation-bar-search-button" title="검색" aria-label="검색" type="button">
+								<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" preserveAspectRatio="xMidYMid meet">
+									<path d="M22 22l-5-5"></path>
+									<circle cx="11" cy="11" r="8"></circle>
+								</svg>
+							</button>
+							<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="/users/4672761/collections">
+								<svg class="icon" width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+									<path fill="none" stroke-width="2" d="M3 20.967zm0 0V2.5a.5.5 0 01.5-.5h17a.5.5 0 01.5.5v18.467l-8.057-4.309a2 2 0 00-1.886 0L3 20.968z"></path>
+								</svg>
+								</a>
+							<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="알림" aria-label="알림" href="/notifications/feed">
+								<svg class="icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+									<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.04 4.19C10.16 3.16 10.6 2 12.05 2c1.35 0 1.78 1.11 1.9 2.13C21.05 5.25 21 13.43 21 19H3c0-5.48-.05-13.48 7.04-14.81zM10 19c0 1.66.9 3 2 3s2-1.34 2-3"></path>
+								</svg>
+							</a>
+							<a class="layout-navigation-bar-icon" title="장바구니" aria-label="장바구니" href="/cart">
+								<svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linejoin="round" stroke-width="2" preserveAspectRatio="xMidYMid meet">
+									<path stroke-linecap="round" d="M4 5h18l-2.6 10.5a2 2 0 0 1-2 1.5H8.6a2 2 0 0 1-2-1.5L4 5zm4 15.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0zm7 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0z"></path>
+									<path d="M1 2h3v3"></path>
+								</svg>
+								<span class="layout-navigation-bar-icon__ticker">6</span>
+							</a>
+							<div class="drop-down layout-navigation-bar-user-section">
+								<button class="layout-navigation-bar-user-button" type="button" aria-label="콘무지">
+									<div class="layout-navigation-bar-user-button__image">
+										<img class="image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
+									</div>
+									<svg class="layout-navigation-bar-user-button__caret" width="8" height="8" viewBox="0 0 8 8" fill="currentColor" preserveAspectRatio="xMidYMid meet">
+										<path d="M0 2l4 4 4-4z"></path>
+									</svg>
+								</button>
+							</div>
+							<div class="drop-down layout-navigation-bar-upload-button">
+								<button class="layout-navigation-bar-upload-button__button" type="button">글쓰기
+									<svg class="icon" width="1em" height="1em" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet">
+										<path fill="currentColor" fill-rule="evenodd" d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="true" data-sticky-ignore="false" data-direction="top" data-offset="31" class="sticky-container layout-navigation-secondary-wrap" style="">
+				<div class="sticky-child layout-navigation-secondary" style="position: relative;">
+					<div class="layout-navigation-secondary__content">
+						<nav class="layout-navigation-secondary__menu">
+							<a class="layout-navigation-secondary__menu__item" href="/">홈</a>
+							<a class="layout-navigation-secondary__menu__item" href="/contents/follow/feed">팔로잉</a>
+							<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="./picList">사진</a>
+							<a class="layout-navigation-secondary__menu__item" href="/projects?writer=self">집들이</a>
+							<a class="layout-navigation-secondary__menu__item" href="/advices">노하우</a>
+							<a class="layout-navigation-secondary__menu__item" href="/projects?writer=pro">전문가집들이</a>
+							<a class="layout-navigation-secondary__menu__item" href="/advices/guides/self_interior">셀프가이드</a>
+							<a class="layout-navigation-secondary__menu__item" href="/questions">질문과답변</a>
+							<a class="layout-navigation-secondary__menu__item" href="/competitions/feed">이벤트</a>
+						</nav>
+						<!-- <div class="layout-navigation-app-download layout-navigation__bar__app-download">
+							<a class="layout-navigation-app-download__link" href="/3d_intro">
+								<svg class="icon" width="20" height="20" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid meet">
+									<g fill="none" fill-rule="evenodd">
+										<path fill="#35C5F0" d="M16.41 0H3.59A3.59 3.59 0 0 0 0 3.59v12.82A3.59 3.59 0 0 0 3.59 20h12.82A3.59 3.59 0 0 0 20 16.41V3.59A3.59 3.59 0 0 0 16.41 0"></path>
+										<path  fill="rgb(255, 255, 255)" d="M14.75 10.34c-.74 0-1.33-.6-1.33-1.34 0-.74.6-1.34 1.33-1.34s1.32.6 1.32 1.34c0 .74-.59 1.34-1.32 1.34zm-1 3.53H6.12V8.75l3.82-2.7 2.2 1.55a3.01 3.01 0 0 0-.35 1.4 3 3 0 0 0 1.98 2.83v2.04zm1-7.87c-.34 0-.66.06-.97.17l-3.17-2.24a1.18 1.18 0 0 0-1.35 0L4.5 7.28a1.2 1.2 0 0 0-.51.98v6.54c0 .66.53 1.2 1.19 1.2h9.5a1.2 1.2 0 0 0 1.18-1.2v-3.02A3 3 0 0 0 17.7 9c0-1.65-1.32-3-2.96-3z"></path>
+									</g>
+								</svg>
+							3D인테리어
+								<svg class="icon-beta" width="30" height="14" preserveAspectRatio="xMidYMid meet">
+									<g fill="none" fill-rule="evenodd">
+										<rect width="30" height="14" fill="#757575" rx="7"></rect>
+										<path fill="#FFF" fill-rule="nonzero" d="M7.1 10.59c1.52 0 2.24-.82 2.24-1.96 0-1-.53-1.48-1.33-1.64v-.03c.76-.26 1.05-.78 1.05-1.5 0-1.09-.64-1.73-2.12-1.73H4.69v6.86h2.4zm-.37-3.94h-.9V4.64h.95c.74 0 1.13.25 1.13.99 0 .78-.5 1.02-1.18 1.02zm.2 3.02h-1.1v-2.2h1.04c.82 0 1.26.3 1.26 1.09 0 .75-.42 1.11-1.2 1.11zm7.65.92v-.97h-2.92V7.54h2.22v-.96h-2.22V4.7h2.86v-.97h-4.01v6.86h4.07zm3.8 0V4.7h1.83v-.97h-4.83v.97h1.85v5.89h1.15zm2.92 0l.58-1.74h2.39l.58 1.74h1.2l-2.3-6.86h-1.18l-2.34 6.86h1.07zm2.68-2.66h-1.83l.9-2.74h.03l.9 2.74z"></path>
+									</g>
+								</svg>
+							</a>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</header>
+		
+		
+		
+		
+		
+		
+		
 		<div class="css-2iwhjz-DetailDiv e1auuux0">
 			<div class="css-sa4f8i-CardCollectionBaseDetailAuthorWrapper ew7sa7k0">
 				<address class="css-umz2z6-AuthorAddress e1v9tg6s6">
@@ -23,11 +154,11 @@
 								<div class="css-1bs83ls-AuthorImage e1v9tg6s2">
 									<img class="image" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163359433983074672.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163359433983074672.jpeg?gif=1&amp;w=80&amp;h=80&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163359433983074672.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163359433983074672.jpeg?gif=1&amp;w=160&amp;h=160&amp;c=c 3x">
 								</div>
-							라오스로맨스
+							
 							</a>
 						</div>
 						<div class="css-ajp79q-AuthorIntroduction e1v9tg6s1">
-							<time datetime="2021-11-30 16:45:36" class="css-1p9oymj-DateItem-CardCollectionBaseDetailHeaderItem eaxmwd20">어제</time>
+							<time datetime="${picOne.post_date}" class="css-1p9oymj-DateItem-CardCollectionBaseDetailHeaderItem eaxmwd20">${picOne.post_date}</time>
 						</div>
 					</div>
 					<button class="_3Z6oR _3AsCW _1XHs9 css-1ch1nkx-AuthorFollowButton e1v9tg6s0" type="button">팔로우</button>
@@ -44,7 +175,7 @@
 								<span class="css-3fajxf-CardCollectionBaseDetailHeaderItem epkik100">${picOne.housetype }&nbsp;</span>
 							</div>
 							<div class="css-1o1f2o5-DateTimePCWrapper eog6tyi0">
-								<time datetime="2021-11-30 16:45:36" class="css-1p9oymj-DateItem-CardCollectionBaseDetailHeaderItem eaxmwd20">어제</time>
+								<time datetime="${picOne.post_date}" class="css-1p9oymj-DateItem-CardCollectionBaseDetailHeaderItem eaxmwd20">${picOne.post_date}</time>
 							</div>
 						</div>
 						<c:forEach items="${picOne.pictureFileVO}" var="picfile" >
@@ -100,7 +231,8 @@
 								</div>
 								<div class="css-1qjg72w-Div e17u2gy12">
 									<dt class="css-1sjfyqs-Dt e17u2gy11">댓글</dt>
-									<dd class="css-yn8cvv-Dd e17u2gy10">${count}</dd>
+									<dd class="css-yn8cvv-Dd e17u2gy10">${count.count}</dd>
+									<input type="hidden" value="${count.count}" id="commentCount">
 								</div>
 								<div class="css-1qjg72w-Div e17u2gy12">
 									<dt class="css-1sjfyqs-Dt e17u2gy11">공유</dt>
@@ -113,7 +245,7 @@
 						<div class="css-igg39q-SectionDiv ek1gwp50" style="margin-bottom: 150px;">
 							<section class="comment-feed">
 								<h1 class="comment-feed__header">댓글&nbsp;
-									<span class="comment-feed__header__count zero">${count}</span>
+									<span class="comment-feed__header__count zero">${count.count}</span>
 								</h1>
 								<!-- 댓글 등록-->
 								
@@ -226,7 +358,7 @@
 						</div>
 					</div>
 				
-					<%-- <div class="css-ak4bje-Col e15wafbq0">
+					 <div class="css-ak4bje-Col e15wafbq0">
 						<div class="css-w0m1es-SideBarWrap e17tkvx90">
 							<div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false" data-sticky-ignore="false" data-direction="top" data-offset="81" class="sticky-container" style="position: sticky; top: 81px;">
 								<div class="sticky-child css-1moe4n7" style="position: relative; box-sizing: border-box; height: 266.203px;">
@@ -237,7 +369,7 @@
 													<path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path>
 												</svg>
 											</span>
-											<span class="css-36arso-ActionButtonCount elwkc50">17</span>
+											<span class="css-36arso-ActionButtonCount elwkc50">${feeling.count}</span>
 										</button>
 										
 										<button class="_3Z6oR _1SCvK _2tsrJ _3aUSM css-1uts5l0-ActionButton elwkc52" type="button" aria-pressed="false" title="스크랩" aria-label="스크랩">
@@ -246,20 +378,58 @@
 													<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
 												</svg>
 											</span>
-											<span class="css-36arso-ActionButtonCount elwkc50">2</span>
+											<span class="css-36arso-ActionButtonCount elwkc50">${scraping.scrapCount}</span>
 										</button>
-										
-										<div class="drop-down">
-											<button type="button" aria-pressed="false" aria-label="더보기" title="더보기" class="css-1v8hv0n-MoreButton einumkw0">
-												<svg width="1em" height="1em" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-													<g fill="currentColor" transform="translate(11 3)">
-														<circle cx="1.5" cy="1.5" r="1.5"></circle>
-														<circle cx="1.5" cy="8.5" r="1.5"></circle>
-														<circle cx="1.5" cy="15.5" r="1.5"></circle>
-													</g>
-												</svg>
-											</button>
-										</div>
+										<!-- 로그인한 정보가 글쓴이일때 수정 삭제 띄우기 -->
+										<c:if test="${loginMember.memberNum eq picOne.memberVO.memberNum }">
+											<div class="drop-down">
+												<button type="button" aria-pressed="false" aria-label="더보기" title="더보기" class="css-1v8hv0n-MoreButton einumkw0 loginDrop">
+													<svg width="1em" height="1em" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+														<g fill="currentColor" transform="translate(11 3)">
+															<circle cx="1.5" cy="1.5" r="1.5"></circle>
+															<circle cx="1.5" cy="8.5" r="1.5"></circle>
+															<circle cx="1.5" cy="15.5" r="1.5"></circle>
+														</g>
+													</svg>
+												</button>
+													<div class="animated-popout drop-down__content open open-active update" style="display: none;">
+														<ul class="content-detail-dropdown-list">
+															<li class="content-detail-dropdown-list-item">
+																<button class="content-detail-dropdown-list-item__button updateBtn" type="button">수정하기</button>
+															</li>
+														</ul>
+													</div>
+													<div class="animated-popout drop-down__content open open-active delete" style="display: none;">
+														<ul class="content-detail-dropdown-list">
+															<li class="content-detail-dropdown-list-item">
+																<button class="content-detail-dropdown-list-item__button deleteBtn" type="button">삭제하기</button>
+															</li>
+														</ul>
+													</div>
+											</div>
+										</c:if>
+										<!-- 로그인한 정보가 글쓴이가 아닐때 신고하기 -->
+										<c:if test="${loginMember.memberNum ne picOne.memberVO.memberNum }">
+											<div class="drop-down">
+												<button type="button" aria-pressed="false" aria-label="더보기" title="더보기" class="css-1v8hv0n-MoreButton einumkw0 noLoginDrop">
+													<svg width="1em" height="1em" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+														<g fill="currentColor" transform="translate(11 3)">
+															<circle cx="1.5" cy="1.5" r="1.5"></circle>
+															<circle cx="1.5" cy="8.5" r="1.5"></circle>
+															<circle cx="1.5" cy="15.5" r="1.5"></circle>
+														</g>
+													</svg>
+												</button>
+													<div class="animated-popout drop-down__content open open-active report" style="display: none;">
+														<ul class="content-detail-dropdown-list">
+															<li class="content-detail-dropdown-list-item">
+																<button class="content-detail-dropdown-list-item__button reportBtn" type="button">신고하기</button>
+															</li>
+														</ul>
+													</div>
+													
+											</div>
+										</c:if>
 									</div>
 									
 									 <address class="css-cta4ra-AuthorAddress e1v9tg6s6">
@@ -267,19 +437,19 @@
 											<div class="css-1p7q7e9-AuthorTitle e1v9tg6s4">
 												<a class="css-kp67iu-AuthorLink e1v9tg6s3" href="/users/2624519">
 													<div class="css-snaekv-AuthorImage e1v9tg6s2">
-														<img class="image" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163359433983074672.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163359433983074672.jpeg?gif=1&amp;w=80&amp;h=80&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163359433983074672.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163359433983074672.jpeg?gif=1&amp;w=160&amp;h=160&amp;c=c 3x">
+														<img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x">
 													</div>
-													라오스로맨스
+													${picOne.memberVO.nickname}
 												</a>
 											</div>
-											<div class="css-ajp79q-AuthorIntroduction e1v9tg6s1">갤러리를 품고 사는 우리집으로 초대합니다 :-)</div>
+											<div class="css-ajp79q-AuthorIntroduction e1v9tg6s1">프로필 한줄</div>
 										</div>
 										<button class="_3Z6oR _3AsCW _1XHs9 css-1ch1nkx-AuthorFollowButton e1v9tg6s0" type="button">팔로우</button>
 									</address>
 									
 									<div class="css-1blnoph-SideBarContent ewjzpes0">
 										<div class="card-detail-pc-related-card-list">
-											<ul class="card-detail-pc-related-card-list__list">
+											<!-- <ul class="card-detail-pc-related-card-list__list">
 												<li class="card-detail-pc-related-card-list__item">
 													<a class="card-detail-pc-related-card-list__item__link" href="/contents/card_collections/10802123">
 														<img class="card-detail-pc-related-card-list__item__image" alt="" src="https://image.ohou.se/i/video-service-prd-s3-bucket-thumbnail/619e2bde26e55c13ef85783a/619e2bde26e55c13ef85783a.0000001.jpg?gif=1&amp;w=160&amp;h=160&amp;c=c" srcset="https://image.ohou.se/i/video-service-prd-s3-bucket-thumbnail/619e2bde26e55c13ef85783a/619e2bde26e55c13ef85783a.0000001.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c 1.5x,https://image.ohou.se/i/video-service-prd-s3-bucket-thumbnail/619e2bde26e55c13ef85783a/619e2bde26e55c13ef85783a.0000001.jpg?gif=1&amp;w=320&amp;h=320&amp;c=c 2x,https://image.ohou.se/i/video-service-prd-s3-bucket-thumbnail/619e2bde26e55c13ef85783a/619e2bde26e55c13ef85783a.0000001.jpg?gif=1&amp;w=480&amp;h=480&amp;c=c 3x">
@@ -301,7 +471,7 @@
 													</a>
 												</li>
 											</ul>
-											<a class="card-detail-pc-related-card-list__more" href="/users/2624519/card_collections">더보기</a>
+											<a class="card-detail-pc-related-card-list__more" href="/users/2624519/card_collections">더보기</a> -->
 										</div>
 									</div>
 								</div>
@@ -311,46 +481,8 @@
 				</div>
 			</div>
 			
-				 <div data-sticky-enabled="false" data-sticky-disabled="true" data-sticky-always="false" data-sticky-ignore="true" data-direction="bottom" data-offset="0" class="sticky-container content-detail-floating-wrap content-detail-floating-wrap--overlay">
-					<div class="sticky-child content-detail-floating" style="position: relative;">
-						<div class="css-t9d8mb-ContentDiv e4tbu8a1">
-							<button class="content-detail-floating-action content-detail-floating-action--horizontal" title="좋아요" type="button">
-								<span class="content-detail-floating-action__item">
-									<svg class="icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-										<path fill="currentColor" d="M22.971 7.638c-.548-5.17-7.119-7.135-10.57-2.488a.5.5 0 0 1-.802 0C8.148.503 1.577 2.469 1.029 7.625.642 12.451 3.897 17.183 12 21.436c8.104-4.252 11.36-8.984 10.972-13.798zm.996-.093c.428 5.319-3.137 10.446-11.738 14.899a.5.5 0 0 1-.46 0C3.169 17.99-.395 12.864.034 7.532.656 1.67 7.904-.683 12 4.052 16.096-.683 23.344 1.67 23.967 7.545z"></path>
-									</svg>
-								</span>
-								<span class="content-detail-floating-action__count">17</span>
-							</button>
-							<button class="content-detail-floating-action content-detail-floating-action--horizontal" title="스크랩" type="button">
-								<span class="content-detail-floating-action__item">
-									<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
-										<path fill-rule="evenodd" transform="matrix(1 0 0 -1 0 23.033)" d="M12.943 6.342a2 2 0 0 1-1.886 0L3 2.032V20.5a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5V2.033l-8.057 4.309zm-.471-.882l8.056-4.31A1 1 0 0 1 22 2.034V20.5a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 20.5V2.033a1 1 0 0 1 1.472-.882l8.056 4.31a1 1 0 0 0 .944 0z"></path>
-									</svg>
-								</span>
-								<span class="content-detail-floating-action__count">2</span>
-							</button>
-							<button class="content-detail-floating-action content-detail-floating-action--horizontal" title="댓글" type="button">
-								<span class="content-detail-floating-action__item">
-									<svg class="icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-										<path fill="currentColor" fill-rule="nonzero" d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z"></path>
-									</svg>
-								</span>
-							</button>
-							<div class="drop-down content-detail-floating__action--horizontal">
-								<button class="content-detail-floating-action content-detail-floating-action--horizontal" title="공유" type="button">
-									<span class="content-detail-floating-action__item">
-										<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
-											<path d="M9.64 14.646a4.5 4.5 0 1 1 0-5.292l4.54-2.476a4.5 4.5 0 1 1 .63.795l-4.675 2.55c.235.545.365 1.146.365 1.777s-.13 1.232-.365 1.777l4.675 2.55a4.5 4.5 0 1 1-.63.795l-4.54-2.476zM18 8a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM6 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM18 23a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
-										</svg>
-									</span>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
-		</div> --%>
+		</div> 
 
 <script type="text/javascript">
 	
@@ -374,7 +506,8 @@ $('.add').click(function(){
 		success:function(result){
 			console.log(result.trim());
 			console.log("댓글 등록 성공");
-			getComment();
+			document.location.reload(true);
+			//getComment();
 		},
 		error:function(xhr, status, error){
 	          console.log(error);
@@ -410,10 +543,13 @@ $('.add').click(function(){
 	});
 };
  
+//댓글 개수
+let count = $('#commentCount').val()
+
 
  //삭제 버튼 클릭시 댓글 삭제하기
  // -----------------댓글수 가져와서 i 한계 변경하기
- for(let i=0; i<100; i++){
+ for(let i=0; i<count; i++){
 	 $('#deleteBtn'+i).click(function(){
 		 console.log(i)
 		 let comment_num = $('#comment_num'+i).val();
@@ -426,6 +562,7 @@ $('.add').click(function(){
 			 },
 			 success:function(result){
 				 console.log("댓글 삭제 성공")
+				 document.location.reload(true);
 			 },
 			 error:function(xhr, status, error){
 				 console.log(error);
@@ -437,7 +574,7 @@ $('.add').click(function(){
  };
  
  // 신고버튼 클릭시 경고창
- for(let i=0; i<100; i++){
+ for(let i=0; i<count; i++){
 	 $('#reportBtn'+i).click(function(){
 		 alert('신고되었습니다.');
 	 })
@@ -445,7 +582,7 @@ $('.add').click(function(){
  
 
 //답댓글달기 -- 답댓글 margin left 걸기
-	for(let i=0; i<100; i++){
+	for(let i=0; i<count; i++){
 		$('#replyBtn'+i).click(function(){
 			alert('답글');
 			let comment_num = $('#comment_num'+i).val();
@@ -453,7 +590,7 @@ $('.add').click(function(){
 			//답글 누르면 댓글쓰는 폼 띄우기
 			let replyForm = '<form class="comment-feed__form comment_add" method="post" id="form" style="margin-left:20px;">';
 			replyForm= replyForm+'<div class="comment-feed__form__user">';
-			replyForm= replyForm+'<img  src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x"></div>';
+			replyForm= replyForm+'<img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x"></div>';
 			/* replyForm= replyForm+'<img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=144 3x"></div>'; */
 			replyForm= replyForm+'<div class="comment-feed__form__input"><div class="comment-feed__form__content"><div class="comment-content-input">';
 			/* replyForm= replyForm+'<input name="post_id" value="${picOne.post_id}"  id="post_id" type="hidden"><sec:authentication property="principal" var="member"/>'; */
@@ -482,6 +619,7 @@ $('.add').click(function(){
 					success:function(result){
 						if(result>=1){
 							console.log("답댓글 달기 성공")
+							document.location.reload(true);
 						}
 					},
 					error:function(xhr, status, error){
@@ -495,8 +633,31 @@ $('.add').click(function(){
 		});
 	};
  
+//더보기 버튼 클릭
+$('.loginDrop').click(function(){
+	alert('내꺼')
+	$('.update').attr('style','display:block' );
+	$('.delete').attr('style','display:block' ); 
+});
+$('.updateBtn').click(function(){
+	let post_id = $('#post_id').val();
+	 location.href="./picUpdate?post_id="+post_id;
+})
+$('.deleteBtn').click(function(){
+	let post_id = $('#post_id').val();
+	 location.href="./picDelete?post_id="+post_id;
+})
+
+
+ $('.noLoginDrop').click(function(){
+	 //alert('내꺼 아님')
+	$('.report').attr('style', 'display:block');
+ });
  
- 
+ $('.reportBtn').click(function(){
+	 alert('신고되었습니다.');
+	 $('.report').attr('style', 'display:none');
+ })
  
 </script>
 </body>

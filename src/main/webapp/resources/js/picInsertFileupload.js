@@ -58,6 +58,7 @@ let delNum=0;
 	//삭제 버튼 각 사진마다 보여주기
 	$('.newfile'+idNum+'').append(delButton);
 	$('.btnControl'+delNum+'').append(radio);
+	console.log("radio num", idxNum);
 
 }
 
@@ -66,6 +67,7 @@ let delNum=0;
 $('.addButton').click(function(){
 	idNum++;
 	delNum++;
+	raNum++;
 	let list = makeList();
 	$('.list').append(list); //ol
 	$('.file'+idNum).click(); 
@@ -115,7 +117,56 @@ function makeList(){
 
 //--------------------------------------------------------------------------
 //각 사진별로 인덱스 주기 - 대표 이미지 설정
- let radio = '<input type="radio" name="idx" value=1 style="display: inline;">';
+let raNum = 0;
+//let radio = '<input type="radio" name="idx" value=1 style="display: inline;">';
+let radio = '<input type="radio" name="idx" id="radioIdx'+raNum+'" style="display: inline;">';
+
+let idxNum = $('input:radio[name=idx]:checked').val();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

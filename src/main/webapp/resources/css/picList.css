@@ -8,7 +8,7 @@
     min-height: 1px;
 }
 element.style {
-    position: sticky;
+   /*  position: sticky; */
     top: 81px;
 }
 .card-feed__filter-container {
@@ -164,7 +164,7 @@ svg:not(:root) {
 svg {
     width: 12;
     height: 12;
-    fill: currentcolor;
+    /* fill: currentcolor; */
 }
 .filter-bar-control__button.button {
     font-size: 15px;
@@ -407,6 +407,10 @@ a {
     stroke: #424242;
     stroke-width: 1.1px;
     transition: fill .1s,stroke .1s;
+}
+.card-item-action-list__action.card-item-action-list__action--active>.icon--stroke {
+    fill: #35c5f0;
+    stroke: transparent;
 }
 .card-item-action-list__action>.count {
     margin-left: 6px;

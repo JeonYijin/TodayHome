@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.th.th1.feeling.FeelingVO;
+import com.th.th1.feeling.ScrapingVO;
 import com.th.th1.file.PicFileUpload;
 import com.th.th1.member.MemberVO;
 
@@ -53,14 +55,39 @@ public class PictureService {
 	
 	//글 업데이트
 	
-	public int setPicUpdate(PictureVO pictureVO) throws Exception{
-		return pictureDAO.setPicUpdate(pictureVO);
+	public int setPicUpdate(PictureVO pictureVO, MultipartFile[] files) throws Exception{
+		
+		String realPath = servletContext.getRealPath("/resources/upload/picture/");
+		File file = new File(realPath);
+		
+		int result = pictureDAO.setPicUpdate(pictureVO);
+		
+		for(MultipartFile multipartFile: files) {
+			String fileName = picFileUpload.fileSave(multipartFile, file);
+			PictureFileVO pictureFileVO = new PictureFileVO();
+			pictureFileVO.setPicFilename(fileName);
+			System.out.println("파일이름");
+			pictureFileVO.setPicOriname(multipartFile.getOriginalFilename());
+			pictureFileVO.setPost_id(pictureVO.getPost_id());
+			
+			result = pictureDAO.setPicFileInsert(pictureFileVO);
+		}
+		
+		
+		
+		return 0;
 	}
 	
 	
 	//글 삭제하기
 	
 	public int setPicDelete(PictureVO pictureVO) throws Exception{
+		String realPath = servletContext.getRealPath("/resources/upload/notice");
+		List<PictureFileVO> files = pictureDAO.getPicFile(pictureVO);
+		for(PictureFileVO pictureFileVO: files) {
+			File file = new File(realPath, pictureFileVO.getPicFilename());
+			file.delete();
+		}
 		return pictureDAO.setPicDelete(pictureVO);
 	}
 	
@@ -77,9 +104,15 @@ public class PictureService {
 	}
 	
 	//파일 가져오기
-	public List<PictureFileVO> getPicFile(PictureFileVO pictureFileVO) throws Exception{
-		return pictureDAO.getPicFile(pictureFileVO);
+	public List<PictureFileVO> getPicFile(PictureVO pictureVO) throws Exception{
+		return pictureDAO.getPicFile(pictureVO);
 	}
+	
+	//파일 삭제하기
+	public int setPicFileDelete(PictureFileVO pictureFileVO) throws Exception{
+		return pictureDAO.setPicFileDelete(pictureFileVO);
+	}
+	
 	
 	
 	//댓글쓰기
@@ -116,9 +149,46 @@ public class PictureService {
 	}
 	
 	//댓글 개수 가져오기
-	public Long getCommentCount(PicCommentVO picCommentVO) throws Exception{
+	public PicCommentVO getCommentCount(PicCommentVO picCommentVO) throws Exception{
 		return pictureDAO.getCommentCount(picCommentVO);
 	}
 
+	
+	
+	//하트 인서트
+	public int setHeartInsert(FeelingVO feelingVO) throws Exception{
+		return pictureDAO.setHeartInsert(feelingVO);
+	}
+	
+	//하트 삭제
+	public int setHeartDelete(FeelingVO feelingVO) throws Exception{
+		return pictureDAO.setHeartDelete(feelingVO);
+	}
+	
+	//하트 게시글 가져오기
+	public List<FeelingVO> getHeartPost(FeelingVO feelingVO) throws Exception{
+		return pictureDAO.getHeartPost(feelingVO);
+	}
+	
+	//게시글 당 하트
+	public FeelingVO getHeart(FeelingVO feelingVO)throws Exception{
+		return pictureDAO.getHeart(feelingVO);
+	}
+	
+	
+	//스크랩 인서트
+	public int setScrapInsert(ScrapingVO scrapingVO) throws Exception{
+		return pictureDAO.setScrapInsert(scrapingVO);
+	}
+	
+	//스크랩 삭제
+	public int setScrapDelete(ScrapingVO scrapingVO) throws Exception{
+		return pictureDAO.setScrapDelete(scrapingVO);
+	}
+	
+	//게시글 당 스크랩
+	public ScrapingVO getScrap(ScrapingVO scrapingVO) throws Exception{
+		return pictureDAO.getScrap(scrapingVO);
+	}
 	
 }

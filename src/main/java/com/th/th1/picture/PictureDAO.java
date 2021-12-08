@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.th.th1.feeling.FeelingVO;
+import com.th.th1.feeling.ScrapingVO;
 import com.th.th1.member.MemberVO;
 
 @Mapper
@@ -31,8 +33,31 @@ public interface PictureDAO {
 	public int setRefUpdate(PicCommentVO picCommentVO) throws Exception;
 	
 	//댓글 개수 가져오기
-	public Long getCommentCount(PicCommentVO picCommentVO) throws Exception;
+	public PicCommentVO getCommentCount(PicCommentVO picCommentVO) throws Exception;
 	
+	
+	
+	//하트 인서트
+	public int setHeartInsert(FeelingVO feelingVO) throws Exception;
+	
+	//하트 삭제
+	public int setHeartDelete(FeelingVO feelingVO) throws Exception;
+	
+	//하트 게시글 가져오기
+	public List<FeelingVO> getHeartPost(FeelingVO feelingVO) throws Exception;
+	
+	//게시글 당 하트
+	public FeelingVO getHeart(FeelingVO feelingVO) throws Exception;
+	
+	
+	//스크랩 인서트
+	public int setScrapInsert(ScrapingVO scrapingVO) throws Exception;
+	
+	//스크랩 삭제
+	public int setScrapDelete(ScrapingVO scrapingVO) throws Exception;
+	
+	//게시글 당 스크랩
+	public ScrapingVO getScrap(ScrapingVO scrapingVO) throws Exception;
 	
 	
 	
@@ -67,5 +92,5 @@ public interface PictureDAO {
 	public int setPicFileDelete(PictureFileVO pictureFileVO) throws Exception;
 	
 	//파일 가져오기
-	public List<PictureFileVO> getPicFile(PictureFileVO pictureFileVO) throws Exception;
+	public List<PictureFileVO> getPicFile(PictureVO pictureVO) throws Exception;
 }

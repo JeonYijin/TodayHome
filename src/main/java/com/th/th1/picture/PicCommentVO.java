@@ -19,6 +19,7 @@ public class PicCommentVO {
 	private Integer step;
 	private Integer depth;
 	
+	private Integer count;
 	
 	private List<MemberVO> memberVO;
 	
