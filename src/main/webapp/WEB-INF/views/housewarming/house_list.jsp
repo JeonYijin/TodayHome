@@ -140,7 +140,7 @@
                     </div>
                 </div>
             </div>
-            <div class="project-feed__count">전체 [전체글수]</div>
+            <div class="project-feed__count">전체 ${countBoard}</div>
             <div class="virtualized-list row"
                 style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
                 <c:forEach items="${list}" var="board">
