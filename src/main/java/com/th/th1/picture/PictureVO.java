@@ -24,6 +24,9 @@ public class PictureVO {
 	private String search;
 	private String order;
 	
+	private Integer idx1;
+	
+	
 	public String getKind() {
 		return kind;
 	}

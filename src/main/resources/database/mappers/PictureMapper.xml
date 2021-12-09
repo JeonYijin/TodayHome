@@ -53,7 +53,7 @@
         	<choose>
         		<when test="order == 'best'">hit</when>
         		<when test="order == 'recent'">post_date</when>
-        		<otherwise>memberNum</otherwise>
+        		<otherwise>pyeongsu</otherwise>
         	</choose>
         	desc
   	</select>

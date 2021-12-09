@@ -16,8 +16,11 @@ public class PictureFileVO {
 		if(this.idx == null) {
 			this.idx = 2;
 		}
-		
 		return idx;
+	};
+	
+	public void setIdx(Integer idx) {
+		this.idx = idx;
 	}
 	
 }

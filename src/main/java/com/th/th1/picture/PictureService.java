@@ -45,7 +45,7 @@ public class PictureService {
 			System.out.println("파일이름");
 			pictureFileVO.setPicOriname(multipartFile.getOriginalFilename());
 			pictureFileVO.setPost_id(pictureVO.getPost_id());
-			
+			pictureFileVO.setIdx(pictureVO.getIdx1());
 			result = pictureDAO.setPicFileInsert(pictureFileVO);
 		}
 		

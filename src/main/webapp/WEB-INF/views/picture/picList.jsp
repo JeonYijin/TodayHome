@@ -149,7 +149,7 @@
 								</button>
 							</div>
 							<div class="drop-down layout-navigation-bar-upload-button">
-								<button class="layout-navigation-bar-upload-button__button" type="button">글쓰기
+								<button class="layout-navigation-bar-upload-button__button write" type="button">글쓰기
 									<svg class="icon" width="1em" height="1em" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet">
 										<path fill="currentColor" fill-rule="evenodd" d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
 									</svg>
@@ -328,8 +328,10 @@
 												<!-- <img class="card-item-writer__image" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163272802669688346.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163272802669688346.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163272802669688346.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163272802669688346.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x"> -->
 												
 													<span class="card-item-writer__name">${pic.memberVO.nickname}</span>
+													<sec:authorize access="isAuthenticated()">
 													<sec:authentication property="principal" var="member"/>
 													<input  type="hidden" value="${member.memberNum}" id='memberNum'>
+													</sec:authorize>
 													<input type="hidden" value="${pic.post_id}" id="post_id${status.index}">
 											</a>
 											<span class="card-item-writer__separator"> </span>
@@ -388,7 +390,7 @@
 										
 									<!-- -------------------------------------------------------------------- -->	
 										
-										<a class="card-item-action-list__action" href="/contents/card_collections/10864619?affect_type=CardIndex&amp;affect_id=0#comment">
+										<a class="card-item-action-list__action" href="#">
 											<svg class="icon" aria-label="댓글 달기" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path fill="currentColor" fill-rule="nonzero" d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z"></path>
 											</svg>
@@ -403,12 +405,12 @@
 									</aside>
 								</div>
 								
-								<div class="card-item-comment-wrap">
+								<!-- <div class="card-item-comment-wrap">
 									<article class="card-item-comment" aria-label="댓글">
 										<address class="card-item-comment__writer">
 											<a class="card-item-comment__writer__link" href="#">
 												<div class="card-item-comment__writer__image">
-													<!-- <img class="image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 3x"> -->
+													<img class="image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163817191984430831.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 3x">
 												</div>
 													<span class="card-item-comment__writer__name">댓글</span>
 											</a>
@@ -419,7 +421,7 @@
 											<p class="card-item-comment__content">xx</p>
 										</a>
 									</article>
-								</div>
+								</div> -->
 								
 							</article>
 						</div>
@@ -545,6 +547,9 @@ for(let i=0; i<100; i++){
 	});
 };
 
+$('.write').click(function(){
+	location.href="./picInsert";
+})
 
 
 

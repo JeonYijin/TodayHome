@@ -241,14 +241,17 @@
 								<button type="button" class="css-17rk6qx-CardCollectionBaseDetailStatsButton e1vj69ot0">신고</button>
 							</dl>
 						</div>
-						
 						<div class="css-igg39q-SectionDiv ek1gwp50" style="margin-bottom: 150px;">
 							<section class="comment-feed">
 								<h1 class="comment-feed__header">댓글&nbsp;
 									<span class="comment-feed__header__count zero">${count.count}</span>
 								</h1>
 								<!-- 댓글 등록-->
+					<sec:authorize access="!isAuthenticated()">
+						<h4>댓글은 로그인한 후에 확인가능합니다!</h4>
+					</sec:authorize>
 								
+					<sec:authorize access="isAuthenticated()">
 								<form class="comment-feed__form comment_add" method="post" id="form">
 									<div class="comment-feed__form__user">
 										<!-- <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1564109270_WT.jpeg?gif=1&amp;w=144 3x"> -->
@@ -259,8 +262,9 @@
 											<div class="comment-content-input">
 											<!-- 댓글 내용이 담기는 div -->
 												<input name="post_id" value="${picOne.post_id}"  id="post_id" type="hidden">
-												<sec:authentication property="principal" var="member"/>
-												<input name="memberNum" value="${member.memberNum}" id="memberNum" type="hidden">
+												<sec:authentication property="principal" var="loginMember"/>
+												<input name="memberNum" value="${loginMember.memberNum}" id="memberNum" type="hidden">
+												
 												<input name="comment_text" type="text" id= "comment_text" class="comment-content-input__text comment-feed__form__content__text" placeholder="칭찬과 격려의 댓글은 작성자에게 큰 힘이 됩니다 :)" >
 												<!-- <div  class="comment-content-input__text comment-feed__form__content__text" data-ph="칭찬과 격려의 댓글은 작성자에게 큰 힘이 됩니다 :)" contenteditable="true"></div> -->
 											</div>
@@ -272,22 +276,18 @@
 									</div>
 								</form>
 								
-								<%-- <sec:authorize access="!isAuthenticated()">
-								<p>로그인하면 댓글 작성이 가능합니다.</p>
-								<a href="../member/memberLogin">로그인하러 가기</a>
-								</sec:authorize> --%>
-								<!-- 댓글 리스트 보여주기 -->
+							
 								<ul class="comment-feed__list commentList">
 									<c:forEach items="${comment}" var="comment" varStatus="status" >
-									<sec:authentication property="principal" var="loginMember"/>
+									
 									<c:forEach items="${comment.memberVO}" var="member">
 									
 									<c:if test="${member.memberNum eq loginMember.memberNum}">
+											<%-- <c:forEach begin="1" end="${comment.depth }">
+												
+											</c:forEach> --%>
 										<li class="comment-feed__list__item" id="comment${status.index}">
 										<!-- 답댓글일 경우 앞에 margin 주기 -->
-											<c:forEach begin="1" end="${comment.depth }">
-												<div style="margin-left: 20px;"></div>
-											</c:forEach>
 											<article class="comment-feed__item self">
 												<p class="comment-feed__item__content">
 													<a href="#" class="comment-feed__item__content__author" >
@@ -317,8 +317,10 @@
 										</li>
 									</c:if>
 									<c:if test="${member.memberNum ne loginMember.memberNum}">
+											<%-- <c:forEach begin="1" end="${comment.depth }">
+												
+											</c:forEach> --%>
 										<li class="comment-feed__list__item" id="comment${status.index}">
-											
 											<article class="comment-feed__item">
 												<p class="comment-feed__item__content">
 													<a href="/users/5990463" class="comment-feed__item__content__author">
@@ -354,10 +356,10 @@
 									</c:forEach>
 									</c:forEach>
 								</ul>
+				</sec:authorize>
 							</section>
 						</div>
 					</div>
-				
 					 <div class="css-ak4bje-Col e15wafbq0">
 						<div class="css-w0m1es-SideBarWrap e17tkvx90">
 							<div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false" data-sticky-ignore="false" data-direction="top" data-offset="81" class="sticky-container" style="position: sticky; top: 81px;">
@@ -380,8 +382,12 @@
 											</span>
 											<span class="css-36arso-ActionButtonCount elwkc50">${scraping.scrapCount}</span>
 										</button>
+										
+										
 										<!-- 로그인한 정보가 글쓴이일때 수정 삭제 띄우기 -->
-										<c:if test="${loginMember.memberNum eq picOne.memberVO.memberNum }">
+										<c:choose>
+										<c:when test="${loginMember.memberNum eq picOne.memberVO.memberNum}">
+										<%-- <c:if test="${loginMember.memberNum == picOne.memberVO.memberNum }"> --%>
 											<div class="drop-down">
 												<button type="button" aria-pressed="false" aria-label="더보기" title="더보기" class="css-1v8hv0n-MoreButton einumkw0 loginDrop">
 													<svg width="1em" height="1em" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
@@ -407,9 +413,11 @@
 														</ul>
 													</div>
 											</div>
-										</c:if>
-										<!-- 로그인한 정보가 글쓴이가 아닐때 신고하기 -->
-										<c:if test="${loginMember.memberNum ne picOne.memberVO.memberNum }">
+										<%-- </c:if> --%>
+										</c:when>
+										
+										<c:otherwise>
+										<%-- <c:if test="${loginMember.memberNum ne picOne.memberVO.memberNum }"> --%>
 											<div class="drop-down">
 												<button type="button" aria-pressed="false" aria-label="더보기" title="더보기" class="css-1v8hv0n-MoreButton einumkw0 noLoginDrop">
 													<svg width="1em" height="1em" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
@@ -429,7 +437,9 @@
 													</div>
 													
 											</div>
-										</c:if>
+										<%-- </c:if> --%>
+										</c:otherwise>
+										</c:choose>
 									</div>
 									
 									 <address class="css-cta4ra-AuthorAddress e1v9tg6s6">

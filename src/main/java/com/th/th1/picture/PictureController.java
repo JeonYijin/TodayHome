@@ -32,7 +32,7 @@ public class PictureController {
 	@PostMapping("picInsert")
 	public String setPicInsert(PictureVO pictureVO, MultipartFile[] files) throws Exception{
 		int result = pictureService.setPicInsert(pictureVO, files);
-		System.out.println("글 삽입 후 result 값:" + result);
+		System.out.println("글 삽입 후 idx 값:" + pictureVO.getIdx1());
 		
 		return "redirect:./picList";
 	}

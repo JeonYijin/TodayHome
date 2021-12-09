@@ -11,7 +11,7 @@
 
 </head>
 <body>
-	<form method="post" enctype="multipart/form-data">
+	<form method="post" enctype="multipart/form-data" id="frm">
 	<sec:authentication property="principal" var="memberVO"/>
 	<input type="hidden" value="${memberVO.memberNum}" name="memberNum">
 		<div class="css-8y5nyu-FormDiv e5zqozy1">
@@ -33,7 +33,7 @@
 						</button>
 						
 						<div class="css-1t3yl8n-HeaderPrimarySubmitSection e11fa3qm5">
-							<button type="submit" class="css-19t9f3f-HeaderPrimarySubmit e11fa3qm2">
+							<button type="button" class="css-19t9f3f-HeaderPrimarySubmit e11fa3qm2" id="upload">
 								<span class="css-19k4l36-HeaderPrimarySubmitText e11fa3qm4">올리기</span>
 							</button>
 						</div>
