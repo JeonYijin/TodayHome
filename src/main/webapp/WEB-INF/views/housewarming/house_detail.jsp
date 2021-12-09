@@ -32,15 +32,15 @@
                     <div class="content-detail-header__top">
                         <p class="content-detail-header__category">온라인 집들이</p>
                     </div>
-                    <h1 class="content-detail-header__title">해외 호텔 라운지에 있는 듯, 이국적인 뉴트럴&amp;블랙 집</h1>
+                    <h1 class="content-detail-header__title">${houseVO.house_title}</h1>
                     <div class="content-detail-header__bottom"><a class="content-detail-header__author"
                             href="/users/5048246">
                             <div class="content-detail-header__author-image"><img class="image" alt=""
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c"
-                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=240&amp;h=240&amp;c=c 3x">
+                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1514252843_Ehvl0eCs.jpeg?gif=1&w=72&h=72&c=c"
+                                    srcset="">
                             </div>
-                            <div class="content-detail-header__author-name">muunguny</div>
-                            <div class="content-detail-header__author-date">2021년 12월 08일</div>
+                            <div class="content-detail-header__author-name">${houseVO.house_writer}</div>
+                            <div class="content-detail-header__author-date">${houseVO.regDate}</div>
                         </a>
                         <div class="content-detail-header__user-actions"><button
                                 class="_3Z6oR _3AsCW _1BDvx content-detail-header__follow bold"><svg class="icon"
@@ -78,7 +78,7 @@
                                         </rect>
                                     </g>
                                 </svg></dt>
-                            <dd class="project-detail-metadata-overview-item__text">아파트</dd>
+                            <dd class="project-detail-metadata-overview-item__text">${houseVO.house_kind}</dd>
                         </div>
                         <div class="project-detail-metadata-overview-item">
                             <dt class="project-detail-metadata-overview-item__icon"><svg class="icon" aria-label="평수"
@@ -98,7 +98,7 @@
                                         <rect width="1" height="24" x="15.83" y="7" fill="#525B61" rx=".5"></rect>
                                     </g>
                                 </svg></dt>
-                            <dd class="project-detail-metadata-overview-item__text">32평</dd>
+                            <dd class="project-detail-metadata-overview-item__text">${houseVO.house_space}</dd>
                         </div>
                         <div class="project-detail-metadata-overview-item">
                             <dt class="project-detail-metadata-overview-item__icon"><svg class="icon" aria-label="분야"
@@ -126,7 +126,7 @@
                                             fill="#FFF"></path>
                                     </g>
                                 </svg></dt>
-                            <dd class="project-detail-metadata-overview-item__text">리모델링</dd>
+                            <dd class="project-detail-metadata-overview-item__text">${houseVO.working_area}</dd>
                         </div>
                         <div class="project-detail-metadata-overview-item">
                             <dt class="project-detail-metadata-overview-item__icon"><svg class="icon" aria-label="가족형태"
@@ -156,44 +156,54 @@
                                         </path>
                                     </g>
                                 </svg></dt>
-                            <dd class="project-detail-metadata-overview-item__text">신혼부부</dd>
+                            <dd class="project-detail-metadata-overview-item__text">${houseVO.family_kind}</dd>
                         </div>
                     </dl>
                     <div class="project-detail-foldable">
                         <div class="project-detail-foldable__content">
                             <dl class="project-detail-metadata-detail">
-                                <div class="project-detail-metadata-detail-item">
-                                    <dt>공간</dt>
-                                    <dd>아파트</dd>
-                                </div>
-                                <div class="project-detail-metadata-detail-item">
-                                    <dt>평수</dt>
-                                    <dd>32평</dd>
-                                </div>
-                                <div class="project-detail-metadata-detail-item">
-                                    <dt>작업</dt>
-                                    <dd>전문가</dd>
-                                </div>
-                                <div class="project-detail-metadata-detail-item">
-                                    <dt>분야</dt>
-                                    <dd>리모델링</dd>
-                                </div>
-                                <div class="project-detail-metadata-detail-item">
-                                    <dt>가족형태</dt>
-                                    <dd>신혼부부</dd>
-                                </div>
-                                <div class="project-detail-metadata-detail-item">
-                                    <dt>지역</dt>
-                                    <dd>경기도 의정부시</dd>
-                                </div>
-                                <div class="project-detail-metadata-detail-item">
-                                    <dt>스타일</dt>
-                                    <dd>프렌치&amp;프로방스</dd>
-                                </div>
-                                <div class="project-detail-metadata-detail-item">
-                                    <dt>기간</dt>
-                                    <dd>2주</dd>
-                                </div>
+                            	<c:if test="${not empty houseVO.house_kind}">
+	                                <div class="project-detail-metadata-detail-item">
+	                                    <dt>공간</dt>
+	                                    <dd>${houseVO.house_kind}</dd>
+	                                </div>
+                                </c:if>
+                                <c:if test="${not empty houseVO.house_space}">
+	                                <div class="project-detail-metadata-detail-item">
+	                                    <dt>평수</dt>
+	                                    <dd>${houseVO.house_space}평</dd>
+	                                </div>
+                                </c:if>
+                                <c:if test="${not empty houseVO.working_area}">
+	                                <div class="project-detail-metadata-detail-item">
+	                                    <dt>분야</dt>
+	                                    <dd>${houseVO.working_area}</dd>
+	                                </div>
+                                </c:if>
+                                <c:if test="${not empty houseVO.house_region}">
+	                                <div class="project-detail-metadata-detail-item">
+	                                    <dt>가족형태</dt>
+	                                    <dd>${houseVO.house_region}</dd>
+	                                </div>
+                                </c:if>
+                                <c:if test="${not empty houseVO.family_kind}">
+	                                <div class="project-detail-metadata-detail-item">
+	                                    <dt>가족형태</dt>
+	                                    <dd>${houseVO.family_kind}</dd>
+	                                </div>
+                                </c:if>
+                                
+	                            <div class="project-detail-metadata-detail-item">
+	                                <dt>스타일</dt>
+	                                <dd>${houseVO.styleString}</dd>
+	                            </div>
+                                
+                                <c:if test="${not empty houseVO.total_budget}">
+	                                <div class="project-detail-metadata-detail-item">
+	                                    <dt>예산</dt>
+	                                    <dd>${houseVO.total_budget}원</dd>
+	                                </div>
+                                </c:if>
                             </dl>
                         </div>
                         <div class="project-detail-foldable__expand"><button
@@ -205,6 +215,9 @@
                                 </svg></button></div>
                     </div>
                 </section>
+                <div>
+                	${houseVO.house_contents}                
+                </div>
                 <div class="bpd-view project-detail__content-bpd">
                     <p class="bpd-view-text bpd-view-p-block"></p>
                     <div class="bpd-view-button-block bpd-view-button-block--sns"><a

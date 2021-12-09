@@ -77,6 +77,7 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		
 		//style_category -> 한글화 작업
 		list = this.styleToKorean(list);
+		System.out.println("list.get(0) : "+list.get(0).getStyleString());
 		
 		mav.setViewName("housewarming/house_detail");
 		mav.addObject("houseVO", list.get(0));
@@ -199,6 +200,5 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		return list;
 	}
 	
-	
-	
+		
 }
