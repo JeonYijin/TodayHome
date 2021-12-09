@@ -57,9 +57,7 @@ let delNum=0;
 	let delButton= '<div class="btnControl'+delNum+'"><button type="button" class="delete" title="'+delNum+'">x</button><div>';
 	//삭제 버튼 각 사진마다 보여주기
 	$('.newfile'+idNum+'').append(delButton);
-	let radio = '<input type="radio" name="idx" id="radioIdx'+raNum+'"  style="display: inline;">';
-	$('.btnControl'+delNum+'').append(radio);
-	//console.log("radio num", idxNum);
+	
 
 }
 
@@ -68,38 +66,13 @@ let delNum=0;
 $('.addButton').click(function(){
 	idNum++;
 	delNum++;
-	raNum++;
+	
 	let list = makeList();
 	$('.list').append(list); //ol
 	$('.file'+idNum).click(); 
 })
 
 //--------------------------------------------------------------------------
-//각 사진별로 인덱스 주기 - 대표 이미지 설정
-let raNum = 0;
-//let radio = '<input type="radio" name="idx" value=1 style="display: inline;">';
-//let radio = '<input type="radio" name="idx" id="radioIdx'+raNum+'" style="display: inline;">';
-
-$('#upload').click(function(){
-	let idxNum = $('input:radio[name=idx]:checked');
-	console.log(idxNum)
-	$(idxNum).attr('value', 1);
-	console.log($(idxNum).attr('value'));
-	$(idxNum).attr('name', 'idx1');
-	//idx가 하나만 넘어가는데 multipart에 추가할 수 있나
-	let falseIdx= document.getElementsByName('idx');
-	$(falseIdx).attr('value',2);
-	console.log($(falseIdx).attr('id'));
-	//$('input:radio[name=idx]:checked').attr('value',1);
-	//$('#frm').submit();
-	
-});
-
-
-//let idxNum = $('input:radio[name=idx]:checked').val();
-
-
-
 
 
 //삭제하기 버튼 클릭시 사진 삭제

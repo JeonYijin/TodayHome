@@ -33,7 +33,7 @@
 						</button>
 						
 						<div class="css-1t3yl8n-HeaderPrimarySubmitSection e11fa3qm5">
-							<button type="button" class="css-19t9f3f-HeaderPrimarySubmit e11fa3qm2" id="upload">
+							<button type="submit" class="css-19t9f3f-HeaderPrimarySubmit e11fa3qm2" id="upload">
 								<span class="css-19k4l36-HeaderPrimarySubmitText e11fa3qm4">올리기</span>
 							</button>
 						</div>

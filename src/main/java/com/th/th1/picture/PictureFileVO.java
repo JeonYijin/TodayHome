@@ -9,18 +9,9 @@ public class PictureFileVO {
 	private String picFilename;
 	private String picOriname;
 	private Integer post_id;
-	private Integer idx;
+
 	
 	
-	public Integer getIdx() {
-		if(this.idx == null) {
-			this.idx = 2;
-		}
-		return idx;
-	};
-	
-	public void setIdx(Integer idx) {
-		this.idx = idx;
-	}
+
 	
 }

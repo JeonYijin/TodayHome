@@ -77,7 +77,7 @@
   			<result column="picFilename" property="picFilename"/>
   			<result column="picOriname" property="picOriname"/>
   			<result column="post_id" property="post_id"/>
-  			<result column="idx" property="idx"/>
+  			
   		</collection>
   	</resultMap>
   
@@ -110,7 +110,6 @@
   			<result column="picFilename" property="picFilename"/>
   			<result column="picOriname" property="picOriname"/>
   			<result column="post_id" property="post_id"/>
-  			<result column="idx" property="idx"/>
   		</collection>
   		
   	</resultMap>
@@ -128,8 +127,8 @@
   
   	<!-- 파일 인서트 -->
   	<insert id="setPicFileInsert" parameterType="PictureFileVO">
-  		insert into picturefile(picFilenum, picFilename, picOriname,post_id, idx)
-  		values(0, #{picFilename},#{picOriname},#{post_id} , #{idx})
+  		insert into picturefile(picFilenum, picFilename, picOriname,post_id)
+  		values(0, #{picFilename},#{picOriname},#{post_id})
   	</insert>
   	
   	<!-- 파일 가져오기 -->
