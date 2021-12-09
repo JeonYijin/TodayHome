@@ -17,11 +17,6 @@
             
          </div>
          <div class="">
-            <label for="Writer" class="form-label">Writer :</label>
-            <input type="text" class="form-control" name="Writer" id="Writer">
-            
-         </div>
-         <div class="">
             <label for="contents">Contents :</label>            
            <input type="text" class="form-control" name="contents" id="contents">
          </div>

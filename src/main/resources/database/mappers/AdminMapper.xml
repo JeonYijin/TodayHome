@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.th.th1.Admin.AdminDAO">
+ 
+ 	<!-- 상품 페이지 등록 -->
+ 	<insert id="setInsertProduct" parameterType="ProductVO" useGeneratedKeys="true" keyProperty="pr_number">
+ 		insert into pr values 
+ 		(0, #{pr_name}, #{pr_seller}, #{pr_category}, #{pr_price}, #{pr_discount}, #{pr_dPrice}, 0, 0)
+ 	</insert>
+ 	
+ 	<insert id="setInsertProductFile" parameterType="PrFilesVO">
+ 		insert into pr_files values
+		(0, #{pr_number}, #{fileName}, #{oriName})
+ 	</insert>
+	
+	
+	
+  
+ </mapper>

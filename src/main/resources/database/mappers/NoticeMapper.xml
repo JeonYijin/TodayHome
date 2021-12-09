@@ -13,7 +13,7 @@
   	</select>
   	
   	<insert id="noticeInsert" parameterType="NoticeVO">
-  		insert into notice values(#{num}, #{title}, #{writer}, now(), #{contents})
+  		insert into notice values(#{num}, #{title},now(), #{contents})
   	</insert>
   	
   	<delete id="noticeDelete" parameterType="NoticeVO">

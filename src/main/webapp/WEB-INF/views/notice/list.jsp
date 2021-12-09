@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -2276,7 +2277,14 @@ iframe#_hjRemoteVarsFrame {
 				</div>
 			</div>
 		</div>
-	  <a class="customer-notice-detail__back"href="./insert">등록</a>
+	  <sec:authorize access="isAuthenticated()" var="result">
+                                <sec:authentication property="principal" var="memberVO"/>
+                                <c:forEach items="${memberVO.roles}" var="role">
+                                   <c:if test="${role.num eq 1}">
+                                           <a class="customer-notice-detail__back"href="./insert">등록</a>
+                                   </c:if>
+                                </c:forEach>
+                             </sec:authorize>
 	</form>
 </body>
 </html>

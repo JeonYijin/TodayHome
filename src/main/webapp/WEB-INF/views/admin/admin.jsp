@@ -38,7 +38,7 @@ a   {
 		<h1>관리자 페이지</h1>
 		<div class="page">
 			<ol style="margin: 10px; font-size: medium;">
-				<li><a style="color:black;" href="admin/upload">상품 업로드</a></li>
+				<li><a style="color:black;" href="admin/productUpload">상품 업로드</a></li>
 				<li><a style="color:black;" href="">고객주문 목록</a></li>
 			</ol>
 		</div>
