@@ -4,8 +4,41 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.th.th1.picture.PictureDAO">
 	
+	<!-- 홈에 보내줄것 -->	
+	<select id="getTopPic" resultMap="topPic">
+		select P.*, M.nickname, PF.* from
+		picture P inner join picturefile PF
+		on P.post_id = PF.post_id
+		inner join member M
+		on P.memberNum = M.memberNum 
+		order by hit desc
+		limit 0, 20
+	</select>
+	<resultMap type="PictureVO" id="topPic">
+		<id column="post_id" property="post_id"/>
+  		<result column="memberNum" property="memberNum"/>
+  		<result column="post_date" property="post_date"/>
+  		<result column="pyeongsu" property="pyeongsu"/>
+  		<result column="housetype" property="housetype"/>
+  		<result column="style" property="style"/>
+  		<result column="area" property="area"/>
+  		<result column="post_text" property="post_text"/>
+  		<result column="hit" property="hit"/>
+  		
+  		<association property="memberVO" javaType="MemberVO">
+  			<id column="memberNum" property="memberNum"/>
+  			<result column="nickname" property="nickname"/>
+  		</association>
+  		
+  		<collection property="pictureFileVO" javaType="List" ofType="PictureFileVO">
+  			<id column="picFilenum" property="picFilenum"/>
+  			<result column="picFilename" property="picFilename"/>
+  			<result column="picOriname" property="picOriname"/>
+  			<result column="post_id" property="post_id"/>
+  			
+  		</collection>
 	
-
+	</resultMap>
 	
 	<!-- 사진게시판 글쓰기 -->
 	<insert id="setPicInsert" parameterType="PictureVO" useGeneratedKeys="true" keyProperty="post_id">

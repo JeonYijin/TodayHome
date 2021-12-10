@@ -22,6 +22,18 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	//마이페이지 이동
+	@GetMapping("mypage")
+	public ModelAndView getMypage() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("mypage/mypage");
+		
+		return mv;
+	}
+	
+	
+	
+	
 	//sns로그인시 가져올 데이터
 	@GetMapping("usePrincipal")
 	public void UserPrincipal(@AuthenticationPrincipal KakaoVO kakaoVO) throws Exception{
@@ -42,27 +54,7 @@ public class MemberController {
 		System.out.println("memberLoginResult");
 	}
 	
-	
-//	//로그인
-//	@PostMapping("memberLogin")
-//	public String getLogin(MemberVO memberVO, HttpSession session, OAuth2UserRequest auth2UserRequest ) throws Exception{
-//		
-//		System.out.println("로그인");
-//		OAuth2User oAuth2User= loginService.loadUser(auth2UserRequest);
-////		if(memberVO != null) {
-////			session.setAttribute("member", memberVO);
-////		}
-//		return "redirect:../";
-//		
-//	}
-	
-//	//로그아웃
-//	@GetMapping("memberLogout")
-//	public String getLogout(HttpSession session) throws Exception{
-//		session.invalidate();
-//		return "redirect:../";
-//	}
-	
+
 	
 	//회원가입 폼 이동
 	@GetMapping("memberJoin")

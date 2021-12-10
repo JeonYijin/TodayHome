@@ -81,7 +81,8 @@ public interface PictureDAO {
 	//조회수 업데이트하기
 	public int setHitUpdate(PictureVO pictureVO) throws Exception;
 	
-	
+	//홈에 보내줄 탑10
+	public List<PictureVO> getTopPic() throws Exception;
 	
 	
 	

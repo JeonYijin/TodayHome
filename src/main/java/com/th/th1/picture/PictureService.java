@@ -24,6 +24,14 @@ public class PictureService {
 	@Autowired
 	private PicFileUpload picFileUpload;
 	
+	//홈에 보낼 topPic
+	public List<PictureVO> getTopPic() throws Exception{
+		return pictureDAO.getTopPic();
+	}
+	
+	
+	
+	
 	//글쓰기
 	public int setPicInsert(PictureVO pictureVO, MultipartFile[] files) throws Exception{
 		
