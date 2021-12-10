@@ -9,7 +9,9 @@
 <meta charset="UTF-8">
 <title>집들이 글목록</title>
 </head>
+
 <body>
+
 <div class="dropdown">
 	<div class="container">
         <div class="project-feed">
@@ -32,11 +34,11 @@
 									   	정렬
 									  </a>
 									
-									  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="">
-									    <li><a class="dropdown-item" href="#">최신순</a></li>
-									    <li><a class="dropdown-item" href="#">최근 인기순</a></li>
-									    <li><a class="dropdown-item" href="#">역대 인기순</a></li>
-									    <li><a class="dropdown-item" href="#">과거순</a></li>
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+										  <li><a class="dropdown-item" href="#">최신순</a></li>
+										  <li><a class="dropdown-item" href="#">최근 인기순</a></li>
+										  <li><a class="dropdown-item" href="#">역대 인기순</a></li>
+										  <li><a class="dropdown-item" href="#">과거순</a></li>
 									  </ul>
                                     </div>
                                     
@@ -51,7 +53,15 @@
                                                     d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
                                                 </path>
                                             </svg></button></div>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                	<li>1</li>
+                                                	<li>2</li>
+                                                	<li>3</li>
+                                                	<li>4</li>
+                                                </ul>
                                 </li>
+                                
+                                
                                 <li class="filter-bar__control-list__item">
                                     <div class="drop-down panel-drop-down filter-bar-control"><button
                                             class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">평수<svg
@@ -194,6 +204,9 @@
             </div>
         </div>
     </div>
+    
+    
+<script type="text/javascript" src="https://cdn.ravenjs.com/3.26.4/raven.js"></script>
 <script type="text/javascript" src="../resources/js/housewarming/house_list.js"></script>  
 </body>
 </html>

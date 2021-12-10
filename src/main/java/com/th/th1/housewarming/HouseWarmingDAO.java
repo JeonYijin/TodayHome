@@ -30,6 +30,13 @@ public interface HouseWarmingDAO {
 	// 조회수 +1 증가
 	public int setHitsUp(int house_num) throws Exception;
 	
+	/** 댓글수 +1 update*/
+	public int plusReplyCount(int hnum) throws Exception;
+	
+	/** 댓글수 -1 update*/
+	public int minusReplyCount(int hnum) throws Exception;
+	
+	
 	
 	
 }

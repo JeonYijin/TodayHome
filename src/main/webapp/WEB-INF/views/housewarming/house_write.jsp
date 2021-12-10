@@ -354,6 +354,17 @@
                 </svg></button></div>
     </div>
     
+    
+   <p id="test">제이쿼리 hover() 메소드 테스트입니다.</p>
+<span>마우스를 위 텍스트 위에 올려보세요!</span>
+<script>
+    $('#test').hover(function() {
+    	  $(this).css("color", "red");
+    	}, function(){
+    	  $(this).css("color", "blue");
+    	});
+    </script>
+    
 <script type="text/javascript" src="../resources/js/housewarming/house_write.js"></script>    
 </body>
 </html>

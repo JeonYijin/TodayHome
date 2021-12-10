@@ -111,8 +111,8 @@
                                             </path>
                                         </svg>
                                     </button>
-                                    <button class="comment-feed__form__submit" aria-label="등록"
-                                        type="button" name="commentInsertBtn">등록</button>
+                                    <button class="comment-feed__form__submit" aria-label="등록" type="button" name="commentInsertBtn">등록
+                                    </button>
                                  
                                </div>
                             </div>

@@ -12,6 +12,8 @@
 		<typeAlias type="com.th.th1.q_reply.Q_ReplyVO" alias="Q_ReplyVO"/>
 		<typeAlias type="com.th.th1.comment.QCommentVO" alias="QCommentVO"/>
 		<typeAlias type="com.th.th1.housewarming.HouseWarmingVO" alias="HouseWarmingVO"/>
+		<typeAlias type="com.th.th1.comment.HCommentVO" alias="HCommentVO"/>
+		
 		<typeAlias type="java.lang.Long" alias="Long" />
 		<typeAlias type="java.util.List" alias="List" />
 	</typeAliases>

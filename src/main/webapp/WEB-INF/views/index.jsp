@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<h1>Index</h1>
@@ -51,6 +52,8 @@
 			<a href="./member/memberJoin">회원가입</a>
 			<a href="./member/memberLogin">로그인</a>
 		</sec:authorize>
+		
+
 	
 </body>
 </html>

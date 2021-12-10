@@ -201,7 +201,7 @@
                                 <c:if test="${not empty houseVO.total_budget}">
 	                                <div class="project-detail-metadata-detail-item">
 	                                    <dt>예산</dt>
-	                                    <dd>${houseVO.total_budget}원</dd>
+	                                    <dd>${houseVO.total_budget}만원</dd>
 	                                </div>
                                 </c:if>
                             </dl>
@@ -249,6 +249,9 @@
                             </svg>유튜브 구경 가기</a></div>
                 </div>
             </div>
+            
+       
+            
             <div class="content-detail-content-section__sidebar">
                 <div data-sticky-enabled="false" data-sticky-disabled="true" data-sticky-always="false"
                     data-sticky-ignore="true" data-direction="top" data-offset="0"
@@ -269,7 +272,7 @@
                                     <path fill="currentColor"
                                         d="M22.971 7.638c-.548-5.17-7.119-7.135-10.57-2.488a.5.5 0 0 1-.802 0C8.148.503 1.577 2.469 1.029 7.625.642 12.451 3.897 17.183 12 21.436c8.104-4.252 11.36-8.984 10.972-13.798zm.996-.093c.428 5.319-3.137 10.446-11.738 14.899a.5.5 0 0 1-.46 0C3.169 17.99-.395 12.864.034 7.532.656 1.67 7.904-.683 12 4.052 16.096-.683 23.344 1.67 23.967 7.545z">
                                     </path>
-                                </svg></button><span class="content-detail-sidebar-counter">45</span><button
+                                </svg></button><span class="content-detail-sidebar-counter">${houseVO.house_zoayo}</span><button
                                 class="content-detail-sidebar-button content-detail-sidebar-button--white"
                                 aria-pressed="false" title="스크랩" type="button"><svg
                                     class="content-detail-sidebar__icon-blue icon" width="24" height="24"
@@ -283,7 +286,7 @@
                                     <path fill-rule="evenodd" transform="matrix(1 0 0 -1 0 23.033)"
                                         d="M12.943 6.342a2 2 0 0 1-1.886 0L3 2.032V20.5a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5V2.033l-8.057 4.309zm-.471-.882l8.056-4.31A1 1 0 0 1 22 2.034V20.5a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 20.5V2.033a1 1 0 0 1 1.472-.882l8.056 4.31a1 1 0 0 0 .944 0z">
                                     </path>
-                                </svg></button><span class="content-detail-sidebar-counter">146</span>
+                                </svg></button><span class="content-detail-sidebar-counter">${houseVO.house_scrap}</span>
                             <hr class="content-detail-sidebar-hr"><button
                                 class="content-detail-sidebar-button content-detail-sidebar-button--gray"
                                 aria-pressed="false" title="댓글" type="button"><svg class="icon" width="24" height="24"
@@ -291,8 +294,8 @@
                                     <path fill="currentColor" fill-rule="nonzero"
                                         d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z">
                                     </path>
-                                </svg></button><span class="content-detail-sidebar-counter">13</span>
-                            <div class="drop-down card-detail-floating__action-wrap card-detail-floating__action-share">
+                                </svg></button><span class="content-detail-sidebar-counter">${houseVO.house_comments}</span>
+                       <!--     <div class="drop-down card-detail-floating__action-wrap card-detail-floating__action-share">
                                 <button class="content-detail-sidebar-button content-detail-sidebar-button--gray"
                                     aria-pressed="false" title="공유" type="button"><svg class="icon" width="24"
                                         height="24" viewBox="0 0 24 24" fill="currentColor"
@@ -300,29 +303,32 @@
                                         <path
                                             d="M9.64 14.646a4.5 4.5 0 1 1 0-5.292l4.54-2.476a4.5 4.5 0 1 1 .63.795l-4.675 2.55c.235.545.365 1.146.365 1.777s-.13 1.232-.365 1.777l4.675 2.55a4.5 4.5 0 1 1-.63.795l-4.54-2.476zM18 8a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM6 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM18 23a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z">
                                         </path>
-                                    </svg></button></div><span class="content-detail-sidebar-counter">18</span>
+                                    </svg></button></div><span class="content-detail-sidebar-counter">18</span>   -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- HouseNum -->
+        <input type="hidden" id="house_num" value="${houseVO.house_num}"/>
+        <!-- /HouseNum -->
         <div class="content-detail-footer">
             <dl class="content-detail-stats">
                 <div class="content-detail-stats__item">
                     <dt>좋아요</dt>
-                    <dd>45</dd>
+                    <dd>${houseVO.house_zoayo}</dd>
                 </div>
                 <div class="content-detail-stats__item">
                     <dt>스크랩</dt>
-                    <dd>146</dd>
+                    <dd>${houseVO.house_scrap}</dd>
                 </div>
                 <div class="content-detail-stats__item">
                     <dt>댓글</dt>
-                    <dd>13</dd>
+                    <dd>${houseVO.house_comments}</dd>
                 </div>
                 <div class="content-detail-stats__item">
                     <dt>조회</dt>
-                    <dd>5,675</dd>
+                    <dd>${houseVO.house_hits}</dd>
                 </div>
             </dl>
             <address class="css-ficoa8-AuthorAddress e1lduqiu7">
@@ -330,314 +336,62 @@
                     <div class="css-18j7ebb-AuthorTitle e1lduqiu5"><a class="css-1u6ed71-AuthorLink e1lduqiu4"
                             href="/users/5048246">
                             <div class="css-tvpkwu-AuthorImage e1lduqiu3"><img class="image" alt=""
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c"
-                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=240&amp;h=240&amp;c=c 3x">
-                            </div>muunguny
+                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1514252843_Ehvl0eCs.jpeg?gif=1&w=72&h=72&c=c"
+                                    srcset="">
+                            </div>${houseVO.house_writer}
                         </a><span class="css-132bynx-AuthorSeparator e1lduqiu2"></span><button type="button"
                             class="css-mxt7n4-AuthorFollow e1lduqiu1">팔로우</button></div>
                     <div class="css-1uvgjqa-AuthorIntroduction e1lduqiu0"></div>
                 </div>
             </address>
             <div class="content-detail-comment-section">
-                <section class="comment-feed">
-                    <h1 class="comment-feed__header">댓글&nbsp;<span class="comment-feed__header__count">13</span></h1>
-                    <form class="comment-feed__form">
-                        <div class="comment-feed__form__user"><img
-                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36"
-                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x">
-                        </div>
-                        <div class="comment-feed__form__input">
-                            <div class="comment-feed__form__content">
-                                <div class="comment-content-input">
-                                    <div class="comment-content-input__text comment-feed__form__content__text"
-                                        data-ph="칭찬과 격려의 댓글은 작성자에게 큰 힘이 됩니다 :)" contenteditable="true"></div>
-                                </div>
+            
+            
+                  <section class="qna-detail__comment-section">
+                    <section class="comment-feed">
+                        <h1 class="comment-feed__header">댓글&nbsp;<span class="comment-feed__header__count"></span>
+                        </h1>
+                        <sec:authorize access="isAuthenticated()" var="result">
+                        <form class="comment-feed__form" name="comment-feed__form" method="post">
+                            <div class="comment-feed__form__user"><img
+                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36"
+                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x">
                             </div>
-                            <div class="comment-feed__form__actions"><button class="comment-feed__form__submit"
-                                    aria-label="등록" type="submit" disabled="">등록</button></div>
-                        </div>
-                    </form>
-                    <ul class="comment-feed__list">
-                        <li class="comment-feed__list__item">
-                            <article class="comment-feed__item">
-                                <p class="comment-feed__item__content"><a href="/users/12292556"
-                                        class="comment-feed__item__content__author"><img
-                                            class="comment-feed__item__content__author__image" alt="기린❣️"
-                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/161282622701844084.jpeg?gif=1&amp;w=36"
-                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/161282622701844084.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/161282622701844084.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/161282622701844084.jpeg?gif=1&amp;w=144 3x"><span
-                                            class="comment-feed__item__content__author__name">기린❣️</span></a><span
-                                        class="comment-feed__item__content__content">모듈쇼파! 블랙 화이트 조합 너무 좋아여 ㅜㅠ</span>
-                                </p>
-                                <footer class="comment-feed__item__footer"><time
-                                        class="comment-feed__item__footer__time">5시간 전</time><span
-                                        class="comment-feed__item__footer__likes zero"><button
-                                            class="comment-feed__item__footer__likes__icon" type="button"><svg
-                                                class="badge" width="15" height="14"
-                                                preserveAspectRatio="xMidYMid meet">
-                                                <path fill-rule="evenodd" class="heart"
-                                                    d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z">
-                                                </path>
-                                            </svg></button><span
-                                            class="comment-feed__item__footer__likes__count">0</span></span><button
-                                        class="comment-feed__item__footer__like-btn" type="button">좋아요</button><button
-                                        class="comment-feed__item__footer__reply-btn" type="button">답글
-                                        달기</button><button class="comment-feed__item__footer__report-btn"
-                                        type="button">신고</button></footer>
-                            </article>
-                        </li>
-                        <li class="comment-feed__list__item">
-                            <article class="comment-feed__item">
-                                <p class="comment-feed__item__content"><a href="/users/14487448"
-                                        class="comment-feed__item__content__author"><img
-                                            class="comment-feed__item__content__author__image" alt="2벼리3"
-                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/162607872960377271.jpeg?gif=1&amp;w=36"
-                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/162607872960377271.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/162607872960377271.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/162607872960377271.jpeg?gif=1&amp;w=144 3x"><span
-                                            class="comment-feed__item__content__author__name">2벼리3</span></a><span
-                                        class="comment-feed__item__content__content">우와! 벤치소파 저도 너무 하고 싶은건데
-                                        업체정보와 대략의 견적 좀 알 수 있을까요?</span></p>
-                                <footer class="comment-feed__item__footer"><time
-                                        class="comment-feed__item__footer__time">11시간 전</time><span
-                                        class="comment-feed__item__footer__likes zero"><button
-                                            class="comment-feed__item__footer__likes__icon" type="button"><svg
-                                                class="badge" width="15" height="14"
-                                                preserveAspectRatio="xMidYMid meet">
-                                                <path fill-rule="evenodd" class="heart"
-                                                    d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z">
-                                                </path>
-                                            </svg></button><span
-                                            class="comment-feed__item__footer__likes__count">0</span></span><button
-                                        class="comment-feed__item__footer__like-btn" type="button">좋아요</button><button
-                                        class="comment-feed__item__footer__reply-btn" type="button">답글
-                                        달기</button><button class="comment-feed__item__footer__report-btn"
-                                        type="button">신고</button></footer>
-                                <div class="comment-feed__reply-list">
-                                    <ul class="comment-feed__list comment-feed__reply-list__list">
-                                        <li class="comment-feed__list__item">
-                                            <article class="comment-feed__item">
-                                                <p class="comment-feed__item__content"><a href="/users/5048246"
-                                                        class="comment-feed__item__content__author"><img
-                                                            class="comment-feed__item__content__author__image"
-                                                            alt="muunguny"
-                                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=36"
-                                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=144 3x"><span
-                                                            class="comment-feed__item__content__author__name">muunguny</span></a><span
-                                                        class="comment-feed__item__content__content"><a
-                                                            href="/users/14487448" target="_blank"
-                                                            rel="noopener noreferrer nofollow">@2벼리3</a> 사실 이 벤치쇼파는 인테리어
-                                                        공사하면서 제가 사이즈 말씀드려서 목공으로 만들고 쿠션따로 제작한거라..이 비용만 따로 알기는 어려울 것 같아요ㅠㅠ
-                                                        흑흑 .. 쿠션은 인조가죽으로 해서 40만원대 였구요🤍</span></p>
-                                                <footer class="comment-feed__item__footer"><time
-                                                        class="comment-feed__item__footer__time">10시간 전</time><span
-                                                        class="comment-feed__item__footer__likes zero"><button
-                                                            class="comment-feed__item__footer__likes__icon"
-                                                            type="button"><svg class="badge" width="15" height="14"
-                                                                preserveAspectRatio="xMidYMid meet">
-                                                                <path fill-rule="evenodd" class="heart"
-                                                                    d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z">
-                                                                </path>
-                                                            </svg></button><span
-                                                            class="comment-feed__item__footer__likes__count">0</span></span><button
-                                                        class="comment-feed__item__footer__like-btn"
-                                                        type="button">좋아요</button><button
-                                                        class="comment-feed__item__footer__reply-btn" type="button">답글
-                                                        달기</button><button
-                                                        class="comment-feed__item__footer__report-btn"
-                                                        type="button">신고</button></footer>
-                                            </article>
-                                        </li>
-                                    </ul>
+                            <div class="comment-feed__form__input">
+                                <div class="comment-feed__form__content">
+                                    <div class="comment-content-input">
+                                        <div class="comment-content-input__text comment-feed__form__content__text"
+                                            data-ph="칭찬과 격려의 댓글은 작성자에게 큰 힘이 됩니다 :)" contenteditable="true"></div>
+                                        <input type="hidden" name="contents" id="contents" value=''/>
+                                        <script>
+                                        	$('.comment-feed__form__content__text').on('keyup', function(){
+                                        		$('#contents').val($('.comment-feed__form__content__text').html());
+                                        	})
+                                        </script>    
+                                    </div>
+                                    <div class="photo-input-wrap comment-feed__form__content__photo">
+                                        <ul class="photo-input"></ul>
+                                    </div>
                                 </div>
-                            </article>
-                        </li>
-                        <li class="comment-feed__list__item">
-                            <article class="comment-feed__item">
-                                <p class="comment-feed__item__content"><a href="/users/3571966"
-                                        class="comment-feed__item__content__author"><img
-                                            class="comment-feed__item__content__author__image" alt="옥냥s2"
-                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163477089169909084.jpeg?gif=1&amp;w=36"
-                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163477089169909084.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163477089169909084.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163477089169909084.jpeg?gif=1&amp;w=144 3x"><span
-                                            class="comment-feed__item__content__author__name">옥냥s2</span></a><span
-                                        class="comment-feed__item__content__content">안 예쁜 공간이 없네요 .. 블랙앤화이트 짱이에요 ..
-                                        🥺🖤</span></p>
-                                <footer class="comment-feed__item__footer"><time
-                                        class="comment-feed__item__footer__time">17시간 전</time><span
-                                        class="comment-feed__item__footer__likes"><button
-                                            class="comment-feed__item__footer__likes__icon" type="button"><svg
-                                                class="badge" width="15" height="14"
-                                                preserveAspectRatio="xMidYMid meet">
-                                                <path fill-rule="evenodd" class="heart"
-                                                    d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z">
-                                                </path>
-                                            </svg></button><span
-                                            class="comment-feed__item__footer__likes__count">1</span></span><button
-                                        class="comment-feed__item__footer__like-btn" type="button">좋아요</button><button
-                                        class="comment-feed__item__footer__reply-btn" type="button">답글
-                                        달기</button><button class="comment-feed__item__footer__report-btn"
-                                        type="button">신고</button></footer>
-                                <div class="comment-feed__reply-list">
-                                    <ul class="comment-feed__list comment-feed__reply-list__list">
-                                        <li class="comment-feed__list__item">
-                                            <article class="comment-feed__item">
-                                                <p class="comment-feed__item__content"><a href="/users/5048246"
-                                                        class="comment-feed__item__content__author"><img
-                                                            class="comment-feed__item__content__author__image"
-                                                            alt="muunguny"
-                                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=36"
-                                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=144 3x"><span
-                                                            class="comment-feed__item__content__author__name">muunguny</span></a><span
-                                                        class="comment-feed__item__content__content"><a
-                                                            href="/users/3571966" target="_blank"
-                                                            rel="noopener noreferrer nofollow">@옥냥s2</a> 블랙도 좋쿠 화이트도 좋쿠
-                                                        🥺 예쁘게 봐 주셔서 감사해요 🤍</span></p>
-                                                <footer class="comment-feed__item__footer"><time
-                                                        class="comment-feed__item__footer__time">17시간 전</time><span
-                                                        class="comment-feed__item__footer__likes zero"><button
-                                                            class="comment-feed__item__footer__likes__icon"
-                                                            type="button"><svg class="badge" width="15" height="14"
-                                                                preserveAspectRatio="xMidYMid meet">
-                                                                <path fill-rule="evenodd" class="heart"
-                                                                    d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z">
-                                                                </path>
-                                                            </svg></button><span
-                                                            class="comment-feed__item__footer__likes__count">0</span></span><button
-                                                        class="comment-feed__item__footer__like-btn"
-                                                        type="button">좋아요</button><button
-                                                        class="comment-feed__item__footer__reply-btn" type="button">답글
-                                                        달기</button><button
-                                                        class="comment-feed__item__footer__report-btn"
-                                                        type="button">신고</button></footer>
-                                            </article>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-                        </li>
-                        <li class="comment-feed__list__item">
-                            <article class="comment-feed__item">
-                                <p class="comment-feed__item__content"><a href="/users/3749445"
-                                        class="comment-feed__item__content__author"><img
-                                            class="comment-feed__item__content__author__image" alt="lovelyㅇㅌㅇ"
-                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1552188847_GHoJ9r.jpeg?gif=1&amp;w=36"
-                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1552188847_GHoJ9r.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1552188847_GHoJ9r.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1552188847_GHoJ9r.jpeg?gif=1&amp;w=144 3x"><span
-                                            class="comment-feed__item__content__author__name">lovelyㅇㅌㅇ</span></a><span
-                                        class="comment-feed__item__content__content">대박!!! 샹들리에도 너무 멋있고 ♡ 가구며 소품 하나하나 까지
-                                        !👍🏻 </span></p>
-                                <footer class="comment-feed__item__footer"><time
-                                        class="comment-feed__item__footer__time">18시간 전</time><span
-                                        class="comment-feed__item__footer__likes"><button
-                                            class="comment-feed__item__footer__likes__icon" type="button"><svg
-                                                class="badge" width="15" height="14"
-                                                preserveAspectRatio="xMidYMid meet">
-                                                <path fill-rule="evenodd" class="heart"
-                                                    d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z">
-                                                </path>
-                                            </svg></button><span
-                                            class="comment-feed__item__footer__likes__count">1</span></span><button
-                                        class="comment-feed__item__footer__like-btn" type="button">좋아요</button><button
-                                        class="comment-feed__item__footer__reply-btn" type="button">답글
-                                        달기</button><button class="comment-feed__item__footer__report-btn"
-                                        type="button">신고</button></footer>
-                                <div class="comment-feed__reply-list">
-                                    <ul class="comment-feed__list comment-feed__reply-list__list">
-                                        <li class="comment-feed__list__item">
-                                            <article class="comment-feed__item">
-                                                <p class="comment-feed__item__content"><a href="/users/5048246"
-                                                        class="comment-feed__item__content__author"><img
-                                                            class="comment-feed__item__content__author__image"
-                                                            alt="muunguny"
-                                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=36"
-                                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=144 3x"><span
-                                                            class="comment-feed__item__content__author__name">muunguny</span></a><span
-                                                        class="comment-feed__item__content__content"><a
-                                                            href="/users/3749445" target="_blank"
-                                                            rel="noopener noreferrer nofollow">@lovelyㅇㅌㅇ</a> 아이쿠 예쁘게 봐
-                                                        주셔서 감사해요 🤍🤍</span></p>
-                                                <footer class="comment-feed__item__footer"><time
-                                                        class="comment-feed__item__footer__time">17시간 전</time><span
-                                                        class="comment-feed__item__footer__likes zero"><button
-                                                            class="comment-feed__item__footer__likes__icon"
-                                                            type="button"><svg class="badge" width="15" height="14"
-                                                                preserveAspectRatio="xMidYMid meet">
-                                                                <path fill-rule="evenodd" class="heart"
-                                                                    d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z">
-                                                                </path>
-                                                            </svg></button><span
-                                                            class="comment-feed__item__footer__likes__count">0</span></span><button
-                                                        class="comment-feed__item__footer__like-btn"
-                                                        type="button">좋아요</button><button
-                                                        class="comment-feed__item__footer__reply-btn" type="button">답글
-                                                        달기</button><button
-                                                        class="comment-feed__item__footer__report-btn"
-                                                        type="button">신고</button></footer>
-                                            </article>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-                        </li>
-                        <li class="comment-feed__list__item">
-                            <article class="comment-feed__item">
-                                <p class="comment-feed__item__content"><a href="/users/14071546"
-                                        class="comment-feed__item__content__author"><img
-                                            class="comment-feed__item__content__author__image" alt="diane3826"
-                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36"
-                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x"><span
-                                            class="comment-feed__item__content__author__name">diane3826</span></a><span
-                                        class="comment-feed__item__content__content">샹들리에가 멋져요</span></p>
-                                <footer class="comment-feed__item__footer"><time
-                                        class="comment-feed__item__footer__time">18시간 전</time><span
-                                        class="comment-feed__item__footer__likes zero"><button
-                                            class="comment-feed__item__footer__likes__icon" type="button"><svg
-                                                class="badge" width="15" height="14"
-                                                preserveAspectRatio="xMidYMid meet">
-                                                <path fill-rule="evenodd" class="heart"
-                                                    d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z">
-                                                </path>
-                                            </svg></button><span
-                                            class="comment-feed__item__footer__likes__count">0</span></span><button
-                                        class="comment-feed__item__footer__like-btn" type="button">좋아요</button><button
-                                        class="comment-feed__item__footer__reply-btn" type="button">답글
-                                        달기</button><button class="comment-feed__item__footer__report-btn"
-                                        type="button">신고</button></footer>
-                                <div class="comment-feed__reply-list">
-                                    <ul class="comment-feed__list comment-feed__reply-list__list">
-                                        <li class="comment-feed__list__item">
-                                            <article class="comment-feed__item">
-                                                <p class="comment-feed__item__content"><a href="/users/5048246"
-                                                        class="comment-feed__item__content__author"><img
-                                                            class="comment-feed__item__content__author__image"
-                                                            alt="muunguny"
-                                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=36"
-                                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163678895334608667.jpeg?gif=1&amp;w=144 3x"><span
-                                                            class="comment-feed__item__content__author__name">muunguny</span></a><span
-                                                        class="comment-feed__item__content__content"><a
-                                                            href="/users/14071546" target="_blank"
-                                                            rel="noopener noreferrer nofollow">@diane3826</a> 멋지게 봐 주셔서
-                                                        감사해용 🤍 어쩌다 보니 포인트가 돼버렸오용 ㅎㅎ</span></p>
-                                                <footer class="comment-feed__item__footer"><time
-                                                        class="comment-feed__item__footer__time">17시간 전</time><span
-                                                        class="comment-feed__item__footer__likes"><button
-                                                            class="comment-feed__item__footer__likes__icon"
-                                                            type="button"><svg class="badge" width="15" height="14"
-                                                                preserveAspectRatio="xMidYMid meet">
-                                                                <path fill-rule="evenodd" class="heart"
-                                                                    d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z">
-                                                                </path>
-                                                            </svg></button><span
-                                                            class="comment-feed__item__footer__likes__count">1</span></span><button
-                                                        class="comment-feed__item__footer__like-btn"
-                                                        type="button">좋아요</button><button
-                                                        class="comment-feed__item__footer__reply-btn" type="button">답글
-                                                        달기</button><button
-                                                        class="comment-feed__item__footer__report-btn"
-                                                        type="button">신고</button></footer>
-                                            </article>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-                        </li>
-                    </ul>
+                                
+								  	<sec:authentication property="principal" var="memberVO"/>
+		                            <input type="hidden" name="hnum" value="${houseVO.house_num}"/>
+		              				<input type="hidden" name="nickname" id="memberVO_nickname" value="${memberVO.nickname}"/>
+		              				<input type="hidden" name="id" id="memberVO_id" value="${memberVO.id}"/>
+	              				
+                            
+                                <div class="comment-feed__form__actions">
+                                    <button class="comment-feed__form__submit" aria-label="등록" type="button" name="commentInsertBtn">등록
+                                    </button>
+                                 
+                               </div>
+                            </div>
+                        </form>
+                        </sec:authorize>
+                        <ul class="comment-feed__list">
+                           
+                        </ul>
+                    </section>
                     <ul class="list-paginator">
                         <li><button class="list-paginator__page sm selected" type="button">1</button></li>
                         <li><button class="list-paginator__page sm" type="button">2</button></li>
@@ -652,6 +406,8 @@
                                 </svg></button></li>
                     </ul>
                 </section>
+                    
+                    	
             </div>
             <div></div>
         </div>
@@ -669,5 +425,6 @@
                     </svg></button></div>
         </div>
     </main>
+<script type="text/javascript" src="../resources/js/housewarming/house_detail.js"></script>    
 </body>
 </html>

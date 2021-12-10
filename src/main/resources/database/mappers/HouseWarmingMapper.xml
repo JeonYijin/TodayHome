@@ -54,6 +54,20 @@
 		SET HOUSE_HITS=HOUSE_HITS+1
 		WHERE HOUSE_NUM=#{house_num}
 	</update>
+	
+	<!-- 댓글수 +1 update -->
+	<update id="plusReplyCount" parameterType="int">
+		UPDATE HOUSEWARMING
+		SET house_comments=house_comments+1
+		WHERE HOUSE_NUM=#{hnum}
+	</update>
+	
+	<!-- 댓글수 -1 update -->
+	<update id="minusReplyCount" parameterType="int">
+		UPDATE HOUSEWARMING
+		SET house_comments=house_comments-1
+		WHERE HOUSE_NUM=#{hnum}
+	</update>
 
 	
 </mapper>

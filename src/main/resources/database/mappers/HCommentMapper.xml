@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.th.th1.comment.HCommentDAO">
+ 
+	<select id="commentCount" parameterType="int" resultType="int">
+		select count(*) 
+		from h_comment
+		where hnum=#{hnum}
+    </select>
+    
+    <select id="commentList" parameterType="int" resultType="HCommentVO">
+        select *
+        from h_comment
+        where hnum=#{hnum}
+    </select>    
+    
+    <insert id="commentInsert" parameterType="HCommentVO">
+        insert into h_comment (cnum, hnum, contents, writer, regDate, ref, step, depth, heart)
+        values (null, #{hnum}, #{contents}, #{writer}, default, 1, 0, 0, default)
+    </insert>
+
+    <delete id="commentDelete" parameterType="int">
+        delete from H_comment
+        where cnum=#{cnum}
+    </delete>
+    
+ </mapper>
+ 
