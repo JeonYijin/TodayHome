@@ -82,6 +82,17 @@
 	  <input name="productFile" class="form-control" type="file" id="formFile">
 	  <input name="productFile" class="form-control" type="file" id="formFile">
 	</div>
+	<div class="mb-3">
+	<label for="formFile" class="form-label">제품 설명 이미지</label>
+	  <input name="productFile" class="form-control" type="file" id="formFile">
+	  <input name="productFile" class="form-control" type="file" id="formFile">
+	  <input name="productFile" class="form-control" type="file" id="formFile">
+	  <input name="productFile" class="form-control" type="file" id="formFile">
+	  <input name="productFile" class="form-control" type="file" id="formFile">
+	  <input name="productFile" class="form-control" type="file" id="formFile">
+	  <input name="productFile" class="form-control" type="file" id="formFile">
+	  <input name="productFile" class="form-control" type="file" id="formFile">
+	</div>
 	
 	<div>
 		<button type="submit" class="btn btn-light">등록</button>

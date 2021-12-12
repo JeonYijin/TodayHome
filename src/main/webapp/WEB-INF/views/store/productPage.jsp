@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,20 +10,21 @@
 <title>Insert title here</title>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport"
+<meta name="viewport"
 	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,viewport-fit=cover">
-    <meta name="naver-site-verification"
+<meta name="naver-site-verification"
 	content="907a7f8c9a61df897ccf0f03a835f6d2668945b1">
-    <meta property="fb:admins" content="100006457426639">
-    <meta name="google-site-verification"
+<meta property="fb:admins" content="100006457426639">
+<meta name="google-site-verification"
 	content="d-veBobRNo_in0thN3uOOoIcUWMUOjQZeMidTyItfGk">
-    <meta name="google-site-verification"
+<meta name="google-site-verification"
 	content="AZK3GfRwg4q_EH-0OSbbkCurocEY7okWrPZF93COxYU">
-    <meta property="fb:app_id" content="185853321610795">
-    <title>침대프레임 &gt; [오늘의딜] 캐더린 LED 통서랍 수납침대 SS/Q | 예쁜템들 모여사는 오늘의집 스토어</title>
-    <meta name="description"
+<meta property="fb:app_id" content="185853321610795">
+<title>침대프레임 &gt; [오늘의딜] 캐더린 LED 통서랍 수납침대 SS/Q | 예쁜템들 모여사는 오늘의집
+	스토어</title>
+<meta name="description"
 	content="매일 다른 초특가 가구와 소품들을 쇼핑할 수 있어요. 실패 없는 쇼핑을 위해 800만 개의 리뷰 사진들을 보고 우리 집과 어울리는 제품으로 구매하세요.">
-    <meta property="og:title" content="인테리어 특가 쇼핑ㅣ예쁜템들 모여사는 오늘의집 스토어">
+<meta property="og:title" content="인테리어 특가 쇼핑ㅣ예쁜템들 모여사는 오늘의집 스토어">
 <meta property="og:type" content="website">
 <meta property="og:url"
 	content="https://ohou.se/store?utm_source=brand_naver&amp;utm_medium=cpc&amp;utm_campaign=uc_web-all-web_pc-search_naver&amp;utm_term=%EC%98%A4%EB%8A%98%EC%9D%98%EC%A7%91&amp;utm_content=nad-a001-01-000000161515769&amp;bp_adset=grp-a001-01-000000010845294&amp;affect_type=UtmUrl&amp;n_media=335738&amp;n_query=%EC%98%A4%EB%8A%98%EC%9D%98%EC%A7%91&amp;n_rank=1&amp;n_ad_group=grp-a001-01-000000010845294&amp;n_ad=nad-a001-01-000000161515769&amp;n_keyword_id=nkw-a001-01-000002769201143&amp;n_keyword=%EC%98%A4%EB%8A%98%EC%9D%98%EC%A7%91&amp;n_campaign_type=1&amp;n_ad_group_type=1&amp;NaPm=ct%3Dkwxtbs48%7Cci%3D0Ba0003ZV%5F1vs0UevKZr%7Ctr%3Dsa%7Chk%3Df6f8ac18dde55bf7d80337b95a05f5119e5afbcc">
@@ -30,28 +32,28 @@
 	content="https://s3-ap-northeast-1.amazonaws.com/bucketplace-v2-development/uploads/default_images/open_graph_icon_2.png">
 <meta property="og:description"
 	content="매일 다른 초특가 가구와 소품들을 쇼핑할 수 있어요. 실패 없는 쇼핑을 위해 800만 개의 리뷰 사진들을 보고 우리 집과 어울리는 제품으로 구매하세요.">
-    <link rel="alternate"
+<link rel="alternate"
 	href="android-app://net.bucketplace/http/ohou.se/deep">
-    <link rel="apple-touch-icon" sizes="57x57"
+<link rel="apple-touch-icon" sizes="57x57"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_57x57.png">
-    <link rel="apple-touch-icon" sizes="72x72"
+<link rel="apple-touch-icon" sizes="72x72"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114"
+<link rel="apple-touch-icon" sizes="114x114"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_114x114.png">
-    <link rel="apple-touch-icon" sizes="144x144"
+<link rel="apple-touch-icon" sizes="144x144"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_144x144.png">
-    <link rel="shortcut icon"
+<link rel="shortcut icon"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_144x144.png">
-    <link href="https://assets.ohou.se/web/assets/favicon.png"
+<link href="https://assets.ohou.se/web/assets/favicon.png"
 	rel="shortcut icon">
-    
-    <meta name="csrf-param" content="authenticity_token">
-    <meta name="csrf-token"
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token"
 	content="IzOJ8josVnApNdOgS8ydHsJNgRqQs5UUIIPD/V/G/KntyK+725Rf3fpAnw0akNvGrCclXSyoNeDIsY9tw54rVw==">
-    <link
+<link
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;display=swap&amp;subset=korean"
 	rel="stylesheet">
-    <link rel="stylesheet"
+<link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/preamble-97ede701.chunk.css">
 <link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/5-1fc4abe5.chunk.css">
@@ -69,9 +71,9 @@
 	href="https://assets.ohou.se/web/dist/css/23-2ef16b9a.chunk.css">
 <link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/App-6e6c2f0c.chunk.css">
-    
-  
-  <script type="text/javascript" async=""
+
+
+<script type="text/javascript" async=""
 	src="https://cdn.channel.io/plugin/ch-plugin-web.js" charset="UTF-8"></script>
 <script type="text/javascript" async=""
 	src="https://www.google-analytics.com/gtm/js?id=GTM-54TVLXQ&amp;t=gtm7&amp;cid=477803608.1636696856"></script>
@@ -108,180 +110,176 @@
 	})(window, document, 'script', 'dataLayer', 'GTM-MK8DN2Q');
 </script>
 
-  
-  <script>
-			!function(f, b, e, v, n, t, s) {
-				if (f.fbq)
-					return;
-				n = f.fbq = function() {
-					n.callMethod ? n.callMethod.apply(n, arguments) : n.queue
-							.push(arguments);
-				};
-				if (!f._fbq)
-					f._fbq = n;
-				n.push = n;
-				n.loaded = !0;
-				n.version = '2.0';
-				n.queue = [];
-				t = b.createElement(e);
-				t.async = !0;
-				t.src = v;
-				s = b.getElementsByTagName(e)[0];
-				s.parentNode.insertBefore(t, s);
-			}(window, document, 'script',
-					'https://connect.facebook.net/en_US/fbevents.js');
 
-			fbq('set', 'autoConfig', 'false', '937204509645248');
-			fbq('init', '937204509645248');
-			fbq('track', 'PageView');
-		</script>
-  <noscript>
-	<img height="1" width="1" style="display:none"
+<script>
+	!function(f, b, e, v, n, t, s) {
+		if (f.fbq)
+			return;
+		n = f.fbq = function() {
+			n.callMethod ? n.callMethod.apply(n, arguments) : n.queue
+					.push(arguments);
+		};
+		if (!f._fbq)
+			f._fbq = n;
+		n.push = n;
+		n.loaded = !0;
+		n.version = '2.0';
+		n.queue = [];
+		t = b.createElement(e);
+		t.async = !0;
+		t.src = v;
+		s = b.getElementsByTagName(e)[0];
+		s.parentNode.insertBefore(t, s);
+	}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+
+	fbq('set', 'autoConfig', 'false', '937204509645248');
+	fbq('init', '937204509645248');
+	fbq('track', 'PageView');
+</script>
+<noscript>
+	<img height="1" width="1" style="display: none"
 		src="https://www.facebook.com/tr?id=937204509645248&ev=PageView&noscript=1" />
 </noscript>
-  
 
-  
-  <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js"
+
+
+<script type="text/javascript" src="//static.criteo.net/js/ld/ld.js"
 	async="true"></script>
-  <script type="text/javascript">
-			(function() {
-				var ua = navigator.userAgent.toLowerCase();
-				var mobile = {
-					isAndroid : ua.indexOf('android') > -1,
-					isIos : ua.match(/(ipad|iphone|ipod)/g)
-				};
+<script type="text/javascript">
+	(function() {
+		var ua = navigator.userAgent.toLowerCase();
+		var mobile = {
+			isAndroid : ua.indexOf('android') > -1,
+			isIos : ua.match(/(ipad|iphone|ipod)/g)
+		};
 
-				var type = '';
-				if (mobile.isAndroid || mobile.isIos) {
-					type = 'm';
-				} else {
-					type = 'd';
+		var type = '';
+		if (mobile.isAndroid || mobile.isIos) {
+			type = 'm';
+		} else {
+			type = 'd';
+		}
+
+		window.criteo_q = window.criteo_q || [];
+
+		window.criteo_q.push({
+			event : 'setAccount',
+			account : 50838
+		}, {
+			event : 'setEmail',
+			email : ""
+		}, {
+			event : 'setSiteType',
+			type : type
+		});
+	})();
+</script>
+
+
+
+<script>
+	window.bucketLog = window.bucketLog || [];
+</script>
+
+
+<script type="text/javascript">
+	(function(e, t) {
+		var n = e.amplitude || {
+			_q : [],
+			_iq : {}
+		};
+		;
+		function s(e, t) {
+			e.prototype[t] = function() {
+				this._q.push([ t ].concat(Array.prototype.slice.call(arguments,
+						0)));
+				return this
+			}
+		}
+		var o = function() {
+			this._q = [];
+			return this
+		};
+		var a = [ "add", "append", "clearAll", "prepend", "set", "setOnce",
+				"unset" ];
+		for (var c = 0; c < a.length; c++) {
+			s(o, a[c])
+		}
+		n.Identify = o;
+		var u = function() {
+			this._q = [];
+			return this
+		};
+		var l = [ "setProductId", "setQuantity", "setPrice", "setRevenueType",
+				"setEventProperties" ];
+		for (var p = 0; p < l.length; p++) {
+			s(u, l[p])
+		}
+		n.Revenue = u;
+		var d = [ "init", "logEvent", "logRevenue", "setUserId",
+				"setUserProperties", "setOptOut", "setVersionName",
+				"setDomain", "setDeviceId", "enableTracking",
+				"setGlobalUserProperties", "identify", "clearUserProperties",
+				"setGroup", "logRevenueV2", "regenerateDeviceId",
+				"groupIdentify", "onInit", "logEventWithTimestamp",
+				"logEventWithGroups", "setSessionId", "resetSessionId" ];
+		function v(e) {
+			function t(t) {
+				e[t] = function() {
+					e._q.push([ t ].concat(Array.prototype.slice.call(
+							arguments, 0)))
 				}
+			}
+			for (var n = 0; n < d.length; n++) {
+				t(d[n])
+			}
+		}
+		v(n);
+		n.getInstance = function(e) {
+			e = (!e || e.length === 0 ? "$default_instance" : e).toLowerCase();
+			if (!n._iq.hasOwnProperty(e)) {
+				n._iq[e] = {
+					_q : []
+				};
+				v(n._iq[e])
+			}
+			return n._iq[e]
+		};
+		e.amplitude = n
+	})(window, document);
+	window.amplitude.getInstance().init('dc73f13a3e81af36c9f61718642148af',
+			null, function() {
+				window.amplitude.getInstance().setUserProperties({
+					'State of 로그인' : false,
 
-				window.criteo_q = window.criteo_q || [];
+					'Account Group' : null,
 
-				window.criteo_q.push({
-					event : 'setAccount',
-					account : 50838
-				}, {
-					event : 'setEmail',
-					email : ""
-				}, {
-					event : 'setSiteType',
-					type : type
 				});
-			})();
-		</script>
-  
+			});
+</script>
 
-  
-  <script>
-			window.bucketLog = window.bucketLog || [];
-		</script>
 
-  
-  <script type="text/javascript">
-			(function(e, t) {
-				var n = e.amplitude || {
-					_q : [],
-					_iq : {}
-				};
-				;
-				function s(e, t) {
-					e.prototype[t] = function() {
-						this._q.push([ t ].concat(Array.prototype.slice.call(
-								arguments, 0)));
-						return this
-					}
-				}
-				var o = function() {
-					this._q = [];
-					return this
-				};
-				var a = [ "add", "append", "clearAll", "prepend", "set",
-						"setOnce", "unset" ];
-				for (var c = 0; c < a.length; c++) {
-					s(o, a[c])
-				}
-				n.Identify = o;
-				var u = function() {
-					this._q = [];
-					return this
-				};
-				var l = [ "setProductId", "setQuantity", "setPrice",
-						"setRevenueType", "setEventProperties" ];
-				for (var p = 0; p < l.length; p++) {
-					s(u, l[p])
-				}
-				n.Revenue = u;
-				var d = [ "init", "logEvent", "logRevenue", "setUserId",
-						"setUserProperties", "setOptOut", "setVersionName",
-						"setDomain", "setDeviceId", "enableTracking",
-						"setGlobalUserProperties", "identify",
-						"clearUserProperties", "setGroup", "logRevenueV2",
-						"regenerateDeviceId", "groupIdentify", "onInit",
-						"logEventWithTimestamp", "logEventWithGroups",
-						"setSessionId", "resetSessionId" ];
-				function v(e) {
-					function t(t) {
-						e[t] = function() {
-							e._q.push([ t ].concat(Array.prototype.slice.call(
-									arguments, 0)))
-						}
-					}
-					for (var n = 0; n < d.length; n++) {
-						t(d[n])
-					}
-				}
-				v(n);
-				n.getInstance = function(e) {
-					e = (!e || e.length === 0 ? "$default_instance" : e)
-							.toLowerCase();
-					if (!n._iq.hasOwnProperty(e)) {
-						n._iq[e] = {
-							_q : []
-						};
-						v(n._iq[e])
-					}
-					return n._iq[e]
-				};
-				e.amplitude = n
-			})(window, document);
-			window.amplitude.getInstance().init(
-					'dc73f13a3e81af36c9f61718642148af', null, function() {
-						window.amplitude.getInstance().setUserProperties({
-							'State of 로그인' : false,
-
-							'Account Group' : null,
-
-						});
-					});
-		</script>
-  
-
-  <!-- adinsight 공통스크립트 start -->
-  <script type="text/javascript">
-			var TRS_AIDX = /iPhone|iPad|iPod|Android/.test(navigator.userAgent) ? 11603
-					: 11598;
-		</script>
-  <script type="text/javascript"
+<!-- adinsight 공통스크립트 start -->
+<script type="text/javascript">
+	var TRS_AIDX = /iPhone|iPad|iPod|Android/.test(navigator.userAgent) ? 11603
+			: 11598;
+</script>
+<script type="text/javascript"
 	src="https://analysis.adinsight.co.kr/emnet/trs_esc.js" defer=""></script>
-  <!-- adinsight 공통스크립트 end -->
+<!-- adinsight 공통스크립트 end -->
 
-  <!-- Sentry Testing -->
-  <script src="https://cdn.ravenjs.com/3.26.4/raven.min.js"
+<!-- Sentry Testing -->
+<script src="https://cdn.ravenjs.com/3.26.4/raven.min.js"
 	crossorigin="anonymous"></script>
-  <script>
-			Raven
-					.config(
-							'https://b8e5cc27b3eb44be8b976b0c81dd4115@sentry.io/271486')
-					.install();
+<script>
+	Raven.config('https://b8e5cc27b3eb44be8b976b0c81dd4115@sentry.io/271486')
+			.install();
 
-			Raven.setUserContext({});
-		</script>
+	Raven.setUserContext({});
+</script>
 
-  <script type="application/ld+json">
+<script type="application/ld+json">
   {
    "@context": "http://schema.org",
    "@type": "Organization",
@@ -299,13 +297,13 @@
   </script>
 
 
-    <!--[if lte IE 9]>
+<!--[if lte IE 9]>
     <script>
       alert("본 서비스는 Microsoft Explorer 11 이하는 지원하지 않습니다. 브라우저를 업그레이드하고 사용하시거나 앱을 다운받아 사용하실 수 있습니다. 확인을 누르면 앱 다운로드 링크로 연결됩니다.");
       window.location.href = "https://play.google.com/store/apps/details?id=net.bucketplace&hl=kor";
     </script>
     <![endif]-->
-  <style data-emotion="css 167c30c-Wrapper" data-s="">
+<style data-emotion="css 167c30c-Wrapper" data-s="">
 .css-167c30c-Wrapper {
 	position: absolute;
 	width: 100%;
@@ -2573,19 +2571,18 @@ iframe#_hjRemoteVarsFrame {
 
 <body>
 
-
+<%@ include file="../store/header.jsp"%>
 	<div class="production-selling-overview container">
 		<nav
 			class="commerce-category-breadcrumb-wrap production-selling-overview__category">
 			<ol class="commerce-category-breadcrumb">
 				<li class="commerce-category-breadcrumb__entry"><a class="link"
 					href="/store/category?category=0&amp;affect_type= ProductSaleDetail&amp;affect_id=310649">가구</a>
-				<svg class="icon" width="8" height="8" viewBox="0 0 8 8"
+					<svg class="icon" width="8" height="8" viewBox="0 0 8 8"
 						fill="currentColor" preserveAspectRatio="xMidYMid meet">
 						<path d="M4.95 4L2.12 1.19l.7-.71 3.54 3.54-3.53 3.53-.7-.7z"></path></svg></li>
 				<li class="commerce-category-breadcrumb__entry"><a class="link"
 					href="/store/category?category=0_22&amp;affect_type= ProductSaleDetail&amp;affect_id=310649">${categoryN}</a>
-				
 			</ol>
 		</nav>
 		<div class="production-selling-overview__container row">
@@ -2604,31 +2601,28 @@ iframe#_hjRemoteVarsFrame {
 									role="group" aria-roledescription="slide" aria-label="2 of 8"
 									style="width: 100%;">
 									<img class="production-selling-cover-image__entry__image"
-										src="../upload/store/${product.prFiles[0].fileName}"
-										srcset="">
+										src="../upload/store/${product.prFiles[0].fileName}" srcset="">
 									<div class="production-selling-cover-image__timer--pc"></div>
 									<div class="css-167c30c-Wrapper evlxapa2">
-										<div class="css-uny98z-Content evlxapa1">
-											
-										</div>
+										<div class="css-uny98z-Content evlxapa1"></div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<ul class="production-selling-cover-image__list">
-						<c:forEach var="i" begin="0" end="3" step="1">
-							<li class="production-selling-cover-image__list__item"><button
-									class="production-selling-cover-image__list__btn" type="button"
-									aria-label="8개 중 1번째 항목">
-										
-									<img class="image"
-										src="../upload/store/${product.prFiles[i].fileName}"
-										srcset="">
-								</button></li>
-								</c:forEach>
+							<c:forEach var="i" begin="0" end="3" step="1">
+								<li class="production-selling-cover-image__list__item"><button
+										class="production-selling-cover-image__list__btn"
+										type="button" aria-label="8개 중 1번째 항목">
+
+										<img class="image"
+											src="../upload/store/${product.prFiles[i].fileName}"
+											srcset="">
+									</button></li>
+							</c:forEach>
 						</ul>
-						
-						
+
+
 						<div class="production-selling-cover-image__paginator">
 							<ul class="carousel-paginator">
 								<li><span class="carousel-paginator__page" data-key="1"></span></li>
@@ -2698,9 +2692,9 @@ iframe#_hjRemoteVarsFrame {
 										<rect x="0" y="0" width="24" height="24"></rect></clipPath></defs>
 										<use xlink:href="#star-path-1.000" fill="#DBDBDB"></use>
 										<use clip-path="url(#star-clip-1.000)"
-											xlink:href="#star-path-1.000"></use></svg>
-									<svg fill="#35C5F0" width="1em" height="1em"
-										preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+											xlink:href="#star-path-1.000"></use></svg> <svg fill="#35C5F0"
+										width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+										viewBox="0 0 24 24">
 										<defs>
 										<path id="star-path-1.000"
 											d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path>
@@ -2708,9 +2702,9 @@ iframe#_hjRemoteVarsFrame {
 										<rect x="0" y="0" width="24" height="24"></rect></clipPath></defs>
 										<use xlink:href="#star-path-1.000" fill="#DBDBDB"></use>
 										<use clip-path="url(#star-clip-1.000)"
-											xlink:href="#star-path-1.000"></use></svg>
-									<svg fill="#35C5F0" width="1em" height="1em"
-										preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+											xlink:href="#star-path-1.000"></use></svg> <svg fill="#35C5F0"
+										width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+										viewBox="0 0 24 24">
 										<defs>
 										<path id="star-path-1.000"
 											d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path>
@@ -2718,9 +2712,9 @@ iframe#_hjRemoteVarsFrame {
 										<rect x="0" y="0" width="24" height="24"></rect></clipPath></defs>
 										<use xlink:href="#star-path-1.000" fill="#DBDBDB"></use>
 										<use clip-path="url(#star-clip-1.000)"
-											xlink:href="#star-path-1.000"></use></svg>
-									<svg fill="#35C5F0" width="1em" height="1em"
-										preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+											xlink:href="#star-path-1.000"></use></svg> <svg fill="#35C5F0"
+										width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+										viewBox="0 0 24 24">
 										<defs>
 										<path id="star-path-1.000"
 											d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path>
@@ -2728,9 +2722,9 @@ iframe#_hjRemoteVarsFrame {
 										<rect x="0" y="0" width="24" height="24"></rect></clipPath></defs>
 										<use xlink:href="#star-path-1.000" fill="#DBDBDB"></use>
 										<use clip-path="url(#star-clip-1.000)"
-											xlink:href="#star-path-1.000"></use></svg>
-									<svg fill="#35C5F0" width="1em" height="1em"
-										preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+											xlink:href="#star-path-1.000"></use></svg> <svg fill="#35C5F0"
+										width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+										viewBox="0 0 24 24">
 										<defs>
 										<path id="star-path-0.583"
 											d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path>
@@ -2747,25 +2741,27 @@ iframe#_hjRemoteVarsFrame {
 						<div class="production-selling-header__price">
 							<span class="production-selling-header__price__price-wrap"><span
 								class="production-selling-header__price__discount"><span
-									class="number">${product.pr_discount}</span><span class="percent">%</span></span>
-							<del class="production-selling-header__price__original">
-									<span class="number">${product.pr_price}</span><span class="won">원</span>
+									class="number">${product.pr_discount}</span><span
+									class="percent">%</span></span> <del
+									class="production-selling-header__price__original">
+									<span class="number">${product.pr_price}</span><span
+										class="won">원</span>
 								</del><span class="production-selling-header__price__separator"></span><span
 								class="production-selling-header__price__price"><span
 									class="number">${product.pr_dPrice}</span><span class="won">원</span>
 						</div>
 					</div>
-					
-					
+
+
 				</div>
 				<div
 					class="production-selling-option-form production-selling-overview__option-form">
 					<section
 						class="selling-option-form-content production-selling-option-form__form">
-						
+
 						<ul class="selling-option-form-content__list"></ul>
 					</section>
-					
+
 					<div class="production-selling-option-form__footer">
 						<button
 							class="button button--color-blue-inverted button--size-55 button--shape-4"
@@ -2775,9 +2771,13 @@ iframe#_hjRemoteVarsFrame {
 							type="button">바로구매</button>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	<%@ include file="../store/footer.jsp"%>
 </body>
 </html>
