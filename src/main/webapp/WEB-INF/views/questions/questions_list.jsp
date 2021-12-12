@@ -11,6 +11,22 @@
 <title>커뮤니티-질문과 답변</title>
 </head>
 <body>
+
+<div>
+	 	<a href="./questions?pn=${pager.startNum - 1}&search=${pager.search}">&lt;</a>
+	
+	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="n">
+		<a href="./questions?pn=${n}&search=${pager.search}">${n}</a>
+	</c:forEach>
+	
+	<c:if test="${not pager.lastCheck}">
+		<a href="./questions?pn=${pager.lastNum + 1}&search=${pager.search}">&gt;</a>
+	</c:if>
+	<br>
+	
+	<!-- Paging Finish -->
+</div>
+
 <div>    
     <header class="css-6jmcxp-FeedHeader evxc8q77">
         <div class="css-doxr2c-FeedHeaderContent evxc8q76">
@@ -21,8 +37,8 @@
                     <div id="id-14-combobox" role="combobox" aria-haspopup="listbox" aria-expanded="false"
                         class="css-iwn7aq-SearchCombobox e1ea57mf0">
                         <div class="css-95hcar-SearchDiv e7zgiho3"><input type="text" autocomplete="off" size="1"
-                                id="id-14-input" aria-autocomplete="list" placeholder="궁금한 것을 검색해보세요."
-                                aria-label="궁금한 것을 검색해보세요." class="css-jatc2y-SearchInput e7zgiho2" value=""><svg
+                                id="id-14-input" name="search" aria-autocomplete="list" placeholder="궁금한 것을 검색해보세요."
+                                aria-label="궁금한 것을 검색해보세요." onkeyup="if(window.event.keyCode==13){test()}" class="css-jatc2y-SearchInput e7zgiho2" value=""><svg
                                 width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" preserveAspectRatio="xMidYMid meet"
                                 class="css-zw1630-SearchInputIcon e7zgiho1">
@@ -32,6 +48,14 @@
                     </div>
                 </div>
             </div>
+            
+            <script>
+            	function test(){
+            		var search = $('[name=search]').val();
+            		location.href = '/questions?search='+search;
+            	}
+            </script>
+            
             <div class="css-c6s9az-Div e109qnyi5">
                 <div class="css-3qk4hk-RowContainer eh6x1oo2">
                     <dt class="css-1rl9eug-RowTitle eh6x1oo1">인기</dt>

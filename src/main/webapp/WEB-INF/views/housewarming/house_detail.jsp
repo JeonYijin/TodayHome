@@ -17,7 +17,7 @@
                 <div class="content-detail-cover-image__inner-sizer"></div>
             </div>
             <div class="content-detail-cover-image__image"
-                style="background-image: url(&quot;https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163680545727507776.HEIC?gif=1&amp;w=1280&quot;); background-size: cover; background-repeat: no-repeat; background-position: center 36.2828%;">
+                style="background-image: url(http://127.0.0.1:8080/resources/upload/housewarming/${houseVO.house_thumbnail}); background-size: cover; background-repeat: no-repeat; background-position: center 36.2828%;">
             </div><button class="content-detail-cover-image__app-button" type="button">
                 <div class="content-detail-cover-image__app-button-box">더 편하게 앱으로 보기<svg class="icon" width="1em"
                         height="1em" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">

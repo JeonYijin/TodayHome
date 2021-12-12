@@ -6,6 +6,8 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import com.th.th1.util.Pager;
+
 @Repository
 @Mapper
 public interface QuestionsDAO {
@@ -14,7 +16,10 @@ public interface QuestionsDAO {
 	public QuestionsVO getQuestionOne(QuestionsVO questionsVO) throws Exception;
 	
 	/** 질문과답변 List 가져오기 */ 
-	public List<QuestionsVO> getQuestionsList() throws Exception;
+	public List<QuestionsVO> getQuestionsList(Pager pager) throws Exception;
+	
+	/* Questions 글 총갯수 가져오기 */
+	public Long getTotalCount(Pager pager) throws Exception; 
 	
 	/** 질문과답변 질문글 insert */ 
 	public int setQuestionInsert(QuestionsVO questionsVO) throws Exception;

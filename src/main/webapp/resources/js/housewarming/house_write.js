@@ -57,6 +57,12 @@
 			$('.expanded').attr('style', 'overflow: hidden; height: 0px; display: none;');
 		}
 	});
+	
+	
+	
+
+	
+	
 
 	
 	

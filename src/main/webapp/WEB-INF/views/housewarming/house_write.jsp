@@ -10,7 +10,8 @@
 <title>집들이 글쓰기 페이지</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
  	<div class="editor">
@@ -115,7 +116,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+  
                  <form method="post" name="house-feed__form" enctype="multipart/form-data">
                 <div class="editor-top-sub-section"><button class="editor-top-sub-section-header" type="button"
                         id="id-2-header" aria-labelledby="id-2 -content" aria-expanded="true">
@@ -220,13 +221,15 @@
                                                     class="css-10hheuw-EditorFieldColumn e13w87p50">
                                                     <div class="panel-input">
                                                         <div class="drop-down panel-drop-down panel-input__input-wrap">
-                                                            <button class="panel-input__input form-control empty"
+                                                            <button class="panel-input__input form-control empty empty22"
                                                                 type="button">선택해주세요.</button><span
                                                                 class="panel-input__icon"><svg class="icon" width="10"
                                                                     height="10" preserveAspectRatio="xMidYMid meet"
                                                                     style="fill: currentcolor;">
                                                                     <path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
-                                                                </svg></span></div>
+                                                                </svg></span>
+                                                                
+                                                        </div>
                                                     </div>
                                                 </span>
                                             </div>
@@ -364,6 +367,7 @@
     	  $(this).css("color", "blue");
     	});
     </script>
+
     
 <script type="text/javascript" src="../resources/js/housewarming/house_write.js"></script>    
 </body>

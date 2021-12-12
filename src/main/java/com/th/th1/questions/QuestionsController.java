@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.th.th1.member.MemberService;
 import com.th.th1.q_reply.Q_ReplyService;
 import com.th.th1.q_reply.Q_ReplyVO;
+import com.th.th1.util.Pager;
 
 import net.sf.json.JSONArray;
 
@@ -32,15 +33,18 @@ public class QuestionsController {
 	
 	/* [질문과답변 전체리스트 조회] */
 	@GetMapping("/")
-	public ModelAndView getList(QuestionsVO questionsVO) throws Exception {
+	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		
-		List<QuestionsVO> list = questionsService.getQuestionsList();
-//		System.out.println("글1의 댓글갯수: "+list.get(0).getReply());
-//		System.out.println("글2의 댓글갯수: "+list.get(1).getReply());
-//		System.out.println("글3의 댓글갯수: "+list.get(2).getReply());				
+		List<QuestionsVO> list = questionsService.getQuestionsList(pager);				
+		
+		for(int i=0;i<list.size();i++) {
+			System.out.println(pager.getSearch());
+			System.out.println("list_title:"+list.get(i).getQuests_title());
+		}
 		
 		mav.addObject("list", list);
+		mav.addObject("pager", pager);
 		mav.setViewName("questions/questions_list");
 		
 		return mav;

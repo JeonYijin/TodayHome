@@ -220,7 +220,7 @@
 
 <script type="text/javascript">
 	var loginId = $('#memberVO_id').val();	
-	var writerId = '${quest.quests_id}';
+}';
 		                    		
 	if(loginId == writerId) {
 		$('.qna-detail__content__action-group').removeAttr('style');

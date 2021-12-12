@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.th.th1.comment.QCommentDAO;
+import com.th.th1.util.Pager;
 
 @Service
 public class QuestionsService {
@@ -26,8 +27,13 @@ public class QuestionsService {
 	}
 	
 	/* 질문과답변 list */ 
-	public List<QuestionsVO> getQuestionsList() throws Exception{
-		return questionsDAO.getQuestionsList();
+	public List<QuestionsVO> getQuestionsList(Pager pager) throws Exception{
+		pager.makeRow();
+		// 총글의 갯수 - DB에서 조회
+		Long totalCount = questionsDAO.getTotalCount(pager);
+		pager.makeNum(totalCount);
+		
+		return questionsDAO.getQuestionsList(pager);
 	}
 	
 	/* 질문과답변 질문글 insert */ 
