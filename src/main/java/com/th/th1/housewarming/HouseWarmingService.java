@@ -70,10 +70,8 @@ public class HouseWarmingService {
 	/** 멤버-집들이글 좋아요 Up 등록 */
 	public int setZoayoInsert(House_ZoayoVO hzVO) throws Exception{
 		int result=houseDAO.setZoayoInsert(hzVO);
-		System.out.println("zoayo service 리저트 :"+result);
 		if(result==1) {
 			int result2 = houseDAO.houseZoayoUp(hzVO.getHouse_num());
-			System.out.println("zoayo service 리저트2:"+result2);
 		}
 		
 		return result;
@@ -88,6 +86,7 @@ public class HouseWarmingService {
 		return result;
 	}
 	
+	/** 해당아이디로 해당글에 좋아요 눌렀는지 여부 판별 */
 	public House_ZoayoVO getZoayoInfo(House_ZoayoVO hzVO) throws Exception {
 		return houseDAO.getZoayoInfo(hzVO);
 	}

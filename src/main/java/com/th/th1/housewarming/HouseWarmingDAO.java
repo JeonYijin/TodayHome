@@ -36,16 +36,19 @@ public interface HouseWarmingDAO {
 	/** 댓글수 -1 update*/
 	public int minusReplyCount(int hnum) throws Exception;
 	
-	/** 멤버-집들이글 좋아요 Up 등록 */
+	/** House_Zoayo table Insert */
 	public int setZoayoInsert(House_ZoayoVO hzVO) throws Exception;
 	
-	/** 멤버-집들이글 좋아요 Down 등록 */
+	/** House_Zoayo table Delete */
 	public int setZoayoDelete(House_ZoayoVO hzVO) throws Exception;
 	
+	/** HouseWarming table Zoayo UP */
 	public int houseZoayoUp(int house_num) throws Exception;
 	
+	/** HouseWarming table Zoayo DOWN */
 	public int houseZoayoDown(int house_num) throws Exception;
 	
+	/** 해당 아이디가 좋아요 눌렀는지 여부 확인 */
 	public House_ZoayoVO getZoayoInfo(House_ZoayoVO hzVO) throws Exception;
 	
 }

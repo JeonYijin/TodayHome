@@ -69,26 +69,31 @@
 		WHERE HOUSE_NUM=#{hnum}
 	</update>
 	
+	<!-- House_Zoayo table Insert -->
 	<insert id="setZoayoInsert" parameterType="House_ZoayoVO">
 		INSERT INTO HOUSE_ZOAYO 
 		VALUES (null, #{house_num}, #{zoayo_id})
 	</insert>
-	
+		
+	<!-- House_Zoayo table Delete -->
 	<delete id="setZoayoDelete" parameterType="House_ZoayoVO">
 		DELETE FROM HOUSE_ZOAYO
 		WHERE house_num=#{house_num} and zoayo_id=#{zoayo_id}
 	</delete>
 	
+	<!-- HouseWarming table Zoayo UP -->
 	<update id="houseZoayoUp" parameterType="int">
 		UPDATE HOUSEWARMING SET HOUSE_ZOAYO=HOUSE_ZOAYO+1
 		WHERE house_num=#{house_num}
 	</update>
 	
+	<!-- HouseWarming table Zoayo DOWN -->
 	<update id="houseZoayoDown" parameterType="int">
 		UPDATE HOUSEWARMING SET HOUSE_ZOAYO=HOUSE_ZOAYO-1
 		WHERE house_num=#{house_num}
 	</update>
 	
+	<!-- 해당 아이디가 좋아요 눌렀는지 여부 확인 -->
 	<select id="getZoayoInfo" parameterType="House_ZoayoVO" resultType="House_ZoayoVO">
 		SELECT * FROM HOUSE_ZOAYO
 		WHERE zoayo_id=#{zoayo_id} and house_num=#{house_num}
