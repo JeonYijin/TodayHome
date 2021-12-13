@@ -98,7 +98,7 @@
                                         <rect width="1" height="24" x="15.83" y="7" fill="#525B61" rx=".5"></rect>
                                     </g>
                                 </svg></dt>
-                            <dd class="project-detail-metadata-overview-item__text">${houseVO.house_space}</dd>
+                            <dd class="project-detail-metadata-overview-item__text">${houseVO.house_space} 평</dd>
                         </div>
                         <div class="project-detail-metadata-overview-item">
                             <dt class="project-detail-metadata-overview-item__icon"><svg class="icon" aria-label="분야"
@@ -171,7 +171,7 @@
                                 <c:if test="${not empty houseVO.house_space}">
 	                                <div class="project-detail-metadata-detail-item">
 	                                    <dt>평수</dt>
-	                                    <dd>${houseVO.house_space}평</dd>
+	                                    <dd>${houseVO.house_space} 평</dd>
 	                                </div>
                                 </c:if>
                                 <c:if test="${not empty houseVO.working_area}">
@@ -252,21 +252,15 @@
                     class="sticky-container content-detail-content-section__sidebar-sticky">
                     <div class="sticky-child content-detail-content-section__sidebar-inner"
                         style="position: relative; box-sizing: border-box;">
-                        <div class="content-detail-sidebar"><button
-                                class="content-detail-sidebar-button content-detail-sidebar-button--white"
-                                aria-pressed="false" title="좋아요" type="button"><svg
-                                    class="content-detail-sidebar__icon-blue icon" width="24" height="24"
-                                    fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                                    preserveAspectRatio="xMidYMid meet">
-                                    <path
-                                        d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z">
-                                    </path>
-                                </svg><svg class="content-detail-sidebar__icon-inactive icon" width="24" height="24"
-                                    viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-                                    <path fill="currentColor"
-                                        d="M22.971 7.638c-.548-5.17-7.119-7.135-10.57-2.488a.5.5 0 0 1-.802 0C8.148.503 1.577 2.469 1.029 7.625.642 12.451 3.897 17.183 12 21.436c8.104-4.252 11.36-8.984 10.972-13.798zm.996-.093c.428 5.319-3.137 10.446-11.738 14.899a.5.5 0 0 1-.46 0C3.169 17.99-.395 12.864.034 7.532.656 1.67 7.904-.683 12 4.052 16.096-.683 23.344 1.67 23.967 7.545z">
-                                    </path>
-                                </svg></button><span class="content-detail-sidebar-counter">${houseVO.house_zoayo}</span><button
+                        <div class="content-detail-sidebar">
+                                <c:if test="${zoayo==1}">
+                               		<button onclick="zoayoDeleteEvent();" class="content-detail-sidebar-button content-detail-sidebar-button--white content-detail-sidebar-button--active" aria-pressed="true" title="좋아요" type="button"><svg class="content-detail-sidebar__icon-blue icon" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path></svg><svg class="content-detail-sidebar__icon-inactive icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" d="M22.971 7.638c-.548-5.17-7.119-7.135-10.57-2.488a.5.5 0 0 1-.802 0C8.148.503 1.577 2.469 1.029 7.625.642 12.451 3.897 17.183 12 21.436c8.104-4.252 11.36-8.984 10.972-13.798zm.996-.093c.428 5.319-3.137 10.446-11.738 14.899a.5.5 0 0 1-.46 0C3.169 17.99-.395 12.864.034 7.532.656 1.67 7.904-.683 12 4.052 16.096-.683 23.344 1.67 23.967 7.545z"></path></svg></button>
+                                </c:if>
+                                
+                                <c:if test="${zoayo==null}">
+                                	<button onclick="zoayoEvent();" class="content-detail-sidebar-button content-detail-sidebar-button--white" aria-pressed="false" title="좋아요" type="button"><svg class="content-detail-sidebar__icon-blue icon" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path></svg><svg class="content-detail-sidebar__icon-inactive icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" d="M22.971 7.638c-.548-5.17-7.119-7.135-10.57-2.488a.5.5 0 0 1-.802 0C8.148.503 1.577 2.469 1.029 7.625.642 12.451 3.897 17.183 12 21.436c8.104-4.252 11.36-8.984 10.972-13.798zm.996-.093c.428 5.319-3.137 10.446-11.738 14.899a.5.5 0 0 1-.46 0C3.169 17.99-.395 12.864.034 7.532.656 1.67 7.904-.683 12 4.052 16.096-.683 23.344 1.67 23.967 7.545z"></path></svg></button>
+                                </c:if>
+                                <span class="content-detail-sidebar-counter">${houseVO.house_zoayo}</span><button
                                 class="content-detail-sidebar-button content-detail-sidebar-button--white"
                                 aria-pressed="false" title="스크랩" type="button"><svg
                                     class="content-detail-sidebar__icon-blue icon" width="24" height="24"
@@ -298,6 +292,9 @@
                                             d="M9.64 14.646a4.5 4.5 0 1 1 0-5.292l4.54-2.476a4.5 4.5 0 1 1 .63.795l-4.675 2.55c.235.545.365 1.146.365 1.777s-.13 1.232-.365 1.777l4.675 2.55a4.5 4.5 0 1 1-.63.795l-4.54-2.476zM18 8a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM6 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM18 23a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z">
                                         </path>
                                     </svg></button></div><span class="content-detail-sidebar-counter">18</span>   -->
+                        
+                        
+                        
                         </div>
                     </div>
                 </div>
@@ -419,6 +416,50 @@
                     </svg></button></div>
         </div>
     </main>
+    
+<script type="text/javascript">
+
+var house_num=$('#house_num').val();
+var memberVO_id = $('#memberVO_id').val();
+
+function zoayoEvent() {
+	$. ajax({
+		url:'/housewarming/zoayoUp',
+		type:'post',
+		data:{
+			'house_num':house_num,
+			'zoayo_id':memberVO_id
+		},
+		success:function(data){
+			if(data==1){
+				location.reload();				
+			}
+		},
+		error:function(){
+			alert('좋아요 실패');
+		}
+	});
+}
+
+function zoayoDeleteEvent() {
+	$. ajax({
+		url:'/housewarming/zoayoDown',
+		type:'post',
+		data:{
+			'house_num':house_num,
+			'zoayo_id':memberVO_id
+		},
+		success:function(data){
+			if(data==1){
+				location.reload();				
+			}
+		},
+		error:function(){
+			alert('좋아요취소 실패');
+		}
+	});
+}
+</script>    
 <script type="text/javascript" src="../resources/js/housewarming/house_detail.js"></script>    
 </body>
 </html>

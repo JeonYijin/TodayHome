@@ -67,6 +67,30 @@ public class HouseWarmingService {
 		return houseDAO.setHitsUp(house_num);
 	}
 	
+	/** 멤버-집들이글 좋아요 Up 등록 */
+	public int setZoayoInsert(House_ZoayoVO hzVO) throws Exception{
+		int result=houseDAO.setZoayoInsert(hzVO);
+		System.out.println("zoayo service 리저트 :"+result);
+		if(result==1) {
+			int result2 = houseDAO.houseZoayoUp(hzVO.getHouse_num());
+			System.out.println("zoayo service 리저트2:"+result2);
+		}
+		
+		return result;
+	}
+	
+	/** 멤버-집들이글 좋아요 Down 등록 */
+	public int setZoayoDown(House_ZoayoVO hzVO) throws Exception {
+		int result=houseDAO.setZoayoDelete(hzVO);
+		if(result==1) {
+			houseDAO.houseZoayoDown(hzVO.getHouse_num());
+		}
+		return result;
+	}
+	
+	public House_ZoayoVO getZoayoInfo(House_ZoayoVO hzVO) throws Exception {
+		return houseDAO.getZoayoInfo(hzVO);
+	}
 	
 	
 	

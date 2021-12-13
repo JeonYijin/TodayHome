@@ -1,5 +1,6 @@
 package com.th.th1.housewarming;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,7 +30,9 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 								@RequestParam(value="total_budget", defaultValue="") String total_budget,
 								@RequestParam(value="family_kind", defaultValue="") String family_kind,
 								@RequestParam(value="style_category", defaultValue="") String style_category,
-								@RequestParam(value="working_area", defaultValue="") String working_area) throws Exception {
+								@RequestParam(value="working_area", defaultValue="") String working_area,
+								Principal principal) throws Exception {
+		
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
@@ -57,15 +61,18 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		mav.setViewName("housewarming/house_list");
 		mav.addObject("countBoard", houseService.getCountBoard(style_category));
 		mav.addObject("list", list);
+		if(principal != null) {
+			mav.addObject("loginId", principal.getName());
+		}
+		
 		
 		return mav;		
 	}
 	
 	//글하나 상세
 	@GetMapping("detail")
-	public ModelAndView getSelectOne(HouseWarmingVO houseVO) throws Exception {
+	public ModelAndView getSelectOne(HouseWarmingVO houseVO, String loginId) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		
 		houseVO = houseService.getSelectOne(houseVO);
 		
 		if(houseVO.getHouse_title() != null) { // 조회수 +1 증가
@@ -78,6 +85,23 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		//style_category -> 한글화 작업
 		list = this.styleToKorean(list);
 		System.out.println("list.get(0) : "+list.get(0).getStyleString());
+		
+		House_ZoayoVO hzVO = null;
+		if(loginId == null) {
+			System.out.println("로그인 안해도 볼 수 있어~");
+		} else if(loginId != null) {
+			hzVO = new House_ZoayoVO();
+			hzVO.setHouse_num(houseVO.getHouse_num());
+			hzVO.setZoayo_id(loginId);
+		
+			hzVO = houseService.getZoayoInfo(hzVO);
+		}
+		
+		if(hzVO == null) {
+			mav.addObject("zoayo", null); //zoayo=0일 때, 비어있는 하트
+		} else if(hzVO != null){
+			mav.addObject("zoayo", 1); //zoayo=1일 때, 차있는 하트
+		}
 		
 		mav.setViewName("housewarming/house_detail");
 		mav.addObject("houseVO", list.get(0));
@@ -198,6 +222,18 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		}
 		
 		return list;
+	}
+	
+	@ResponseBody
+	@PostMapping("zoayoUp")
+	public int setZoayoInsert(House_ZoayoVO hzVO) throws Exception {
+		return houseService.setZoayoInsert(hzVO);
+	}
+	
+	@ResponseBody
+	@PostMapping("zoayoDown")
+	public int setZoayoDelete(House_ZoayoVO hzVO) throws Exception {
+		return houseService.setZoayoDown(hzVO);
 	}
 	
 		

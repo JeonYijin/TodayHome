@@ -36,7 +36,16 @@ public interface HouseWarmingDAO {
 	/** 댓글수 -1 update*/
 	public int minusReplyCount(int hnum) throws Exception;
 	
+	/** 멤버-집들이글 좋아요 Up 등록 */
+	public int setZoayoInsert(House_ZoayoVO hzVO) throws Exception;
 	
+	/** 멤버-집들이글 좋아요 Down 등록 */
+	public int setZoayoDelete(House_ZoayoVO hzVO) throws Exception;
 	
+	public int houseZoayoUp(int house_num) throws Exception;
+	
+	public int houseZoayoDown(int house_num) throws Exception;
+	
+	public House_ZoayoVO getZoayoInfo(House_ZoayoVO hzVO) throws Exception;
 	
 }

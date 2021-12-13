@@ -13,6 +13,7 @@
 		<typeAlias type="com.th.th1.comment.QCommentVO" alias="QCommentVO"/>
 		<typeAlias type="com.th.th1.housewarming.HouseWarmingVO" alias="HouseWarmingVO"/>
 		<typeAlias type="com.th.th1.comment.HCommentVO" alias="HCommentVO"/>
+		<typeAlias type="com.th.th1.housewarming.House_ZoayoVO" alias="House_ZoayoVO"/>
 		
 		<typeAlias type="java.lang.Long" alias="Long" />
 		<typeAlias type="java.util.List" alias="List" />

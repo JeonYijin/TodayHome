@@ -140,7 +140,7 @@
                 <c:forEach items="${list}" var="board">
                 <div class="col-12 col-md-4" >
                     <article class="project-feed__item"><a class="project-feed__item__link"
-                            href="${pageContext.request.contextPath}/housewarming/detail?house_num=${board.house_num}"></a>
+                          href="/housewarming/detail?house_num=${board.house_num}&loginId=${loginId}"></a>
                         <div class="project-feed__item__image"><img class="image" alt=""
                                 src="../resources/upload/housewarming/${board.house_thumbnail}"
                                 srcset=""><span
@@ -199,13 +199,29 @@
                         <footer class="project-feed__item__status"><span class="entry">스크랩 ${board.house_scrap}&nbsp;</span><span
                                 class="entry">조회 ${board.house_hits}</span></footer>
                     </article>
+                    
                 </div>
                 </c:forEach>
             </div>
         </div>
     </div>
-    
-    
+    <sec:authorize access="isAuthenticated()" var="result">
+	    <sec:authentication property="principal" var="memberVO"/>
+		<input type="hidden" name="hnum" value="${houseVO.house_num}"/>
+		<input type="hidden" name="nickname" id="memberVO_nickname" value="${memberVO.nickname}"/>
+		<input type="hidden" name="id" id="memberVO_id" value="${memberVO.id}"/>
+    </sec:authorize>
+
+<script type="text/javascript">
+
+var house_num=${board.house_num};
+var loginId=$('#memberVO_id').val();
+
+	$('.project-feed__item__link').click(function(){
+		
+		location.href=
+	});
+</script>    
 <script type="text/javascript" src="https://cdn.ravenjs.com/3.26.4/raven.js"></script>
 <script type="text/javascript" src="../resources/js/housewarming/house_list.js"></script>  
 </body>
