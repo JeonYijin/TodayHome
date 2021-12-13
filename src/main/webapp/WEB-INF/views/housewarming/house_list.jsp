@@ -152,43 +152,37 @@
                                             d="M6 14V6h1.668l3.446 5.644h.036V6h1.318v8h-1.475L7.354 7.97h-.036V14H6zm8.414 0V6h5.174v1.131h-3.687v2.193h2.865v1.12h-2.865v2.425h3.76V14h-5.247zm8.317 0l-2.067-8h1.511l1.414 5.924h.037L25.318 6h1.21l1.667 5.924h.037L29.658 6H31l-2.03 8h-1.476l-1.62-5.808h-.036L24.194 14H22.73z">
                                         </path>
                                     </g>
-                                </svg></span><button class="project-feed__item__image__scrap" type="button"
-                                aria-label="스크랩"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" class="icon">
-                                    <defs>
-                                        <path id="scrap-icon-221-b"
-                                            d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z">
-                                        </path>
-                                        <filter id="scrap-icon-221-a" width="150%" height="150%" x="-25%" y="-25%"
-                                            filterUnits="objectBoundingBox">
-                                            <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                stdDeviation="1.5"></feGaussianBlur>
-                                            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                result="shadowBlurOuter1"></feComposite>
-                                            <feColorMatrix in="shadowBlurOuter1"
-                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                        </filter>
-                                        <filter id="scrap-icon-221-c" width="150%" height="150%" x="-25%" y="-25%"
-                                            filterUnits="objectBoundingBox">
-                                            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                stdDeviation="1.5"></feGaussianBlur>
-                                            <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                operator="arithmetic" result="shadowInnerInner1"></feComposite>
-                                            <feColorMatrix in="shadowInnerInner1"
-                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                        </filter>
-                                    </defs>
-                                    <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                        <use fill="#000" filter="url(#scrap-icon-221-a)" href="#scrap-icon-221-b"></use>
-                                        <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-221-b"></use>
-                                        <use fill="#000" filter="url(#scrap-icon-221-c)" href="#scrap-icon-221-b"></use>
-                                        <path stroke="#FFF"
-                                            d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z">
-                                        </path>
-                                    </g>
-                                </svg></button></div>
+                                </svg></span>
+                                
+                                <c:if test="${not empty board.scraps.scrap_id}">
+                                
+                                <button onclick="scrapEvent(${board.house_num})" class="project-feed__item__image__scrap" type="button" aria-label="스크랩"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><defs><path id="scrap-icon-385-b" d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path><filter id="scrap-icon-385-a" width="150%" height="150%" x="-25%" y="-25%" filterUnits="objectBoundingBox"><feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset><feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1.5"></feGaussianBlur><feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite><feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix></filter><filter id="scrap-icon-385-c" width="150%" height="150%" x="-25%" y="-25%" filterUnits="objectBoundingBox"><feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1.5"></feGaussianBlur><feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset><feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"></feComposite><feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix></filter></defs><g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)"><use fill="#000" filter="url(#scrap-icon-385-a)" href="#scrap-icon-385-b"></use><use fill="#FFF" fill-opacity=".4" href="#scrap-icon-385-b"></use><use fill="#000" filter="url(#scrap-icon-385-c)" href="#scrap-icon-385-b"></use><path stroke="#FFF" d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path></g></svg></button>
+                                <script>
+	                                function scrapEvent(house_num) {
+	                                	$. ajax({
+	                                		url:'/housewarming/scrapUp',
+	                                		type:'post',
+	                                		data:{
+	                                			'house_num':house_num,
+	                                			'scrap_id':loginId
+	                                		},
+	                                		success:function(data){
+	                                			if(data==1){
+	                                				location.reload();				
+	                                			}
+	                                		},
+	                                		error:function(){
+	                                			alert('스크랩 실패');
+	                                		}
+	                                	});
+	                                }
+                                </script>
+                                </c:if>
+                                <c:if test="${empty board.scraps.scrap_id}">
+                                	<button onclick="scrapDeleteEvent(${board.house_num})" class="project-feed__item__image__scrap project-feed__item__image__scrap--scrapped" type="button" aria-label="스크랩 취소"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="#35C5F0" fill-rule="nonzero" d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path></svg></button>                              
+                                </c:if>
+                                
+                                </div>
                         <h1 class="project-feed__item__title">${board.house_title}</h1>
                         <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
                                 href="/users/3218737?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
@@ -214,13 +208,29 @@
 
 <script type="text/javascript">
 
-var house_num=${board.house_num};
-var loginId=$('#memberVO_id').val();
+var loginId='${loginId}';
 
-	$('.project-feed__item__link').click(function(){
-		
-		location.href=
+
+
+function scrapDeleteEvent(house_num) {
+	$. ajax({
+		url:'/housewarming/scrapDown',
+		type:'post',
+		data:{
+			'house_num':house_num,
+			'scrap_id':loginId
+		},
+		success:function(data){
+			if(data==1){
+				location.reload();				
+			}
+		},
+		error:function(){
+			alert('스크랩취소 실패');
+		}
 	});
+}
+
 </script>    
 <script type="text/javascript" src="https://cdn.ravenjs.com/3.26.4/raven.js"></script>
 <script type="text/javascript" src="../resources/js/housewarming/house_list.js"></script>  

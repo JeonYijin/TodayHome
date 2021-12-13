@@ -29,11 +29,12 @@ public class HouseWarmingVO {
 	private String styleString; // 숫자->한글화
 	
 	private String house_writer; // 글쓴이
+	private String house_userId; // 글쓴이 아이디
 	private String house_title; // 글제목
 	private String house_contents; // 글내용
 	private String house_thumbnail; // 썸네일
 	private String house_comments; // 댓글 갯수
 	
-	
+	private List<House_ScrapVO> scraps; //스크랩된 집들이 게시물
 	
 }

@@ -55,12 +55,35 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		List<HouseWarmingVO> list = houseService.getHouseList(map);		
 		
 		//style_category -> 한글화 작업
-		list = this.styleToKorean(list);
-				
+		list = this.styleToKorean(list);		
+		
+		
+		House_ScrapVO hsVO=null;
+		if(principal == null) {
+			System.out.println("리스트 로그인 안돼있어요~");
+		} else if(principal != null) {
+			System.out.println("principal.getName() = "+principal.getName());
+			hsVO = new House_ScrapVO();
+			hsVO.setScrap_id(principal.getName());
+			List<House_ScrapVO> scraps = houseService.getScraps(hsVO);
+/*			
+			// 가져온 scrap list를 houseWarmingVO에 삽입 --- 이건 더 생각해봐야 함(어려움)
+			for(int i=0;i<list.size();i++) {
+				for(int j=0;j<scraps.size();j++) {
+					if(list.get(i).getScraps().get(i).getScrap_id() == scraps.get(j).getScrap_id()) {
+						list.get(i).getScraps().set(i, scraps.get(j));
+						System.out.println("dd:: "+list.get(i).getScraps().get(j).getScrap_id());
+					}
+				}								
+			} */
+		}
+		
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("housewarming/house_list");
 		mav.addObject("countBoard", houseService.getCountBoard(style_category));
 		mav.addObject("list", list);
+		//security에서 로그인 아이디 받아오기
 		if(principal != null) {
 			mav.addObject("loginId", principal.getName());
 		}
@@ -86,6 +109,7 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		list = this.styleToKorean(list);
 		System.out.println("list.get(0) : "+list.get(0).getStyleString());
 		
+		// 좋아요 관리 -----------------------------------------
 		House_ZoayoVO hzVO = null;
 		if(loginId == null) {
 			System.out.println("로그인 안해도 볼 수 있어~");
@@ -101,6 +125,25 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 			mav.addObject("zoayo", null); //zoayo=0일 때, 비어있는 하트
 		} else if(hzVO != null){
 			mav.addObject("zoayo", 1); //zoayo=1일 때, 차있는 하트
+		}
+		
+		// 스크랩 관리 -------------------------------------------
+		House_ScrapVO hsVO = null;
+		if(loginId == null) {
+			System.out.println("로그인 안해도 볼 수 있다~~!");
+		} else if(loginId != null) {
+			hsVO = new House_ScrapVO();
+			hsVO.setHouse_num(houseVO.getHouse_num());
+			hsVO.setScrap_id(loginId);
+			
+			hsVO = houseService.getScrapInfo(hsVO);
+			System.out.println(hsVO);
+		}		
+		
+		if(hsVO == null) {
+			mav.addObject("scrap", null);
+		} else if(hsVO != null) {
+			mav.addObject("scrap", 1);
 		}
 		
 		mav.setViewName("housewarming/house_detail");
@@ -224,17 +267,34 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		return list;
 	}
 	
+	// 좋아요 up ajax
 	@ResponseBody
 	@PostMapping("zoayoUp")
 	public int setZoayoInsert(House_ZoayoVO hzVO) throws Exception {
 		return houseService.setZoayoInsert(hzVO);
 	}
 	
+	// 좋아요 down ajax
 	@ResponseBody
 	@PostMapping("zoayoDown")
 	public int setZoayoDelete(House_ZoayoVO hzVO) throws Exception {
 		return houseService.setZoayoDown(hzVO);
 	}
 	
-		
+	// ------------------------------------------------------------------
+	
+	// 스크랩 up ajax
+	@ResponseBody
+	@PostMapping("scrapUp")
+	public int setScrapInsert(House_ScrapVO hsVO) throws Exception {
+		return houseService.setScrapInsert(hsVO);
+	}
+	
+	// 스크랩 down ajax
+	@ResponseBody
+	@PostMapping("scrapDown")
+	public int setScrapDelete(House_ScrapVO hsVO) throws Exception {
+		return houseService.setScrapDown(hsVO);
+	}
+	
 }

@@ -8,7 +8,7 @@
 	<!-- 글쓰기 -->
 	<insert id="setHouseWarming" parameterType="HouseWarmingVO">
 		INSERT INTO HOUSEWARMING 
-		VALUES (null, #{house_title}, #{house_contents}, #{house_writer}, default, default, default, 
+		VALUES (null, #{house_title}, #{house_contents}, #{house_writer}, #{house_userId},default, default, default, 
 		default, #{house_thumbnail}, default, #{house_kind}, #{house_space}, #{house_rooms}, 
 		#{family_kind}, #{working_area}, 
 		#{total_budget}, -1)
@@ -69,6 +69,12 @@
 		WHERE HOUSE_NUM=#{hnum}
 	</update>
 	
+	
+	<!-- =============================================@@@================================================ -->
+	
+	
+	<!-- ====== [house-zoayo table END] ===== -->
+	
 	<!-- House_Zoayo table Insert -->
 	<insert id="setZoayoInsert" parameterType="House_ZoayoVO">
 		INSERT INTO HOUSE_ZOAYO 
@@ -98,6 +104,55 @@
 		SELECT * FROM HOUSE_ZOAYO
 		WHERE zoayo_id=#{zoayo_id} and house_num=#{house_num}
 	</select>
+	
+	<!-- ====== [house-zoayo table END] ===== -->
+	
+	
+	<!-- =============================================@@@================================================ -->
+	
+	
+	<!-- ====== [house-scrap table START] ===== -->
+	
+	<!-- House_Scrap table Insert -->
+	<insert id="setScrapInsert" parameterType="House_ScrapVO">
+		INSERT INTO HOUSE_SCRAP (num, scrap_id, house_num)
+		VALUES (null, #{scrap_id}, #{house_num})
+	</insert>
+	
+	<!-- House_Scrap table Delete -->
+	<delete id="setScrapDelete" parameterType="House_ScrapVO">
+		DELETE FROM HOUSE_SCRAP
+		WHERE house_num=#{house_num} and scrap_id=#{scrap_id}
+	</delete>
+	
+	<!-- HouseWarming table Scrap UP -->
+	<update id="houseScrapUp" parameterType="int">
+		UPDATE HOUSEWARMING SET HOUSE_SCRAP=HOUSE_SCRAP+1
+		WHERE house_num=#{house_num}
+	</update>
+	
+	<!-- HouseWarming table Scrap DOWN -->
+	<update id="houseScrapDown" parameterType="int">
+		UPDATE HOUSEWARMING SET HOUSE_SCRAP=HOUSE_SCRAP-1
+		WHERE house_num=#{house_num}
+	</update>
+	
+	<!-- 해당 아이디가 스크랩 눌렀는지 여부 확인 -->
+	<select id="getScrapInfo" parameterType="House_ScrapVO" resultType="House_ScrapVO">
+		SELECT * FROM HOUSE_SCRAP
+		WHERE scrap_id=#{scrap_id} and house_num=#{house_num}
+	</select>
+	
+	<!-- 한 아이디에 종속된 스크랩 게시물 List -->
+	<select id="getScraps" parameterType="House_ScrapVO" resultType="House_ScrapVO">
+		SELECT * FROM HOUSE_SCRAP
+		WHERE SCRAP_ID=#{scrap_id}
+	</select>
+	
+	<!-- ====== [house-scrap table END] ===== -->
+	
+	
+	<!-- =============================================@@@================================================ -->
 
 	
 </mapper>
