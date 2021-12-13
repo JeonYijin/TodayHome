@@ -44,8 +44,8 @@
                 <footer class="qna-detail__footer">
                     <ul class="qna-detail__footer__keyword-list">
                     	<c:forEach items="${quest.tags}" var="tag">
-                    		<li class="qna-detail__footer__keyword-list-item"><a
-                                href="/questions?query=%EA%B2%AC%EC%A0%81">${tag.hashtag_name}</a></li>
+                    		<li class="qna-detail__footer__keyword-list-item"><a href="/questions/fromHashtag?hashtag=${tag.hashtag_name}">${tag.hashtag_name}</a>
+                    		</li>
                     	</c:forEach>
                         
                     </ul>

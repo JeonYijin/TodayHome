@@ -36,6 +36,11 @@ public class Pager {
 	
 	private boolean lastCheck;
 
+	private String reply; //글 하나당 댓글갯수(답변을 기다리는 질문용)
+	private Integer popularity; //인기순
+	
+	
+	
 	/* ----계산---- */
 	public void makeNum(Long totalCount) {
 		// 총 페이지의 갯수 구하기

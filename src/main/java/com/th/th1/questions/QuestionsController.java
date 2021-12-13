@@ -38,11 +38,6 @@ public class QuestionsController {
 		
 		List<QuestionsVO> list = questionsService.getQuestionsList(pager);				
 		
-		for(int i=0;i<list.size();i++) {
-			System.out.println(pager.getSearch());
-			System.out.println("list_title:"+list.get(i).getQuests_title());
-		}
-		
 		mav.addObject("list", list);
 		mav.addObject("pager", pager);
 		mav.setViewName("questions/questions_list");
@@ -56,9 +51,6 @@ public class QuestionsController {
 	public ModelAndView getSelectOne(QuestionsVO questionsVO) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		questionsVO = questionsService.getQuestionOne(questionsVO);
-		System.out.println("hungry:"+questionsVO.getTags().get(0));
-		System.out.println("selectOne 작성시간:"+questionsVO.getRegDate());
-		System.out.println("selectOne 조회수:"+questionsVO.getReply());
 		List<HashtagVO> hashList = questionsService.getHashtag(questionsVO);
 		mav.setViewName("questions/questions_one");
 		mav.addObject("quest", questionsVO);
@@ -140,7 +132,6 @@ public class QuestionsController {
 		ModelAndView mav = new ModelAndView();
 		
 		int result = questionsService.setQuestionUpdate(questionsVO);
-		System.out.println("리절트~:"+result);
 		if(result == 1) {
 			mav.setViewName("redirect:/questions");
 		} else {
@@ -173,6 +164,7 @@ public class QuestionsController {
 		for(int i=0;i<lists.size();i++) {
 			System.out.println(lists.get(i).getQuests_title());
 		}
+		
 		mav.addObject("list", lists);
 		mav.setViewName("questions/questions_list");
 		

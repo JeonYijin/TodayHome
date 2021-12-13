@@ -4,7 +4,8 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.th.th1.questions.QuestionsDAO">
-<!-- 질문과답변 list 받아오기 -->
+	
+	<!-- 질문과답변 list 받아오기 -->
 	<select id="getQuestionsList" parameterType="Pager" resultMap="hashtagResult_all">
 		SELECT Q.*, QH.*
 		FROM QUESTIONS Q left join QUESTIONS_HASHTAG QH
@@ -20,7 +21,18 @@
 				quests_title
 					like CONCAT('%', #{search}, '%')
 		</if>
-		ORDER BY Q.QUESTS_NUM DESC
+		
+		<if test='reply=="not_yet"'>
+			where reply=0
+		</if>
+		
+		<if test='popularity==0'>
+			order by reply desc
+		</if>
+		
+		<if test='popularity==null'>
+			ORDER BY Q.QUESTS_NUM DESC
+		</if>
 	</select>
 	
 	<resultMap type="QuestionsVO" id="hashtagResult_all">

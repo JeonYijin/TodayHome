@@ -180,12 +180,6 @@
 	                                    <dd>${houseVO.working_area}</dd>
 	                                </div>
                                 </c:if>
-                                <c:if test="${not empty houseVO.house_region}">
-	                                <div class="project-detail-metadata-detail-item">
-	                                    <dt>가족형태</dt>
-	                                    <dd>${houseVO.house_region}</dd>
-	                                </div>
-                                </c:if>
                                 <c:if test="${not empty houseVO.family_kind}">
 	                                <div class="project-detail-metadata-detail-item">
 	                                    <dt>가족형태</dt>

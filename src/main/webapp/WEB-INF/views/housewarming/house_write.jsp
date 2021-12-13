@@ -214,29 +214,6 @@
                                     </div>
                                 </div>
                                 <div class="editor-form-group">
-                                    <div class="editor-form-group__label">지역</div>
-                                    <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input">
-                                            <div class="css-pvwpix-EditorFieldRow eslktj0"><span
-                                                    class="css-10hheuw-EditorFieldColumn e13w87p50">
-                                                    <div class="panel-input">
-                                                        <div class="drop-down panel-drop-down panel-input__input-wrap">
-                                                            <button class="panel-input__input form-control empty empty22"
-                                                                type="button">선택해주세요.</button><span
-                                                                class="panel-input__icon"><svg class="icon" width="10"
-                                                                    height="10" preserveAspectRatio="xMidYMid meet"
-                                                                    style="fill: currentcolor;">
-                                                                    <path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
-                                                                </svg></span>
-                                                                
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="editor-form-group">
                                     <div class="editor-form-group__label">가족형태<span
                                             class="editor-form-group__required">*</span></div>
                                     <div class="editor-form-group__content">
