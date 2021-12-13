@@ -153,9 +153,10 @@
 		            </div>
 		        </div>
 		        <div class="editor__content css-1tlr0qw-BottomContainer ejkfmez1">
-		            <div class="css-j2pi9o-Div e1hr3zkg0"><button class="css-1gyvuxu-KeywordButton eqajx1g0" type="button">클릭하여
-		                    주요 키워드를 입력해주세요.(최대 5개)</button></div>
+		            <span class="css-j2pi9o-Div e1hr3zkg0"><button class="css-1gyvuxu-KeywordButton eqajx1g0" type="button" id="modalBtn">클릭하여
+		                    주요 키워드를 입력해주세요.(최대 5개)</button></span>      
 		        </div>
+		        
 		        <input type="hidden" id="str_hashtags" name="hash_arr"/>
         </form>
         <div class="editor-help-section"><button class="editor-help-section-button" type="button" title="도움말"><svg
@@ -168,7 +169,7 @@
     </div>
     
      <!-- The Modal -->
-    <div id="myModal" class="modal">
+  	<div id="myModal" class="modal"> 
  
       <!-- Modal content -->
       <div class="modal-content">
@@ -472,9 +473,6 @@
             </div>
       </div>
     </div>
-    <div>
-    	<button type="button" id="modalBtn">Hashtag Modal</button>
-    </div>
         <!--End Modal-->
 
 <script type="text/javascript">
@@ -495,9 +493,43 @@
     	hash_arr = chbx_text.split(',');
     	hash_arr = JSON.stringify(hash_arr);
         jQuery.ajaxSettings.traditional = true;
+
+        var hashArr = chbx_text.split(',');
+        
+        $.each(hashArr, function(index, item){
+        	if(index != hashArr.length-1){
+        		$('.ejkfmez1').prepend('<span class="css-j2pi9o-Div e1hr3zkg0 selected'+index+'"><button class="css-1gyvuxu-KeywordButton eqajx1g0" type="button" style="color:black;">'+item+'</button></span>');
+        	} else if(index == hashArr.length-1) {
+        		$('.ejkfmez1').append('<span class="css-j2pi9o-Div e1hr3zkg0 selected'+index+'"><button class="css-1gyvuxu-KeywordButton eqajx1g0" type="button" style="color:red;" onclick="deleteHash('+index+');">'+'해시태그 전체삭제'+'</button></span>')
+        	}
+        	 
+        });
+        
+        console.log(hashArr);
 		
     	$('#myModal').hide();
     };
+    
+    //기록된 해시태그 지우기
+    function deleteHash(index) {
+/** 
+    	var jj = $('.selected'+index).text().split('X');
+    	$.each(jj, function(index, item){
+    		if(index==0){
+    			console.log(item);
+    			}
+    	});
+*/
+		for(var i=0;i<index;i++){
+			console.log(index);
+	    	console.log($('.selected'+i).text()	);
+	    	$('.selected'+i).remove();
+		}
+	    $('.selected'+index).remove();
+		$(".form-check").prop("checked", false);
+    }
+    
+    
     
     $('.editor-submit-menu-pc-button').click(function(){
     	console.log(hash_arr);

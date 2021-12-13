@@ -28,7 +28,9 @@ public class Pager {
 	
 	private Integer perPage; // 한 페이지에 출력할 갯수
 	private Integer pn; // 페이지번호
+	private Integer perBlock;
 	private Integer startRow; // limit의 시작번호
+	private Integer lastRow;
 	private Long startNum;
 	private Long lastNum;
 	
@@ -89,6 +91,11 @@ public class Pager {
 		}
 		
 		return pn;
+	}
+	
+	public Integer getPerBlock() {
+		this.perBlock=5;
+		return perBlock;
 	}
 	
 	

@@ -9,7 +9,7 @@
 	<insert id="setHouseWarming" parameterType="HouseWarmingVO">
 		INSERT INTO HOUSEWARMING 
 		VALUES (null, #{house_title}, #{house_contents}, #{house_writer}, default, default, default, 
-		default, #{house_thumbnail}, default, #{house_kind}, #{house_space}, #{house_rooms}, #{house_region}, 
+		default, #{house_thumbnail}, default, #{house_kind}, #{house_space}, #{house_rooms}, 
 		#{family_kind}, #{working_area}, 
 		#{total_budget}, -1)
 	</insert>
@@ -44,7 +44,7 @@
 	<update id="setUpdateBoard" parameterType="HouseWarmingVO">
 		UPDATE HOUSEWARMING 
 		SET HOUSE_TITLE=#{house_title}, HOUSE_CONTENTS=#{house_contents}, HOUSE_THUMBNAIL=#{house_thumbnail}, HOUSE_KIND=#{house_kind}, HOUSE_SPACE=#{house_space},
-			HOUSE_ROOMS=#{house_rooms}, HOUSE_REGION=#{house_region}, FAMILY_KIND=#{family_kind}, WORKING_AREA=#{working_area}, TOTAL_BUDGET=#{total_budget}, STYLE_CATEGORY=#{style_category}
+			HOUSE_ROOMS=#{house_rooms}, FAMILY_KIND=#{family_kind}, WORKING_AREA=#{working_area}, TOTAL_BUDGET=#{total_budget}, STYLE_CATEGORY=#{style_category}
 		WHERE HOUSE_NUM=#{house_num} AND HOUSE_WRITER=#{house_writer}
 	</update>
 	
