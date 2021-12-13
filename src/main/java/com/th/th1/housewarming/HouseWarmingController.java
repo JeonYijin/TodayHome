@@ -67,7 +67,7 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 			hsVO.setScrap_id(principal.getName());
 			List<House_ScrapVO> scraps = houseService.getScraps(hsVO);
 /*			
-			// 가져온 scrap list를 houseWarmingVO에 삽입 --- 이건 더 생각해봐야 함(어려움)
+			// 가져온 scrap list를 houseWarmingVO에 삽입 --- 이건 더 생각해봐야 함(어려움)-->리스트에서 스크랩 관리하는 방법 찾아보기
 			for(int i=0;i<list.size();i++) {
 				for(int j=0;j<scraps.size();j++) {
 					if(list.get(i).getScraps().get(i).getScrap_id() == scraps.get(j).getScrap_id()) {
