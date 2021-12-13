@@ -284,7 +284,7 @@
             <sec:authorize access="isAuthenticated()" var="result">
 		  		<sec:authentication property="principal.id" var="id"/>
 		 		<sec:authentication property="principal" var="memberVO"/>
-				id : <input type="text" name="house_id" value="${id}" readonly/><br>
+				id : <input type="text" name="house_userId" value="${id}" readonly/><br>
 				nickname : <input type="text" name="house_writer" value="${memberVO.nickname}" readonly/>
 		  	</sec:authorize>	
             <!-- security -->
