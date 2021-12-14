@@ -25,7 +25,8 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 	
 	//전체목록
 	@GetMapping("/")
-	public ModelAndView getList(@RequestParam(value="house_kind", defaultValue="") String house_kind,
+	public ModelAndView getList(@RequestParam(value="arrangement", defaultValue="최신순") String arrangement,
+								@RequestParam(value="house_kind", defaultValue="") String house_kind,
 								@RequestParam(value="house_space", defaultValue="") String house_space,
 								@RequestParam(value="total_budget", defaultValue="") String total_budget,
 								@RequestParam(value="family_kind", defaultValue="") String family_kind,
@@ -33,26 +34,48 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 								@RequestParam(value="working_area", defaultValue="") String working_area,
 								Principal principal) throws Exception {
 		
+		if(house_kind != "") {
+			System.out.println("house_kind가 null이 아니라면?:"+house_kind);
+		}
+		
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
+		map.put("arrangement", arrangement);
+		System.out.println("map.get(arrangement): "+map.get("arrangement"));
+		
 		if(house_kind != "") {
 			map.put("house_kind", house_kind);
+			System.out.println("map.get(house_kind): "+map.get("house_kind"));
 		}
 		if(house_space != "") {
 			map.put("house_space", house_space);
+			System.out.println("map.get(house_space): "+map.get("house_space"));
 		}
 		if(family_kind != "") {
 			map.put("family_kind", family_kind);
+			System.out.println("map.get(family_kind): "+map.get("family_kind"));
+		}
+		if(total_budget != "") {
+			map.put("total_budget", total_budget);
+			System.out.println("map.get(total_budget): "+map.get("total_budget"));
 		}
 		if(working_area != "") {
 			map.put("working_area", working_area);
+			System.out.println("map.get(family_kind): "+map.get("family_kind"));
 		}
 		if(style_category != "") {
 			map.put("style_category", style_category);
-		}		
+			System.out.println("map.get(style_category): "+map.get("style_category"));
+		}
+		if(working_area != "") {
+			map.put("working_area", working_area);
+			System.out.println("map.get(working_area): "+map.get("working_area"));
+		}
 		
-		List<HouseWarmingVO> list = houseService.getHouseList(map);		
+		List<HouseWarmingVO> list = houseService.getHouseList(map);
+		System.out.println("list를 가져오니?:"+list);
+				
 		
 		//style_category -> 한글화 작업
 		list = this.styleToKorean(list);		
@@ -81,7 +104,7 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("housewarming/house_list");
-		mav.addObject("countBoard", houseService.getCountBoard(style_category));
+		mav.addObject("countBoard", houseService.getCountBoard(map));
 		mav.addObject("list", list);
 		//security에서 로그인 아이디 받아오기
 		if(principal != null) {

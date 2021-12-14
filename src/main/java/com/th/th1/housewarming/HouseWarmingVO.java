@@ -18,6 +18,8 @@ public class HouseWarmingVO {
 	private Integer total_budget; // 예산 (maybe, 소숫점 자리까지 입력하면 반올림요청 alert ON)
 	/** [필수정보입력part END] */
 	
+	private String arrangement; // 정렬 방법
+	
 	private Integer house_num; // 집들이 글번호
 	private Integer house_hits; // 조회수
 	private Integer house_zoayo; // 좋아요수

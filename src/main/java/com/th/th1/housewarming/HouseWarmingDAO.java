@@ -13,7 +13,7 @@ public interface HouseWarmingDAO {
 	public int setHouseWarming(HouseWarmingVO houseVO) throws Exception;
 	
 	// 작성글 개수 가져오기
-	public int getCountBoard(String style_category) throws Exception;
+	public int getCountBoard(Map<String, Object> map) throws Exception;
 	
 	// 글 리스트 가져오기
 	public List<HouseWarmingVO> getHouseList(Map<String, Object> map) throws Exception;

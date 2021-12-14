@@ -38,8 +38,8 @@ public class HouseWarmingService {
 	}
 	
 	// 글 갯수 가져오기
-	public int getCountBoard(String style_category) throws Exception {
-		return houseDAO.getCountBoard(style_category);
+	public int getCountBoard(Map<String, Object> map) throws Exception {
+		return houseDAO.getCountBoard(map);
 	}
 	
 	// 글 리스트 가져오기

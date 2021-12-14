@@ -15,17 +15,102 @@
 	</insert>
 	
 	<!-- 글 갯수 가져오기 -->
-	<select id="getCountBoard" parameterType="String" resultType="int">
+	<select id="getCountBoard" parameterType="hashmap" resultType="int">
 		SELECT COUNT(HOUSE_NUM)
 		FROM HOUSEWARMING
 		WHERE style_category>-1
+		
+		<if test='house_kind != ""'>
+			and house_kind=#{house_kind}		
+		</if>
+		
+		<!-- 예산과 평수는 범위가 있으므로 추후에 설정(switch문 작업 따로 해야해서 지금은 귀찮음)  
+		<if test="house_space != null">
+			and house_space=#{house_space}
+		</if>
+		 -->
+		
+		<!-- 예산과 평수는 범위가 있으므로 추후에 설정(switch문 작업 따로 해야해서 지금은 귀찮음)	
+		<if test="total_budget != null">
+			and total_budget=#{total_budget}
+		</if>
+		 -->
+		
+		<if test='family_kind != ""'>
+			and family_kind=#{family_kind}	
+		</if>
+		
+		<if test='style_category != ""'>
+			and style_category=#{style_category}
+		</if>
+		
+		<if test='working_area != ""'>
+			and working_area=#{working_area}
+		</if>
+		
+		<!-- ** 정렬 ** -->
+		<if test='arrangement == "최신순"'>
+			ORDER BY house_num desc
+		</if>
+		
+		<if test='arrangement == "인기순"'>
+			ORDER BY house_zoayo desc
+		</if>
+		
+		<if test='arrangement == "과거순"'>
+			ORDER BY house_num asc
+		</if>
+		<!-- ** /정렬 ** -->
+		
 	</select>
 	
 	<!-- 글 리스트 가져오기 -->
 	<select id="getHouseList" parameterType="hashmap" resultType="HouseWarmingVO">
 		SELECT * FROM HOUSEWARMING
 		WHERE style_category>-1
-		ORDER BY house_num desc
+		
+		<if test='house_kind != ""'>
+			and house_kind=#{house_kind}		
+		</if>
+		
+		<!-- 예산과 평수는 범위가 있으므로 추후에 설정(switch문 작업 따로 해야해서 지금은 귀찮음)  
+		<if test="house_space != null">
+			and house_space=#{house_space}
+		</if>
+		 -->
+		
+		<!-- 예산과 평수는 범위가 있으므로 추후에 설정(switch문 작업 따로 해야해서 지금은 귀찮음)	
+		<if test="total_budget != null">
+			and total_budget=#{total_budget}
+		</if>
+		 -->
+		
+		<if test='family_kind != ""'>
+			and family_kind=#{family_kind}	
+		</if>
+		
+		<if test='style_category != ""'>
+			and style_category=#{style_category}
+		</if>
+		
+		<if test='working_area != ""'>
+			and working_area=#{working_area}
+		</if>
+		
+		<!-- ** 정렬 ** -->
+		<if test='arrangement == "최신순"'>
+			ORDER BY house_num desc
+		</if>
+		
+		<if test='arrangement == "인기순"'>
+			ORDER BY house_zoayo desc
+		</if>
+		
+		<if test='arrangement == "과거순"'>
+			ORDER BY house_num asc
+		</if>
+		<!-- ** /정렬 ** -->
+		
 	</select>	
 	
 	<!-- 글 하나 가져오기 -->

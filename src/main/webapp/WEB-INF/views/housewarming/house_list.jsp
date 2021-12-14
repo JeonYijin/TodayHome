@@ -9,10 +9,8 @@
 <meta charset="UTF-8">
 <title>집들이 글목록</title>
 </head>
-
 <body>
 
-<div class="dropdown">
 	<div class="container">
         <div class="project-feed">
             <div class="project-feed__filter">
@@ -29,98 +27,129 @@
                                             </path>
                                         </svg></button></li>
                                 <li class="filter-bar__control-list__item" style="line-height: 10px;">
-                                    <div class="drop-down panel-drop-down filter-bar-control dropdown">
-                                    	<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#ced4da; color:#343a40; ">
-									   	정렬
-									  </a>
-									
-									  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-										  <li><a class="dropdown-item" href="#">최신순</a></li>
-										  <li><a class="dropdown-item" href="#">최근 인기순</a></li>
-										  <li><a class="dropdown-item" href="#">역대 인기순</a></li>
-										  <li><a class="dropdown-item" href="#">과거순</a></li>
-									  </ul>
+                                 <!-- Example single danger button -->
+									<div class="btn-group">
+										<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+										 정렬
+										</button>
+										<ul class="dropdown-menu menu0" onchange="tag-list-insert(0, );">
+										  <li value=""><a class="dropdown-item">최신순</a></li>
+										  <li value=""><a class="dropdown-item">인기순</a></li>
+										  <li value=""><a class="dropdown-item">과거순</a></li>
+										</ul>
+									</div>
+                                </li>
+                                <li class="filter-bar__control-list__item" style="line-height: 10px;">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                    <!-- Example single danger button -->
+										<div class="btn-group">
+										  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+										    주거형태
+										  </button>
+										  <ul class="dropdown-menu menu1">
+										    <li><a class="dropdown-item" >원룸&오피스텔</a></li>
+										    <li><a class="dropdown-item" >아파트</a></li>
+										    <li><a class="dropdown-item" >빌라&연립</a></li>
+										    <li><a class="dropdown-item" >단독주택</a></li>
+										    <li><a class="dropdown-item" >사무공간</a></li>
+										    <li><a class="dropdown-item" >상업공간</a></li>
+										    <li><a class="dropdown-item" >기타</a></li>
+										  </ul>
+										</div>
                                     </div>
-                                    
-                                            
+                                </li>      
+                                <li class="filter-bar__control-list__item" style="line-height: 10px;">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                    	<!-- Example single danger button -->
+										<div class="btn-group">
+										  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+										    평수
+										  </button>
+										  <ul class="dropdown-menu menu2">
+										    <li><a class="dropdown-item" >1-9평</a></li>
+										    <li><a class="dropdown-item" >10평대</a></li>
+										    <li><a class="dropdown-item" >20평대</a></li>								    
+										    <li><a class="dropdown-item" >30평대</a></li>
+										    <li><a class="dropdown-item" >40평대</a></li>
+										    <li><a class="dropdown-item" >50평 이상</a></li>
+										  </ul>
+										</div>
+                                    </div>
                                 </li>
-                                <li class="filter-bar__control-list__item">
-                                    <div class="drop-down panel-drop-down filter-bar-control"><button
-                                            class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">주거형태<svg
-                                                class="icon" width="12" height="12" viewBox="0 0 12 12"
-                                                fill="currentColor" preserveAspectRatio="xMidYMid meet">
-                                                <path
-                                                    d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                                </path>
-                                            </svg></button></div>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                	<li>1</li>
-                                                	<li>2</li>
-                                                	<li>3</li>
-                                                	<li>4</li>
-                                                </ul>
+                                <li class="filter-bar__control-list__item" style="line-height: 10px;">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                    	<!-- Example single danger button -->
+										<div class="btn-group">
+										  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+										    예산
+										  </button>
+										  <ul class="dropdown-menu menu3">
+										    <li><a class="dropdown-item">1백만원 미만</a></li>
+										    <li><a class="dropdown-item">2백만원대</a></li>
+										    <li><a class="dropdown-item">3백만원대</a></li>
+										    <li><a class="dropdown-item">4백만원대</a></li>
+										    <li><a class="dropdown-item">5백만원대</a></li>
+										    <li><a class="dropdown-item">1천만원 이상</a></li>
+										  </ul>
+										</div>
+                                    </div>
                                 </li>
-                                
-                                
-                                <li class="filter-bar__control-list__item">
-                                    <div class="drop-down panel-drop-down filter-bar-control"><button
-                                            class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">평수<svg
-                                                class="icon" width="12" height="12" viewBox="0 0 12 12"
-                                                fill="currentColor" preserveAspectRatio="xMidYMid meet">
-                                                <path
-                                                    d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                                </path>
-                                            </svg></button></div>
+                                <li class="filter-bar__control-list__item" style="line-height: 10px;">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                    	<!-- Example single danger button -->
+										<div class="btn-group">
+										  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+										    가족형태
+										  </button>
+										  <ul class="dropdown-menu menu4">
+										    <li><a class="dropdown-item">싱글라이프</a></li>
+										    <li><a class="dropdown-item">신혼 부부</a></li>
+										    <li><a class="dropdown-item">아기가 있는 집</a></li>
+										    <li><a class="dropdown-item">취학 자녀가 있는 집</a></li>
+										    <li><a class="dropdown-item">부모님과 함께 사는 집</a></li>
+										    <li><a class="dropdown-item">기타</a></li>
+										  </ul>
+										</div>
+                                    </div>
                                 </li>
-                                <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
-                                    <div class="drop-down panel-drop-down filter-bar-control"><button
-                                            class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">예산<svg
-                                                class="icon" width="12" height="12" viewBox="0 0 12 12"
-                                                fill="currentColor" preserveAspectRatio="xMidYMid meet">
-                                                <path
-                                                    d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                                </path>
-                                            </svg></button></div>
+                                <li class="filter-bar__control-list__item" style="line-height: 10px;">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                    	<!-- Example single danger button -->
+										<div class="btn-group">
+										  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+										    스타일
+										  </button>
+										  <ul class="dropdown-menu menu5">
+										    <li value="0"><a class="dropdown-item">모던</a></li>
+										    <li value="1"><a class="dropdown-item">미니멀&심플</a></li>
+										    <li value="2"><a class="dropdown-item">내추럴</a></li>
+										    <li value="3"><a class="dropdown-item">북유럽</a></li>
+										    <li value="4"><a class="dropdown-item">빈티지&레트로</a></li>
+										    <li value="5"><a class="dropdown-item">크래식&앤틱</a></li>
+										    <li value="6"><a class="dropdown-item">프렌치&프로방스</a></li>
+										    <li value="7"><a class="dropdown-item">러블리&로맨틱</a></li>
+										    <li value="8"><a class="dropdown-item">인더스트리얼</a></li>
+										    <li value="9"><a class="dropdown-item">한국&아시아</a></li>
+										    <li value="10"><a class="dropdown-item">유니크&믹스매치</a></li>
+										  </ul>
+										</div>
+                                    </div>
                                 </li>
-                                <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
-                                    <div class="drop-down panel-drop-down filter-bar-control"><button
-                                            class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">가족형태<svg
-                                                class="icon" width="12" height="12" viewBox="0 0 12 12"
-                                                fill="currentColor" preserveAspectRatio="xMidYMid meet">
-                                                <path
-                                                    d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                                </path>
-                                            </svg></button></div>
-                                </li>
-                                <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
-                                    <div class="drop-down panel-drop-down filter-bar-control"><button
-                                            class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">스타일<svg
-                                                class="icon" width="12" height="12" viewBox="0 0 12 12"
-                                                fill="currentColor" preserveAspectRatio="xMidYMid meet">
-                                                <path
-                                                    d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                                </path>
-                                            </svg></button></div>
-                                </li>
-                                <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
-                                    <div class="drop-down panel-drop-down filter-bar-control"><button
-                                            class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">분야<svg
-                                                class="icon" width="12" height="12" viewBox="0 0 12 12"
-                                                fill="currentColor" preserveAspectRatio="xMidYMid meet">
-                                                <path
-                                                    d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                                </path>
-                                            </svg></button></div>
-                                </li>
-                                <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
-                                    <div class="drop-down panel-drop-down filter-bar-control"><button
-                                            class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">작업자<svg
-                                                class="icon" width="12" height="12" viewBox="0 0 12 12"
-                                                fill="currentColor" preserveAspectRatio="xMidYMid meet">
-                                                <path
-                                                    d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                                </path>
-                                            </svg></button></div>
+                                <li class="filter-bar__control-list__item" style="line-height: 10px;">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                    	<!-- Example single danger button -->
+										<div class="btn-group">
+										  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+										    분야
+										  </button>
+										  <ul class="dropdown-menu menu6">
+										    <li><a class="dropdown-item">리모델링</a></li>
+										    <li><a class="dropdown-item">홈스타일링</a></li>
+										    <li><a class="dropdown-item">부분공사</a></li>
+										    <li><a class="dropdown-item">건축</a></li>
+										  </ul>
+										</div>                                    
+                                    </div>
                                 </li>
                                 <li
                                     class="filter-bar__control-list__item filter-bar__control-list__item--more filter-bar__control-list__item--more-mobile">
@@ -130,10 +159,15 @@
                                 </li>
                             </ul>
                         </div>
-                        <ul class="filter-bar__tag-list"></ul>
+                        <ul class="filter-bar__tag-list">
+                        	
+                        </ul>
                     </div>
                 </div>
             </div>
+            
+            <div class="realShit">
+            <!-- start -->
             <div class="project-feed__count">전체 ${countBoard}</div>
             <div class="virtualized-list row"
                 style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
@@ -178,7 +212,7 @@
 	                                }
                                 </script>
                                 </c:if>
-                                <c:if test="${empty board.scraps.scrap_id}">
+                                <c:if test="${board.scraps.scrap_id}">
                                 	<button onclick="scrapDeleteEvent(${board.house_num})" class="project-feed__item__image__scrap project-feed__item__image__scrap--scrapped" type="button" aria-label="스크랩 취소"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="#35C5F0" fill-rule="nonzero" d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path></svg></button>                              
                                 </c:if>
                                 
@@ -199,17 +233,184 @@
             </div>
         </div>
     </div>
+ 
     <sec:authorize access="isAuthenticated()" var="result">
 	    <sec:authentication property="principal" var="memberVO"/>
 		<input type="hidden" name="hnum" value="${houseVO.house_num}"/>
 		<input type="hidden" name="nickname" id="memberVO_nickname" value="${memberVO.nickname}"/>
 		<input type="hidden" name="id" id="memberVO_id" value="${memberVO.id}"/>
     </sec:authorize>
+    
+    </div>
 
+
+<script type="text/javascript">
+	
+	//태그 배열 생성
+	var menu_arr = new Array();
+
+	//항목별 menu 선택시 menu_arr 배열에 알맞는 index로 push
+	var menu_arrange;
+	$('.menu0 li a').click(function(){
+		menu_arrange = $(this).text();
+		menu_arr[0]=menu_arrange;
+		console.log(menu_arr[0]);
+	});
+	var menu_residence;
+	$('.menu1 li a').click(function(){
+		menu_residence = $(this).text();
+		menu_arr[1]=menu_residence;
+		console.log(menu_arr[1]);
+	});
+	var menu_space;
+	$('.menu2 li a').click(function(){
+		menu_space = $(this).text();
+		menu_arr[2]=menu_space;
+		console.log(menu_arr[2]);
+	});
+	var menu_budget;
+	$('.menu3 li a').click(function(){
+		menu_budget = $(this).text();
+		menu_arr[3]=menu_budget;
+		console.log(menu_arr[3]);
+	});
+	var menu_family
+	$('.menu4 li a').click(function(){
+		menu_family = $(this).text();
+		menu_arr[4]=menu_family;
+		console.log(menu_arr[4]);
+	});
+	var menu_style;
+	$('.menu5 li').click(function(){
+		menu_style = $(this).val(); // 이놈만 <li>의 value값
+		menu_arr[5]=menu_style;
+		console.log(menu_arr[5]);
+	});	
+	var menu_area;
+	$('.menu6 li a').click(function(){
+		menu_area = $(this).text();
+		menu_arr[6]=menu_area;
+		console.log(menu_arr[6]);
+	});
+	
+	// dropdown-menu에서 선택시 항목별 tag&초기화 버튼 생성
+	$('.dropdown-menu').click(function(){
+		$('.filter-bar__tag-list').empty();
+		$.each(menu_arr, function(index, item){
+			if(item != null){
+				if(index == 5){
+					//style 숫자->한글 작업(그냥 시간없어서 이렇게 하기로 했음)
+					item=switch_style(item);
+				}
+				$('.filter-bar__tag-list').append('<li id="tagList'+index+'" class="filter-bar__tag-list__item"><button onclick="tag_one_clear('+index+');" class="button button--color-blue button--size-50 button--shape-4 filter-bar__tag" type="button">'+item+'<svg class="icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet"><path d="M6 4.94L3.879 2.817l-1.061 1.06L4.939 6 2.818 8.121l1.06 1.061L6 7.061l2.121 2.121 1.061-1.06L7.061 6l2.121-2.121-1.06-1.061L6 4.939zM6 12A6 6 0 1 1 6 0a6 6 0 0 1 0 12z"></path></svg></button></li>');						
+			}		
+		});
+		
+		// tag리스트에 한개의 tag라도 있을 때, '초기화'버튼 생성
+		if($('.filter-bar__tag-list').html() != null){
+			$('.filter-bar__tag-list').append('<li class="filter-bar__tag-list__item"><button onclick="tag_clear();" class="filter-bar__tag-list__clear" type="button">초기화</button></li>');
+		}
+
+		//ajax로 List Page 변경
+		ajax_toController(menu_arr);
+		
+	});
+	
+	//초기화 버튼 클릭시 tag-list 초기화 함수
+	function tag_clear() {
+		menu_arr.splice(0, menu_arr.length); // 빈배열 만들기
+		$('.filter-bar__tag-list').empty(); //하위태그 비우기
+		location.reload(); //새로고침
+	}
+	
+	//한개의 태그 제거
+	function tag_one_clear(index) {
+		menu_arr[index]=null;
+		ajax_toController(menu_arr);
+		$('#tagList'+index).remove();
+		
+		//tag배열이 전부 null일 때 true
+		var check_arr=menu_arr[0]==null&&menu_arr[1]==null&&menu_arr[2]==null&&menu_arr[3]==null&&menu_arr[4]==null&&menu_arr[5]==null&&menu_arr[6]==null;	
+		
+		//tag배열이 전부 null일 때, tag-list 비우기
+		if(check_arr){
+			$('.filter-bar__tag-list').empty();
+		}
+	}
+	
+	//ajax로 List Page 변경
+	function ajax_toController(menu_arr) {
+		$. ajax({
+			url:'/housewarming/',
+			type:'get',
+			data:{
+				'arrangement':menu_arr[0],
+				'house_kind':menu_arr[1],
+				'house_space':menu_arr[2],
+				'total_budget':menu_arr[3],
+				'family_kind':menu_arr[4],
+				'style_category':menu_arr[5],
+				'working_area':menu_arr[6]
+			},
+			success: function(result){
+//				console.log(result);
+				result2 = result.trim().split('<!-- start -->');
+				console.log(result2[1]);
+				$('.realShit').html(result2[1]); // ajax로 가져온 데이터 파싱 후 div에 넣기
+				
+			},
+			error: function(){
+				alert('카테고리별 가져오기 실패');
+			}
+		});
+	}
+
+	//Style menu 숫자->한글 작업 함수
+	function switch_style(item){
+		switch (item) {
+		  case 0:
+			  item="모던";
+		    break;
+		  case 1:
+			  item="미니멀&심플";
+		    break;
+		  case 2:
+			  item="내추럴";
+			break;
+		  case 3:
+			  item="북유럽";
+			break;
+		  case 4:
+			  item="빈티지&레트로";
+		    break;
+		  case 5:
+			  item="클래식&앤틱";
+		    break;
+		  case 6:
+			  item="프렌치&프로방스";
+			break							
+		  case 7:
+			  item="러블리&로맨틱";
+			break;
+		  case 8:
+			  item="인더스트리얼";
+		    break;
+		  case 9:
+			  item="한국&아시아";
+			break;
+		  case 10:
+			  item="유니크&믹스매치"; 
+			break;						    
+		  default:
+		}
+		
+		return item; //스위치 작업 끝난 item 리턴
+	}
+	
+</script>
 <script type="text/javascript">
 
 var loginId='${loginId}';
-
 
 
 function scrapDeleteEvent(house_num) {
