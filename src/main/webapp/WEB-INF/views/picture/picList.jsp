@@ -212,8 +212,8 @@
 					style="position: relative;">
 					<div class="layout-navigation-secondary__content">
 						<nav class="layout-navigation-secondary__menu">
-							<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="/">홈</a>
-								<a class="layout-navigation-secondary__menu__item" href="../picture/picList">사진</a>
+							<a class="layout-navigation-secondary__menu__item " href="/">홈</a>
+								<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="../picture/picList">사진</a>
 								<a class="layout-navigation-secondary__menu__item" href="/projects?writer=self">집들이</a>
 								<a class="layout-navigation-secondary__menu__item" href="/contents/follow/feed">질문과답변</a>
 								
@@ -377,7 +377,7 @@
 	<!-- 리스트 시작 ----------------------------------------------------------------------------------- -->
 		<div class="virtualized-list card-feed__content row" ">
 			
-			<c:forEach items="${pic}" var="pic" varStatus="status">
+			<c:forEach items="${pic}" var="pic" varStatus="num">
 			<div class="card-feed__item-wrap col-12 col-md-4 col-lg-3">
 						<div class="card-feed__item">
 							<article class="card-collection-item">
@@ -392,7 +392,7 @@
 													<sec:authentication property="principal" var="member"/>
 													<input  type="hidden" value="${member.memberNum}" id='memberNum'>
 													</sec:authorize>
-													<input type="hidden" value="${pic.post_id}" id="post_id${status.index}">
+													<input type="hidden" value="${pic.post_id}" id="post_id${num.index}">
 											</a>
 											<span class="card-item-writer__separator"> </span>
 											<button class="card-item-writer__follow" type="button">팔로우</button>
@@ -434,8 +434,8 @@
 										
 								
 										
-										<button class="card-item-action-list__action like${status.index}" type="button">
-											<svg class="icon icon--stroke heartEmpty${status.index}" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+										<button class="card-item-action-list__action like${num.index}" type="button">
+											<svg class="icon icon--stroke heartEmpty${num.index}" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path>
 											</svg>
 												<span class="count">10</span>
@@ -443,12 +443,11 @@
 										
 										
 									<!-- ---------------------------------------------------------------- -->
-										<button class="card-item-action-list__action scrap${status.index}" type="button">
-											<svg class="icon icon--stroke emptyScrap${status.index}" aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+										<button class="card-item-action-list__action scrap${num.index}" type="button">
+											<svg class="icon icon--stroke emptyScrap${num.index}" aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
 											</svg><span class="count">20</span>
 										</button>
-										
 									<!-- -------------------------------------------------------------------- -->	
 										
 										<a class="card-item-action-list__action" href="#">
@@ -497,9 +496,12 @@
 		<div class="popout popout--prepared popout--axis-1 popout--dir-2 popout--cross-dir-2 mymenu" data-popout="true" style="position: absolute; z-index: 1000; top: 70px; right: 501.5px; display: none;">
 			<div class="animated-popout drop-down__content layout-navigation-bar-user-section__content open open-active">
 				<ul class="layout-navigation-bar-user-menu">
+					<sec:authorize access="isAuthenticated()">
+					<sec:authentication property="principal" var="num"/>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="/users/4672761">마이페이지</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${num.memberNum}">마이페이지</a>
 					</li>
+					</sec:authorize>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<a class="layout-navigation-bar-user-menu__item" href="/user_shopping_pages/order_list">나의 쇼핑</a>
 					</li>
@@ -508,7 +510,7 @@
 						<a class="layout-navigation-bar-user-menu__item" href="/customer_center">고객센터</a>
 					</li>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<button class="layout-navigation-bar-user-menu__item" type="button">로그아웃</button>
+						<button class="layout-navigation-bar-user-menu__item logout" type="button">로그아웃</button>
 					</li>
 				</ul>
 			</div>
@@ -857,7 +859,9 @@ $('.write').click(function(){
 		} 
 	});
 
-
+	$('.logout').click(function(){
+		location.href="../member/memberLogout"
+	})
 
 
 /* //로그인한 사람 하트 게시글 가져오기

@@ -7,6 +7,9 @@
   	<typeAliases>
 		
 		<typeAlias type="com.th.th1.member.MemberVO" alias="MemberVO"/>
+		
+		<typeAlias type="com.th.th1.member.NotiVO" alias="NotiVO"/>
+		<typeAlias type="com.th.th1.member.NotiMVO" alias="NotiMVO"/>
 		<typeAlias type="com.th.th1.feeling.FeelingVO" alias="FeelingVO"/>
 		<typeAlias type="com.th.th1.feeling.ScrapingVO" alias="ScrapingVO"/>
 		

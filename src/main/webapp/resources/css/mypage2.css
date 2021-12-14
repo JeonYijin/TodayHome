@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+.css-eytlr-SectionRight {
+    margin: 0 -10px;
+}
+
+.css-1nq1haa-UserDetailContentSectionRightLink {
+    margin: 0px 10px;
+    color: rgb(53, 197, 240);
+    font-size: 13px;
+    font-weight: bold;
+    transition: opacity 0.1s ease 0s;
+}
+.css-70hrd3-GridListContainer {
+    display: flex;
+    flex-wrap: wrap;
+    color: rgb(41, 41, 41);
+    margin: 0px -5px -10px;
+}
+@media (min-width: 1024px){
+.css-70hrd3-GridListContainer {
+    margin: 0px -10px -20px;
+}}
+.css-ryl636-GridListItem {
+    flex: 0 0 auto;
+    width: 33.3333%;
+    box-sizing: border-box;
+    padding: 0px 5px 10px;
+}
+@media (min-width: 768px){
+.css-ryl636-GridListItem {
+    padding: 0px 7.5px 15px;
+    width: 25%;
+}}
+@media (min-width: 1024px){
+.css-ryl636-GridListItem {
+    padding: 0px 10px 20px;
+}}
+
+.css-8z7wo6-ItemLink {
+    display: block;
+    position: relative;
+    padding-bottom: 100%;
+    background-color: rgb(245, 245, 245);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.css-1j4vn88-ItemImage {
+    position: absolute;
+    width: 100%;
+}
+
+.css-1bo34z2-Div {
+    padding-bottom: 100%;
+    background-color: rgb(245, 245, 245);
+    border-radius: 6px;
+    overflow: hidden;
+}
+._3Z6oR {
+    user-select: none;
+    display: inline-block;
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", "Noto Sans CJK KR", "맑은 고딕", "Malgun Gothic", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    background: none;
+    text-decoration: none;
+    transition: color 0.1s ease 0s, background-color 0.1s ease 0s, border-color 0.1s ease 0s;
+    border-radius: 4px;
+}
+._1zLQC {
+    background-color: #fff;
+    border-color: #dbdbdb;
+    color: #757575;
+}
+._3tx-P {
+    padding: 14px 15px;
+}
+._3p13o, ._3tx-P {
+    font-size: 18px;
+    line-height: 30px;
+}
+.css-1n0buqs-UploadButton.css-1n0buqs-UploadButton {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 15px;
+}
+@media (min-width: 768px){
+.css-1n0buqs-UploadButton.css-1n0buqs-UploadButton {
+    margin-top: 30px;
+}}
+
+
+.css-p7k028-UploadPlusIcon {
+    margin: 0 5px -2px 0;
+}

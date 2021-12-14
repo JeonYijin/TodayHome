@@ -17,6 +17,38 @@
 		select count(*) from member where nickname = #{nickname}
 	</select>
 	
+	<!-- 회원정보 수정 - 닉네임 수정 -->
+	<update id="setMemberUpdate" parameterType="MemberVO">
+		update member set nickname = #{nickname} where memberNum=#{memberNum}
+	</update>
+	
+	<!-- 마이페이지 알림설정 -->
+	<insert id="setNotiInsert" parameterType="NotiVO">
+		insert into noti values(#{noti_email}, #{memberNum})
+	</insert>
+	
+	<update id="setNotiUpdate" parameterType="NotiVO">
+		update noti set noti_email = #{noti_email} where memberNum = #{memberNum}
+	</update>
+	
+	<select id="getNoti" parameterType="NotiVO" resultType="NotiVO">
+		select * from noti where memberNum = #{memberNum}
+	</select>
+	<!-- 메세지 -->
+	<insert id="setNotiMInsert" parameterType="NotiMVO">
+		insert into notim values(#{noti_msg}, #{memberNum})
+	</insert>
+	
+	<update id="setNotiMUpdate" parameterType="NotiMVO">
+		update notim set noti_msg = #{noti_msg} where memberNum = #{memberNum}
+	</update>
+	
+	<select id="getNotiM" parameterType="NotiMVO" resultType="NotiMVO">
+		select * from notim where memberNum = #{memberNum}
+	</select>
+	
+	
+	
 	<!-- role 세팅 -->
 	<insert id="setMemberRoleInsert" parameterType="java.util.Map">
 		insert into member_role(id, num) values(#{id}, #{num})
@@ -42,5 +74,103 @@
   			<result column="roleName" property="roleName"/>
 		</collection>
 	</resultMap>
+	
+	
+	<!-- 마이페이지용 -->
+	
+	<!-- 내가 쓴 사진 게시글 가져오기 -->
+	<select id="getMyPicture" parameterType="PictureVO" resultMap="getMyPic">
+		select P.*, PF.* from
+		picture P inner join picturefile PF
+		on P.post_id = PF.post_id
+		where P.memberNum = #{memberNum};
+	</select>
+	<resultMap type="PictureVO" id="getMyPic">
+  		<id column="post_id" property="post_id"/>
+  		<result column="memberNum" property="memberNum"/>
+  		<result column="post_date" property="post_date"/>
+  		<result column="pyeongsu" property="pyeongsu"/>
+  		<result column="housetype" property="housetype"/>
+  		<result column="style" property="style"/>
+  		<result column="area" property="area"/>
+  		<result column="post_text" property="post_text"/>
+  		<result column="hit" property="hit"/>
+  		<collection property="pictureFileVO" javaType="List" ofType="PictureFileVO">
+  			<id column="picFilenum" property="picFilenum"/>
+  			<result column="picFilename" property="picFilename"/>
+  			<result column="picOriname" property="picOriname"/>
+  			<result column="post_id" property="post_id"/>
+  		</collection>
+  		
+  	</resultMap>
+	
+	<!-- 내가 쓴 사진 개수 -->
+	<select id="getMyPicCount" parameterType="PictureVO" resultType="Long">
+		select count(*) from picture where memberNum = #{memberNum};
+	</select>
+	
+	
+	<!-- 내가 좋아요한 사진 게시글 -->
+	<select id="getMyHeartPic" parameterType="FeelingVO" resultMap="getMyHeart">
+		select P.post_id, PF.*, F.* from
+		picture P inner join picturefile PF
+		on P.post_id = PF.post_id
+		right join feeling F
+		on P.post_id = F.post_id
+		where F.memberNum = #{memberNum};
+	</select>
+	<resultMap type="PictureVO" id="getMyHeart">
+  		<id column="post_id" property="post_id"/>
+  		<result column="memberNum" property="memberNum"/>
+  		<result column="post_date" property="post_date"/>
+  		
+  		<collection property="feelingVO" javaType="List" ofType="FeelingVO">
+  			<id column="heart" property="heart"/>
+  			<result column="post_id" property="post_id"/>
+  			<result column="memberNum" property="memberNum"/>
+  		</collection>
+  		<collection property="pictureFileVO" javaType="List" ofType="PictureFileVO">
+  			<id column="picFilenum" property="picFilenum"/>
+  			<result column="picFilename" property="picFilename"/>
+  			<result column="picOriname" property="picOriname"/>
+  			<result column="post_id" property="post_id"/>
+  		</collection>
+	</resultMap>
   
+  	<!-- 내가 좋아요한 사진 개수 -->
+  	<select id="getMyHeartCount" parameterType="FeelingVO" resultType="Long">
+  		select count(*) from feeling where memberNum = #{memberNum};
+  	</select>
+  
+  	<!-- 내가 스크랩한 사진 게시글 -->
+  	<select id="getMyScrapPic" parameterType="ScrapingVO" resultMap="getMyScrap">
+  		select P.post_id, PF.*, S.* from
+		picture P inner join picturefile PF
+		on P.post_id = PF.post_id
+		right join scraping S
+		on P.post_id = S.post_id
+		where S.memberNum = #{memberNum};
+  	</select>
+  	<resultMap type="PictureVO" id="getMyScrap">
+  		<id column="post_id" property="post_id"/>
+  		<result column="memberNum" property="memberNum"/>
+  		<result column="post_date" property="post_date"/>
+  		
+  		<collection property="scrapingVO" javaType="List" ofType="ScrapingVO">
+  			<id column="scrap" property="scrap"/>
+  			<result column="post_id" property="post_id"/>
+  			<result column="memberNum" property="memberNum"/>
+  		</collection>
+  		<collection property="pictureFileVO" javaType="List" ofType="PictureFileVO">
+  			<id column="picFilenum" property="picFilenum"/>
+  			<result column="picFilename" property="picFilename"/>
+  			<result column="picOriname" property="picOriname"/>
+  			<result column="post_id" property="post_id"/>
+  		</collection>
+  	</resultMap>
+  	
+  	<!-- 내가 스크랩한 사진 개수 -->
+  	<select id="getMyScrapCount" parameterType="ScrapingVO" resultType="Long">
+  		select count(*) from scraping where memberNum = #{memberNum};
+  	</select>
   </mapper>

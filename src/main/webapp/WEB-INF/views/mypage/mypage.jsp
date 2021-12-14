@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/21-0e75de9b.chunk.css">
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/23-2ef16b9a.chunk.css">
 <link rel="stylesheet" href="../resources/css/mypage.css">
+<link rel="stylesheet" href="../resources/css/mypage2.css">
 <style data-emotion="css 1293549-Container" data-s="">
 .css-1293549-Container{
 	display:-webkit-box;
@@ -81,7 +82,7 @@ margin-top:26px;
 						</div>
 						<nav class="layout-navigation-primary__menu">
 							<a
-								class="layout-navigation-primary__menu__item layout-navigation-primary__menu__item--active layout-navigation-primary__menu__item--open"
+								class="layout-navigation-primary__menu__item "
 								href="/">커뮤니티</a><a class="layout-navigation-primary__menu__item"
 								href="/store">스토어</a>
 						</nav>
@@ -107,7 +108,7 @@ margin-top:26px;
 							
 		<!-- 로그인 했을 때 헤더 -------------------------------------------------------------------------------------------------------------------------------------------------------- -->					
 							<sec:authorize access="isAuthenticated()">
-								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="/users/4672761/collections">
+								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="./myScrap">
 									<svg class="icon" width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 										<path fill="none" stroke-width="2" d="M3 20.967zm0 0V2.5a.5.5 0 01.5-.5h17a.5.5 0 01.5.5v18.467l-8.057-4.309a2 2 0 00-1.886 0L3 20.968z"></path>
 									</svg>
@@ -155,28 +156,28 @@ margin-top:26px;
 		</header>
 		
 	<!-- 바디 -->	
-		<div class="css-1hs06u0-LayoutContainer e1ivswjr2">
+			<sec:authentication property="principal" var="member"/>
+		<div class="css-1hs06u0-LayoutContainer e1ivswjr2 closeMenu">
 			<div class="myhome-nav myhome-nav--owner">
 				<nav class="page-navigation myhome-nav__owner">
 					<ul style="transform: translateX(0px);">
-						<li class="page-navigation__item"><a class="active" href="/users/4672761" target="_self">프로필</a></li>
+						<li class="page-navigation__item"><a class="active" href="./mypage?memberNum=${member.memberNum}" target="_self">프로필</a></li>
 						<li class="page-navigation__item"><a class="" href="/user_shopping_pages/order_list" target="_self">나의 쇼핑</a></li>
 						<li class="page-navigation__item"><a class="" href="/production_reviews/write" target="_self">나의 리뷰</a></li>
-						<li class="page-navigation__item"><a class="" href="/users/4672761/edit" target="_self">설정</a></li>
+						<li class="page-navigation__item"><a class="" href="./mySetting?memberNum=${member.memberNum}" target="_self">설정</a></li>
 					</ul>
 				</nav>
 				<nav class="page-navigation myhome-nav__contents">
 					<ul style="transform: translateX(0px);">
-						<li class="page-navigation__item"><a class="active" href="./mypage" target="_self">모두보기</a></li>
-						<li class="page-navigation__item"><a class="" href="/users/4672761/card_collections" target="_self">사진</a></li>
-						<li class="page-navigation__item"><a class="" href="/users/4672761/projects" target="_self">집들이</a></li>
-						<li class="page-navigation__item"><a class="" href="/users/4672761/questions" target="_self">질문과답변</a></li>
-						<li class="page-navigation__item"><a class="" href="/users/4672761/collections" target="_self">스크랩북</a></li>
-						<li class="page-navigation__item"><a class="" href="/users/4672761/praises" target="_self">좋아요</a></li>
+						<li class="page-navigation__item"><a class="active" href="./mypage?memberNum=${member.memberNum}" target="_self">모두보기</a></li>
+						<li class="page-navigation__item"><a class="" href="./myPicture?memberNum=${member.memberNum}" target="_self">사진</a></li>
+						<li class="page-navigation__item"><a class="" href="./myHome?memberNum=${member.memberNum}" target="_self">집들이</a></li>
+						<li class="page-navigation__item"><a class="" href="./myQna?memberNum=${member.memberNum}" target="_self">질문과답변</a></li>
+						<li class="page-navigation__item"><a class="" href="./myScrap?memberNum=${member.memberNum}" target="_self">스크랩북</a></li>
+						<li class="page-navigation__item"><a class="" href="./myHeart?memberNum=${member.memberNum}" target="_self">좋아요</a></li>
 					</ul>
 				</nav>
 			</div>
-			<sec:authentication property="principal" var="member"/>
 			<div class="css-1hrluq4-Container ekbdbra0">
 				<div class="css-1xn9eio-Row el2z1iq0">
 					<div class="css-iuxp75-Col-LayoutProfileCol e1ivswjr1">
@@ -204,7 +205,7 @@ margin-top:26px;
 														</dd>
 													</dl>
 													<div class="css-1pub4ku-StatsActionList e1iro1t94">
-														<a class="_3Z6oR _1zLQC _1XHs9 css-1xecl3m-StatsButton e1iro1t93" href="/users/4672761/edit">설정</a>
+														<a class="_3Z6oR _1zLQC _1XHs9 css-1xecl3m-StatsButton e1iro1t93" href="./mySetting?memberNum=${member.memberNum}">설정</a>
 														<!-- <a class="css-zzhb2h-StatsInviteLink e1iro1t91" href="/invite_codes/recommend_code">친구 초대 <b>5,000P</b></a> -->
 													</div>
 												</div>
@@ -212,25 +213,26 @@ margin-top:26px;
 										</div>
 										<div class="css-1n6bblu-ShortcutContainer epl9oik0">
 											<div class="css-db25ax-ListDiv ekeuxnk0">
-												<a class="css-64c85x-ItemLink e1q26atk3" href="/users/4672761/collections">
+											
+												<a class="css-64c85x-ItemLink e1q26atk3" href="./myScrap?memberNum=${member.memberNum}">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
 														<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
 															<path fill-rule="evenodd" transform="matrix(1 0 0 -1 0 23.033)" d="M12.943 6.342a2 2 0 0 1-1.886 0L3 2.032V20.5a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5V2.033l-8.057 4.309zm-.471-.882l8.056-4.31A1 1 0 0 1 22 2.034V20.5a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 20.5V2.033a1 1 0 0 1 1.472-.882l8.056 4.31a1 1 0 0 0 .944 0z"></path>
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">스크랩북</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">30</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount}</div>
 												</a>
-												<a class="css-64c85x-ItemLink e1q26atk3" href="/users/4672761/praises">
+												<a class="css-64c85x-ItemLink e1q26atk3" href="./myHeart?memberNum=${member.memberNum}">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
 														<svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 															<path fill="currentColor" d="M22.971 7.638c-.548-5.17-7.119-7.135-10.57-2.488a.5.5 0 0 1-.802 0C8.148.503 1.577 2.469 1.029 7.625.642 12.451 3.897 17.183 12 21.436c8.104-4.252 11.36-8.984 10.972-13.798zm.996-.093c.428 5.319-3.137 10.446-11.738 14.899a.5.5 0 0 1-.46 0C3.169 17.99-.395 12.864.034 7.532.656 1.67 7.904-.683 12 4.052 16.096-.683 23.344 1.67 23.967 7.545z"></path>
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">좋아요</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">3</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${heartCount}</div>
 												</a>
-												<a class="css-64c85x-ItemLink e1q26atk3" href="/user_shopping_pages/coupons">
+												<a class="css-64c85x-ItemLink e1q26atk3" href="#">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
 														<svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 															<path fill="#424242" fill-rule="nonzero" d="M22.588 3H1.413C.633 3 0 3.638 0 4.426L0 9.53l.605-.088c.12-.017.243-.026.367-.026 1.413 0 2.558 1.157 2.558 2.584S2.385 14.584.972 14.584c-.124 0-.247-.009-.367-.026L0 14.47l.001 5.104C.001 20.362.633 21 1.413 21h21.175c.78 0 1.412-.638 1.412-1.426V4.426C24 3.638 23.368 3 22.588 3zM1.413 4.07h21.175c.195 0 .353.159.353.356v15.148c0 .197-.158.357-.353.357H1.413l-.071-.008c-.161-.033-.282-.176-.282-.349l-.002-3.923-.086.002c1.997 0 3.617-1.635 3.617-3.653l-.004-.182C4.493 9.945 3.006 8.443 1.152 8.35l-.094-.003.002-3.922c0-.197.158-.357.353-.357zm14.646 2.138c.293 0 .53.237.53.53v1.614c0 .292-.237.53-.53.53-.292 0-.53-.238-.53-.53V6.737c0-.292.238-.53.53-.53zm0 4.455c.293 0 .53.237.53.53v1.614c0 .293-.237.53-.53.53-.292 0-.53-.237-.53-.53v-1.614c0-.293.238-.53.53-.53zm0 4.456c.293 0 .53.237.53.53v1.614c0 .292-.237.53-.53.53-.292 0-.53-.238-.53-.53v-1.615c0-.292.238-.53.53-.53z"></path>
@@ -253,9 +255,48 @@ margin-top:26px;
 					<div class="css-1c8k8vc-Col e15wafbq0">
 						<div class="css-zp8i6s-Div emjsage0">
 							<div>
-								<section class="css-1wx61sn-Section e17n0xi4">
+							<c:if test="${picCount ne 0 }">
+							<section class="css-1wx61sn-Section e17n0xi4">
 									<div class="css-1cfe91y-SectionHeader e17n0xi3">
-										<h1 class="css-1yljhnc-SectionTitle e17n0xi2">사진<span class="css-1di0gyp-SectionCount e17n0xi0">0</span></h1>
+										<h1 class="css-1yljhnc-SectionTitle e17n0xi2">사진<span class="css-1di0gyp-SectionCount e17n0xi0">${picCount }</span></h1>
+										<div class="css-eytlr-SectionRight e17n0xi1">
+											<a class="css-1nq1haa-UserDetailContentSectionRightLink e7uojt20" href="./mypage/myPicture">전체보기</a>
+										</div>
+									</div>
+									<div class="css-70hrd3-GridListContainer e1qiovhc1">
+										<c:forEach items="${myPic}" var="myPic">
+										<div class="css-ryl636-GridListItem e1qiovhc0">
+											<a class="css-8z7wo6-ItemLink e1qgexi82" href="../picture/picOne?post_id=${myPic.post_id}">
+												<c:forEach items="${myPic.pictureFileVO}" var="file" varStatus="status">
+												<c:if test="${status.index eq 0 }">
+													<img class="css-1j4vn88-ItemImage e1qgexi81" alt="" src="../resources/upload/picture/${file.picFilename}">
+												</c:if>
+												</c:forEach>
+											</a>
+										</div>
+										</c:forEach>
+										<!-- <div class="css-ryl636-GridListItem e1qiovhc0">
+											<div class="css-1bo34z2-Div em9kjhq0"></div>
+										</div>
+										<div class="css-ryl636-GridListItem e1qiovhc0">
+											<div class="css-1bo34z2-Div em9kjhq0"></div>
+										</div>
+										<div class="css-ryl636-GridListItem e1qiovhc0">
+											<div class="css-1bo34z2-Div em9kjhq0"></div>
+										</div> -->
+									</div>
+									<a class="_3Z6oR _1zLQC _3tx-P css-1n0buqs-UploadButton e4wcveq1" href="../picture/picInsert">
+										<svg width="16" height="16" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" class="css-p7k028-UploadPlusIcon e4wcveq0">
+											<path fill="currentColor" d="M9 2v5h5v2H9v5H7V9H2V7h5V2h2z"></path>
+										</svg>사진 올리기
+									</a>
+								</section>
+							
+							</c:if>
+							<c:if test="${picCount == 0 }">
+								 <section class="css-1wx61sn-Section e17n0xi4">
+									<div class="css-1cfe91y-SectionHeader e17n0xi3">
+										<h1 class="css-1yljhnc-SectionTitle e17n0xi2">사진<span class="css-1di0gyp-SectionCount e17n0xi0">${picCount}</span></h1>
 										<div class="css-eytlr-SectionRight e17n0xi1"></div>
 									</div>
 									<a class="css-14bh7uo-UploadLink e1s15hxd1" href="../picture/picInsert">
@@ -264,7 +305,10 @@ margin-top:26px;
 										</svg>
 											첫 번째 사진을 올려보세요
 									</a>
-								</section>
+								</section> 
+							</c:if>	
+								
+								
 								<section class="css-1wx61sn-Section e17n0xi4">
 									<div class="css-1cfe91y-SectionHeader e17n0xi3">
 										<h1 class="css-1yljhnc-SectionTitle e17n0xi2">집들이<span class="css-1di0gyp-SectionCount e17n0xi0">0</span></h1>
@@ -456,7 +500,161 @@ margin-top:26px;
 		
 		
 	</div>
+<!-- 팝업메뉴 나오는 곳------------------------------------------------------------------------------------------ -->
+	<div>
+		<div class="popout popout--prepared popout--axis-1 popout--dir-2 popout--cross-dir-2 mymenu" data-popout="true" style="position: absolute; z-index: 1000; top: 70px; right: 501.5px; display: none;">
+			<div class="animated-popout drop-down__content layout-navigation-bar-user-section__content open open-active">
+				<ul class="layout-navigation-bar-user-menu">
+					<sec:authorize access="isAuthenticated()">
+					<sec:authentication property="principal" var="num"/>
+					<li class="layout-navigation-bar-user-menu__item-wrap">
+						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${num.memberNum}">마이페이지</a>
+					</li>
+					</sec:authorize>
+					<li class="layout-navigation-bar-user-menu__item-wrap">
+						<a class="layout-navigation-bar-user-menu__item" href="/user_shopping_pages/order_list">나의 쇼핑</a>
+					</li>
+					
+					<li class="layout-navigation-bar-user-menu__item-wrap">
+						<a class="layout-navigation-bar-user-menu__item" href="/customer_center">고객센터</a>
+					</li>
+					<li class="layout-navigation-bar-user-menu__item-wrap">
+						<button class="layout-navigation-bar-user-menu__item logout" type="button">로그아웃</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<div class="popout popout--prepared popout--axis-1 popout--dir-2 popout--cross-dir-1 writemenu" data-popout="true" style="display:none; position: absolute; z-index: 1000; left: 1470px; top: 64px; transform: translateX(-50%);">
+			<div class="animated-popout drop-down__content open open-active">
+				<div class="_2TAbe navigation-upload-dropdown-content">
+					<a class="navigation-upload-dropdown-content-item" href="../picture/picInsert">
+						<div class="navigation-upload-dropdown-content-item__icon">
+							<svg fill="none" viewBox="0 0 36 36" width="36" height="36" preserveAspectRatio="xMidYMid meet">
+								<rect x="6.54" y="3.59" width="27" height="29" rx="2.5" transform="rotate(4 6.54 3.6)" fill="#DBDBDB" stroke="#000" stroke-linejoin="round"></rect>
+								<rect x="2.5" y="1.5" width="27" height="29" rx="2.5" fill="#fff" stroke="#000" stroke-linejoin="round"></rect>
+								<rect x="5" y="4" width="22" height="22" rx="1" fill="#FFE2C7"></rect>
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M14 7l5 .45v3.5l-5-.45V7zm0 4.5V15l5 .45v-3.5l-5-.45zm6 .55v3.5l5 .45v-3.5l-5-.45zm5-.55V8l-5-.45v3.5l5 .45z" fill="#fff"></path>
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M5 19l22 2v7L5 26v-7z" fill="#E6A87C"></path>
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M5 3.45h5v16l-5 4v-20z" fill="#F1C8A3"></path>
+							</svg>
+						
+							<svg fill="none" viewBox="0 0 18 18" width="18" height="18" preserveAspectRatio="xMidYMid meet" class="css-13x8x0f-DropDownNewIcon e5mhexx0">
+								<path d="M0 9a9 9 0 1118 0A9 9 0 010 9z" fill="#fff"></path>
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M9 18A9 9 0 109 0a9 9 0 000 18zm-1.7-5.25H5.26v-7.5h2.61l2.8 4.2h.03v-4.2h2.06v7.5h-2.3L7.36 8.07h-.05v4.68z" fill="#F77"></path>
+							</svg>
+						</div>
+						<div class="navigation-upload-dropdown-content-item__content">
+							<div class="navigation-upload-dropdown-content-item__title">사진 올리기</div>
+							<div class="navigation-upload-dropdown-content-item__subtitle">동영상 기능이 추가되었어요!</div>
+						</div>
+					</a>
+					<a class="navigation-upload-dropdown-content-item" href="#">
+						<div class="navigation-upload-dropdown-content-item__icon">
+							<svg width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet">
+								<g fill="none" fill-rule="evenodd">
+									<path d="M0 0h36v36H0z"></path>
+									<path fill="#FFF6E6" d="M27.2 29.31H4.8V14.38h22.4"></path>
+									<path fill="#EDE2CD" d="M27.2 17.18H4.8v-2.8h22.4"></path>
+									<path stroke="#000" stroke-linecap="round" stroke-linejoin="round" d="M4.8 29.31V14.38h22.4v14.93H4.8z"></path>
+									<path fill="#FFF" d="M16 19.05a4.67 4.67 0 014.67 4.66v5.6h-9.34v-5.6A4.67 4.67 0 0116 19.05z"></path>
+									<path fill="#fff" d="M16 19.05a4.67 4.67 0 014.67 4.66v5.6h-9.34v-5.6A4.67 4.67 0 0116 19.05z"></path>
+									<path stroke="#000" d="M16 19.05a4.67 4.67 0 014.67 4.66v5.6h-9.34v-5.6A4.67 4.67 0 0116 19.05z"></path>
+									<path fill="#FBDEC1" d="M2.94 14.38a.9.9 0 01-.81-1.3l3.25-6.6a.9.9 0 01.8-.5h19.64c.34 0 .65.2.8.5l3.25 6.6a.9.9 0 01-.8 1.3H2.93z"></path>
+									<path fill="#E9C39D" d="M2.94 14.38a.9.9 0 01-.81-1.3l.74-1.5h26.26l.74 1.5a.9.9 0 01-.8 1.3H2.92z"></path>
+									<path stroke="#000" stroke-linecap="round" stroke-linejoin="round" d="M2.94 14.38a.9.9 0 01-.81-1.3l3.25-6.6a.9.9 0 01.8-.5h19.64c.34 0 .65.2.8.5h0l3.25 6.6a.9.9 0 01-.8 1.3h0H2.93z"></path>
+									
+									<g transform="translate(26 9)">
+										<path fill="#fff" d="M0 5h8.07v12H0z"></path>
+										<path fill="#ffdb92" d="M0 0h8v4H0z"></path>
+										<path d="M8.5 17.43H-.52 8.5L4 23.8l-4.52-6.37H8.5" fill="#fff6e6"></path>
+										<path d="M8.5 1v0A1.49 1.49 0 007-.5H1v0A1.5 1.5 0 00-.5 1l-.02 16.43L4 23.8l4.5-6.37z" stroke="#000"></path>
+										<path fill="#000" d="M4 23l2-2H2z"></path>
+										<rect width="6" height="2" x="-14" y="3" stroke="#000" rx="1" transform="rotate(-90)" ry="1"></rect>
+										<rect width="5" height="1" x="-13.5" y="3.5" fill="#ffdb92" rx=".5" transform="rotate(-90)" ry=".5"></rect>
+										<path fill="#000" d="M0 4h8v1H0z" opacity=".9"></path>
+										<path d="M-.52 17.43H8.5" stroke="#000"></path>
+									</g>
+									<path fill="#000" d="M30 32l2-2h-4z"></path>
+								</g>
+							</svg>
+						</div>
+						<div class="navigation-upload-dropdown-content-item__content">
+							<div class="navigation-upload-dropdown-content-item__title">집들이 글쓰기</div>
+							<div class="navigation-upload-dropdown-content-item__subtitle">집에 관한 이야기를 글로 작성해보세요.</div>
+						</div>
+					</a>
+				
+					<a class="navigation-upload-dropdown-content-item" href="#">
+						<div class="navigation-upload-dropdown-content-item__icon">
+							<svg width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet">
+								<g fill="none" fill-rule="evenodd">
+									<path d="M0 0h36v36H0z"></path>
+								
+									<g stroke-linejoin="round" transform="translate(2 3)">
+									<rect width="4" height="8" x="3" y="21" fill="#FFB787" stroke="#000" rx="2"></rect>
+									<rect fill="#FFE2C7" width="24" height="25" rx="3"></rect>
+									<rect fill="#ffe2c7" width="24" height="25" rx="3"></rect>
+									<rect stroke="#000" width="24" height="25" rx="3" stroke-width="1.2"></rect>
+									<rect width="6" height="3" x="9" y="5" fill="#DB9F77" stroke="#FFF" rx="1.5"></rect>
+									<rect width="6" height="3" x="9" y="17" fill="#DB9F77" stroke="#FFF" rx="1.5"></rect>
+									<path fill="#FFDB92" stroke="#EDC29B" d="M1.5 12.5h21"></path>
+									</g>
+								
+									<path fill="#35C5F0" d="M26.25 31.53l-3.7 1.32a1 1 0 01-1.34-.97l.1-3.93a.99.99 0 00-.2-.64l-2.4-3.11a1 1 0 01.51-1.57l3.77-1.12a1 1 0 00.55-.39l2.22-3.24a1 1 0 011.65 0l2.22 3.24a1 1 0 00.55.4l3.77 1.1a1 1 0 01.5 1.58l-2.4 3.11a1 1 0 00-.2.64l.11 3.93a1 1 0 01-1.33.97l-3.71-1.32a1 1 0 00-.67 0z"></path>
+									<path fill="#9AE2F7" d="M27.15 17.61a1 1 0 01.26.26l2.22 3.25c.06.09.13.16.22.23l-8.59 8.58.06-1.98a.99.99 0 00-.21-.64l-2.4-3.11a1 1 0 01.51-1.57l3.77-1.12a1 1 0 00.55-.39l2.22-3.24a1 1 0 011.39-.26z"></path>
+									<path stroke="#000" d="M26.29 30.85l-3.31 1.17a.9.9 0 01-1.2-.86l.1-3.51c0-.2-.06-.4-.18-.57l-2.14-2.78a.9.9 0 01.45-1.4l3.37-.99a.9.9 0 00.48-.35l1.99-2.9a.9.9 0 011.47 0l1.99 2.9c.11.17.28.3.48.35l3.37 1a.9.9 0 01.45 1.4l-2.14 2.77a.89.89 0 00-.18.57l.1 3.5a.9.9 0 01-1.2.87l-3.3-1.17a.9.9 0 00-.6 0z" stroke-width="1.2"></path>
+								</g>
+							</svg>
+						</div>
+						<div class="navigation-upload-dropdown-content-item__content">
+							<div class="navigation-upload-dropdown-content-item__title">상품 리뷰 쓰기</div>
+							<div class="navigation-upload-dropdown-content-item__subtitle">상품 리뷰를 작성하고 포인트도 받아보세요.</div>
+						</div>
+					</a>
+					
+				
+				</div>
+			</div>
+		</div>
+	</div>
 	
-	
+<script type="text/javascript">
+//마이메뉴 선택하면 마이페이지/로그아웃 등 드롭다운 메뉴 보여주기
+
+$('.myBtn').click(function(){
+	//alert('마이메뉴');
+	$('.mymenu').css('display', 'block');
+})
+
+//이외의 영역을 클릭하면 사라지기	
+
+$('.closeMenu').click(function(e){
+	 if(!$(e.target).hasClass('mymenu')){
+		$('.mymenu').css('display', 'none');
+	} 
+});
+
+//글쓰기 선택하면 메뉴 보여주기
+
+$('.writeBtn1').click(function(){
+	$('.writemenu').css('display', 'block');
+})
+
+//이외의 영역을 클릭하면 사라지기 
+$('.closeMenu').click(function(e){
+	 if(!$(e.target).hasClass('writemenu')){
+		$('.writemenu').css('display', 'none');
+	} 
+});
+
+$('.logout').click(function(){
+	location.href="../member/memberLogout"
+})
+
+
+</script>
 </body>
 </html>

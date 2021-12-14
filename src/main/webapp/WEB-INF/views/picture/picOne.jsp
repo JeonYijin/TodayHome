@@ -155,8 +155,8 @@
 					style="position: relative;">
 					<div class="layout-navigation-secondary__content">
 						<nav class="layout-navigation-secondary__menu">
-							<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="/">홈</a>
-								<a class="layout-navigation-secondary__menu__item" href="../picture/picList">사진</a>
+							<a class="layout-navigation-secondary__menu__item " href="/">홈</a>
+								<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="../picture/picList">사진</a>
 								<a class="layout-navigation-secondary__menu__item" href="/projects?writer=self">집들이</a>
 								<a class="layout-navigation-secondary__menu__item" href="/contents/follow/feed">질문과답변</a>
 								
@@ -543,9 +543,12 @@
 		<div class="popout popout--prepared popout--axis-1 popout--dir-2 popout--cross-dir-2 mymenu" data-popout="true" style="position: absolute; z-index: 1000; top: 70px; right: 501.5px; display: none;">
 			<div class="animated-popout drop-down__content layout-navigation-bar-user-section__content open open-active">
 				<ul class="layout-navigation-bar-user-menu">
+					<sec:authorize access="isAuthenticated()">
+					<sec:authentication property="principal" var="num"/>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="/users/4672761">마이페이지</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${num.memberNum}">마이페이지</a>
 					</li>
+					</sec:authorize>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<a class="layout-navigation-bar-user-menu__item" href="/user_shopping_pages/order_list">나의 쇼핑</a>
 					</li>
@@ -554,7 +557,7 @@
 						<a class="layout-navigation-bar-user-menu__item" href="/customer_center">고객센터</a>
 					</li>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<button class="layout-navigation-bar-user-menu__item" type="button">로그아웃</button>
+						<button class="layout-navigation-bar-user-menu__item logout" type="button">로그아웃</button>
 					</li>
 				</ul>
 			</div>
@@ -960,6 +963,12 @@ $('.deleteBtn').click(function(){
 			$('.writemenu').css('display', 'none');
 		} 
 	});
+	
+	$('.logout').click(function(){
+		location.href="../member/memberLogout"
+	})
+	
+	
  
 </script>
 </body>

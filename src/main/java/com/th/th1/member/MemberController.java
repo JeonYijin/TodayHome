@@ -1,5 +1,7 @@
 package com.th.th1.member;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.th.th1.feeling.FeelingVO;
+import com.th.th1.feeling.ScrapingVO;
+import com.th.th1.picture.PictureVO;
 import com.th.th1.sns.KakaoVO;
 
 
@@ -24,15 +29,211 @@ public class MemberController {
 	
 	//마이페이지 이동
 	@GetMapping("mypage")
-	public ModelAndView getMypage() throws Exception{
+	public ModelAndView getMypage(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		//내가 쓴 사진 게시글
+		List<PictureVO> myPic = memberService.getMyPicture(pictureVO);
+		mv.addObject("myPic", myPic);
+		//내가 쓴 사진 개수
+		Long picCount= memberService.getMyPicCount(pictureVO);
+		mv.addObject("picCount", picCount);
+		
+		
+		//내가 좋아요한 개수
+		Long heartCount = memberService.getMyHeartCount(feelingVO);
+		mv.addObject("heartCount", heartCount);
+		
+		//내가 스크랩한 개수
+		Long scrapCount = memberService.getMyScrapCount(scrapingVO);
+		mv.addObject("scrapCount", scrapCount);
+		
 		mv.setViewName("mypage/mypage");
+		return mv;
+	}
+	
+	//마이페이지 - 사진 이동
+	@GetMapping("myPicture")
+	public ModelAndView getMyPicture(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		//내가 쓴 사진 게시글
+		List<PictureVO> myPic = memberService.getMyPicture(pictureVO);
+		mv.addObject("myPic", myPic);
+		//내가 쓴 사진 개수
+		Long picCount= memberService.getMyPicCount(pictureVO);
+		mv.addObject("picCount", picCount);
+		//내가 좋아요한 개수
+		Long heartCount = memberService.getMyHeartCount(feelingVO);
+		mv.addObject("heartCount", heartCount);
+				
+		//내가 스크랩한 개수
+		Long scrapCount = memberService.getMyScrapCount(scrapingVO);
+		mv.addObject("scrapCount", scrapCount);	
+		
+		mv.setViewName("mypage/myPicture");
 		
 		return mv;
 	}
 	
 	
+	//마이페이지 - 좋아요 이동
+	@GetMapping("myHeart")
+	public ModelAndView getMyHeart(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		//내가 좋아요한 개수
+		Long heartCount = memberService.getMyHeartCount(feelingVO);
+		mv.addObject("heartCount", heartCount);
+				
+		//내가 스크랩한 개수
+		Long scrapCount = memberService.getMyScrapCount(scrapingVO);
+		mv.addObject("scrapCount", scrapCount);
+				
+				
+		//내가 좋아요한 사진
+		List<PictureVO> heartPic = memberService.getMyHeartPic(feelingVO);
+		mv.addObject("heartPic", heartPic);
+		
+		mv.setViewName("mypage/myHeart");
+		return mv;
+	}
 	
+	//마이페이지 - 스크랩 이동
+	@GetMapping("myScrap")
+	public ModelAndView getMyScrap(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		//내가 좋아요한 개수
+		Long heartCount = memberService.getMyHeartCount(feelingVO);
+		mv.addObject("heartCount", heartCount);
+				
+		//내가 스크랩한 개수
+		Long scrapCount = memberService.getMyScrapCount(scrapingVO);
+		mv.addObject("scrapCount", scrapCount);		
+		
+		
+		//내가 스크랩한 사진
+		List<PictureVO> scrapPic = memberService.getMyScrapPic(scrapingVO);
+		mv.addObject("scrapPic", scrapPic);
+		
+		
+		mv.setViewName("mypage/myScrap");
+		return mv;
+	}
+	
+	//마이페이지 집들이 이동
+	@GetMapping("myHome")
+	public ModelAndView getmyHome(FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		//내가 좋아요한 개수
+		Long heartCount = memberService.getMyHeartCount(feelingVO);
+		mv.addObject("heartCount", heartCount);
+						
+		//내가 스크랩한 개수
+		Long scrapCount = memberService.getMyScrapCount(scrapingVO);
+		mv.addObject("scrapCount", scrapCount);
+		mv.setViewName("mypage/myHome");
+		return mv;
+	}
+	
+	//마이페이지 질문과 답변 이동
+	@GetMapping("myQna")
+	public ModelAndView getmyQna(FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("mypage/myQna");
+		//내가 좋아요한 개수
+		Long heartCount = memberService.getMyHeartCount(feelingVO);
+		mv.addObject("heartCount", heartCount);
+						
+		//내가 스크랩한 개수
+		Long scrapCount = memberService.getMyScrapCount(scrapingVO);
+		mv.addObject("scrapCount", scrapCount);		
+		return mv;
+	}
+	
+	//마이페이지 설정 이동
+	@GetMapping("mySetting")
+	public ModelAndView getMySetting() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("mypage/mySetting");
+		
+		return mv;
+	}
+	
+	//마이페이지 알림설정 이동
+	@GetMapping("myNoti")
+	public ModelAndView getMyNoti(NotiVO notiVO, NotiMVO notiMVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		notiVO = memberService.getNoti(notiVO);
+		mv.addObject("noti", notiVO); 
+		
+		notiMVO = memberService.getNotiM(notiMVO);
+		mv.addObject("notiM", notiMVO);
+		mv.setViewName("mypage/myNoti");
+		return mv;
+	}
+	
+	
+	//마이페이지 이메일 설정 등록
+	@PostMapping("notiInsert")
+	public ModelAndView setNotiInsert(NotiVO notiVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = memberService.setNotiInsert(notiVO);
+		System.out.println(notiVO.getNoti_email());
+		
+		mv.setViewName("/result/ajaxResult");
+		mv.addObject("result", result);
+		return mv;
+	}
+	
+	@PostMapping("notiUpdate")
+	public ModelAndView setNotiUpdate(NotiVO notiVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = memberService.setNotiUpdate(notiVO);
+		mv.setViewName("/result/ajaxResult");
+		mv.addObject("result", result);
+		return mv;
+	}
+	
+	
+	@PostMapping("notiMInsert")
+	public ModelAndView setNotiMInsert(NotiMVO notiMVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = memberService.setNotiMInsert(notiMVO);
+		mv.setViewName("/result/ajaxResult");
+		mv.addObject("result", result);
+		return mv;
+	}
+	
+	@PostMapping("notiMUpdate")
+	public ModelAndView setNotiMUpdate(NotiMVO notiMVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = memberService.setNotiMUpdate(notiMVO);
+		mv.setViewName("/result/ajaxResult");
+		mv.addObject("result", result);
+		return mv;
+	}
+	
+	
+	
+	//회원탈퇴
+	@GetMapping("memberDelete")
+	public String setMemberDelete(MemberVO memberVO) throws Exception{
+		
+		int result = memberService.setMemberDelete(memberVO);
+		
+		return "redirect:../member/memberLogout";
+	}
+	
+	//회원정보 업데이트
+	@PostMapping("memberUpdate")
+	public ModelAndView setMemberUpdate(MemberVO memberVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = memberService.setMemberUpdate(memberVO);
+		mv.setViewName("/result/ajaxResult");
+		mv.addObject("result", result);
+		
+		return mv;
+	}
 	
 	//sns로그인시 가져올 데이터
 	@GetMapping("usePrincipal")

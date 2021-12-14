@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Today Home</title>
-
+<title>Insert title here</title>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;display=swap&amp;subset=korean" rel="stylesheet">
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/preamble-97ede701.chunk.css">
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/App-6e6c2f0c.chunk.css">
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/templates-Home-HomePage-f3a55bf4.chunk.css">
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/21-0e75de9b.chunk.css">
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/23-2ef16b9a.chunk.css">
+<link rel="stylesheet" href="../resources/css/mypage.css">
+<link rel="stylesheet" href="../resources/css/myScrap.css">
+<!-- <link rel="stylesheet" href="../resources/css/myPicture.css"> -->
 <style data-emotion="css 1293549-Container" data-s="">
 .css-1293549-Container{
 	display:-webkit-box;
@@ -40,13 +42,14 @@ margin-top:26px;
 }
 }
 .css-167c30c-Wrapper{position:absolute;width:100%;height:100%;box-sizing:border-box;z-index:1;pointer-events:none;}
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+	
 	<div class="layout">
-	
-	
+	<sec:authentication property="principal" var="member"/>
 		<header class="layout-navigation-bar">
 			<div data-sticky-enabled="false" data-sticky-disabled="false"
 				data-sticky-always="true" data-sticky-ignore="false"
@@ -81,7 +84,7 @@ margin-top:26px;
 						</div>
 						<nav class="layout-navigation-primary__menu">
 							<a
-								class="layout-navigation-primary__menu__item layout-navigation-primary__menu__item--active layout-navigation-primary__menu__item--open"
+								class="layout-navigation-primary__menu__item "
 								href="/">커뮤니티</a><a class="layout-navigation-primary__menu__item"
 								href="/store">스토어</a>
 						</nav>
@@ -104,30 +107,10 @@ margin-top:26px;
 									<circle cx="11" cy="11" r="8"></circle>
 								</svg>
 							</button>
-		<!-- 로그인 안했을 때 헤더 -------------------------------------------------------------------------------------------------------------------------------------------------------- -->											
-							<sec:authorize access="!isAuthenticated()">
-								<a class="layout-navigation-bar-icon" title="장바구니"aria-label="장바구니" href="/cart">
-									<svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linejoin="round" stroke-width="2" preserveAspectRatio="xMidYMid meet">
-											<path stroke-linecap="round" d="M4 5h18l-2.6 10.5a2 2 0 0 1-2 1.5H8.6a2 2 0 0 1-2-1.5L4 5zm4 15.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0zm7 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0z"></path>
-											<path d="M1 2h3v3"></path>
-									</svg>
-								</a>
-							<div class="layout-navigation-bar-login">
-								<a class="layout-navigation-bar-login__item" href="../member/memberLogin">로그인</a>
-								<a class="layout-navigation-bar-login__item" href="../member/memberJoin">회원가입</a>
-								<a class="layout-navigation-bar-login__item layout-navigation-bar-login__item--xl" href="/customer_center">고객센터</a>
-							</div>
-							<div class="drop-down layout-navigation-bar-upload-button">
-								<button class="layout-navigation-bar-upload-button__button  writeBtn1" type="button">글쓰기
-									<svg class="icon" width="1em" height="1em" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet">
-										<path fill="currentColor" fill-rule="evenodd" d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
-									</svg>
-								</button>
-							</div>
-							</sec:authorize>
+							
 		<!-- 로그인 했을 때 헤더 -------------------------------------------------------------------------------------------------------------------------------------------------------- -->					
 							<sec:authorize access="isAuthenticated()">
-								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="/users/4672761/collections">
+								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="./myScrap?memberNum=${member.memberNum }">
 									<svg class="icon" width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 										<path fill="none" stroke-width="2" d="M3 20.967zm0 0V2.5a.5.5 0 01.5-.5h17a.5.5 0 01.5.5v18.467l-8.057-4.309a2 2 0 00-1.886 0L3 20.968z"></path>
 									</svg>
@@ -172,713 +155,126 @@ margin-top:26px;
 					</div>
 				</div>
 			</div>
-			
-			<div data-sticky-enabled="false" data-sticky-disabled="false"
-				data-sticky-always="true" data-sticky-ignore="false"
-				data-direction="top" data-offset="31"
-				class="sticky-container layout-navigation-secondary-wrap">
-				<div class="sticky-child layout-navigation-secondary"
-					style="position: relative;">
-					<div class="layout-navigation-secondary__content">
-						<nav class="layout-navigation-secondary__menu">
-							<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="/">홈</a>
-								<a class="layout-navigation-secondary__menu__item" href="../picture/picList">사진</a>
-								<a class="layout-navigation-secondary__menu__item" href="/projects?writer=self">집들이</a>
-								<a class="layout-navigation-secondary__menu__item" href="/contents/follow/feed">질문과답변</a>
-								
-						</nav>
-						<div
-							class="layout-navigation-app-download layout-navigation__bar__app-download">
-							<a class="layout-navigation-app-download__link" href="/3d_intro"><svg
-									class="icon" width="20" height="20" viewBox="0 0 20 20"
-									preserveAspectRatio="xMidYMid meet">
-									<g fill="none" fill-rule="evenodd">
-									<path fill="#35C5F0"
-										d="M16.41 0H3.59A3.59 3.59 0 0 0 0 3.59v12.82A3.59 3.59 0 0 0 3.59 20h12.82A3.59 3.59 0 0 0 20 16.41V3.59A3.59 3.59 0 0 0 16.41 0"></path>
-									<path fill="#FFF"
-										d="M14.75 10.34c-.74 0-1.33-.6-1.33-1.34 0-.74.6-1.34 1.33-1.34s1.32.6 1.32 1.34c0 .74-.59 1.34-1.32 1.34zm-1 3.53H6.12V8.75l3.82-2.7 2.2 1.55a3.01 3.01 0 0 0-.35 1.4 3 3 0 0 0 1.98 2.83v2.04zm1-7.87c-.34 0-.66.06-.97.17l-3.17-2.24a1.18 1.18 0 0 0-1.35 0L4.5 7.28a1.2 1.2 0 0 0-.51.98v6.54c0 .66.53 1.2 1.19 1.2h9.5a1.2 1.2 0 0 0 1.18-1.2v-3.02A3 3 0 0 0 17.7 9c0-1.65-1.32-3-2.96-3z"></path></g></svg>3D인테리어<svg
-									class="icon-beta" width="30" height="14"
-									preserveAspectRatio="xMidYMid meet">
-									<g fill="none" fill-rule="evenodd">
-									<rect width="30" height="14" fill="#757575" rx="7"></rect>
-									<path fill="#FFF" fill-rule="nonzero"
-										d="M7.1 10.59c1.52 0 2.24-.82 2.24-1.96 0-1-.53-1.48-1.33-1.64v-.03c.76-.26 1.05-.78 1.05-1.5 0-1.09-.64-1.73-2.12-1.73H4.69v6.86h2.4zm-.37-3.94h-.9V4.64h.95c.74 0 1.13.25 1.13.99 0 .78-.5 1.02-1.18 1.02zm.2 3.02h-1.1v-2.2h1.04c.82 0 1.26.3 1.26 1.09 0 .75-.42 1.11-1.2 1.11zm7.65.92v-.97h-2.92V7.54h2.22v-.96h-2.22V4.7h2.86v-.97h-4.01v6.86h4.07zm3.8 0V4.7h1.83v-.97h-4.83v.97h1.85v5.89h1.15zm2.92 0l.58-1.74h2.39l.58 1.74h1.2l-2.3-6.86h-1.18l-2.34 6.86h1.07zm2.68-2.66h-1.83l.9-2.74h.03l.9 2.74z"></path></g></svg></a>
-						</div>
-					</div>
-				</div>
-			</div>
 		</header>
-	
-	
-	
-		<!-- 바디 -->
-		<div class="home-page">
-			<div class="container home-header">
-					<div class="row">
-						<div class="col-12 col-md-9 home-header__story">
-							<c:forEach items="${topPic}" var="mainTop" varStatus="main">
-							<c:if test="${main.index == 0}">
-							<article class="story-entry home-header__story__image">
-								<a class="story-entry-link" href="../picture/picOne?post_id=${mainTop.post_id}">
-									<div class="story-entry__image-wrap">
-										<c:forEach items="${mainTop.pictureFileVO}" var="pic" varStatus="status">
-										<c:if test="${status.index ==  0}">
-										<img class="story-entry__image" src="../resources/upload/picture/${pic.picFilename}">
-										</c:if>
-										</c:forEach>
-									</div>
-									<div class="story-entry__content-wrap">
-										<div class="story-entry__content">
-											<div class="story-entry__content__category"></div>
-											<div class="story-entry__content__title"><br>${mainTop.post_text}</div>
-											
-											<div class="story-entry__content__profile">
-												<img class="story-entry__content__profile__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163869133794883507.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163869133794883507.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163869133794883507.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163869133794883507.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
-												<span class="story-entry__content__profile__name">${mainTop.memberVO.nickname}</span>
-											
-											</div>
-										</div>
-									<div class="home-header__story__more">보러가기</div>
-									</div>
-								</a>
-							</article>
-							</c:if>
-							</c:forEach>
-						</div>
-						<div class="col-12 col-md-3 home-header__banner-col">
-							<div class="home-header__banner-wrap">
-								<div class="carousel home-header__banner-container" role="region" aria-roledescription="carousel">
-									<div class="carousel__list-wrap home-header__banner">
-										<div class="carousel__list home-header__banner__list" aria-live="off" style="transform: translateX(0%);">
-											
-											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="1 of 14" style="width: 100%;">
-												<div class="home-header__banner__item__container">
-													<a class="home-header__banner__item__link" href="/competitions/222?affect_type=Home&amp;affect_id=0" target="">
-														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/static/home_banner/sign_up_web_v2.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/static/home_banner/sign_up_web_v2.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/static/home_banner/sign_up_web_v2.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/static/home_banner/sign_up_web_v2.png?gif=1&amp;w=1536 3x">
-														<div class="mobile-banner"></div>
-													</a>
-												</div>
-											</div>
-											
-											
-											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="3 of 13" style="width: 100%;">
-												<div class="home-header__banner__item__container">
-													<a class="home-header__banner__item__link" href="/exhibitions/1433?affect_type=Home&amp;affect_id=0" target="">
-														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=1536 3x">
-														<div class="mobile-banner"></div>
-													</a>
-												</div>
-											</div>
-											
-											
-										</div>
-									</div>
-									<div class="home-header__banner-control">
-										<div class="home-header__banner-control__icon">
-											<svg class="home-header__banner-control__icon__arrow home-header__banner-control__icon__arrow--left" width="10" height="18" viewBox="0 0 10 18" preserveAspectRatio="xMidYMid meet">
-												<path fill="#FFF" fill-rule="evenodd" d="M9.89 9l.137-.137L1.343.18l-1.37 1.37L7.424 9l-7.451 7.451 1.37 1.37 8.684-8.684L9.89 9z"></path>
-											</svg>
-										</div>
-										<ul class="home-header__banner-control__page">
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item home-header__banner-control__page__item--select">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-										</ul>
-										<div class="home-header__banner-control__icon">
-											<svg class="home-header__banner-control__icon__arrow home-header__banner-control__icon__arrow--right" width="10" height="18" viewBox="0 0 10 18" preserveAspectRatio="xMidYMid meet">
-												<path fill="#FFF" fill-rule="evenodd" d="M9.89 9l.137-.137L1.343.18l-1.37 1.37L7.424 9l-7.451 7.451 1.37 1.37 8.684-8.684L9.89 9z"></path>
-											</svg>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-			</div>
-			<nav class="container shortcut">
-				<ul class="row shortcut__list">
-					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/store/?affect_type=Home&amp;affect_id=0">
-							<div class="shortcut__list__item__link__image">
-								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163146766870457158.png/512/none">
-							</div>
-							<div class="shortcut__list__item__link__title">쇼핑하기</div>
-						</a>
-					</li>
-					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/exhibitions/1763?affect_type=Home&amp;affect_id=0">
-							<div class="shortcut__list__item__link__image">
-								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-162631001897809227.png/512/none">
-							</div>
-							<div class="shortcut__list__item__link__title">오늘의집배송</div>
-						</a>
-					</li>
-					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="../picture/picList">
-							<div class="shortcut__list__item__link__image">
-								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-162631007985482356.png/512/none">
-							</div>
-							<div class="shortcut__list__item__link__title">평수별집구경</div>
-						</a>
-					</li>
-					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/competitions/623?affect_type=Home&amp;affect_id=0">
-							<div class="shortcut__list__item__link__image">
-								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163875264580793446.png/512/none">
-							</div>
-							<div class="shortcut__list__item__link__title">위드크리스마스</div>
-						</a>
-					</li>
-					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/experts?section=auto-matching&amp;affect_type=Home&amp;affect_id=0">
-							<div class="shortcut__list__item__link__image">
-								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163280526167270880.png/512/none">
-							</div>
-							<div class="shortcut__list__item__link__title">빠른시공상담</div>
-						</a>
-					</li>
-					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/commerces/today_deals?special_feed=true&amp;affect_type=Home&amp;affect_id=0">
-							<div class="shortcut__list__item__link__image">
-								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163724766331777405.png/512/none">
-							</div>
-							<div class="shortcut__list__item__link__title">오늘의딜</div>
-						</a>
-					</li>
-					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/events/thank-offering-2021?outbound=false&amp;click_action_type=webview&amp;affect_type=Home&amp;affect_id=0">
-							<div class="shortcut__list__item__link__image">
-								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163832713080146282.png/512/none">
-							</div>
-							<div class="shortcut__list__item__link__title">연말빅세일</div>
-						</a>
-					</li>
-					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/competitions/621?affect_type=Home&amp;affect_id=0">
-							<div class="shortcut__list__item__link__image">
-								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163832758393552557.png/512/none">
-							</div>
-							<div class="shortcut__list__item__link__title">포인트백 이벤트</div>
-						</a>
-					</li>
-				</ul>
-			</nav>
-			
-			<section class="container home-section home-stories">
-				<header class="row home-section__header">
-					<h2 class="col home-section__header__content">오늘의 스토리</h2>
-				</header>
-				<ul class="row home-stories__content">
-					<li class="col-6 col-md-3 home-stories__content__item">
-						<article class="story-entry story-story-item">
-							<a class="story-entry-link" href="/projects/68051/detail?affect_type=Home&amp;affect_id=0">
-								<div class="story-entry__image-wrap">
-									<img class="story-entry__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163713619070517802.heic?gif=1&amp;w=320&amp;h=214&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163713619070517802.heic?gif=1&amp;w=480&amp;h=320&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163713619070517802.heic?gif=1&amp;w=640&amp;h=427&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163713619070517802.heic?gif=1&amp;w=850&amp;h=567&amp;c=c 3x">
-								</div>
-								<div class="story-entry__content-wrap">
-									<div class="story-entry__content">
-										<div class="story-entry__content__category"></div>
-										<div class="story-entry__content__title">아기자기하고 따뜻함으로 가득 찬 INFP의 자취방<br></div>
-										<div class="story-entry__content__profile">
-											<img class="story-entry__content__profile__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
-											<span class="story-entry__content__profile__name">_baekyujin_</span>
-										</div>
-									</div>
-								</div>
-							</a>
-						</article>
-					</li>
-					<li class="col-6 col-md-3 home-stories__content__item">
-						<article class="story-entry story-story-item">
-							<a class="story-entry-link" href="/projects/68082/detail?affect_type=Home&amp;affect_id=0">
-								<div class="story-entry__image-wrap">
-									<img class="story-entry__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/163843505621330826.jpg?gif=1&amp;w=320&amp;h=214&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/163843505621330826.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/163843505621330826.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/163843505621330826.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c 3x">
-								</div>
-								<div class="story-entry__content-wrap">
-									<div class="story-entry__content">
-										<div class="story-entry__content__category"></div>
-										<div class="story-entry__content__title">휴양지 리조트 같은 복층 빌라<br></div>
-										<div class="story-entry__content__profile">
-											<img class="story-entry__content__profile__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1514252843_Ehvl0eCs.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1514252843_Ehvl0eCs.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1514252843_Ehvl0eCs.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1514252843_Ehvl0eCs.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
-											<span class="story-entry__content__profile__name">미네르바의 부엉이83</span>
-										</div>
-									</div>
-								</div>
-							</a>
-						</article>
-					</li>
-					<li class="col-6 col-md-3 home-stories__content__item">
-						<article class="story-entry story-story-item">
-							<a class="story-entry-link" href="/projects/69450/detail?affect_type=Home&amp;affect_id=0">
-								<div class="story-entry__image-wrap">
-									<img class="story-entry__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163731662763813851.jpg?gif=1&amp;w=320&amp;h=214&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163731662763813851.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163731662763813851.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163731662763813851.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c 3x">
-								</div>
-								<div class="story-entry__content-wrap">
-									<div class="story-entry__content">
-										<div class="story-entry__content__category"></div>
-										<div class="story-entry__content__title">크리스마스가 찾아온 홈 캠핑장<br></div>
-										<div class="story-entry__content__profile">
-											<img class="story-entry__content__profile__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1480316471_L9jT.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1480316471_L9jT.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1480316471_L9jT.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1480316471_L9jT.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
-											<span class="story-entry__content__profile__name">byulice</span>
-										</div>
-									</div>
-								</div>
-							</a>
-						</article>
-					</li>
-					<div class="col-6 col-md-3 home-stories__content__menu-wrap">
-						<div class="home-stories__content__menu">
-							<a class="home-stories__content__menu__entry" href="/projects?writer=self&amp;affect_type=Home&amp;affect_id=0">
-								<div class="description">예쁜 집 구경하기</div>
-								<div class="title">
-									<span class="text">집들이</span>
-									<div class="arrow"></div>
-								</div>
-							</a>
-							<a class="home-stories__content__menu__entry" href="/projects?writer=pro&amp;affect_type=Home&amp;affect_id=0">
-								<div class="description">전문가 시공사례</div>
-								<div class="title">
-									<span class="text">전문가 집들이</span>
-									<div class="arrow"></div>
-								</div>
-							</a>
-							<!-- <a class="home-stories__content__menu__entry" href="/advices?affect_type=Home&amp;affect_id=0">
-								<div class="description">인테리어 꿀팁 총 집합</div>
-								<div class="title">
-									노하우 삭제 예정
-									<span class="text">노하우</span>
-									<div class="arrow">
-								</div>
-								</div>
-							</a> -->
-						</div>
-					</div>
-				</ul>
-			</section>
-			
-			<!-- 카테고리별 상품 찾기  ========================================================================== -->
-			<section class="container home-section">
-				<header class="row home-section__header">
-					<h2 class="col home-section__header__content">카테고리별 상품 찾기</h2>
-				</header>
-			
-				<section class="home-store-index-category-list">
-					<div class="home-category-list-wrap-container">
-						<div class="home-category-list" style="transition-duration: 0ms; transform: translateX(0%);">
-							 <div class="home-category-item-wrap">
-								<a href="#"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163654148296283533.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163654148296283533.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163654148296283533.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163654148296283533.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">크리스마스</div>
-							</div> 
-							<div class="home-category-item-wrap">
-								<a href="#"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163572945028172903.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163572945028172903.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163572945028172903.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163572945028172903.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">겨울용품</div>
-							</div>
-							<div class="home-category-item-wrap">
-								<a href="/store/category?category=0&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=3"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823224728615402.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823224728615402.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823224728615402.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823224728615402.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">가구</div>
-							</div>
-							<div class="home-category-item-wrap">
-								<a href="/store/category?category=1&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=4"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225115177697.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225115177697.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225115177697.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225115177697.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">매트릭스/토퍼</div>
-							</div>
-							<!-- <div class="home-category-item-wrap">
-								<a href="/store/category?category=27&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=5"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225665741013.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225665741013.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225665741013.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225665741013.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">조명</div>
-							</div>-->
-							<div class="home-category-item-wrap">
-								<a href="/store/category?category=3&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=6"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226017937426.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226017937426.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226017937426.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226017937426.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">거실장/TV장</div>
-							</div> 
-							<!-- <div class="home-category-item-wrap">
-								<a href="/store/category?category=5&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=7"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226903946200.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226903946200.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226903946200.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226903946200.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">주방용품</div>
-							</div>
-							<div class="home-category-item-wrap">
-								<a href="/store/category?category=2&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=8"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823227719846773.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823227719846773.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823227719846773.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823227719846773.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">데코/취미</div>
-							</div> -->
-							<div class="home-category-item-wrap">
-								<a href="/store/category?category=11&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=9"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823228178967968.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823228178967968.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823228178967968.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823228178967968.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">행거/옷장</div>
-							</div>
-						<!--	<div class="home-category-item-wrap">
-								<a href="/store/category?category=4&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=10"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163609843911228804.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163609843911228804.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163609843911228804.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163609843911228804.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">생활용품</div>
-							</div>
-							<div class="home-category-item-wrap">
-								<a href="/store/category?category=21&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=11"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163575474448469686.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163575474448469686.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163575474448469686.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/163575474448469686.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">생필품</div>
-							</div>
-							 <div class="home-category-item-wrap">
-								<a href="/store/category?category=6&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=12"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823230480918647.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823230480918647.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823230480918647.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823230480918647.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">공구/DIY</div>
-							</div> -->
-							<!-- <div class="home-category-item-wrap">
-								<a href="/store/category?category=7&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=13"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823230908544036.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823230908544036.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823230908544036.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823230908544036.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">인테리어시공</div>
-							</div>
-							<div class="home-category-item-wrap">
-								<a href="/store/category?category=8&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=14"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823231401891024.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823231401891024.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823231401891024.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823231401891024.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">반려동물</div>
-							</div>
-							<div class="home-category-item-wrap">
-								<a href="/store/category?category=20&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=15"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823242317048198.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823242317048198.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823242317048198.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823242317048198.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-							<div class="home-category-item__title">캠핑용품</div>
-						</div>
-							<div class="home-category-item-wrap">
-								<a href="/store/category?category=22&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=16"></a>
-								<div class="home-category-item">
-									<div class="home-category-item__image-wrap">
-										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823231949249287.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823231949249287.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823231949249287.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823231949249287.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
-									</div>
-								</div>
-								<div class="home-category-item__title">실내운동</div>
-							</div> -->
-						</div>
-						<div class="home-category-list__next">
-							<button type="button">
-								<svg width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet">
-									<g fill="none" fill-rule="evenodd">
-										<rect width="32" height="32" fill="#000" fill-opacity=".26" rx="16"></rect>
-										<path fill="#FFF" fill-rule="nonzero" d="M12 21.13l1.5 1.54L20 16l-6.5-6.67-1.5 1.54L17 16z"></path>
-									</g>
-								</svg>
-							</button>
-						</div>
-					</div>
-				</section>
-			</section>
-			
-			
-		<!-- 오늘의 인기 사진 ======================================== -->
-			<section class="container home-section home-cards">
-				<header class="row home-section__header">
-					<h2 class="col home-section__header__content">오늘의 인기 사진</h2>
-					<a class="home-section__header__more home-hide-sm" href="../picture/picList">더보기</a>
-				</header>
-				<ul class="row home-cards__content">
-					<c:forEach items="${topPic}" varStatus="status" var="topPic">
-					<li class="col-6 col-md-3 home-cards__content__item">
-						<article class="story-entry story-card-item">
-							<a class="story-entry-link" href="../picture/picOne?post_id=${topPic.post_id}">
-							<div class="story-entry__image-wrap">
-							<c:forEach items="${topPic.pictureFileVO}" var="picFile" varStatus="fileStatus">
-								<c:if test="${fileStatus.index eq 0}">
-									<img class="story-entry__image" src="../resources/upload/picture/${picFile.picFilename}">
-								</c:if>
-							</c:forEach>	
-								<svg class="story-entry__gallery-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
-									<path fill-rule="evenodd" d="M20.21 5.053h.788A3.004 3.004 0 0 1 24 8.055v12.943A3.004 3.004 0 0 1 20.998 24H8.055a3.004 3.004 0 0 1-3.002-3.002v-.787h11.165c2.199 0 3.993-1.788 3.993-3.993V5.053zM0 3.003A3.004 3.004 0 0 1 3.002 0h12.943a3.004 3.004 0 0 1 3.002 3.002v12.943a3.004 3.004 0 0 1-3.002 3.002H3.002A3.004 3.004 0 0 1 0 15.945V3.002z"></path>
-								</svg>
-							</div>
-								<div class="story-entry__content-wrap">
-									<div class="story-entry__content">
-										<div class="story-entry__content__category"></div>
-										<div class="story-entry__content__title"><br></div>
-										<div class="story-entry__content__profile">
-											<img class="story-entry__content__profile__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158823906171465556.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158823906171465556.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158823906171465556.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158823906171465556.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
-											<span class="story-entry__content__profile__name">${topPic.memberVO.nickname}</span>
-										</div>
-									</div>
-								</div>
-							</a>
-						</article>
-						<div class="home-rank-icon">
-							<span>${status.index+1}</span>
-						</div>
-					</li>
-					</c:forEach>
-				</ul>
-				<div class="row home-section__more-wrap">
-					<div class="col home-section__more">
-						<a class="col home-section__more__btn" href="/contents/card_collections?order=popular&amp;affect_type=Home&amp;affect_id=0">인기 사진 더보기</a>
-					</div>
-				</div>
-			</section>
-			
-			<div>
-				<a class="container home-banner home-banner--pc" href="/competitions/621?affect_type=Home&amp;affect_id=0">
-					<div class="pc-banner"></div>
-				</a>
-				<a class="container home-banner home-banner--mobile" href="/competitions/621?affect_type=Home&amp;affect_id=0">
-					<div class="mobile-banner"></div>
-				</a>
-			</div>
 		
-	
-		<section class="container home-section home-rank">
-			<header class="row home-section__header">
-				<h2 class="col home-section__header__content">베스트</h2>
-			</header>
-			<div class="production-rank-feed">
-				<ul class="production-rank-feed__category">
-					<li class="production-rank-feed__category__item active">전체</li>
-					<li class="production-rank-feed__category__item">겨울용품</li>
-					<li class="production-rank-feed__category__item">가구</li>
-					<li class="production-rank-feed__category__item">패브릭</li>
-					<li class="production-rank-feed__category__item">조명</li>
-					<li class="production-rank-feed__category__item">가전</li>
-					<li class="production-rank-feed__category__item">주방용품</li>
-					<li class="production-rank-feed__category__item">데코/취미</li>
-					<li class="production-rank-feed__category__item">수납/정리</li>
-					<li class="production-rank-feed__category__item">생활용품</li>
-					<li class="production-rank-feed__category__item">생필품</li>
-					<li class="production-rank-feed__category__item">공구/DIY</li>
-					<li class="production-rank-feed__category__item">인테리어시공</li>
-					<li class="production-rank-feed__category__item">반려동물</li>
-					<li class="production-rank-feed__category__item">캠핑용품</li>
-					<li class="production-rank-feed__category__item">실내운동</li>
-					<li class="production-rank-feed__category__item">유아/아동</li>
-					<li class="production-rank-feed__category__item">렌탈</li>
-				</ul>
-				<div class="row production-rank-feed__group">
-					<div class="col production-rank-feed__list-wrap">
-						<ul class="row production-rank-feed__list">
-							<div class="col-4 production-rank-feed__item">
-								<div class="home-production-item">
-									<a href="/productions/111255/selling?affect_type=Home&amp;affect_id=0&amp;content_type=HomeFeedRank">
-										<div class="img-wrap square home-production-item__wrapper">
-											<div class="home-production-item__image"></div>
-											<div class="css-167c30c-Wrapper evlxapa2">
-												
-											</div>
-										</div>
-										<div class="info">
-											<p class="product-name text-caption-1 line-height-normal">Q4 유로탑 롤팩 매트리스 2size</p>
-											<p class="price text-caption-3">
-											<span class="discount-ratio text-blue text-body-1 bold">62%</span>
-											<strong class="selling-price text-body-1 text-black"> 269,000</strong>
-										</p>
-										</div>
-										<div class="home-rank-icon">
-											<span>1</span>
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-4 production-rank-feed__item">
-								<div class="home-production-item">
-									<a href="/productions/329364/selling?affect_type=Home&amp;affect_id=0&amp;content_type=HomeFeedRank">
-										<div class="img-wrap square home-production-item__wrapper">
-											<div class="home-production-item__image"></div>
-											<div class="css-167c30c-Wrapper evlxapa2">
-												
-											</div>
-										</div>
-										<div class="info">
-											<p class="product-name text-caption-1 line-height-normal">[10%쿠폰] 편안한 제주 필로우탑 본넬스프링 침대 매트리스 (싱글/슈퍼싱글/퀸/킹)</p>
-											<p class="price text-caption-3">
-												<span class="discount-ratio text-blue text-body-1 bold">59%</span>
-												<strong class="selling-price text-body-1 text-black"> 99,900</strong>
-											</p>
-										</div>
-										<div class="home-rank-icon">
-											<span>2</span>
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-4 production-rank-feed__item">
-								<div class="home-production-item">
-									<a href="/productions/755263/selling?affect_type=Home&amp;affect_id=0&amp;content_type=HomeFeedRank">
-										<div class="img-wrap square home-production-item__wrapper"><div class="home-production-item__image"></div>
-											<div class="css-167c30c-Wrapper evlxapa2">
-												<!-- <div class="css-2itshy-Content evlxapa1">
-													<picture>
-														<source type="image/webp" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=256&amp;h=256&amp;c=c&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=360&amp;h=360&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=480&amp;h=480&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=720&amp;h=720&amp;c=c&amp;webp=1 3x"><img class="css-vagntg-Image evlxapa0" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=256&amp;h=256&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=360&amp;h=360&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=480&amp;h=480&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=720&amp;h=720&amp;c=c 3x">
-													</picture>
-												</div> -->
-											</div>
-										</div>
-											<div class="info">
-												<p class="product-name text-caption-1 line-height-normal">[최대 235만원대] 워시타워 3color 세탁24kg건조17kg (화이트/실버/블랙)</p>
-													<p class="price text-caption-3">
-														<span class="discount-ratio text-blue text-body-1 bold">15%</span>
-														<strong class="selling-price text-body-1 text-black"> 2,777,000</strong>
-													</p>
-											</div>
-											<div class="home-rank-icon">
-												<span>3</span>
-											</div>
-									</a>
-								</div>
-							</div>
-						</ul>
-					</div>
-					<div class="col-12 col-md-3 home-rank__more-wrap">
-						<div class="home-rank__more-container">
-							<a class="home-rank__more" href="/commerces/ranks?type=best">
-								<div class="home-rank__more__text">베스트셀러 더보기
-									<div class="home-rank__more__icon">
-										<svg class="home-rank__more__icon__arrow" width="40" height="40" viewBox="0 0 40 40" preserveAspectRatio="xMidYMid meet">
-											<g fill="none" fill-rule="evenodd" transform="rotate(-180 20 20)">
-												<circle cx="20" cy="20" r="20" fill="#FFF"></circle>
-												<g fill="#424242">
-													<path d="M24.303 27.89l-1.414 1.413-9.192-9.192 1.414-1.414z"></path>
-													<path d="M22.89 10.697l1.413 1.414-9.192 9.192-1.414-1.414z"></path>
-												</g>
-											</g>
-										</svg>
-									</div>
-								</div>
+		
+		<!-- 바디 -->
+		
+		<div class="container collection-feed">
+			<main>
+				<header class="row collection-book-header">
+					<div>
+						<h1 class="collection-book-title__book-name">스크랩북</h1>
+						<p class="collection-book-owner">
+							<a class="collection-book-owner__link" href="/users/4672761">
+								<img class="profile-image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
+								<span class="collection-book-owner__name">${member.nickname}</span>
 							</a>
-						</div>
+						</p>
 					</div>
-					<div class="col-12 home-section__more-wrap">
-						<div class="home-section__more">
-							<a class="home-section__more__btn" href="/commerces/ranks?type=best">베스트셀러 더보기</a>
-						</div>
+				
+				</header>
+				<div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false" data-sticky-ignore="false" data-direction="top" data-offset="81" class="sticky-container collection-feed__navi" style="position: sticky; top: 81px;">
+					<div class="sticky-child" style="position: relative;">
+						<nav class="page-navigation collection-book-nav">
+							<ul style="transform: translateX(0px);">
+								<li class="page-navigation__item">
+									<a class="active" href="/users/4672761/collections" target="_self">모두 ()</a>
+								</li>
+								<li class="page-navigation__item">
+									<a class="" href="/users/4672761/collections?filter=production" target="_self">상품 (0)</a>
+								</li>
+								<li class="page-navigation__item">
+									<a class="" href="/users/4672761/collections?filter=card" target="_self">사진 (${scrapCount})</a>
+								</li>
+								<li class="page-navigation__item">
+									<a class="" href="/users/4672761/collections?filter=project" target="_self">집들이 (0)</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
 				</div>
-			</div>
-		</section>
-		<!-- 가장 하단 메뉴 -->
-		<section class="home-b2b-notice container">
-			<a class="home-b2b-notice__entry" href="https://pro.ohou.se/?utm_source=ohouse&amp;utm_medium=web&amp;utm_campaign=prosignup&amp;utm_content=bottombanner">
-				<div class="home-b2b-notice__entry__title">
-					<svg class="tag" width="44" height="18" viewBox="0 0 44 18" preserveAspectRatio="xMidYMid meet">
-						<rect width="44" height="18" fill="#F77" rx="9"></rect>
-						<path fill="#FFF" d="M9.49 11.42c1.06 0 1.62-.8 1.62-2.46v-.44c0-1.82-.52-2.56-1.66-2.56-1.08 0-1.64.79-1.64 2.44v.44c0 1.89.56 2.58 1.68 2.58zm-.06 1.78c-2.34 0-4.18-1.29-4.18-4.34v-.3c0-3.1 2.01-4.38 4.25-4.38 2.33 0 4.19 1.28 4.19 4.34v.28c0 3.11-2.02 4.4-4.26 4.4zm8.01-4.62h.9c.9 0 1.21-.41 1.21-1.28 0-.98-.36-1.3-1.16-1.3h-.95v2.58zM15 13.05V4.32h3.63c2.32 0 3.46 1.01 3.46 2.84 0 1.98-1.2 3-3.4 3h-1.24v2.9H15zm8.28 0V4.32h6.03v1.75H25.7v1.67h2.82v1.71H25.7v1.85h3.73v1.75h-6.15zm7.55 0V4.32h2.64L36.3 9.2h.04V4.3h2.08v8.74H36.1l-3.12-5.44h-.06v5.44h-2.08z"></path>
-					</svg>
-						전문가 가입신청
-					<svg class="caret" width="1em" height="1em" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-						<path fill="currentColor" fill-rule="nonzero" d="M6 19.692L8.25 22 18 12 8.25 2 6 4.308 13.5 12z"></path>
-					</svg>
-				</div>
-				<div class="home-b2b-notice__entry__caption">인테리어 전문가님! 오늘의집과 함께하세요
-					<svg class="caret" width="1em" height="1em" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-						<path fill="currentColor" fill-rule="nonzero" d="M6 19.692L8.25 22 18 12 8.25 2 6 4.308 13.5 12z"></path>
-					</svg>
-				</div>
-			</a>
-			<a class="home-b2b-notice__entry" href="/contacts/b2b">
-				<div class="home-b2b-notice__entry__title">사업자 구매 회원 전환
-					<svg class="caret" width="1em" height="1em" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-						<path fill="currentColor" fill-rule="nonzero" d="M6 19.692L8.25 22 18 12 8.25 2 6 4.308 13.5 12z"></path>
-					</svg>
-				</div>
-				<div class="home-b2b-notice__entry__caption">사업자 회원에게 구매 시 혜택을 드립니다
-					<svg class="caret" width="1em" height="1em" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-						<path fill="currentColor" fill-rule="nonzero" d="M6 19.692L8.25 22 18 12 8.25 2 6 4.308 13.5 12z"></path>
-					</svg>
-				</div>
-			</a>
-		</section>
-	</div>
-	
-<!-- footer -->
-	<div class="layout-footer__content">
+				<div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false" data-sticky-ignore="false" data-direction="top" data-offset="142" class="sticky-container collection-feed__edit-panel" style="position: sticky; top: 142px;">
+					<div class="sticky-child" style="position: relative;">
+						<div class="collection-feed__edit-panel__wrap">
+							<div class="collection-feed__edit-panel__left">
+								<div class="collection-feed-filter__empty"></div>
+							</div>
+							<div class="collection-feed__edit-panel__menus">
+								<button type="button" class="collection-feed__edit-panel__menus__menu collection-feed__edit-panel__menus__menu--skyblue">편집</button>
+							</div>
+				        </div>
+			        </div>
+		        </div>
+		        <div class="virtualized-list collection-feed-collections row" style="padding-top: 0px; padding-bottom: 289px; transform: translateY(0px);">
+				    
+				    <c:forEach items="${scrapPic}" var="scrap">
+				    <div class="col-6 col-md-4 col-lg-3">
+					    <div class="collection__wrap">
+						    <a href="../picture/picOne?post_id=${scrap.post_id}">
+							    <div class="collection collection--total">
+								    <div class="collection__image-wrap">
+								    <c:forEach items="${scrap.pictureFileVO}" var="file" varStatus="status">
+								    	<c:if test="${status.index eq 0 }">
+								 	   <img class="collection__image" src="../resources/upload/picture/${file.picFilename}">
+								 	   </c:if>
+								   </c:forEach>
+								    </div>
+							   	 <span class="collection__type">사진</span>
+								    <svg class="collection__corner-icon" width="14" height="18" viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet">
+									    <g fill="none" fill-rule="evenodd">
+									 	   <path stroke="#000" stroke-opacity=".14" stroke-width=".75" d="M14.27 3.85H15a2.62 2.62 0 0 1 2.62 2.63V15A2.62 2.62 0 0 1 15 17.63H6.49A2.62 2.62 0 0 1 3.85 15v-.73h7.8a2.63 2.63 0 0 0 2.62-2.62v-7.8zM.37 3A2.62 2.62 0 0 1 3 .37h8.52A2.62 2.62 0 0 1 14.15 3v8.52a2.62 2.62 0 0 1-2.63 2.63H3a2.62 2.62 0 0 1-2.63-2.63V3z"></path>
+									 	   <path fill="#FFF" fill-opacity=".74" d="M14.64 4.22H15c1.25 0 2.26 1 2.26 2.26V15c0 1.24-1 2.25-2.25 2.25H6.48c-1.25 0-2.26-1-2.26-2.25v-.35h7.43a3 3 0 0 0 3-3V4.22zM.75 3C.75 1.76 1.75.75 3 .75h8.52c1.25 0 2.26 1 2.26 2.25v8.52c0 1.25-1 2.26-2.26 2.26H3c-1.24 0-2.25-1-2.25-2.26V3z"></path>
+									    </g>
+								    </svg>
+							    </div>
+						    </a>
+					    </div>
+				    </div>
+				    </c:forEach>
+				   <!--  <div class="col-6 col-md-4 col-lg-3">
+					    <div class="collection__wrap">
+						    <a href="/projects/66363/detail?affect_type=UserScrapbook&amp;affect_id=4672761">
+							    <div class="collection collection--total">
+								    <div class="collection__image-wrap">
+								   	 <img class="collection__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163603876676993157.JPG?gif=1&amp;w=320&amp;h=320&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163603876676993157.JPG?gif=1&amp;w=480&amp;h=480&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163603876676993157.JPG?gif=1&amp;w=640&amp;h=640&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163603876676993157.JPG?gif=1&amp;w=960&amp;h=960&amp;c=c 3x">
+								    </div>
+							   		 <span class="collection__type">집들이</span>
+							    </div>
+						    </a>
+					    </div>
+				    </div>
+				    <div class="col-6 col-md-4 col-lg-3">
+					    <div class="collection__wrap">
+						    <a href="/productions/245825/selling?affect_type=UserScrapbook&amp;affect_id=4672761">
+							    <div class="collection collection--total">
+								    <div class="collection__image-wrap">
+								   	 	<img class="collection__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1582019727_100125_1.jpg?gif=1&amp;w=320&amp;h=320&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1582019727_100125_1.jpg?gif=1&amp;w=480&amp;h=480&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1582019727_100125_1.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1582019727_100125_1.jpg?gif=1&amp;w=960&amp;h=960&amp;c=c 3x">
+								    </div>
+							    		<span class="collection__type">상품</span>
+							    </div>
+						    </a>
+					    </div>
+				    </div> -->
+		        </div>
+	        </main>
+        </div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- footer -->
+	<div class="layout-footer__content" style="background-color: #fafafa;">
 		<div class="layout-footer__top">
 			<address class="layout-footer__cs">
 				<div class="layout-footer__cs__row">
@@ -1045,25 +441,21 @@ margin-top:26px;
 	</div>
 
 
-<!-- footer 종료 ----------------------------------------------------------------------------------- -->
+<!-- footer 종료 ----------------------------------------------------------------------------------- -->		
+		</div>
+		
+		
+		
 	</div>
-
-
-
-
 <!-- 팝업메뉴 나오는 곳------------------------------------------------------------------------------------------ -->
 	<div>
 		<div class="popout popout--prepared popout--axis-1 popout--dir-2 popout--cross-dir-2 mymenu" data-popout="true" style="position: absolute; z-index: 1000; top: 70px; right: 501.5px; display: none;">
 			<div class="animated-popout drop-down__content layout-navigation-bar-user-section__content open open-active">
 				<ul class="layout-navigation-bar-user-menu">
-					<sec:authorize access="isAuthenticated()">
-					<sec:authentication property="principal" var="num"/>
+					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${num.memberNum}">마이페이지</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${member.memberNum}">마이페이지</a>
 					</li>
-					</sec:authorize>
-					
-					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<a class="layout-navigation-bar-user-menu__item" href="/user_shopping_pages/order_list">나의 쇼핑</a>
 					</li>
@@ -1078,105 +470,7 @@ margin-top:26px;
 			</div>
 		</div>
 	</div>
-	
-	<!-- 글쓰기 팝업 로그인 안했을 때---------------------------------- -->
-	<sec:authorize access="!isAuthenticated()">
-	<div>
-		<div class="popout popout--prepared popout--axis-1 popout--dir-2 popout--cross-dir-1 writemenu" data-popout="true" style="display:none; position: absolute; z-index: 1000; left: 1470px; top: 64px; transform: translateX(-50%);">
-			<div class="animated-popout drop-down__content open open-active">
-				<div class="_2TAbe navigation-upload-dropdown-content">
-					<a class="navigation-upload-dropdown-content-item" href="../member/memberLogin">
-						<div class="navigation-upload-dropdown-content-item__icon">
-							<svg fill="none" viewBox="0 0 36 36" width="36" height="36" preserveAspectRatio="xMidYMid meet">
-								<rect x="6.54" y="3.59" width="27" height="29" rx="2.5" transform="rotate(4 6.54 3.6)" fill="#DBDBDB" stroke="#000" stroke-linejoin="round"></rect>
-								<rect x="2.5" y="1.5" width="27" height="29" rx="2.5" fill="#fff" stroke="#000" stroke-linejoin="round"></rect>
-								<rect x="5" y="4" width="22" height="22" rx="1" fill="#FFE2C7"></rect>
-								<path fill-rule="evenodd" clip-rule="evenodd" d="M14 7l5 .45v3.5l-5-.45V7zm0 4.5V15l5 .45v-3.5l-5-.45zm6 .55v3.5l5 .45v-3.5l-5-.45zm5-.55V8l-5-.45v3.5l5 .45z" fill="#fff"></path>
-								<path fill-rule="evenodd" clip-rule="evenodd" d="M5 19l22 2v7L5 26v-7z" fill="#E6A87C"></path>
-								<path fill-rule="evenodd" clip-rule="evenodd" d="M5 3.45h5v16l-5 4v-20z" fill="#F1C8A3"></path>
-							</svg>
-						
-							<svg fill="none" viewBox="0 0 18 18" width="18" height="18" preserveAspectRatio="xMidYMid meet" class="css-13x8x0f-DropDownNewIcon e5mhexx0">
-								<path d="M0 9a9 9 0 1118 0A9 9 0 010 9z" fill="#fff"></path>
-								<path fill-rule="evenodd" clip-rule="evenodd" d="M9 18A9 9 0 109 0a9 9 0 000 18zm-1.7-5.25H5.26v-7.5h2.61l2.8 4.2h.03v-4.2h2.06v7.5h-2.3L7.36 8.07h-.05v4.68z" fill="#F77"></path>
-							</svg>
-						</div>
-						<div class="navigation-upload-dropdown-content-item__content">
-							<div class="navigation-upload-dropdown-content-item__title">사진 올리기</div>
-							<div class="navigation-upload-dropdown-content-item__subtitle">동영상 기능이 추가되었어요!</div>
-						</div>
-					</a>
-					<a class="navigation-upload-dropdown-content-item" href="../member/memberLogin">
-						<div class="navigation-upload-dropdown-content-item__icon">
-							<svg width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet">
-								<g fill="none" fill-rule="evenodd">
-									<path d="M0 0h36v36H0z"></path>
-									<path fill="#FFF6E6" d="M27.2 29.31H4.8V14.38h22.4"></path>
-									<path fill="#EDE2CD" d="M27.2 17.18H4.8v-2.8h22.4"></path>
-									<path stroke="#000" stroke-linecap="round" stroke-linejoin="round" d="M4.8 29.31V14.38h22.4v14.93H4.8z"></path>
-									<path fill="#FFF" d="M16 19.05a4.67 4.67 0 014.67 4.66v5.6h-9.34v-5.6A4.67 4.67 0 0116 19.05z"></path>
-									<path fill="#fff" d="M16 19.05a4.67 4.67 0 014.67 4.66v5.6h-9.34v-5.6A4.67 4.67 0 0116 19.05z"></path>
-									<path stroke="#000" d="M16 19.05a4.67 4.67 0 014.67 4.66v5.6h-9.34v-5.6A4.67 4.67 0 0116 19.05z"></path>
-									<path fill="#FBDEC1" d="M2.94 14.38a.9.9 0 01-.81-1.3l3.25-6.6a.9.9 0 01.8-.5h19.64c.34 0 .65.2.8.5l3.25 6.6a.9.9 0 01-.8 1.3H2.93z"></path>
-									<path fill="#E9C39D" d="M2.94 14.38a.9.9 0 01-.81-1.3l.74-1.5h26.26l.74 1.5a.9.9 0 01-.8 1.3H2.92z"></path>
-									<path stroke="#000" stroke-linecap="round" stroke-linejoin="round" d="M2.94 14.38a.9.9 0 01-.81-1.3l3.25-6.6a.9.9 0 01.8-.5h19.64c.34 0 .65.2.8.5h0l3.25 6.6a.9.9 0 01-.8 1.3h0H2.93z"></path>
-									
-									<g transform="translate(26 9)">
-										<path fill="#fff" d="M0 5h8.07v12H0z"></path>
-										<path fill="#ffdb92" d="M0 0h8v4H0z"></path>
-										<path d="M8.5 17.43H-.52 8.5L4 23.8l-4.52-6.37H8.5" fill="#fff6e6"></path>
-										<path d="M8.5 1v0A1.49 1.49 0 007-.5H1v0A1.5 1.5 0 00-.5 1l-.02 16.43L4 23.8l4.5-6.37z" stroke="#000"></path>
-										<path fill="#000" d="M4 23l2-2H2z"></path>
-										<rect width="6" height="2" x="-14" y="3" stroke="#000" rx="1" transform="rotate(-90)" ry="1"></rect>
-										<rect width="5" height="1" x="-13.5" y="3.5" fill="#ffdb92" rx=".5" transform="rotate(-90)" ry=".5"></rect>
-										<path fill="#000" d="M0 4h8v1H0z" opacity=".9"></path>
-										<path d="M-.52 17.43H8.5" stroke="#000"></path>
-									</g>
-									<path fill="#000" d="M30 32l2-2h-4z"></path>
-								</g>
-							</svg>
-						</div>
-						<div class="navigation-upload-dropdown-content-item__content">
-							<div class="navigation-upload-dropdown-content-item__title">집들이 글쓰기</div>
-							<div class="navigation-upload-dropdown-content-item__subtitle">집에 관한 이야기를 글로 작성해보세요.</div>
-						</div>
-					</a>
-				
-					<a class="navigation-upload-dropdown-content-item" href="../member/memberLogin">
-						<div class="navigation-upload-dropdown-content-item__icon">
-							<svg width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet">
-								<g fill="none" fill-rule="evenodd">
-									<path d="M0 0h36v36H0z"></path>
-								
-									<g stroke-linejoin="round" transform="translate(2 3)">
-									<rect width="4" height="8" x="3" y="21" fill="#FFB787" stroke="#000" rx="2"></rect>
-									<rect fill="#FFE2C7" width="24" height="25" rx="3"></rect>
-									<rect fill="#ffe2c7" width="24" height="25" rx="3"></rect>
-									<rect stroke="#000" width="24" height="25" rx="3" stroke-width="1.2"></rect>
-									<rect width="6" height="3" x="9" y="5" fill="#DB9F77" stroke="#FFF" rx="1.5"></rect>
-									<rect width="6" height="3" x="9" y="17" fill="#DB9F77" stroke="#FFF" rx="1.5"></rect>
-									<path fill="#FFDB92" stroke="#EDC29B" d="M1.5 12.5h21"></path>
-									</g>
-								
-									<path fill="#35C5F0" d="M26.25 31.53l-3.7 1.32a1 1 0 01-1.34-.97l.1-3.93a.99.99 0 00-.2-.64l-2.4-3.11a1 1 0 01.51-1.57l3.77-1.12a1 1 0 00.55-.39l2.22-3.24a1 1 0 011.65 0l2.22 3.24a1 1 0 00.55.4l3.77 1.1a1 1 0 01.5 1.58l-2.4 3.11a1 1 0 00-.2.64l.11 3.93a1 1 0 01-1.33.97l-3.71-1.32a1 1 0 00-.67 0z"></path>
-									<path fill="#9AE2F7" d="M27.15 17.61a1 1 0 01.26.26l2.22 3.25c.06.09.13.16.22.23l-8.59 8.58.06-1.98a.99.99 0 00-.21-.64l-2.4-3.11a1 1 0 01.51-1.57l3.77-1.12a1 1 0 00.55-.39l2.22-3.24a1 1 0 011.39-.26z"></path>
-									<path stroke="#000" d="M26.29 30.85l-3.31 1.17a.9.9 0 01-1.2-.86l.1-3.51c0-.2-.06-.4-.18-.57l-2.14-2.78a.9.9 0 01.45-1.4l3.37-.99a.9.9 0 00.48-.35l1.99-2.9a.9.9 0 011.47 0l1.99 2.9c.11.17.28.3.48.35l3.37 1a.9.9 0 01.45 1.4l-2.14 2.77a.89.89 0 00-.18.57l.1 3.5a.9.9 0 01-1.2.87l-3.3-1.17a.9.9 0 00-.6 0z" stroke-width="1.2"></path>
-								</g>
-							</svg>
-						</div>
-						<div class="navigation-upload-dropdown-content-item__content">
-							<div class="navigation-upload-dropdown-content-item__title">상품 리뷰 쓰기</div>
-							<div class="navigation-upload-dropdown-content-item__subtitle">상품 리뷰를 작성하고 포인트도 받아보세요.</div>
-						</div>
-					</a>
-					
-				
-				</div>
-			</div>
-		</div>
-	</div>
-	</sec:authorize>	
-	<sec:authorize access="isAuthenticated()">
+
 	<div>
 		<div class="popout popout--prepared popout--axis-1 popout--dir-2 popout--cross-dir-1 writemenu" data-popout="true" style="display:none; position: absolute; z-index: 1000; left: 1470px; top: 64px; transform: translateX(-50%);">
 			<div class="animated-popout drop-down__content open open-active">
@@ -1271,49 +565,41 @@ margin-top:26px;
 			</div>
 		</div>
 	</div>
-	</sec:authorize>	
 	
-</body>
-
-
-
 <script type="text/javascript">
-
 //마이메뉴 선택하면 마이페이지/로그아웃 등 드롭다운 메뉴 보여주기
 
-	$('.myBtn').click(function(){
-		//alert('마이메뉴');
-		$('.mymenu').css('display', 'block');
-	})
-	
-// 이외의 영역을 클릭하면 사라지기	
+$('.myBtn').click(function(){
+	//alert('마이메뉴');
+	$('.mymenu').css('display', 'block');
+})
 
-	$('.home-page').click(function(e){
-		 if(!$(e.target).hasClass('mymenu')){
-			$('.mymenu').css('display', 'none');
-		} 
-	});
-	
-// 글쓰기 선택하면 메뉴 보여주기
-	
-	$('.writeBtn1').click(function(){
-		$('.writemenu').css('display', 'block');
-	})
+//이외의 영역을 클릭하면 사라지기	
 
-// 이외의 영역을 클릭하면 사라지기 
-	$('.home-page').click(function(e){
-		 if(!$(e.target).hasClass('writemenu')){
-			$('.writemenu').css('display', 'none');
-		} 
-	});
+$('.closeMenu').click(function(e){
+	 if(!$(e.target).hasClass('mymenu')){
+		$('.mymenu').css('display', 'none');
+	} 
+});
 
-	$('.logout').click(function(){
-		location.href="../member/memberLogout"
-	})
+//글쓰기 선택하면 메뉴 보여주기
+
+$('.writeBtn1').click(function(){
+	$('.writemenu').css('display', 'block');
+})
+
+//이외의 영역을 클릭하면 사라지기 
+$('.closeMenu').click(function(e){
+	 if(!$(e.target).hasClass('writemenu')){
+		$('.writemenu').css('display', 'none');
+	} 
+});
+
+$('.logout').click(function(){
+	location.href="../member/memberLogout"
+})
 
 
 </script>
-
-
-
+</body>
 </html>

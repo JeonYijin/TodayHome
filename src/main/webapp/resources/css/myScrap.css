@@ -1,0 +1,300 @@
+@charset "UTF-8";
+
+@media (min-width: 1256px){
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 1136px;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 1px;
+}}
+.layout>* {
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+}
+.collection-feed {
+    position: relative;
+}
+footer, header, main {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+
+.collection-book-header {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+@media (min-width: 1256px){
+.row {
+ 
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin-right: -10px;
+    margin-left: -10px;
+}}
+
+
+@media (min-width: 1256px){
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin-right: -10px;
+    margin-left: -10px;
+}}
+
+.collection-book-title__book-name {
+    display: inline-block;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #000;
+}
+
+@media (min-width: 1024px){
+.collection-book-title__book-name {
+    font-size: 28px;
+    line-height: normal;
+}}
+
+@media (min-width: 1024px){
+.collection-book-owner {
+    margin-top: 19px;
+}}
+
+.collection-book-owner__link {
+    display: inline-block;
+}
+
+.collection-book-owner__link>.profile-image {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+@media (min-width: 1024px){
+.collection-book-owner__link>.profile-image {
+    width: 24px;
+    height: 24px;
+}}
+
+.collection-book-owner__name {
+    font-size: 14px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #757575;
+    vertical-align: middle;
+    transition: color .15s ease;
+}
+@media (min-width: 1024px){
+.collection-book-owner__name {
+    font-size: 15px;
+}}
+.collection-feed__navi {
+    position: relative;
+    z-index: 10;
+}
+.collection-feed__edit-panel, .collection-feed__navi, .collection-feed__navi>.sticky-child {
+    transition: top .1s;
+    background-color: #fff;
+}
+element.style {
+    position: sticky;
+    top: 81px;
+}
+
+element.style {
+    position: relative;
+}
+.page-navigation {
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+    overflow: hidden;
+}
+.page-navigation>ul {
+    text-align: center;
+    white-space: nowrap;
+}
+element.style {
+    transform: translateX(0px);
+}
+.page-navigation__item {
+    user-select: none;
+}
+.page-navigation__item {
+    display: inline-block;
+}
+.page-navigation__item>a {
+    display: block;
+    padding: 0 10px;
+    font-weight: 700;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    transition: color .15s ease;
+}
+.page-navigation__item>a.active:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #35c5f0;
+    left: 0;
+    bottom: 0;
+}
+.page-navigation__item>a.active, .page-navigation__item>a:not(.active):hover {
+    color: #35c5f0;
+}
+.page-navigation__item:not(:first-child) {
+    margin-left: 15px;
+}
+
+.collection-feed__edit-panel {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 50px;
+    z-index: 10;
+}
+element.style {
+    position: sticky;
+    top: 142px;
+}
+.collection-feed__edit-panel>.sticky-child {
+    width: 100%;
+}
+element.style {
+    position: relative;
+}
+.collection-feed__edit-panel__wrap {
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+    color: #424242;
+}
+.collection-feed__edit-panel__left, .collection-feed__edit-panel__wrap {
+    display: flex;
+}
+
+.collection-feed__edit-panel__left {
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.collection-feed-filter__empty {
+    margin-top: 16px;
+}
+
+.collection-feed__edit-panel__menus {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: right;
+    margin-left: auto;
+}
+.collection-feed__edit-panel__menus__menu {
+    margin-right: 24px;
+    cursor: pointer;
+    color: #dbdbdb;
+    border: 0;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: transparent;
+    padding: 0;
+}
+.collection-feed__edit-panel__menus__menu--skyblue {
+    transition: color .2s;
+    color: #35c5f0;
+}
+.collection-feed__edit-panel__menus__menu:last-of-type {
+    margin-right: 0;
+}
+
+element.style {
+    padding-top: 0px;
+    padding-bottom: 289px;
+    transform: translateY(0px);
+}
+@media (min-width: 1024px){
+.col-lg-3 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    box-sizing: border-box;
+    -webkit-box-flex: 0;
+    flex: 0 0 25%;
+    max-width: 25%;
+}}
+@media (min-width: 1024px) and (min-width: 1256px){
+.col-lg-3 {
+    padding-right: 10px;
+    padding-left: 10px;
+}}
+
+.collection, .collection__wrap {
+    position: relative;
+}
+.collection {
+    overflow: hidden;
+    transition: opacity .8s ease;
+}
+@media (min-width: 1024px){
+.collection {
+    margin-bottom: 20px;
+}}
+.collection__image-wrap {
+    background-color: #ededed;
+    position: relative;
+    overflow: hidden;
+}
+.collection__image {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    transition: width .3s ease;
+}
+.collection__image-wrap:after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.collection__type {
+    position: absolute;
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 2px;
+    background-color: rgba(0,0,0,.5);
+    left: 15px;
+    bottom: 15px;
+    z-index: 5;
+}
+.collection__corner-icon {
+    position: absolute;
+    color: #fff;
+    width: 16px;
+    height: 16px;
+    top: 10px;
+    right: 10px;
+    z-index: 5;
+}

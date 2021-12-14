@@ -3,6 +3,8 @@ package com.th.th1.picture;
 import java.sql.Date;
 import java.util.List;
 
+import com.th.th1.feeling.FeelingVO;
+import com.th.th1.feeling.ScrapingVO;
 import com.th.th1.member.MemberVO;
 
 import lombok.Data;
@@ -59,4 +61,6 @@ public class PictureVO {
 	
 	private List<PictureFileVO> pictureFileVO;
 	private MemberVO memberVO;
+	private List<FeelingVO> feelingVO;
+	private List<ScrapingVO> scrapingVO;
 }

@@ -1,6 +1,7 @@
 package com.th.th1.member;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -11,6 +12,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.th.th1.feeling.FeelingVO;
+import com.th.th1.feeling.ScrapingVO;
+import com.th.th1.picture.PictureVO;
 
 @Service
 public class MemberService implements UserDetailsService{
@@ -72,5 +77,70 @@ public class MemberService implements UserDetailsService{
 		return count;
 	}
 	
+	//회원정보 업데이트
+	public int setMemberUpdate(MemberVO memberVO) throws Exception{
+		return memberDAO.setMemberUpdate(memberVO);
+	}
+	
+	
+	
+	//마이페이지
+	
+	//내가 쓴 사진
+	public List<PictureVO> getMyPicture(PictureVO pictureVO) throws Exception{
+		return memberDAO.getMyPicture(pictureVO);
+	}
+	
+	//내가 쓴 사진 개수
+	public Long getMyPicCount(PictureVO pictureVO) throws Exception{
+		return memberDAO.getMyPicCount(pictureVO);
+	}
+	
+	//내가 좋아요한 사진
+	public List<PictureVO> getMyHeartPic(FeelingVO feelingVO) throws Exception{
+		return memberDAO.getMyHeartPic(feelingVO);
+	}
+	
+	//좋아요 사진 개수
+	public Long getMyHeartCount(FeelingVO feelingVO) throws Exception{
+		return memberDAO.getMyHeartCount(feelingVO);
+	}
+	
+	//내가 스크랩한 사진
+	public List<PictureVO> getMyScrapPic(ScrapingVO scrapingVO) throws Exception{
+		return memberDAO.getMyScrapPic(scrapingVO);
+	}
+	
+	//내가 스크랩한 사진 개수
+	public Long getMyScrapCount(ScrapingVO scrapingVO) throws Exception{
+		return memberDAO.getMyScrapCount(scrapingVO);
+	}
+	
+	
+	//마이페이지 알림설정
+	public int setNotiInsert(NotiVO notiVO) throws Exception{
+		return memberDAO.setNotiInsert(notiVO);
+	}
+	
+	public int setNotiUpdate(NotiVO notiVO) throws Exception{
+		return memberDAO.setNotiUpdate(notiVO);
+	}
+	
+	public NotiVO getNoti(NotiVO notiVO) throws Exception{
+		return memberDAO.getNoti(notiVO);
+	}
+	
+	// ------------------------------------------------
+	public int setNotiMInsert(NotiMVO notiMVO) throws Exception{
+		return memberDAO.setNotiMInsert(notiMVO);
+	}
+	
+	public int setNotiMUpdate(NotiMVO notiMVO) throws Exception{
+		return memberDAO.setNotiMUpdate(notiMVO);
+	}
+	
+	public NotiMVO getNotiM(NotiMVO notiMVO) throws Exception{
+		return memberDAO.getNotiM(notiMVO);
+	}
 	
 }

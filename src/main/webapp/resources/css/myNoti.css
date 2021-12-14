@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+
+.css-duqdc3-PushSettingContainer {
+    max-width: 780px;
+    margin: 0px auto;
+    padding: 30px 15px 100px;
+    box-sizing: border-box;
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+@media (min-width: 768px){
+.css-duqdc3-PushSettingContainer {
+    padding: 60px 15px;
+}}
+
+.css-p80mfr-PushSettingTitle {
+    margin: 0px 0px 10px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+    color: rgb(41, 41, 41);
+}
+@media (min-width: 768px){
+.css-p80mfr-PushSettingTitle {
+    margin: 0px 0px 12px;
+    font-size: 24px;
+    line-height: 32px;
+}}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.css-114agji-PushSettingSubTitle {
+    margin: 0px 0px 30px;
+    font-size: 13px;
+    line-height: 19px;
+    color: rgb(66, 66, 66);
+}
+@media (min-width: 768px){
+.css-1xmpys0-PushSettingList {
+    padding: 30px 30px 6px;
+    border: 1px solid rgb(234, 235, 239);
+    border-radius: 4px;
+}}
+
+.css-n4hdvq-PushSettingItem {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 9px 0px;
+}
+@media (min-width: 768px){
+.css-n4hdvq-PushSettingItem {
+    padding: 0px 0px 24px;
+}}
+
+.css-glpnvo-PushSettingItemName {
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    line-height: 21px;
+}
+
+.css-1xnppoi-SwitchSpan {
+    position: relative;
+}
+
+
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+   /*  font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-stretch: ; */
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+}
+input[type="checkbox" i] {
+    background-color: initial;
+    appearance: auto;
+    border: initial;
+}
+.css-xd21da-SwitchInput {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    opacity: 0;
+    box-sizing: border-box;
+    z-index: 1;
+    cursor: pointer;
+}
+@media (min-width: 768px){
+.css-xd21da-SwitchInput:hover + .e1pegdba1, .css-xd21da-SwitchInput:active + .e1pegdba1 {
+    opacity: 0.6;
+}}
+.css-10jjmn2-SwitchSpanThumb {
+    display: inline-block;
+    position: relative;
+    width: 51px;
+    height: 31px;
+    background-color: rgba(120, 120, 128, 0.16);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: opacity 0.1s ease 0s, background-color 0.2s ease 0s;
+}
+.css-10jjmn2-SwitchSpanThumb::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 27px;
+    height: 27px;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border-radius: 100%;
+    border: 0.5px solid rgba(0, 0, 0, 0.04);
+    box-shadow: rgb(0 0 0 / 15%) 0px 3px 8px, rgb(0 0 0 / 6%) 0px 3px 1px;
+    transition: transform 0.2s ease 0s;
+}
+input:checked + .css-10jjmn2-SwitchSpanThumb::before{
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(20px);
+}
+input:checked +.css-10jjmn2-SwitchSpanThumb {
+	display: inline-block;
+    position: relative;
+    width: 51px;
+    height: 31px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: opacity 0.1s ease 0s, background-color 0.2s ease 0s;
+    background-color: rgb(53, 197, 240);
+}
+.css-1luu4ee-SwitchSpanThumb {
+    display: inline-block;
+    position: relative;
+    width: 51px;
+    height: 31px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: opacity 0.1s ease 0s, background-color 0.2s ease 0s;
+    background-color: rgb(53, 197, 240);
+}
+.css-1luu4ee-SwitchSpanThumb::before {
+    transform: translateX(20px);
+}

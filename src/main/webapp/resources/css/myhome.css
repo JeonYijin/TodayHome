@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+@media (min-width: 1256px){
+.css-1c8k8vc-Col {
+    padding-left: 10px;
+    padding-right: 10px;
+}}
+@media (min-width: 1024px){
+.css-1c8k8vc-Col {
+    width: 66.66666666666666%;
+}}
+
+.user-project-feed {
+    position: relative;
+}
+.user-project-feed__content {
+    margin-top: 30px;
+}
+element.style {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    transform: translateY(0px);
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.user-project-feed__empty {
+    margin: 50px 0;
+    text-align: center;
+    font-size: 15px;
+    color: #757575;
+}
