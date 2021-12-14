@@ -9,5 +9,6 @@ public class PrFilesVO {
 	private Long pr_number;
 	private String fileName;
 	private String oriName;
+	private Integer ori_type;
 	
 }

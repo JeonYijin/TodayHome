@@ -2263,6 +2263,7 @@ iframe#_hjRemoteVarsFrame {
 				</c:if>
 			</c:forEach>
 		</sec:authorize>
+		<a class="customer-notice-detail__back" href="./list" type="button">목록으로 돌아가기</a>
 	</div>
 </div>
 </body>

@@ -7,7 +7,6 @@ public class NoticeVO {
 
 	private Integer num;
 	private String title;
-	private String writer;
 	private Date regDate;
 	private String contents;
 	public Integer getNum() {
@@ -22,12 +21,7 @@ public class NoticeVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getWriter() {
-		return writer;
-	}
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
+
 	public Date getRegDate() {
 		return regDate;
 	}

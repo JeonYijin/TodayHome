@@ -16,6 +16,7 @@ public class ProductVO {
 	private Long pr_dPrice; //할인가
 	private Long pr_rate; //판매량
 	private Long pr_scrap; //스크랩수
+	private String pr_address; //회사 주소
 	
 	private List<PrFilesVO> prFiles;
 	

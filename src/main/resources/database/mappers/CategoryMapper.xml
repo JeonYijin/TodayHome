@@ -26,6 +26,7 @@
 		<result column="pr_dPrice" property="pr_dPrice"/>
 		<result column="pr_rate" property="pr_rate"/>
 		<result column="pr_scrap" property="pr_scrap"/>
+		<result column="pr_address" property="pr_address"/>
 		
 		<collection property="prFiles" javaType="List" ofType="PrFilesVO">
 			<id column="fileNum" property="fileNum"/>
@@ -51,12 +52,14 @@
 		<result column="pr_dPrice" property="pr_dPrice"/>
 		<result column="pr_rate" property="pr_rate"/>
 		<result column="pr_scrap" property="pr_scrap"/>
+		<result column="pr_address" property="pr_address"/>
 		
 		<collection property="prFiles" javaType="List" ofType="PrFilesVO">
 			<id column="fileNum" property="fileNum"/>
 			<result column="pr_number" property="pr_number"/>
 			<result column="fileName" property="fileName"/>
 			<result column="oriName" property="oriName"/>
+			<result column="ori_type" property="ori_type"/>
 		</collection>
 	</resultMap>
 	
