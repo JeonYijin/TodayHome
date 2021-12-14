@@ -17,7 +17,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
 </head>
 <body>
-	<h1>Notice Insert Page</h1>
+	<h1>게시판 글 입력</h1>
 
 	<form action="./insert" method="post">
 		<div class="">
@@ -27,7 +27,7 @@
 
 		</div>
 		<div class="">
-			<textarea class="form-control" id="summernote" name="contents" placeholder="contents" maxlength="140" rows="7"></textarea>
+			<textarea class="form-control" id="summernote" name="contents" placeholder="contents"></textarea>
 		</div>
 
 

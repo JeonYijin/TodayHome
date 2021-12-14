@@ -2258,9 +2258,8 @@ iframe#_hjRemoteVarsFrame {
 						href="./delete?num=${noticeVO.num}">삭제</a>
 					<a class="customer-notice-detail__back"
 						href="./update?num=${noticeVO.num}">수정</a>
-					<a class="customer-notice-detail__back" href="./list" type="button">목록으로
-						돌아가기</a>
 				</c:if>
+				
 			</c:forEach>
 		</sec:authorize>
 		<a class="customer-notice-detail__back" href="./list" type="button">목록으로 돌아가기</a>
