@@ -33,6 +33,8 @@
 		<if test='popularity==null'>
 			ORDER BY Q.QUESTS_NUM DESC
 		</if>
+		
+		LIMIT #{startNum}, #{perPage}
 	</select>
 	
 	<resultMap type="QuestionsVO" id="hashtagResult_all">
