@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../resources/css/categoryList.css">
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -27,95 +28,95 @@
             <div class="category-feed row">
                 <div class="category-feed__side-bar col-12 col-md-3">
                     <section class="commerce-category-list">
-                        <h2 class="commerce-category-list__title"><a href="/store/category?pr_category=0">가구</a></h2>
+                        <h2 class="commerce-category-list__title"><a href="/store/category?pr_category=0&filter=${filter}">가구</a></h2>
                         <ul class="commerce-category-tree commerce-category-list__categories">
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=1">침대</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=1&filter=${filter}">침대</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=2">매트리스/토퍼</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=2&filter=${filter}">매트리스/토퍼</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=3">소파</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=3&filter=${filter}">소파</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=4">테이블/책상</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=4&filter=${filter}">테이블/책상</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=5">거실장/TV장</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=5&filter=${filter}">거실장/TV장</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=6">서랍/수납장</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=6&filter=${filter}">서랍/수납장</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=7">진열장/책장</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=7&filter=${filter}">진열장/책장</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=8">선반</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=8&filter=${filter}">선반</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=9">행거/옷장</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=9&filter=${filter}">행거/옷장</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=10">의자</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=10&filter=${filter}">의자</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=11">화장대/콘솔</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=11&filter=${filter}">화장대/콘솔</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=12">거울</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=12&filter=${filter}">거울</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=13">가벽/파티션</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=13&filter=${filter}">가벽/파티션</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=14">야외가구</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=14&filter=${filter}">야외가구</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
                             <li class="commerce-category-tree__entry">
                                 <div class="commerce-category-tree__entry__header">
-                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=15">유아동가구</a>
+                                    <a class="commerce-category-tree__entry__title" href="/store/category?pr_category=15&filter=${filter}">유아동가구</a>
                                 </div>
                                 <div class="" style="overflow: hidden;"></div>
                             </li>
@@ -247,6 +248,59 @@
 		</div>
 		<!-- //전체 / 필터  -->
 		
+		<select onchange="criteria_show()" class="form-control">
+			<c:if test="${empty pager.filter}">
+				<option value="0">판매순</option>
+				<option value="0">낮은 가격순</option>
+				<option value="0">높은 가격순</option>
+				<option value="0">인기순</option>
+				<option selected value="0">최신순</option>
+			</c:if>
+			<c:if test="${pager.filter == 'sales'}">
+				<option value="0" selected>판매순</option>
+				<option value="0"> 낮은 가격순</option>
+				<option value="0">높은 가격순</option>
+				<option value="0">인기순</option>
+				<option value="0">최신순</option>
+			</c:if>
+			<c:if test="${pager.filter == 'lowPrice'}">
+				<option>판매순</option>
+				<option selected>낮은 가격순</option>
+				<option>높은 가격순</option>
+				<option>인기순</option>
+				<option>최신순</option>
+			</c:if>
+			<c:if test="${pager.filter == 'highPrice'}">
+				<option>판매순</option>
+				<option>낮은 가격순</option>
+				<option selected>높은 가격순</option>
+				<option>인기순</option>
+				<option>최신순</option>
+			</c:if>
+			<c:if test="${pager.filter == 'scrap'}">
+				<option>판매순</option>
+				<option>낮은 가격순</option>
+				<option>높은 가격순</option>
+				<option selected>인기순</option>
+				<option>최신순</option>
+			</c:if>
+		</select>
+		
+		<script type="text/javascript">
+			function criteria_show(){
+				var htmll = $('.form-control option').html();
+				alert(htmll);
+			}
+		/*
+		$('.form-control option').click(function(){
+			var test1 = $(this).text();
+			alert(test1);
+			location.href="/category?filter="+test1;
+		});
+		*/
+		
+		</script>
+		
 		<!-- 정렬 방식 -->
 		<div class="popout popout--prepared popout--axis-1 popout--dir-2 popout--cross-dir-2" data-popout="true" style="position: absolute; z-index: 1000; top: 988.667px; right: 112.26px;">
 		    <div class="animated-popout drop-down__content panel-drop-down__content property-filter-bar-drop-down open open-active">
@@ -256,7 +310,7 @@
 		                    <button class="property-filter-panel-entry-list__item" type="button">
 		                        <div class="property-filter-panel-entry-list__item__header">
 		                            <div class="property-filter-panel-entry-list__item__group">
-		                                <div class="_2xClz input-type"><input type="radio" class="fs-4H" value="" /><span class="_2ekY2"></span></div>
+		                                <div class="_2xClz input-type"><input type="radio" class="fs-4H" value="sales" name="filter"/><span class="_2ekY2"></span></div>
 		                                <span class="property-filter-panel-entry-list__item__title">판매순</span>
 		                            </div>
 		                        </div>
@@ -266,8 +320,8 @@
 		                    <button class="property-filter-panel-entry-list__item selected" type="button">
 		                        <div class="property-filter-panel-entry-list__item__header">
 		                            <div class="property-filter-panel-entry-list__item__group">
-		                                <div class="_2xClz input-type"><input type="radio" class="fs-4H" value="" checked="" /><span class="_2ekY2"></span></div>
-		                                <span class="property-filter-panel-entry-list__item__title">인기순</span>
+		                                <div class="_2xClz input-type"><input type="radio" class="fs-4H" value="newest" name="filter" checked="" /><span class="_2ekY2"></span></div>
+		                                <span class="property-filter-panel-entry-list__item__title">최신순</span>
 		                            </div>
 		                        </div>
 		                    </button>
@@ -276,7 +330,7 @@
 		                    <button class="property-filter-panel-entry-list__item" type="button">
 		                        <div class="property-filter-panel-entry-list__item__header">
 		                            <div class="property-filter-panel-entry-list__item__group">
-		                                <div class="_2xClz input-type"><input type="radio" class="fs-4H" value="" /><span class="_2ekY2"></span></div>
+		                                <div class="_2xClz input-type"><input type="radio" class="fs-4H" value="lowPrice" name="filter" /><span class="_2ekY2"></span></div>
 		                                <span class="property-filter-panel-entry-list__item__title">낮은가격순</span>
 		                            </div>
 		                        </div>
@@ -386,42 +440,15 @@
 		</c:forEach>
 		</div>
 		
-		
-		<!-- 페이지 -->
-		<nav class="text-center">
-		  <ul class="pagination">
-		    <li>
-		      <a href="./list?pn=1" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-   		    <li>
-		      <a href="./list?pn=${pager.startNum-1}" aria-label="Previous">
-		        <span aria-hidden="true">&lt;</span>
-		      </a>
-		    </li>
-
-		    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="n">
-		    	<li><a href="./list?pn=${n}&kind=${pager.kind}&search=${pager.search}">${n}</a></li>
-		    </c:forEach>
-
-			<li>
-		      <a href="./list?pn=${pager.lastNum+1}" aria-label="Next">
-		        <span aria-hidden="true">&gt;</span>
-		      </a>
-		    </li>
-		    <li>
-		      <a href="./list?pn=${pager.totalPage}" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</nav>
+		 
 		
 		
+		 
+		
 
-<!-- Option 1: Bootstrap Bundle with Popper -->
+	<!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+	
 </body>
 </html>

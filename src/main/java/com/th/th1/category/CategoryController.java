@@ -21,9 +21,9 @@ public class CategoryController {
 	
 	
 	@GetMapping("category")
-	public ModelAndView getSelectList(ProductVO productVO, Pager pager, @RequestParam("filter") String filter) throws Exception {
+	public ModelAndView getSelectList(ProductVO productVO, Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		List<ProductVO> ar = categoryService.getSelectList(productVO, pager, filter);
+		List<ProductVO> ar = categoryService.getSelectList(productVO, pager);
 		Long count = categoryService.getSelectCount(productVO);
 		String categoryN = categoryService.getSelectCategoryName(productVO);
 		
@@ -32,7 +32,7 @@ public class CategoryController {
 		mv.addObject("count", count);
 		mv.addObject("products", ar);
 		mv.addObject("pager", pager);
-		mv.addObject("filter", filter);
+		System.out.println("pager가 있니?:"+pager);
 		mv.setViewName("store/categoryList");
 		
 		return mv;

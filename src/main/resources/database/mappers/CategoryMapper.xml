@@ -5,20 +5,20 @@
  <mapper namespace="com.th.th1.category.CategoryDAO">
  
  	
- 	<select id="getSelectList" parameterType="java.util.Map" resultMap="getselectListResult">
+ 	<select id="getSelectList" parameterType="hashmap" resultMap="getselectListResult">
 		select @ROWNUM = @ROWNUM + 1 as ROWNUM, PJ.*
 		from
 			(select PD.*, PF.fileName from
 				(select * from pr
-					<if test="pr_category != '0'">
-					where pr_category = #{pr_category}
+					<if test="products.pr_category != '0'">
+					where pr_category = #{products.pr_category}
 					</if>
 				
-					<if test="filter == 'sales'">order by  pr_rate desc</if>
-					<if test="filter == 'lowPrice'">order by  pr_dPrice asc</if>
-					<if test="filter == 'highPrice'">order by  pr_dPrice desc</if>
-					<if test="filter == 'scrap'">order by  scrap desc</if>
-					<if test="filter == 'newest'">order by  pr_num desc</if>
+					<if test="pager.filter == 'sales'">order by  pr_rate desc</if>
+					<if test="pager.filter == 'lowPrice'">order by  pr_dPrice asc</if>
+					<if test="pager.filter == 'highPrice'">order by  pr_dPrice desc</if>
+					<if test="pager.filter == 'scrap'">order by  scrap desc</if>
+					<if test="pager.filter == 'newest'">order by  pr_num desc</if>
 				) 
 				as PD
 			left outer join 

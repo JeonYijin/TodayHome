@@ -15,7 +15,7 @@ public class CategoryService {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
-	public List<ProductVO> getSelectList(ProductVO productVO, Pager pager, String filter) throws Exception {
+	public List<ProductVO> getSelectList(ProductVO productVO, Pager pager) throws Exception {
 		long totalCount = categoryDAO.getSelectCount(productVO);
 		
 		pager.setPerPage(15);
@@ -26,7 +26,6 @@ public class CategoryService {
 		
 		map.put("products", productVO);
 		map.put("pager", pager);
-		map.put("filter", filter);
 		
 		return categoryDAO.getSelectList(map);
 	}

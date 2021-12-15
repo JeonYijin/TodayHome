@@ -30,14 +30,14 @@ public class Pager {
 	private Integer pn; // 페이지번호
 	private Integer perBlock;
 	private Integer startRow; // limit의 시작번호
-	private Integer lastRow;
+	
 	private Long startNum;
 	private Long lastNum;
 	
 	private boolean lastCheck;
 
 	private String reply; //글 하나당 댓글갯수(답변을 기다리는 질문용)
-	private Integer popularity; //인기순
+	private String filter; //카테고리 필터
 	
 	
 	
