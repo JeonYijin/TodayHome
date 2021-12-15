@@ -79,6 +79,7 @@
 			<label class="css-19szivi-Label euhjq6q2">비밀번호</label>
 			<div class="css-1mh39t-Description euhjq6q1">영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</div>
 			<form:password path="pw" id="password" class="_3ASDR _1qwAY essential-pw"/>
+			<form:errors path="pw" cssStyle="color:red;"></form:errors>
 			<!-- 필수입력 구문 -->
 			<div class="message-essential-pw" style="display: none;"></div>
 			<!-- 비밀번호 조건 구문 -->

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,7 +20,7 @@ public class MemberVO implements UserDetails {
    @NotBlank
    private String id;
    
-   @Min(value = 8)
+   @Size(min = 8)
    private String pw;
    
    @NotBlank
