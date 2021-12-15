@@ -174,7 +174,7 @@ margin-top:26px;
 					</div>
 				
 				</header>
-				<div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false" data-sticky-ignore="false" data-direction="top" data-offset="81" class="sticky-container collection-feed__navi" style="position: sticky; top: 81px;">
+				<div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false" data-sticky-ignore="false" data-direction="top" data-offset="81" class="sticky-container collection-feed__navi" style=" top: 81px;">
 					<div class="sticky-child" style="position: relative;">
 						<nav class="page-navigation collection-book-nav">
 							<ul style="transform: translateX(0px);">
@@ -194,7 +194,7 @@ margin-top:26px;
 						</nav>
 					</div>
 				</div>
-				<div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false" data-sticky-ignore="false" data-direction="top" data-offset="142" class="sticky-container collection-feed__edit-panel" style="position: sticky; top: 142px;">
+				<!-- <div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false" data-sticky-ignore="false" data-direction="top" data-offset="142" class="sticky-container collection-feed__edit-panel" style="position: sticky; top: 142px;">
 					<div class="sticky-child" style="position: relative;">
 						<div class="collection-feed__edit-panel__wrap">
 							<div class="collection-feed__edit-panel__left">
@@ -205,7 +205,7 @@ margin-top:26px;
 							</div>
 				        </div>
 			        </div>
-		        </div>
+		        </div> -->
 		        <div class="virtualized-list collection-feed-collections row" style="padding-top: 0px; padding-bottom: 289px; transform: translateY(0px);">
 				    
 				    <c:forEach items="${scrapPic}" var="scrap">

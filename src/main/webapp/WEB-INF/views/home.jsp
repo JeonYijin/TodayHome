@@ -251,48 +251,142 @@ margin-top:26px;
 									<div class="carousel__list-wrap home-header__banner">
 										<div class="carousel__list home-header__banner__list" aria-live="off" style="transform: translateX(0%);">
 											
-											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="1 of 14" style="width: 100%;">
+											
+											<div class="carousel__list__entry home-header__banner__item active" role="group" aria-roledescription="slide" aria-label="1 of 13" style="width: 100%;">
 												<div class="home-header__banner__item__container">
-													<a class="home-header__banner__item__link" href="/competitions/222?affect_type=Home&amp;affect_id=0" target="">
-														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/static/home_banner/sign_up_web_v2.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/static/home_banner/sign_up_web_v2.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/static/home_banner/sign_up_web_v2.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/static/home_banner/sign_up_web_v2.png?gif=1&amp;w=1536 3x">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163945692278074905.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163945692278074905.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163945692278074905.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163945692278074905.png?gif=1&amp;w=1536 3x">
 														<div class="mobile-banner"></div>
 													</a>
 												</div>
 											</div>
 											
 											
+											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="2 of 13" style="width: 100%;">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=1536 3x">
+														<div class="mobile-banner"></div>
+													</a>
+												</div>	
+											</div>
+												
+											
 											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="3 of 13" style="width: 100%;">
 												<div class="home-header__banner__item__container">
-													<a class="home-header__banner__item__link" href="/exhibitions/1433?affect_type=Home&amp;affect_id=0" target="">
+													<a class="home-header__banner__item__link" href="#">
 														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163871163005228430.png?gif=1&amp;w=1536 3x">
 														<div class="mobile-banner"></div>
 													</a>
 												</div>
 											</div>
 											
+											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="4 of 13" style="width: 100%;">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826413137044945.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826413137044945.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826413137044945.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826413137044945.png?gif=1&amp;w=1536 3x">
+														<div class="mobile-banner"></div>
+													</a>
+												</div>
+											</div>
 											
+											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="5 of 13" style="width: 100%;">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904313839875102.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904313839875102.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904313839875102.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904313839875102.png?gif=1&amp;w=1536 3x">
+														<div class="mobile-banner"></div>
+													</a>
+												</div>
+											</div>
+											
+											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="6 of 13" style="width: 100%;">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163870907859313444.jpg?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163870907859313444.jpg?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163870907859313444.jpg?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163870907859313444.jpg?gif=1&amp;w=1536 3x">
+														<div class="mobile-banner"></div>
+													</a>
+												</div>
+											</div>
+											
+											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="7 of 13" style="width: 100%;">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904347482974461.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904347482974461.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904347482974461.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904347482974461.png?gif=1&amp;w=1536 3x">
+														<div class="mobile-banner"></div>
+													</a>
+												</div>
+											</div>
+											
+											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="8 of 13" style="width: 100%;">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163929776026747302.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163929776026747302.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163929776026747302.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163929776026747302.png?gif=1&amp;w=1536 3x">
+														<div class="mobile-banner"></div>
+													</a>
+												</div>
+											</div>
+											
+											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="9 of 13" style="width: 100%;">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904322347666716.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904322347666716.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904322347666716.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163904322347666716.png?gif=1&amp;w=1536 3x">
+														<div class="mobile-banner"></div>
+													</a>
+												</div>
+											</div>
+											
+											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="10 of 13" style="width: 100%;">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163198118464153681.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163198118464153681.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163198118464153681.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163198118464153681.png?gif=1&amp;w=1536 3x">
+														<div class="mobile-banner"></div>
+													</a>
+												</div>
+											</div>
+											
+											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="11 of 13" style="width: 100%;">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826393858213118.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826393858213118.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826393858213118.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826393858213118.png?gif=1&amp;w=1536 3x">
+														<div class="mobile-banner"></div>
+													</a>
+												</div>
+											</div>
+											
+											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="12 of 13" style="width: 100%;">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826388953434307.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826388953434307.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826388953434307.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826388953434307.png?gif=1&amp;w=1536 3x">
+														<div class="mobile-banner"></div>
+													</a>
+												</div>
+											</div>
+											
+											<div class="carousel__list__entry home-header__banner__item" role="group" aria-roledescription="slide" aria-label="13 of 13" style="width: 100%;">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link" href="#">
+														<img class="pc-banner" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826421810333404.png?gif=1&amp;w=512" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826421810333404.png?gif=1&amp;w=850 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826421810333404.png?gif=1&amp;w=1024 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/163826421810333404.png?gif=1&amp;w=1536 3x">
+														<div class="mobile-banner"></div>
+													</a>
+												</div>
+											</div>
+										
 										</div>
 									</div>
 									<div class="home-header__banner-control">
-										<div class="home-header__banner-control__icon">
+										<div class="home-header__banner-control__icon" onclick="prev()">
 											<svg class="home-header__banner-control__icon__arrow home-header__banner-control__icon__arrow--left" width="10" height="18" viewBox="0 0 10 18" preserveAspectRatio="xMidYMid meet">
 												<path fill="#FFF" fill-rule="evenodd" d="M9.89 9l.137-.137L1.343.18l-1.37 1.37L7.424 9l-7.451 7.451 1.37 1.37 8.684-8.684L9.89 9z"></path>
 											</svg>
 										</div>
-										<ul class="home-header__banner-control__page">
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
-											<li class="home-header__banner-control__page__item">
-												<button type="button" class="home-header__banner-control__page__item__button"></button>
-											</li>
+										<!-- <ul class="home-header__banner-control__page">
 											<li class="home-header__banner-control__page__item home-header__banner-control__page__item--select">
 												<button type="button" class="home-header__banner-control__page__item__button"></button>
 											</li>
 											<li class="home-header__banner-control__page__item">
 												<button type="button" class="home-header__banner-control__page__item__button"></button>
 											</li>
-											<li class="home-header__banner-control__page__item">
+											<li class="home-header__banner-control__page__item ">
 												<button type="button" class="home-header__banner-control__page__item__button"></button>
 											</li>
 											<li class="home-header__banner-control__page__item">
@@ -319,8 +413,14 @@ margin-top:26px;
 											<li class="home-header__banner-control__page__item">
 												<button type="button" class="home-header__banner-control__page__item__button"></button>
 											</li>
-										</ul>
-										<div class="home-header__banner-control__icon">
+											<li class="home-header__banner-control__page__item">
+												<button type="button" class="home-header__banner-control__page__item__button"></button>
+											</li>
+											<li class="home-header__banner-control__page__item">
+												<button type="button" class="home-header__banner-control__page__item__button"></button>
+											</li>
+										</ul> -->
+										<div class="home-header__banner-control__icon" onclick="next()">
 											<svg class="home-header__banner-control__icon__arrow home-header__banner-control__icon__arrow--right" width="10" height="18" viewBox="0 0 10 18" preserveAspectRatio="xMidYMid meet">
 												<path fill="#FFF" fill-rule="evenodd" d="M9.89 9l.137-.137L1.343.18l-1.37 1.37L7.424 9l-7.451 7.451 1.37 1.37 8.684-8.684L9.89 9z"></path>
 											</svg>
@@ -341,7 +441,7 @@ margin-top:26px;
 							<div class="shortcut__list__item__link__title">쇼핑하기</div>
 						</a>
 					</li>
-					<li class="shortcut__list__item">
+					 <li class="shortcut__list__item">
 						<a class="shortcut__list__item__link" href="/exhibitions/1763?affect_type=Home&amp;affect_id=0">
 							<div class="shortcut__list__item__link__image">
 								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-162631001897809227.png/512/none">
@@ -365,14 +465,14 @@ margin-top:26px;
 							<div class="shortcut__list__item__link__title">위드크리스마스</div>
 						</a>
 					</li>
-					<li class="shortcut__list__item">
+					 <li class="shortcut__list__item">
 						<a class="shortcut__list__item__link" href="/experts?section=auto-matching&amp;affect_type=Home&amp;affect_id=0">
 							<div class="shortcut__list__item__link__image">
 								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163280526167270880.png/512/none">
 							</div>
 							<div class="shortcut__list__item__link__title">빠른시공상담</div>
 						</a>
-					</li>
+					</li> 
 					<li class="shortcut__list__item">
 						<a class="shortcut__list__item__link" href="/commerces/today_deals?special_feed=true&amp;affect_type=Home&amp;affect_id=0">
 							<div class="shortcut__list__item__link__image">
@@ -1310,6 +1410,77 @@ margin-top:26px;
 	$('.logout').click(function(){
 		location.href="../member/memberLogout"
 	})
+
+// 슬라이드 배너 만들기
+
+$(document).ready(function(){
+	console.log('확인')
+	$('.home-header__banner__item').not('.active').hide();
+	//3초마다 넘어가기
+ 	setInterval("next()", 4000);
+
+});
+
+//이전 슬라이드
+function prev(){
+	$('.home-header__banner__item').hide();
+	let allSlide = $('.home-header__banner__item');
+	let currentIndex = 0; 
+	
+	//반복문의로 현재 active인 div 찾기
+	$('.home-header__banner__item').each(function(index, item){
+		if($(this).hasClass("active")){
+			currentIndex = index;
+		}
+	});
+	
+	//새로 띄울 슬라이드 index
+	let newIndex = 0;
+	if(currentIndex <=0){
+		//현재 슬라이드가 0인경우 - 첫번째인 경우 마지막 슬라이드로 보내기
+		newIndex = allSlide.length-1;
+	} else{
+		//현재 슬라이드가 0이상일 경우 
+		newIndex = currentIndex-1;
+	}
+	
+	//모든 슬라이드에서 active 지우고 새로 주기
+	$('.home-header__banner__item').removeClass("active");
+	
+	//새로운 index의 슬라이드에 active 주고 보여주기
+	$('.home-header__banner__item').eq(newIndex).addClass("active");
+	$('.home-header__banner__item').eq(newIndex).show();
+	
+}
+
+
+//다음 슬라이드
+function next(){
+	$('.home-header__banner__item').hide();
+	let allSlide = $('.home-header__banner__item');
+	let currentIndex = 0;
+	
+	$('.home-header__banner__item').each(function(index, item){
+		if($(this).hasClass("active")){
+			currentIndex = index;
+		}
+	});
+	
+	let newIndex =0;
+	//만약 마지막 슬라이드라면
+	if(currentIndex >= allSlide.length-1){
+		newIndex = 0;
+	} else{
+		//아니라면 다음 슬라이드 
+		newIndex = currentIndex+1;
+	}
+	
+	$('.home-header__banner__item').removeClass("active");
+	$('.home-header__banner__item').eq(newIndex).addClass("active");
+	$('.home-header__banner__item').eq(newIndex).show();
+	
+}
+
 
 
 </script>

@@ -260,7 +260,7 @@ margin-top:26px;
 									<div class="css-1cfe91y-SectionHeader e17n0xi3">
 										<h1 class="css-1yljhnc-SectionTitle e17n0xi2">사진<span class="css-1di0gyp-SectionCount e17n0xi0">${picCount }</span></h1>
 										<div class="css-eytlr-SectionRight e17n0xi1">
-											<a class="css-1nq1haa-UserDetailContentSectionRightLink e7uojt20" href="./mypage/myPicture">전체보기</a>
+											<a class="css-1nq1haa-UserDetailContentSectionRightLink e7uojt20" href="./myPicture?memberNum=${member.memberNum}">전체보기</a>
 										</div>
 									</div>
 									<div class="css-70hrd3-GridListContainer e1qiovhc1">

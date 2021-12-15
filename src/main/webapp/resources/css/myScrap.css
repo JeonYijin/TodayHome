@@ -108,7 +108,7 @@ footer, header, main {
     font-size: 15px;
 }}
 .collection-feed__navi {
-    position: relative;
+   /*  position: relative; */
     z-index: 10;
 }
 .collection-feed__edit-panel, .collection-feed__navi, .collection-feed__navi>.sticky-child {
