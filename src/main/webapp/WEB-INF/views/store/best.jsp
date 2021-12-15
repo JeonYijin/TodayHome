@@ -1,125 +1,119 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport"
-	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,viewport-fit=cover">
-    <meta name="naver-site-verification"
-	content="907a7f8c9a61df897ccf0f03a835f6d2668945b1">
-    <meta property="fb:admins" content="100006457426639">
-    <meta name="google-site-verification"
-	content="d-veBobRNo_in0thN3uOOoIcUWMUOjQZeMidTyItfGk">
-    <meta name="google-site-verification"
-	content="AZK3GfRwg4q_EH-0OSbbkCurocEY7okWrPZF93COxYU">
-    <meta property="fb:app_id" content="185853321610795">
-    <title>공지사항 | 예쁜템들 모여사는 오늘의집</title>
-    <meta name="description"
-	content="2000만이 선택한 No.1 인테리어 필수앱. 집들이 구경부터 제품 정보 확인, 구매까지 한 번에!">
-    
-    <link rel="alternate"
+<link rel="alternate"
 	href="android-app://net.bucketplace/http/ohou.se/deep">
-    <link rel="apple-touch-icon" sizes="57x57"
+<link rel="apple-touch-icon" sizes="57x57"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_57x57.png">
-    <link rel="apple-touch-icon" sizes="72x72"
+<link rel="apple-touch-icon" sizes="72x72"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114"
+<link rel="apple-touch-icon" sizes="114x114"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_114x114.png">
-    <link rel="apple-touch-icon" sizes="144x144"
+<link rel="apple-touch-icon" sizes="144x144"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_144x144.png">
-    <link rel="shortcut icon"
+<link rel="shortcut icon"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_144x144.png">
-    <link href="https://assets.ohou.se/web/assets/favicon.png"
+<link href="https://assets.ohou.se/web/assets/favicon.png"
 	rel="shortcut icon">
-    
-    <meta name="csrf-param" content="authenticity_token">
-    <meta name="csrf-token"
-	content="3MC+JdhGhwpvgx3VTZCYBwjiuEv7qWOSP5Uk+UXF6PTfJ/HD8Er76wGRuitnOpJAlo/kQCq0BUNquWjuAsHuOA==">
-    <link
+<link
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;display=swap&amp;subset=korean"
 	rel="stylesheet">
-    <link rel="stylesheet"
+<link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/preamble-97ede701.chunk.css">
 <link rel="stylesheet"
-	href="https://assets.ohou.se/web/dist/css/templates-CustomerNotice-Feed-eeceaff1.chunk.css">
+	href="https://assets.ohou.se/web/dist/css/5-1fc4abe5.chunk.css">
+<link rel="stylesheet"
+	href="https://assets.ohou.se/web/dist/css/7-122a7274.chunk.css">
+<link rel="stylesheet"
+	href="https://assets.ohou.se/web/dist/css/8-b8609d1a.chunk.css">
+<link rel="stylesheet"
+	href="https://assets.ohou.se/web/dist/css/14-70cf3ee0.chunk.css">
+<link rel="stylesheet"
+	href="https://assets.ohou.se/web/dist/css/templates-Commerce-StoreHome-StoreHomePage-2ef124c8.chunk.css">
 <link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/21-0e75de9b.chunk.css">
 <link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/23-2ef16b9a.chunk.css">
 <link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/App-6e6c2f0c.chunk.css">
-    
-  
-  <script type="text/javascript" async=""
-	src="https://www.google-analytics.com/gtm/js?id=GTM-54TVLXQ&amp;t=gtm7&amp;cid=1460993624.1636618736"></script>
-<script type="text/javascript" async=""
-	src="https://www.google-analytics.com/analytics.js"></script>
-<script type="text/javascript" async=""
-	src="https://www.google-analytics.com/analytics.js"></script>
-<script type="text/javascript"
-	integrity="sha384-cukXwabQy+j/QA1+RqiXSzxhgQg5Rrn3zVszlwH3pWj/bXJxlA8Ge7NhcD6vP2Ik"
-	crossorigin="anonymous" async=""
-	src="https://cdn.amplitude.com/libs/amplitude-7.1.0-min.gz.js"></script>
-<script
-	src="https://connect.facebook.net/signals/config/937204509645248?v=2.9.48&amp;r=stable"
-	async=""></script>
-<script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
-<script async=""
-	src="https://www.googletagmanager.com/gtm.js?id=GTM-MK8DN2Q"></script>
 
 
-  <!-- adinsight 공통스크립트 start -->
-  <script type="text/javascript">
-			var TRS_AIDX = /iPhone|iPad|iPod|Android/.test(navigator.userAgent) ? 11603
-					: 11598;
-		</script>
-  <script type="text/javascript"
-	src="https://analysis.adinsight.co.kr/emnet/trs_esc.js" defer=""></script>
-  <!-- adinsight 공통스크립트 end -->
 
-  <!-- Sentry Testing -->
-  <script src="https://cdn.ravenjs.com/3.26.4/raven.min.js"
-	crossorigin="anonymous"></script>
-  <script>
-			Raven
-					.config(
-							'https://b8e5cc27b3eb44be8b976b0c81dd4115@sentry.io/271486')
-					.install();
+<style data-emotion="css 167c30c-Wrapper" data-s="">
+.css-167c30c-Wrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	z-index: 1;
+	pointer-events: none;
+}
+</style>
+<style data-emotion="css 2itshy-Content" data-s="">
+.css-2itshy-Content {
+	position: absolute;
+	top: 0%;
+	left: 71%;
+	width: 29%;
+	height: 29%;
+}
 
-			Raven.setUserContext({});
-		</script>
+@media ( min-width : 768px) {
+	.css-2itshy-Content {
+		top: 0%;
+		left: 74%;
+		width: 26%;
+		height: 26%;
+	}
+}
+</style>
+<style data-emotion="css vagntg-Image" data-s="">
+.css-vagntg-Image.css-vagntg-Image.css-vagntg-Image {
+	width: 100%;
+	background-color: transparent;
+}
+</style>
+<style data-emotion="css 167c30c-Wrapper" data-s="">
+.css-167c30c-Wrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	z-index: 1;
+	pointer-events: none;
+}
+</style>
+<style data-emotion="css 2itshy-Content" data-s="">
+.css-2itshy-Content {
+	position: absolute;
+	top: 0%;
+	left: 71%;
+	width: 29%;
+	height: 29%;
+}
 
-  <script type="application/ld+json">
-  {
-   "@context": "http://schema.org",
-   "@type": "Organization",
-   "name": "오늘의집",
-   "url": "https://ohou.se",
-   "sameAs": [
-     "https://www.instagram.com/todayhouse/?hl=ko",
-     "https://www.facebook.com/interiortoday",
-     "https://m.post.naver.com/my.nhn?memberNo=202156",
-     "https://itunes.apple.com/kr/app/id1008236892",
-     "https://play.google.com/store/apps/details?id=net.bucketplace&hl=ko",
-     "https://www.youtube.com/channel/UCBKtitA1RwY7F32rCniV1dA/featured"
-   ]
-  }
-  </script>
-
-
-    <!--[if lte IE 9]>
-    <script>
-      alert("본 서비스는 Microsoft Explorer 11 이하는 지원하지 않습니다. 브라우저를 업그레이드하고 사용하시거나 앱을 다운받아 사용하실 수 있습니다. 확인을 누르면 앱 다운로드 링크로 연결됩니다.");
-      window.location.href = "https://play.google.com/store/apps/details?id=net.bucketplace&hl=kor";
-    </script>
-    <![endif]-->
-  <style data-emotion="css wkl218-SectionWrapper" data-s="">
+@media ( min-width : 768px) {
+	.css-2itshy-Content {
+		top: 0%;
+		left: 74%;
+		width: 26%;
+		height: 26%;
+	}
+}
+</style>
+<style data-emotion="css vagntg-Image" data-s="">
+.css-vagntg-Image.css-vagntg-Image.css-vagntg-Image {
+	width: 100%;
+	background-color: transparent;
+}
+</style>
+<style data-emotion="css wkl218-SectionWrapper" data-s="">
 .css-wkl218-SectionWrapper {
 	margin-top: 32px;
 }
@@ -150,6 +144,7 @@
 	margin-left: 8px;
 }
 </style>
+<style data-emotion="css" data-s=""></style>
 <meta http-equiv="origin-trial"
 	content="A4RpyXPHPXj2Tt0KMMrya+U6IibH8/6yFLknmyK5ZwpgUNYhhwGyllkLZNqKedteT7fKzxsI8p/Pbpbd4tEJOQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5uZXQ6NDQzIiwiZmVhdHVyZSI6IkludGVyZXN0Q29ob3J0QVBJIiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
 <link rel="stylesheet" href="https://use.fontawesome.com/7f85a56ba4.css">
@@ -2225,7 +2220,7 @@ body>.ab-feed .ab-no-cards-message {
 </style>
 <script async="" src="https://static.hotjar.com/c/hotjar-877658.js?sv=6"></script>
 <script async=""
-	src="https://script.hotjar.com/modules.376dac12c7cbd03331c3.js"
+	src="https://script.hotjar.com/modules.cbd9b920d05cd9e47f57.js"
 	charset="utf-8"></script>
 <style type="text/css">
 iframe#_hjRemoteVarsFrame {
@@ -2235,57 +2230,123 @@ iframe#_hjRemoteVarsFrame {
 	opacity: 0 !important;
 	pointer-events: none !important;
 }
-.customer-notice-detail__back {
-    display: inline-block;
-    background: none;
-    font: inherit;
-    display: block;
-    width: 180px;
-    margin: 0 auto;
-    padding: 10px 0;
-    font-size: 15px;
-    line-height: 20px;
-    text-align: center;
-    font-weight: 700;
-    background-color: #35c5f0;
-    border: none;
-    color: #fff;
-    border-radius: 4px;
-    transition: background-color .1s;
-}
 </style>
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/2-3fa663ee97c60bc54fd4.chunk.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://assets.ohou.se/web/dist/css/templates-Commerce-BestSellers-Feed-BestSellersFeedPage-9bdfe6b3.chunk.css">
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/templates-Commerce-BestSellers-Feed-BestSellersFeedPage-c38d304315b65b9085f5.chunk.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://assets.ohou.se/web/dist/css/45-8242b1ed.chunk.css">
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/45-3169a4c27af0e57a8be6.chunk.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://assets.ohou.se/web/dist/css/templates-Commerce-Category-Feed-CategoryFeedPage-4b4f4d2a.chunk.css">
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/templates-Commerce-Category-Feed-CategoryFeedPage-509aa7ebeece898fae9a.chunk.js"></script>
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/4-855b10dd1207e19fe2e0.chunk.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://assets.ohou.se/web/dist/css/templates-Commerce-Product-Detail-ProductDetailPage-7980d1fd.chunk.css">
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/templates-Commerce-Product-Detail-ProductDetailPage-54d8b93bd31693824531.chunk.js"></script>
+<script
+	src="https://cdn.megadata.co.kr/js/socialLink/social_sns_config_min.js"
+	type="text/javascript" defer=""></script>
+<link rel="canonical" href="https://ohou.se/ranks?type=best"
+	data-react-helmet="true">
+<meta name="description"
+	content="오늘의집 베스트 상품을 소개합니다.실시간 베스트 상품과 카테고리별 역대 베스트 상품을 확인해보세요."
+	data-react-helmet="true">
+</head>
 </head>
 
 <body>
-<%@ include file="../store/header.jsp"%>
-	<form action="./list" id="frm">
-		<div class="customer-notice-list">
-			<div class="customer-notice-list__content">
-				<h1 class="customer-notice-list__title">공지사항</h1>
-				<div class="virtualized-list customer-notice-list__list"
-					style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px)">
-					<div class="customer-notice-list__list-item">
-					<c:forEach items="${noticeVO}" var="noticeVO">
-						<a class="customer-notice-feed-item"
-								href="./select?num=${noticeVO.num}"><article
-									class="customer-notice-feed-item__content">
-								<h1 class="customer-notice-feed-item__title">${noticeVO.title}</h1>
-								<time class="customer-notice-feed-item__date" datetime="">${noticeVO.regDate}</time>
-							</article></a>
-							</c:forEach>
+	<div class="ranking-feed__item-wrap col-12 col-md-12 col-lg-3" style="">
+		<div class="ranking-product-item__wrap" id="product-543813">
+			<a class="ranking-product-item__link"
+				href="/productions/543813/selling"></a>
+			<div class="ranking-product-item__img-wrap">
+				<div
+					class="ranking-product-item__img-wrap__number ranking-product-item__img-wrap__number__blue">
+					<span>1</span>
+				</div>
+				<div class="production-item-image">
+					<div class="css-167c30c-Wrapper evlxapa2">
+						<div class="css-2itshy-Content evlxapa1">
+							<picture>
+							<source type="image/webp"
+								src="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163823608051713566.png?w=256&amp;h=256&amp;c=c&amp;webp=1"
+								srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163823608051713566.png?w=360&amp;h=360&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163823608051713566.png?w=480&amp;h=480&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163823608051713566.png?w=720&amp;h=720&amp;c=c&amp;webp=1 3x">
+							<img class="css-vagntg-Image evlxapa0"
+								src="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163823608051713566.png?w=256&amp;h=256&amp;c=c"
+								srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163823608051713566.png?w=360&amp;h=360&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163823608051713566.png?w=480&amp;h=480&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163823608051713566.png?w=720&amp;h=720&amp;c=c 3x"></picture>
+						</div>
 					</div>
+					<img class="image" alt=""
+						src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160405524122572244.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8"
+						srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160405524122572244.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160405524122572244.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160405524122572244.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8 3x">
+					<button
+						class="production-item-scrap-badge production-item-image__scrap-badge"
+						type="button">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+							viewBox="0 0 24 24" class="inactive-icon">
+									
+										<g fill="none" fill-rule="nonzero"
+								transform="matrix(1 0 0 -1 0 24)">
+										<use fill="#000" filter="url(#scrap-icon-88-a)"
+								href="#scrap-icon-88-b"></use>
+										<use fill="#FFF" fill-opacity=".4" href="#scrap-icon-88-b"></use>
+										<use fill="#000" filter="url(#scrap-icon-88-c)"
+								href="#scrap-icon-88-b"></use>
+										<path stroke="#FFF"
+								d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path></g></svg>
+						<svg class="active-icon" width="24" height="24"
+							viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+										<path fill="#35C5F0" fill-rule="nonzero"
+								d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path></svg>
+					</button>
+					<div class="production-item-image__dark-overlay"></div>
+				</div>
+			</div>
+			<div class="ranking-product-item__content">
+				<div class="ranking-product-item__content--wrap">
+					<h1 class="ranking-product-item__header">
+						<span class="ranking-product-item__header__brand">베이직톤 </span>
+						<span
+							class="ranking-product-item__header__name"> 노스베어 프리미엄 10mm
+							라셀 극세사차렵이불 SS/Q/K/LK</span>
+					</h1>
+					<span class="production-item-price"><span
+						class="production-item-price__rate">67<span
+							class="percentage">% </span></span><span
+						class="production-item-price__price">59,900</span></span>
+					<div class="ranking-product-item__stats">
+						<p class="production-item-stats production-item-stats--review">
+							<svg class="icon" width="24" height="24" viewBox="0 0 24 24"
+								preserveAspectRatio="xMidYMid meet">
+											<path fill="currentColor" fill-rule="evenodd"
+									d="M12 19.72l-5.677 2.405c-.76.322-1.318-.094-1.247-.906l.533-6.142-4.042-4.656c-.54-.624-.317-1.283.477-1.467l6.006-1.39L11.23 2.28c.426-.707 1.122-.699 1.542 0l3.179 5.282 6.006 1.391c.805.187 1.011.851.477 1.467l-4.042 4.656.533 6.142c.072.822-.497 1.224-1.247.906L12 19.72z"></path></svg>
+							<strong class="avg">4.7</strong> 리뷰 3,339
+						</p>
+					</div>
+					<span class="production-item-badge-list"><svg class="icon"
+							aria-label="무료배송" width="47" height="20" viewBox="0 0 47 20"
+							preserveAspectRatio="xMidYMid meet">
+										<g fill="none" fill-rule="evenodd">
+										<rect width="47" height="20" fill="#000" fill-opacity=".07"
+								fill-rule="nonzero" rx="4"></rect>
+										<path fill="#757575"
+								d="M12.73 5.38v3.96h-6.6V5.38h6.6zm-2.68 9.43H8.76v-3.25H5v-1.03h8.86v1.03h-3.81v3.25zm1.4-6.49V6.41H7.43v1.91h4.04zm11.08 2.7h-1.42v1.54h2.26v1.02h-8.86v-1.02h2.24v-1.53h-1.1V7.78h5.32V6.65H15.6V5.63h6.66V8.8h-5.33v1.18h5.61v1.04zm-4.53 0v1.54h1.87v-1.53H18zm14.37 3.78h-1.23V9.86h-.8v4.49h-1.2V5.18h1.2v3.66h.8V5h1.23v9.8zm-4.2-2.54h-3.9V6.01h1.27v2.26h1.36V6h1.28v6.26zm-1.27-1.01v-2h-1.36v2h1.36zm14.49 1.71c0 1.13-1.25 1.82-3.41 1.82s-3.42-.7-3.42-1.82 1.25-1.82 3.4-1.82c2.18 0 3.43.7 3.43 1.82zm-3.41-6.05c-.5 1.13-2.1 1.9-3.51 2.1l-.54-1c1.64-.17 3.39-1.06 3.39-2.54V5.2h1.33v.28c0 1.48 1.99 2.47 3.4 2.53l-.55 1.01c-1.31-.18-3.03-.97-3.52-2.1zm4.42 3.78h-8.86V9.66h3.79V8.4h1.29v1.26h3.78v1.03zm-2.33 2.27c0-.5-.83-.8-2.1-.8s-2.08.3-2.08.8c0 .51.81.8 2.08.8s2.1-.29 2.1-.8z"></path></g></svg>
+						<svg class="icon" aria-label="특가" width="30" height="20"
+							viewBox="0 0 30 20" preserveAspectRatio="xMidYMid meet">
+										<rect width="30" height="20" fill="#F77" rx="4"></rect>
+										<path fill="#fff"
+								d="M12.83 7.93v-.97H7.93v-.555h5.228v-.991H6.655v4.063h6.59v-.992H7.928V7.93h4.901zm-6.295 3.747v1.002h5.326v2.037h1.274v-3.04h-6.6zm7.733-.588v-1.024H5.5v1.024h8.768zM23.91 9.782V8.725h-1.405V5H21.24v9.705h1.264V9.782h1.405zm-3.954-3.79h-4.53v1.056h3.147c-.174 1.938-1.623 3.975-3.736 4.945l.773.958c2.974-1.612 4.259-4.03 4.346-6.96z"></path></svg></span>
 				</div>
 			</div>
 		</div>
-	  <sec:authorize access="isAuthenticated()" var="result">
-                                <sec:authentication property="principal" var="memberVO"/>
-                                <c:forEach items="${memberVO.roles}" var="role">
-                                   <c:if test="${role.num eq 1}">
-                                           <a class="customer-notice-detail__back"href="./insert">등록</a>
-                                   </c:if>
-                                </c:forEach>
-                             </sec:authorize>
-	</form>
-	<%@ include file="../store/footer.jsp"%>
+	</div>
 </body>
 </html>

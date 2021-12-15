@@ -47,5 +47,19 @@ public class CategoryController {
 		return mv;
 	}
 	
+	@GetMapping("best")
+	public ModelAndView getSelectList1(ProductVO productVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		List<ProductVO> ar1 = categoryService.getSelectList1(productVO);
+		System.out.println("size :"+ ar1.size());
+		Long count = categoryService.getSelectCount(productVO);
+		String categoryN = categoryService.getSelectCategoryName(productVO);
+		mv.addObject("categoryN", categoryN);
+		mv.addObject("products", ar1);
+		mv.setViewName("store/best");
+		
+		return mv;
+	}
+	
 
 }

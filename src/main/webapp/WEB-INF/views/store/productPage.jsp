@@ -354,7 +354,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- 메뉴 버튼 눌를떄 해당 메뉴로 이동  -->
+	<!-- 메뉴 버튼 누를떄 해당 메뉴로 이동  -->
 	<script>
 		function fnMove(seq) {
 			var offset = $("#div" + seq).offset();
