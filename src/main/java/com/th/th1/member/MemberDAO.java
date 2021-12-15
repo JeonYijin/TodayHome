@@ -23,7 +23,7 @@ public interface MemberDAO {
 		public int setMemberDelete(MemberVO memberVO) throws Exception;
 		
 		//닉네임 중복 확인
-		public Long getNicknameCheck(MemberVO memberVO) throws Exception;
+//		public Long getNicknameCheck(MemberVO memberVO) throws Exception;
 
 
 	//회원정보 업데이트
@@ -31,7 +31,15 @@ public interface MemberDAO {
 	
 
 	
+
+	//닉네임 중복 확인 ajax
+	public Long getNicknameCheck(MemberVO memberVO) throws Exception;
 	
+	//아이디 조회
+	public MemberVO getSelectId(MemberVO memberVO) throws Exception;
+	
+	//닉네임 조회
+	public MemberVO getSelectNickname(MemberVO memberVO) throws Exception;
 
 	
 	//로그인

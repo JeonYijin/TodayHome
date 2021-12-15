@@ -1768,3 +1768,122 @@ pattern {
     border-radius: 30px !important;
 }
 
+.animated-popout.open.open.open {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: opacity .2s,transform .2s;
+}
+
+.popout .drop-down__content.property-filter-bar-drop-down {
+    margin-top: 8px;
+}
+
+.animated-popout.open-active {
+    pointer-events: auto;
+}
+
+.drop-down__content {
+    z-index: 1000;
+}
+
+.animated-popout {
+    transform-origin: 50% 0;
+    box-sizing: border-box;
+}
+
+.panel-drop-down__content {
+    position: relative;
+}
+
+.popout .drop-down__content.property-filter-bar-drop-down .drop-down-panel {
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 30%);
+}
+
+.drop-down-panel {
+    margin: 0 -1px;
+    box-sizing: border-box;
+    background-color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.drop-down-panel .property-filter-panel-entry-list.wide {
+    width: 460px;
+}
+
+.drop-down-panel>.property-filter-panel-entry-list {
+    max-height: 370px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.drop-down-panel .property-filter-panel-entry-list {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 16px 18px 16px 22px;
+    min-height: 34px;
+    max-width: 460px;
+}
+
+.property-filter-panel-entry-list {
+    margin: 0;
+    list-style: none;
+}
+
+ul {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.property-filter-panel-entry-list__item-wrap {
+    -webkit-box-flex: 1;
+    flex: 1 1 50%;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.drop-down-panel .property-filter-panel-entry-list__item {
+    padding: 8px;
+}
+.property-filter-panel-entry-list__item {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    background: #fff;
+    color: #424242;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    text-decoration: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+.property-filter-panel-entry-list__item {
+    user-select: none;
+}
+
+button {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    align-items: flex-start;
+}
+

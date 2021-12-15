@@ -4,13 +4,16 @@ package com.th.th1.member;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -283,25 +286,33 @@ public class MemberController {
 
 	//회원가입 폼 이동
 	@GetMapping("memberJoin")
-	public String setMemberInsert() throws Exception {
+	public String setMemberInsert(@ModelAttribute MemberVO memberVO) throws Exception {
 		return ("member/memberJoin");
 	}
 	
 	//회원가입 폼 제출
 	@PostMapping("memberJoin")
-	public ModelAndView setMemberInsert(MemberVO memberVO) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		int result = memberService.setMemberInsert(memberVO);
-		String message = "회원가입에 실패하였습니다. 다시 시도해주세요.";
-		if(result > 0){
-			message = "회원가입에 성공했습니다.";
+	public String setMemberInsert(@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception {
+		
+		if(memberService.memberError(memberVO, bindingResult)) {
+			System.out.println("회원가입 실패 bindingResult");
+			return "member/memberJoin";
 		}
 		
-		mv.addObject("msg", message);
-		mv.addObject("url", "../");
-		mv.setViewName("common/result");
+		int result = memberService.setMemberInsert(memberVO);
+		ModelAndView mv = new ModelAndView();
 		
-		return mv;
+		
+//		String message = "회원가입에 실패하였습니다. 다시 시도해주세요.";
+//		if(result > 0){
+//			message = "회원가입에 성공했습니다.";
+//		}
+//		
+//		mv.addObject("msg", message);
+//		mv.addObject("url", "../");
+//		mv.setViewName("common/result");
+		
+		return "redirect:../";
 	}
 	
 	//이용약관 

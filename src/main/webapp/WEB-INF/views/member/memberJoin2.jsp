@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,144 +34,155 @@
 		<path fill="#FFF" d="M21 25.231V34h-7V15h7l6 8.769V15h7v19h-7l-6-8.769z"></path></g></svg></a></li></ul></div>
 		
 	<!-- 회원가입 폼 -->
-	
-		<form:form modelAttribute="memberVO" enctype="multipart/form-data">
-			<form:hidden path="id" cssClass="member-id"/>
-			<div class="css-zmw5pi-FieldWrapperContainer euhjq6q3">
-			<label class="css-19szivi-Label euhjq6q2">이메일</label>
-			<div class="css-mdp60j-EmailFieldInputWrapper e159epbo1">
-			<div class="input-group email-input">
-			<span class="email-input__local">
-			<form:input path="" id="email-id" cssClass="form-control essential-id" size="1"/></span>
-			<span class="email-input__separator">@</span>
-			<span class="email-input__domain" id="email-domain-area">
-			<form:errors path="id" cssStyle="color:red;"></form:errors>
-			
-			<form:select path="" cssClass="form-control empty" id="email-domain-select">
-				<form:option value="" disabled="">선택해주세요</form:option>
-				<form:option value="naver.com">naver.com</form:option>
-				<form:option value="hanmail.net">hanmail.net</form:option>
-				<form:option value="daum.net">daum.net</form:option>
-				<form:option value="gmail.com">gmail.com</form:option>
-				<form:option value="nate.com">nate.com</form:option>
-				<form:option value="hotmail.com">hotmail.com</form:option>
-				<form:option value="outlook.com">outlook.com</form:option>
-				<form:option value="icloud.com">icloud.com</form:option>
-				<form:option value="manual">직접입력</form:option>
-			</form:select>
-			
-			<input id="email-domain-manual" type="hidden" class="form-control" placeholder="입력해주세요" size="1" value="">
-			
-			<button class="email-input__domain__expand" aria-label="초기화" type="button" tabindex="-1">
-			<svg class="icon" width="10" height="10" style="fill:currentColor" preserveAspectRatio="xMidYMid meet">
-			<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path></svg>
-			</button>
-			</span>
-			</div></div></div>
-			
-			<!-- 필수입력 구문 -->
-			<div class="message-essential-id" style="display: none;">필수입력 항목입니다.</div>
-			
-			<div class="" style="display:;height:;transition:;overflow:hidden;margin-bottom:">
-			</div>
-			<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
-			<label class="css-19szivi-Label euhjq6q2">비밀번호</label>
-			<div class="css-1mh39t-Description euhjq6q1">영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</div>
-			<form:password path="pw" id="password" class="_3ASDR _1qwAY essential-pw"/>
-			<form:errors path="pw" cssStyle="color:red;"></form:errors>
-			<!-- 필수입력 구문 -->
-			<div class="message-essential-pw" style="display: none;"></div>
-			<!-- 비밀번호 조건 구문 -->
-			<div class="message-condition-pw-length" style="display: none;">비밀번호는 영문, 숫자를 포함하여 8자 이상이어야 합니다.</div>
-			<div class="message-condition-pw-blank" style="display: none;">비밀번호는 공백 없이 입력해주세요.</div>
-			</div>
-			
-			<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
-			<label class="css-19szivi-Label euhjq6q2">비밀번호 확인</label>
-			<form:password path="pwCheck" cssClass="_3ASDR _1qwAY pwcheck ess"/>
-			<form:errors path="pwCheck" cssStyle="color:red;"></form:errors>
-			<!-- 비밀번호 일치 확인 구문 -->
-			<div class="message-pwcheck" style="display: none;">비밀번호가 일치하지 않습니다.</div>
-			</div>
-			
-			<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
-			<label class="css-19szivi-Label euhjq6q2">닉네임</label>
-			<div class="css-1mh39t-Description euhjq6q1">다른 유저와 겹치지 않는 별명을 입력해주세요. (2~15자)</div>
-			<form:input path="nickname" cssClass="_3ASDR _1qwAY essential-nm nickname"/>
-			<form:errors path="nickname" cssStyle="color:red;"></form:errors>
-			<!-- 닉네임 중복 방지 구문 -->
-			<div class="message-nickname-check" style="display: none;">사용 중인 별명입니다.</div>
-			</div>
-			
-			<!-- 약관 동의 -->
-			<div>
-				<label class="terms-head">약관 동의</label>
-				
-				<div class="terms-container">
-					<div class="terms-container-agreeAll">
-						<div class="_4VN_z _3xqzr">
-							<div class="terms-checkbox">
-								<form:checkbox path="" value="1" cssClass="checkbox-agreeAll"/>
-							</div>
-							
-							<div>
-								<span class="terms-label-agreeAll">전체동의</span>
-							</div>
-						</div>
-					</div>
-					
-					<div class="_4VN_z _3xqzr">
-						<div class="terms-checkbox">
-								<form:checkbox path="" value="2" cssClass="checkbox-agree1 checks"/>
-						</div>
-						<div class="term-text">
-							만 14세 이상입니다.
-							<span class="term-text-require">(필수)
-							</span>
-						</div>
-					</div>
-					
-					<div class="_4VN_z _3xqzr">
-						<div class="terms-checkbox">
-								<form:checkbox path="" value="3" cssClass="checkbox-agree2 checks"/>
-						</div>
-						<div class="term-text">
-							<a target="_blank" class="term-text-policy" href="./usePolicy">
-							 이용약관
-							</a>
-							<span class="term-text-require">(필수)
-							</span>
-						</div>
-					</div>
-					
-					<div class="_4VN_z _3xqzr">
-						<div class="terms-checkbox">
-								<form:checkbox path="" value="4" cssClass="checkbox-agree3 checks"/>
-						</div>
-						<div class="term-text">
-							<a target="_blank" class="term-text-policy" href="./privacy">
-							 개인정보수집 및 이용동의
-							</a>
-							<span class="term-text-require">(필수)</span>
-						</div>
-					</div>
-					
-					<div class="_4VN_z _3xqzr">
-						<div class="terms-checkbox">
-								<form:checkbox path="" value="5" cssClass="checkbox-agree4 checks"/>
-						</div>
-						<div class="term-text">
-							이벤트, 프로모션 알림 메일 및 SMS 수신
-							<span class="term-text-option">(선택)</span>
-						</div>
-					</div>
-				
-				</div>
-			</div>
 		
-			<button id="joinBtn" class="_3Z6oR _3AsCW _2tsrJ css-1c1st7f-ButtonWrapper e1y3odo22">회원가입하기</button>
+		<form action="memberJoin" method="post">
+		<!-- 아이디 -->
+		
+		<input id="member-id" type="hidden" name="id">
+		<div class="css-zmw5pi-FieldWrapperContainer euhjq6q3">
+		<label class="css-19szivi-Label euhjq6q2">이메일</label>
+		<div class="css-mdp60j-EmailFieldInputWrapper e159epbo1">
+		<div class="input-group email-input">
+		<span class="email-input__local">
+		<input class="form-control essential-id" id="email-id" value="" placeholder="이메일" size="1"></span>
+		<span class="email-input__separator">@</span>
+		<span class="email-input__domain" id="email-domain-area">
+		
+		<select class="form-control empty" id="email-domain-select">
+			<option selected="" value="" disabled="">선택해주세요</option>
+			<option value="naver.com">naver.com</option>
+			<option value="hanmail.net">hanmail.net</option>
+			<option value="daum.net">daum.net</option>
+			<option value="gmail.com">gmail.com</option>
+			<option value="nate.com">nate.com</option>
+			<option value="hotmail.com">hotmail.com</option>
+			<option value="outlook.com">outlook.com</option>
+			<option value="icloud.com">icloud.com</option>
+			<option value="manual">직접입력</option>
+		</select>
+		
+		<input id="email-domain-manual" type="hidden" class="form-control" placeholder="입력해주세요" size="1" value="">
+		
+		<button class="email-input__domain__expand" aria-label="초기화" type="button" tabindex="-1">
+		<svg class="icon" width="10" height="10" style="fill:currentColor" preserveAspectRatio="xMidYMid meet">
+		<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path></svg>
+		</button>
+		</span>
+		</div></div></div>
+		
+		<!-- 필수입력 구문 -->
+		<div class="message-essential-id" style="display: none;">필수입력 항목입니다.</div>
+		
+		
+		
+		<div class="" style="display:;height:;transition:;overflow:hidden;margin-bottom:">
+		</div>
+		<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
+		<label class="css-19szivi-Label euhjq6q2">비밀번호</label>
+		<div class="css-1mh39t-Description euhjq6q1">영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</div>
+		<input type="password" id="password" class="_3ASDR _1qwAY essential-pw" value="" field="[object Object]" name="pw" placeholder="비밀번호">
+		<!-- 필수입력 구문 -->
+		<div class="message-essential-pw" style="display: none;"></div>
+		<!-- 비밀번호 조건 구문 -->
+		<div class="message-condition-pw-length" style="display: none;">비밀번호는 영문, 숫자를 포함하여 8자 이상이어야 합니다.</div>
+		<div class="message-condition-pw-blank" style="display: none;">비밀번호는 공백 없이 입력해주세요.</div>
+		</div>
+		
+		<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
+		<label class="css-19szivi-Label euhjq6q2">비밀번호 확인</label>
+		<input type="password" class="_3ASDR _1qwAY pwcheck ess" value="" field="[object Object]" name="confirmPassword" placeholder="비밀번호 확인">
+		<!-- 비밀번호 일치 확인 구문 -->
+		<div class="message-pwcheck" style="display: none;">비밀번호가 일치하지 않습니다.</div>
+		</div>
+		
+		<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
+		<label class="css-19szivi-Label euhjq6q2">닉네임</label>
+		<div class="css-1mh39t-Description euhjq6q1">다른 유저와 겹치지 않는 별명을 입력해주세요. (2~15자)</div>
+		<input class="_3ASDR _1qwAY essential-nm nickname" value="" field="[object Object]" name="nickname" placeholder="별명 (2~15자)">
+		<!-- 닉네임 중복 방지 구문 -->
+		<div class="message-nickname-check" style="display: none;">사용 중인 별명입니다.</div>
+		</div>
+		
+		
+		<!-- 약관 동의 -->
+		<div>
+			<label class="terms-head">약관 동의</label>
 			
-		</form:form>
+			<div class="terms-container">
+				<div class="terms-container-agreeAll">
+					<div class="_4VN_z _3xqzr">
+						<div class="terms-checkbox">
+							<input type="checkbox" class="checkbox-agreeAll">
+						</div>
+						
+						<div>
+							<span class="terms-label-agreeAll">전체동의</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="_4VN_z _3xqzr">
+					<div class="terms-checkbox">
+							<input type="checkbox" class="checkbox-agree1 checks">
+					</div>
+					<div class="term-text">
+						만 14세 이상입니다.
+						<span class="term-text-require">(필수)
+						</span>
+					</div>
+				</div>
+				
+				<div class="_4VN_z _3xqzr">
+					<div class="terms-checkbox">
+							<input type="checkbox" class="checkbox-agree2 checks">
+					</div>
+					<div class="term-text">
+						<a target="_blank" class="term-text-policy" href="./usePolicy">
+						 이용약관
+						</a>
+						<span class="term-text-require">(필수)
+						</span>
+					</div>
+				</div>
+				
+				<div class="_4VN_z _3xqzr">
+					<div class="terms-checkbox">
+							<input type="checkbox" class="checkbox-agree3 checks">
+					</div>
+					<div class="term-text">
+						<a target="_blank" class="term-text-policy" href="./privacy">
+						 개인정보수집 및 이용동의
+						</a>
+						<span class="term-text-require">(필수)</span>
+					</div>
+				</div>
+				
+				<div class="_4VN_z _3xqzr">
+					<div class="terms-checkbox">
+							<input type="checkbox" class="checkbox-agree4 checks">
+					</div>
+					<div class="term-text">
+						이벤트, 프로모션 알림 메일 및 SMS 수신
+						<span class="term-text-option">(선택)</span>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+		
+		
+		
+		<button id="joinBtn" class="_3Z6oR _3AsCW _2tsrJ css-1c1st7f-ButtonWrapper e1y3odo22" type="button">회원가입하기</button>
+		
+		</form>
+		
+		
+		
+		<p class="css-19aqixc-SignUpBottomMessage e1y3odo21">이미 아이디가 있으신가요?
+		<a href="/member/memberLogin" class="css-53zgs0-LoginLink e1y3odo20">로그인</a>
+		</p>
+		</div>
+	</section>
 
 <script type="text/javascript" src="../resources/js/memberJoin.js"></script>
 			

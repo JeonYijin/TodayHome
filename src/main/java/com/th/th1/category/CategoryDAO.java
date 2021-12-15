@@ -1,6 +1,7 @@
 package com.th.th1.category;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -9,7 +10,7 @@ public interface CategoryDAO {
 	
 	
 	//Select 카테고리 리스트 
-	public List<ProductVO> getSelectList(ProductVO productVO) throws Exception;
+	public List<ProductVO> getSelectList(Map<String, Object> map) throws Exception;
 	
 	//best 리스트
 	public List<ProductVO> getSelectList1(ProductVO productVO) throws Exception;
