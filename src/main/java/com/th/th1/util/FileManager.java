@@ -20,12 +20,60 @@ public class FileManager {
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
-	
-	//ServletContext 사용
-	public String getUseServletContext(String filePath, MultipartFile multipartFile) throws Exception {
-		//filePath : 저장할 경로
+	//1. ClassPathResource
+	public String getUseClassPathResource(String filePath, MultipartFile multipartFile)throws Exception{
 		
-		//C부터 실제 경로 가져오기
+		String path = "static";
+		
+		ClassPathResource classPathResource = new ClassPathResource(path);
+		
+		File file = new File(classPathResource.getFile(), filePath);
+		
+		if(!file.exists()) {
+			file.mkdirs();
+		}
+		
+		//파일을 저장
+		//1. 유니크한 이름을 만들기
+		String fileName="";
+		fileName = UUID.randomUUID().toString()+"_"+multipartFile.getOriginalFilename();
+		
+		file = new File(file, fileName);
+		
+		multipartFile.transferTo(file);
+		
+		return fileName;		
+		
+		
+	}
+	
+	//2. ResourceLoader
+	public String getUserResourceLoader(String filePath, MultipartFile multipartFile)throws Exception{
+		
+		String path = "classpath:/static/";
+		
+		File file = new File(resourceLoader.getResource(path).getFile(), filePath);
+		
+		if(!file.exists()) {
+			file.mkdirs();
+		}
+		
+		//파일을 저장
+		//1. 유니크한 이름을 만들기
+		String fileName="";
+		fileName = UUID.randomUUID().toString()+"_"+multipartFile.getOriginalFilename();
+		
+		file = new File(file, fileName);
+		
+		multipartFile.transferTo(file);
+		
+		return fileName;
+	}
+	
+	
+	//3. ServletContext 사용
+	public String getUseServletContext(String filePath, MultipartFile multipartFile)throws Exception{
+		
 		filePath = servletContext.getRealPath(filePath);
 		File file = new File(filePath);
 		
@@ -33,17 +81,18 @@ public class FileManager {
 			file.mkdirs();
 		}
 		
-		//파일 저장
-		//1. 유니크한 이름 생성
-		String fileName = "";
+		//파일을 저장
+		//1. 유니크한 이름을 만들기
+		String fileName="";
 		fileName = UUID.randomUUID().toString()+"_"+multipartFile.getOriginalFilename();
 		
-		//2. file : 어느 경로, fileName : 무슨 이름으로 저장
-		file = new File(file,fileName);
+		file = new File(file, fileName);
 		
 		multipartFile.transferTo(file);
 		
 		return fileName;
+		
 	}
+	
 	
 }

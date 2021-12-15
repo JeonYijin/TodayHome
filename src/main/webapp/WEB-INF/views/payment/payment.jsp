@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +17,17 @@
     <meta name="google-site-verification"
 	content="AZK3GfRwg4q_EH-0OSbbkCurocEY7okWrPZF93COxYU">
     <meta property="fb:app_id" content="185853321610795">
-    <title>공지사항 | 예쁜템들 모여사는 오늘의집</title>
+    <title>주문/결제 | 집꾸미기 정보부터 구매까지 오늘의집 스토어</title>
     <meta name="description"
-	content="2000만이 선택한 No.1 인테리어 필수앱. 집들이 구경부터 제품 정보 확인, 구매까지 한 번에!">
-    
+	content="매일 다른 초특가 가구와 소품들을 쇼핑할 수 있어요. 실패 없는 쇼핑을 위해 800만 개의 리뷰 사진들을 보고 우리 집과 어울리는 제품으로 구매하세요.">
+    <meta property="og:title" content="인테리어 특가 쇼핑ㅣ예쁜템들 모여사는 오늘의집 스토어">
+<meta property="og:type" content="website">
+<meta property="og:url"
+	content="https://ohou.se/store?utm_source=brand_naver&amp;utm_medium=cpc&amp;utm_campaign=uc_web-all-web_pc-search_naver&amp;utm_term=%EC%98%A4%EB%8A%98%EC%9D%98%EC%A7%91&amp;utm_content=nad-a001-01-000000161515769&amp;bp_adset=grp-a001-01-000000010845294&amp;affect_type=UtmUrl&amp;n_media=335738&amp;n_query=%EC%98%A4%EB%8A%98%EC%9D%98%EC%A7%91&amp;n_rank=1&amp;n_ad_group=grp-a001-01-000000010845294&amp;n_ad=nad-a001-01-000000161515769&amp;n_keyword_id=nkw-a001-01-000002769201143&amp;n_keyword=%EC%98%A4%EB%8A%98%EC%9D%98%EC%A7%91&amp;n_campaign_type=1&amp;n_ad_group_type=1&amp;NaPm=ct%3Dkx54n528%7Cci%3D0yS0002qF%5Frv8b%5Fexfmh%7Ctr%3Dsa%7Chk%3D74ba2b7dac2247aa4da44e117cad6edc9d048878">
+<meta property="og:image"
+	content="https://s3-ap-northeast-1.amazonaws.com/bucketplace-v2-development/uploads/default_images/open_graph_icon_2.png">
+<meta property="og:description"
+	content="매일 다른 초특가 가구와 소품들을 쇼핑할 수 있어요. 실패 없는 쇼핑을 위해 800만 개의 리뷰 사진들을 보고 우리 집과 어울리는 제품으로 구매하세요.">
     <link rel="alternate"
 	href="android-app://net.bucketplace/http/ohou.se/deep">
     <link rel="apple-touch-icon" sizes="57x57"
@@ -40,14 +45,22 @@
     
     <meta name="csrf-param" content="authenticity_token">
     <meta name="csrf-token"
-	content="3MC+JdhGhwpvgx3VTZCYBwjiuEv7qWOSP5Uk+UXF6PTfJ/HD8Er76wGRuitnOpJAlo/kQCq0BUNquWjuAsHuOA==">
+	content="mD0zXLQ3BRfuRVq4+J1xhF7gRoZ/dNLm+zMurQcRst5hbetJlzB1wywtF7s17nOS7GRlzhAk4FP6qBGrveQsNg==">
     <link
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;display=swap&amp;subset=korean"
 	rel="stylesheet">
     <link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/preamble-97ede701.chunk.css">
 <link rel="stylesheet"
-	href="https://assets.ohou.se/web/dist/css/templates-CustomerNotice-Feed-eeceaff1.chunk.css">
+	href="https://assets.ohou.se/web/dist/css/5-1fc4abe5.chunk.css">
+<link rel="stylesheet"
+	href="https://assets.ohou.se/web/dist/css/7-122a7274.chunk.css">
+<link rel="stylesheet"
+	href="https://assets.ohou.se/web/dist/css/8-b8609d1a.chunk.css">
+<link rel="stylesheet"
+	href="https://assets.ohou.se/web/dist/css/14-70cf3ee0.chunk.css">
+<link rel="stylesheet"
+	href="https://assets.ohou.se/web/dist/css/templates-Commerce-StoreHome-StoreHomePage-2ef124c8.chunk.css">
 <link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/21-0e75de9b.chunk.css">
 <link rel="stylesheet"
@@ -57,7 +70,9 @@
     
   
   <script type="text/javascript" async=""
-	src="https://www.google-analytics.com/gtm/js?id=GTM-54TVLXQ&amp;t=gtm7&amp;cid=1460993624.1636618736"></script>
+	src="https://www.google-analytics.com/plugins/ua/ec.js"></script>
+<script type="text/javascript" async=""
+	src="https://www.google-analytics.com/gtm/js?id=GTM-54TVLXQ&amp;t=gtm5&amp;cid=477803608.1636696856"></script>
 <script type="text/javascript" async=""
 	src="https://www.google-analytics.com/analytics.js"></script>
 <script type="text/javascript" async=""
@@ -72,7 +87,182 @@
 <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
 <script async=""
 	src="https://www.googletagmanager.com/gtm.js?id=GTM-MK8DN2Q"></script>
+<script>
+	dataLayer = [ {
 
+		'userID' : 16097882,
+
+	} ];
+	(function(w, d, s, l, i) {
+		w[l] = w[l] || [];
+		w[l].push({
+			'gtm.start' : new Date().getTime(),
+			event : 'gtm.js'
+		});
+		var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l='
+				+ l
+				: '';
+		j.async = true;
+		j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+		f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-MK8DN2Q');
+</script>
+
+  
+  <script>
+			!function(f, b, e, v, n, t, s) {
+				if (f.fbq)
+					return;
+				n = f.fbq = function() {
+					n.callMethod ? n.callMethod.apply(n, arguments) : n.queue
+							.push(arguments);
+				};
+				if (!f._fbq)
+					f._fbq = n;
+				n.push = n;
+				n.loaded = !0;
+				n.version = '2.0';
+				n.queue = [];
+				t = b.createElement(e);
+				t.async = !0;
+				t.src = v;
+				s = b.getElementsByTagName(e)[0];
+				s.parentNode.insertBefore(t, s);
+			}(window, document, 'script',
+					'https://connect.facebook.net/en_US/fbevents.js');
+
+			fbq('set', 'autoConfig', 'false', '937204509645248');
+			fbq('init', '937204509645248');
+			fbq('track', 'PageView');
+		</script>
+  <noscript>
+	<img height="1" width="1" style="display:none"
+		src="https://www.facebook.com/tr?id=937204509645248&ev=PageView&noscript=1" />
+</noscript>
+  
+
+  
+  <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js"
+	async="true"></script>
+  <script type="text/javascript">
+			(function() {
+				var ua = navigator.userAgent.toLowerCase();
+				var mobile = {
+					isAndroid : ua.indexOf('android') > -1,
+					isIos : ua.match(/(ipad|iphone|ipod)/g)
+				};
+
+				var type = '';
+				if (mobile.isAndroid || mobile.isIos) {
+					type = 'm';
+				} else {
+					type = 'd';
+				}
+
+				window.criteo_q = window.criteo_q || [];
+
+				window.criteo_q.push({
+					event : 'setAccount',
+					account : 50838
+				}, {
+					event : 'setEmail',
+					email : "16097882@bucketplace.net"
+				}, {
+					event : 'setSiteType',
+					type : type
+				});
+			})();
+		</script>
+  
+
+  
+  <script>
+			window.bucketLog = window.bucketLog || [];
+
+			window.bucketLog.push({
+				user_id : 16097882,
+			});
+		</script>
+
+  
+  <script type="text/javascript">
+			(function(e, t) {
+				var n = e.amplitude || {
+					_q : [],
+					_iq : {}
+				};
+				;
+				function s(e, t) {
+					e.prototype[t] = function() {
+						this._q.push([ t ].concat(Array.prototype.slice.call(
+								arguments, 0)));
+						return this
+					}
+				}
+				var o = function() {
+					this._q = [];
+					return this
+				};
+				var a = [ "add", "append", "clearAll", "prepend", "set",
+						"setOnce", "unset" ];
+				for (var c = 0; c < a.length; c++) {
+					s(o, a[c])
+				}
+				n.Identify = o;
+				var u = function() {
+					this._q = [];
+					return this
+				};
+				var l = [ "setProductId", "setQuantity", "setPrice",
+						"setRevenueType", "setEventProperties" ];
+				for (var p = 0; p < l.length; p++) {
+					s(u, l[p])
+				}
+				n.Revenue = u;
+				var d = [ "init", "logEvent", "logRevenue", "setUserId",
+						"setUserProperties", "setOptOut", "setVersionName",
+						"setDomain", "setDeviceId", "enableTracking",
+						"setGlobalUserProperties", "identify",
+						"clearUserProperties", "setGroup", "logRevenueV2",
+						"regenerateDeviceId", "groupIdentify", "onInit",
+						"logEventWithTimestamp", "logEventWithGroups",
+						"setSessionId", "resetSessionId" ];
+				function v(e) {
+					function t(t) {
+						e[t] = function() {
+							e._q.push([ t ].concat(Array.prototype.slice.call(
+									arguments, 0)))
+						}
+					}
+					for (var n = 0; n < d.length; n++) {
+						t(d[n])
+					}
+				}
+				v(n);
+				n.getInstance = function(e) {
+					e = (!e || e.length === 0 ? "$default_instance" : e)
+							.toLowerCase();
+					if (!n._iq.hasOwnProperty(e)) {
+						n._iq[e] = {
+							_q : []
+						};
+						v(n._iq[e])
+					}
+					return n._iq[e]
+				};
+				e.amplitude = n
+			})(window, document);
+			window.amplitude.getInstance().init(
+					'dc73f13a3e81af36c9f61718642148af', 16097882, function() {
+						window.amplitude.getInstance().setUserProperties({
+							'State of 로그인' : true,
+
+							'Account Group' : '일반회원',
+
+						});
+					});
+		</script>
+  
 
   <!-- adinsight 공통스크립트 start -->
   <script type="text/javascript">
@@ -91,6 +281,12 @@
 					.config(
 							'https://b8e5cc27b3eb44be8b976b0c81dd4115@sentry.io/271486')
 					.install();
+
+			Raven.setUserContext({
+				id : '16097882',
+				email : '16097882@bucketplace.net',
+				nickname : '14쭈니'
+			});
 
 			Raven.setUserContext({});
 		</script>
@@ -119,7 +315,75 @@
       window.location.href = "https://play.google.com/store/apps/details?id=net.bucketplace&hl=kor";
     </script>
     <![endif]-->
-  <style data-emotion="css wkl218-SectionWrapper" data-s="">
+  <style data-emotion="css 167c30c-Wrapper" data-s="">
+.css-167c30c-Wrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	z-index: 1;
+	pointer-events: none;
+}
+</style>
+<style data-emotion="css 2itshy-Content" data-s="">
+.css-2itshy-Content {
+	position: absolute;
+	top: 0%;
+	left: 71%;
+	width: 29%;
+	height: 29%;
+}
+
+@media ( min-width : 768px) {
+	.css-2itshy-Content {
+		top: 0%;
+		left: 74%;
+		width: 26%;
+		height: 26%;
+	}
+}
+</style>
+<style data-emotion="css vagntg-Image" data-s="">
+.css-vagntg-Image.css-vagntg-Image.css-vagntg-Image {
+	width: 100%;
+	background-color: transparent;
+}
+</style>
+<style data-emotion="css 167c30c-Wrapper" data-s="">
+.css-167c30c-Wrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	z-index: 1;
+	pointer-events: none;
+}
+</style>
+<style data-emotion="css 2itshy-Content" data-s="">
+.css-2itshy-Content {
+	position: absolute;
+	top: 0%;
+	left: 71%;
+	width: 29%;
+	height: 29%;
+}
+
+@media ( min-width : 768px) {
+	.css-2itshy-Content {
+		top: 0%;
+		left: 74%;
+		width: 26%;
+		height: 26%;
+	}
+}
+</style>
+<style data-emotion="css vagntg-Image" data-s="">
+.css-vagntg-Image.css-vagntg-Image.css-vagntg-Image {
+	width: 100%;
+	background-color: transparent;
+}
+</style>
+<style data-emotion="css wkl218-SectionWrapper" data-s="">
 .css-wkl218-SectionWrapper {
 	margin-top: 32px;
 }
@@ -150,6 +414,7 @@
 	margin-left: 8px;
 }
 </style>
+<style data-emotion="css" data-s=""></style>
 <meta http-equiv="origin-trial"
 	content="A4RpyXPHPXj2Tt0KMMrya+U6IibH8/6yFLknmyK5ZwpgUNYhhwGyllkLZNqKedteT7fKzxsI8p/Pbpbd4tEJOQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5uZXQ6NDQzIiwiZmVhdHVyZSI6IkludGVyZXN0Q29ob3J0QVBJIiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
 <link rel="stylesheet" href="https://use.fontawesome.com/7f85a56ba4.css">
@@ -2225,7 +2490,7 @@ body>.ab-feed .ab-no-cards-message {
 </style>
 <script async="" src="https://static.hotjar.com/c/hotjar-877658.js?sv=6"></script>
 <script async=""
-	src="https://script.hotjar.com/modules.376dac12c7cbd03331c3.js"
+	src="https://script.hotjar.com/modules.cbd9b920d05cd9e47f57.js"
 	charset="utf-8"></script>
 <style type="text/css">
 iframe#_hjRemoteVarsFrame {
@@ -2235,56 +2500,427 @@ iframe#_hjRemoteVarsFrame {
 	opacity: 0 !important;
 	pointer-events: none !important;
 }
-.customer-notice-detail__back {
-    display: inline-block;
-    background: none;
-    font: inherit;
-    display: block;
-    width: 180px;
-    margin: 0 auto;
-    padding: 10px 0;
-    font-size: 15px;
-    line-height: 20px;
-    text-align: center;
-    font-weight: 700;
-    background-color: #35c5f0;
-    border: none;
-    color: #fff;
-    border-radius: 4px;
-    transition: background-color .1s;
+</style>
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/2-3fa663ee97c60bc54fd4.chunk.js"></script>
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/4-855b10dd1207e19fe2e0.chunk.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://assets.ohou.se/web/dist/css/templates-Commerce-Product-Detail-ProductDetailPage-7980d1fd.chunk.css">
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/templates-Commerce-Product-Detail-ProductDetailPage-54d8b93bd31693824531.chunk.js"></script>
+<script
+	src="https://cdn.megadata.co.kr/js/socialLink/social_sns_config_min.js"
+	type="text/javascript" defer=""></script>
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/3-10212096a1125017200a.chunk.js"></script>
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/29-1456f9904ec1bda6e422.chunk.js"></script>
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/37-4d3eb818912f803253f9.chunk.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://assets.ohou.se/web/dist/css/templates-Order-Checkout-51ebc138.chunk.css">
+<script charset="utf-8"
+	src="https://assets.ohou.se/web/dist/js/templates-Order-Checkout-49b2fbf5e0c6106eb616.chunk.js"></script>
+<meta name="webview-title" content="주문/결제" data-react-helmet="true">
+<style type="text/css">
+body.imp-payment-progress {
+	position: static
+}
+
+body.imp-payment-progress>:not(.imp-dialog) {
+	display: none
+}
+
+.imp-dialog {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99999;
+}
+
+.imp-dialog .imp-frame-pc.imp-frame-danal, .imp-dialog .imp-frame-pc.imp-frame-danal_tpay
+	{
+	left: 50% !important;
+	margin-left: -345px;
+	width: 720px !important;
+	height: 700px !important;
+	margin-top: 50px;
+}
+
+.imp-dialog .imp-frame-pc.imp-frame-mobilians {
+	left: 50% !important;
+	margin-left: -410px;
+	width: 820px !important;
+	height: 700px !important;
+	margin-top: 50px;
+}
+
+.imp-dialog .imp-header {
+	display: none;
+	background: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 25px;
+}
+
+.imp-dialog .imp-close {
+	text-decoration: none;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	background:
+		url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAAAV1JREFUOBHNkz1Ow0AQhWMHioggUSFEyRGAggp6KqDhDHAFOioU/loQoqDlGhyAgmtQ0gEO31jz1iPbcZyOlUY7fvvem9mdZDD472vY0mDegrVBGaBF54qELuPYSNQkc4FjkHNCAu2JSLLkHxvsZ+Gg9FAXUw4M+CI+8zy/cuIvezQ1sx9iDOeS/YOwZT7m0VgqcITgOpwars5WOXvke9vPY8EgqVIJTxDeVXCZWWdPZLuOL9fOZ35G03tnjbyznS4zDaPNWe91iNE+hGlRFK/s74R19k0stNJ1six7w/QlqPXWAepOdWUbwDPULeKAPL7p3GGohMzqA7DzY0xvRWSfayrCCsIHBHGaKmTTr/+kQo0q1busuZl+Z+ktocrUOr2ppM3/tKY9hDiBuOfkaCa9TE8BLhyUXpxUYQSy7qiun0gh0W02wWbyYhUJgkcj7cMpRb2JsBfhNjrqBfwBsGIgzBGH3EgAAAAASUVORK5CYII=');
+}
+
+.imp-dialog.popup .imp-frame-danal-certification {
+	background: transparent !important;
+}
+
+.imp-dialog.pc .imp-frame-danal-certification {
+	width: 410px !important;
+	height: 660px !important;
+	margin: 10px auto;
+	background: #fff;
+}
+
+.imp-dialog.pc.certification-danal {
+	background: rgb(255, 255, 255);
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.imp-dialog.pc.certification-danal .imp-header {
+	display: block;
+	width: 410px;
+	margin: 0 auto;
+}
+
+.imp-dialog.pc.certification-danal.popup .imp-header {
+	display: none;
+}
+
+.imp-dialog.pc.certification-danal .imp-header .imp-close {
+	top: 18px;
+	right: 25px;
+	width: 19px;
+	height: 19px;
+}
+
+.imp-dialog.mobile.ios {
+	position: absolute;
+}
+
+.imp-dialog.mobile.certification-danal .imp-header {
+	display: block;
+}
+
+.imp-dialog.mobile.certification-danal.popup .imp-header {
+	display: none;
+}
+
+.imp-dialog.mobile.certification-danal .imp-header .imp-close {
+	top: 6px;
+	right: 10px;
+	width: 19px;
+	height: 19px;
+}
+
+.imp-dialog.pc.payment-settle_firm {
+	background: rgb(221, 221, 221);
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.imp-dialog.pc .imp-frame-settle_firm.layer {
+	width: 410px !important;
+	height: 700px !important;
+	margin: 10px auto;
+	background: #fff;
+}
+
+.imp-dialog.pc.payment-kakaopay {
+	background: rgb(221, 221, 221);
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.imp-dialog.ipadOS.payment-kakaopay {
+	background: rgb(221, 221, 221);
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.imp-dialog.pc.payment-kakaopay .imp-frame-kakaopay {
+	width: 426px !important;
+	height: 550px !important;
+	left: 50% !important;
+	top: 50% !important;
+	margin-left: -213px !important;
+	margin-top: -275px !important;
+}
+
+.imp-dialog.ipadOS.payment-kakaopay .imp-frame-kakaopay {
+	width: 426px !important;
+	height: 550px !important;
+	left: 50% !important;
+	top: 50% !important;
+	margin-left: -213px !important;
+	margin-top: -275px !important;
 }
 </style>
 </head>
 </head>
 
+
+
 <body>
-	<form action="./list" id="frm">
-		<div class="customer-notice-list">
-			<div class="customer-notice-list__content">
-				<h1 class="customer-notice-list__title">공지사항</h1>
-				<div class="virtualized-list customer-notice-list__list"
-					style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px)">
-					<div class="customer-notice-list__list-item">
-					<c:forEach items="${noticeVO}" var="noticeVO">
-						<a class="customer-notice-feed-item"
-								href="./select?num=${noticeVO.num}"><article
-									class="customer-notice-feed-item__content">
-								<h1 class="customer-notice-feed-item__title">${noticeVO.title}</h1>
-								<time class="customer-notice-feed-item__date" datetime="">${noticeVO.regDate}</time>
-							</article></a>
-							</c:forEach>
+	<div class="layout">
+		<div class="layout-top-banner"></div>
+
+		<main class="_2u6kP">
+			<div class="_2VbEo">
+				<header class="_2CEFF">주문/결제</header>
+				<section class="clDqQ">
+					<div class="checkout-container vtJfv">
+						<div class="_2jygH">주문자</div>
+						<div class="_3KNiw"></div>
 					</div>
-				</div>
+					<div class="_254uw">
+						<div class="checkout-container _d-EX">
+							<div class="_28sm0 lQNTs">
+								<div class="_2XyfC">이름</div>
+								<div class="_1mu28">
+									<input class="_3ASDR _1qwAY" name="name" maxlength="10"
+										value="">
+								</div>
+							</div>
+							<div class="_28sm0">
+								<div class="_2XyfC">이메일</div>
+								<div class="_1mu28 _3-Bh_">
+									<div class="_1pGtv">
+										<div class="_1a7bp jTtMl">
+											<div class="_2EQGD _1a7bp _1m42e">
+												<input class="_3ASDR _1qwAY" type="email" placeholder="이메일"
+													title="이메일 앞부분" maxlength="20" value="">
+											</div>
+											<span class="_1r4AF">@</span>
+										</div>
+										<div class="jTtMl _2tUrR">
+											<div class="_1a7bp">
+												<div class="_3Bt8k">
+													<select class="_3ASDR _1qwAY _3K8Q8 _2RTFg"><option
+															value="" disabled="">선택해주세요</option>
+														<option value="0">naver.com</option>
+														<option value="1">hanmail.net</option>
+														<option value="2">daum.net</option>
+														<option value="3">gmail.com</option>
+														<option value="4">kakao.com</option>
+														<option value="5">nate.com</option>
+														<option value="6">hotmail.com</option>
+														<option value="7">outlook.com</option>
+														<option value="8">icloud.com</option>
+														<option value="9">직접 입력</option></select>
+													<svg width="1em" height="1em" viewBox="0 0 10 10"
+														fill="currentColor" class="IgBXR">
+														<path d="M0 3l5 5 5-5z"></path></svg>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="_28sm0">
+								<div class="_2XyfC">휴대전화</div>
+								<div class="_1mu28">
+									<div class="_2Z2K1">
+										<div class="_2ixif">
+											<div class="_3Bt8k">
+												<select class="_3ASDR _1qwAY _3K8Q8" name="phone1"><option
+														value="" disabled="">선택</option>
+													<option value="0">010</option>
+													<option value="1">011</option>
+													<option value="2">016</option>
+													<option value="3">017</option>
+													<option value="4">018</option>
+													<option value="5">019</option></select>
+												<svg width="1em" height="1em" viewBox="0 0 10 10"
+													fill="currentColor" class="IgBXR yPMDv">
+													<path d="M0 3l5 5 5-5z"></path></svg>
+											</div>
+										</div>
+										<div class="UYZ4Z">
+											<input class="_3ASDR _1qwAY" type="tel" placeholder="입력해주세요"
+												size="1" maxlength="9" value="">
+										</div>
+									</div>
+									<div>
+										<div class="_3P0Br">
+											<button class="_1eWD8 _3SroY _3VwZT _127As" type="button">인증번호
+												발송</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="clDqQ">
+					<div class="checkout-container vtJfv">
+						<div class="_2jygH">배송지</div>
+						<div class="_3KNiw"></div>
+						<div>
+							<button class="_2KeU0" type="button">위와 동일하게 채우기</button>
+						</div>
+					</div>
+					<div class="_254uw">
+						<div class="checkout-container _3ncl8">
+							<div class="_28sm0">
+								<div class="_2XyfC">받는 사람</div>
+								<div class="_1mu28">
+									<input class="_3ASDR _1qwAY" name="recipient" maxlength="10"
+										value="">
+								</div>
+							</div>
+							<div class="_28sm0">
+								<div class="_2XyfC">연락처</div>
+								<div class="_1mu28">
+									<div class="_2Z2K1">
+										<div class="_2ixif">
+											<div class="_3Bt8k">
+												<select class="_3ASDR _1qwAY _3K8Q8" name="phone1"><option
+														value="" disabled="">선택</option>
+													<option value="0">010</option>
+													<option value="1">011</option>
+													<option value="2">016</option>
+													<option value="3">017</option>
+													<option value="4">018</option>
+													<option value="5">019</option>
+													<option value="6">02</option>
+													<option value="7">031</option>
+													<option value="8">032</option>
+													<option value="9">033</option>
+													<option value="10">041</option>
+													<option value="11">042</option>
+													<option value="12">043</option>
+													<option value="13">044</option>
+													<option value="14">051</option>
+													<option value="15">052</option>
+													<option value="16">053</option>
+													<option value="17">054</option>
+													<option value="18">055</option>
+													<option value="19">061</option>
+													<option value="20">062</option>
+													<option value="21">063</option>
+													<option value="22">064</option>
+													<option value="23">070</option>
+													<option value="24">080</option>
+													<option value="25">050</option>
+													<option value="26">012</option>
+													<option value="27">059</option>
+													<option value="28">직접 입력</option></select>
+												<svg width="1em" height="1em" viewBox="0 0 10 10"
+													fill="currentColor" class="IgBXR yPMDv">
+													<path d="M0 3l5 5 5-5z"></path></svg>
+											</div>
+										</div>
+										<div class="UYZ4Z">
+											<input class="_3ASDR _1qwAY" type="tel" placeholder="입력해주세요"
+												size="1" maxlength="9" value="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<input type="text" id="sample6_postcode" placeholder="우편번호">
+							<input type="button" onclick="sample6_execDaumPostcode()"
+								value="우편번호 찾기"><br> <input type="text"
+								id="sample6_address" placeholder="주소"><br> <input
+								type="text" id="sample6_detailAddress" placeholder="상세주소">
+							<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+						</div>
+						<div class="css-nj6fnr-DeliveryRequestInput e84q8kd0">
+							<div class="_3Bt8k">
+								<select class="_3ASDR _1qwAY _3K8Q8"><option value="0">배송시
+										요청사항을 선택해주세요</option>
+									<option value="1">부재시 문앞에 놓아주세요</option>
+									<option value="2">배송전에 미리 연락주세요</option>
+									<option value="3">부재시 경비실에 맡겨 주세요</option>
+									<option value="4">부재시 전화주시거나 문자 남겨 주세요</option>
+									<option value="5">직접입력</option></select>
+								<svg width="1em" height="1em" viewBox="0 0 10 10"
+									fill="currentColor" class="IgBXR">
+										<path d="M0 3l5 5 5-5z"></path></svg>
+							</div>
+						</div>
+					</div>
+			
 			</div>
-		</div>
-	  <sec:authorize access="isAuthenticated()" var="result">
-                                <sec:authentication property="principal" var="memberVO"/>
-                                <c:forEach items="${memberVO.roles}" var="role">
-                                   <c:if test="${role.num eq 1}">
-                                           <a class="customer-notice-detail__back"href="./insert">등록</a>
-                                   </c:if>
-                                </c:forEach>
-                             </sec:authorize>
-	</form>
+			</section>
+	
+	</div>
+
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+		function sample6_execDaumPostcode() {
+			new daum.Postcode(
+					{
+						oncomplete : function(data) {
+							// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+							// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+							// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+							var addr = ''; // 주소 변수
+							var extraAddr = ''; // 참고항목 변수
+
+							//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+							if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+								addr = data.roadAddress;
+							} else { // 사용자가 지번 주소를 선택했을 경우(J)
+								addr = data.jibunAddress;
+							}
+
+							// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+							if (data.userSelectedType === 'R') {
+								// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+								// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+								if (data.bname !== ''
+										&& /[동|로|가]$/g.test(data.bname)) {
+									extraAddr += data.bname;
+								}
+								// 건물명이 있고, 공동주택일 경우 추가한다.
+								if (data.buildingName !== ''
+										&& data.apartment === 'Y') {
+									extraAddr += (extraAddr !== '' ? ', '
+											+ data.buildingName
+											: data.buildingName);
+								}
+								// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+								if (extraAddr !== '') {
+									extraAddr = ' (' + extraAddr + ')';
+								}
+								// 조합된 참고항목을 해당 필드에 넣는다.
+								document.getElementById("sample6_extraAddress").value = extraAddr;
+
+							} else {
+								document.getElementById("sample6_extraAddress").value = '';
+							}
+
+							// 우편번호와 주소 정보를 해당 필드에 넣는다.
+							document.getElementById('sample6_postcode').value = data.zonecode;
+							document.getElementById("sample6_address").value = addr;
+							// 커서를 상세주소 필드로 이동한다.
+							document.getElementById("sample6_detailAddress")
+									.focus();
+						}
+					}).open();
+		}
+	</script>
+	</main>
+	</div>
 </body>
 </html>

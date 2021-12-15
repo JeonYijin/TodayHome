@@ -25,6 +25,22 @@ public class AdminController {
 	public String getadmin() throws Exception {
 		return "admin/admin";
 	}
+	// /admin/productUpload
+	//상품 등록 폼 이동
+	@GetMapping("productUpload") 
+	public String setInsertProduct() throws Exception {
+		return "admin/productUpload";
+	}
+	
+	// /admin/productUpload
+	
+	//상품 등록 폼 제출
+	@PostMapping("productUpload")
+	public String setInsertProduct(ProductVO productVO, @RequestParam("productFile") MultipartFile [] files, @RequestParam("productFile1")MultipartFile [] files1) throws Exception {
+		int result = adminService.setInsertProduct(productVO, files,files1);
+		return "redirect:../admin";
+	}
+	
 	
 	//상품 등록 폼 이동
 	@GetMapping("productUpload") 

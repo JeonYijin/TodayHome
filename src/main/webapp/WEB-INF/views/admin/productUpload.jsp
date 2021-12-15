@@ -27,10 +27,15 @@
 	    <input name="pr_name" type="text" class="form-control" id="pr_name">
 	 </div>
 	 
+	 
+	 
+	 
 	 <div class="col-md-6">
 	    <label for="pr_seller" class="form-label">판매자명</label>
 	    <input name="pr_seller" type="text" class="form-control" id="pr_seller">
 	 </div>
+	 
+	 
 	 
 	 <div class="col-md-6">
 	    <label for="pr_category" class="form-label">카테고리</label>
@@ -67,7 +72,10 @@
 	    <label for="pr_dPrice" class="form-label">할인 가격</label>
 	    <input name="pr_dPrice" type="text" class="form-control" id="pr_dPrice">
 	  </div>
-	  
+	  <div class="col-md-12">
+	    <label for="pr_address" class="form-label">회사주소</label>
+	    <input name="pr_address" type="text" class="form-control" id="pr_address">
+	  </div>
 	  
   	
   	<div class="mb-3">
@@ -81,6 +89,17 @@
 	  <input name="productFile" class="form-control" type="file" id="formFile">
 	  <input name="productFile" class="form-control" type="file" id="formFile">
 	  <input name="productFile" class="form-control" type="file" id="formFile">
+	</div>
+	<div class="mb-3">
+	<label for="formFile" class="form-label">제품 설명 이미지</label>
+	  <input name="productFile1" class="form-control" type="file" id="formFile">
+	  <input name="productFile1" class="form-control" type="file" id="formFile">
+	  <input name="productFile1" class="form-control" type="file" id="formFile">
+	  <input name="productFile1" class="form-control" type="file" id="formFile">
+	  <input name="productFile1" class="form-control" type="file" id="formFile">
+	  <input name="productFile1" class="form-control" type="file" id="formFile">
+	  <input name="productFile1" class="form-control" type="file" id="formFile">
+	  <input name="productFile1" class="form-control" type="file" id="formFile">
 	</div>
 	
 	<div>

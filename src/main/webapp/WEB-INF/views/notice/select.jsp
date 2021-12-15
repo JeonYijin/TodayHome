@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,42 +10,42 @@
 <link rel="stylesheet" href="../resources/css/bootsrtap.css">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport"
+<meta name="viewport"
 	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,viewport-fit=cover">
-    <meta name="naver-site-verification"
+<meta name="naver-site-verification"
 	content="907a7f8c9a61df897ccf0f03a835f6d2668945b1">
-    <meta property="fb:admins" content="100006457426639">
-    <meta name="google-site-verification"
+<meta property="fb:admins" content="100006457426639">
+<meta name="google-site-verification"
 	content="d-veBobRNo_in0thN3uOOoIcUWMUOjQZeMidTyItfGk">
-    <meta name="google-site-verification"
+<meta name="google-site-verification"
 	content="AZK3GfRwg4q_EH-0OSbbkCurocEY7okWrPZF93COxYU">
-    <meta property="fb:app_id" content="185853321610795">
-    <title>iOS 12.x 버전 업데이트 지원 중단 안내 | 예쁜템들 모여사는 오늘의집</title>
-    <meta name="description"
+<meta property="fb:app_id" content="185853321610795">
+<title>iOS 12.x 버전 업데이트 지원 중단 안내 | 예쁜템들 모여사는 오늘의집</title>
+<meta name="description"
 	content="2000만이 선택한 No.1 인테리어 필수앱. 집들이 구경부터 제품 정보 확인, 구매까지 한 번에!">
-    
-    <link rel="alternate"
+
+<link rel="alternate"
 	href="android-app://net.bucketplace/http/ohou.se/deep">
-    <link rel="apple-touch-icon" sizes="57x57"
+<link rel="apple-touch-icon" sizes="57x57"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_57x57.png">
-    <link rel="apple-touch-icon" sizes="72x72"
+<link rel="apple-touch-icon" sizes="72x72"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114"
+<link rel="apple-touch-icon" sizes="114x114"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_114x114.png">
-    <link rel="apple-touch-icon" sizes="144x144"
+<link rel="apple-touch-icon" sizes="144x144"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_144x144.png">
-    <link rel="shortcut icon"
+<link rel="shortcut icon"
 	href="https://assets.ohou.se/web/assets/bookmark_icon/favicon_144x144.png">
-    <link href="https://assets.ohou.se/web/assets/favicon.png"
+<link href="https://assets.ohou.se/web/assets/favicon.png"
 	rel="shortcut icon">
-    
-    <meta name="csrf-param" content="authenticity_token">
-    <meta name="csrf-token"
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token"
 	content="NvAPeAXMnbhYIj0YR3oKsuwyrrGbnkPH8C4hu0U0qAc1F0CeLcDhWTYwmuZt0AD1cl/yukqDJRalAm2sAjCuyw==">
-    <link
+<link
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;display=swap&amp;subset=korean"
 	rel="stylesheet">
-    <link rel="stylesheet"
+<link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/preamble-97ede701.chunk.css">
 <link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/templates-CustomerNotice-Feed-eeceaff1.chunk.css">
@@ -53,9 +55,9 @@
 	href="https://assets.ohou.se/web/dist/css/23-2ef16b9a.chunk.css">
 <link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/App-6e6c2f0c.chunk.css">
-    
-  
-  <script type="text/javascript" async=""
+
+
+<script type="text/javascript" async=""
 	src="https://www.google-analytics.com/gtm/js?id=GTM-54TVLXQ&amp;t=gtm7&amp;cid=1460993624.1636618736"></script>
 <script type="text/javascript" async=""
 	src="https://www.google-analytics.com/analytics.js"></script>
@@ -74,28 +76,26 @@
 
 
 
-  <!-- adinsight 공통스크립트 start -->
-  <script type="text/javascript">
-			var TRS_AIDX = /iPhone|iPad|iPod|Android/.test(navigator.userAgent) ? 11603
-					: 11598;
-		</script>
-  <script type="text/javascript"
+<!-- adinsight 공통스크립트 start -->
+<script type="text/javascript">
+	var TRS_AIDX = /iPhone|iPad|iPod|Android/.test(navigator.userAgent) ? 11603
+			: 11598;
+</script>
+<script type="text/javascript"
 	src="https://analysis.adinsight.co.kr/emnet/trs_esc.js" defer=""></script>
-  <!-- adinsight 공통스크립트 end -->
+<!-- adinsight 공통스크립트 end -->
 
-  <!-- Sentry Testing -->
-  <script src="https://cdn.ravenjs.com/3.26.4/raven.min.js"
+<!-- Sentry Testing -->
+<script src="https://cdn.ravenjs.com/3.26.4/raven.min.js"
 	crossorigin="anonymous"></script>
-  <script>
-			Raven
-					.config(
-							'https://b8e5cc27b3eb44be8b976b0c81dd4115@sentry.io/271486')
-					.install();
+<script>
+	Raven.config('https://b8e5cc27b3eb44be8b976b0c81dd4115@sentry.io/271486')
+			.install();
 
-			Raven.setUserContext({});
-		</script>
+	Raven.setUserContext({});
+</script>
 
-  <script type="application/ld+json">
+<script type="application/ld+json">
   {
    "@context": "http://schema.org",
    "@type": "Organization",
@@ -113,13 +113,13 @@
   </script>
 
 
-    <!--[if lte IE 9]>
+<!--[if lte IE 9]>
     <script>
       alert("본 서비스는 Microsoft Explorer 11 이하는 지원하지 않습니다. 브라우저를 업그레이드하고 사용하시거나 앱을 다운받아 사용하실 수 있습니다. 확인을 누르면 앱 다운로드 링크로 연결됩니다.");
       window.location.href = "https://play.google.com/store/apps/details?id=net.bucketplace&hl=kor";
     </script>
     <![endif]-->
-  <style data-emotion="css wkl218-SectionWrapper" data-s="">
+<style data-emotion="css wkl218-SectionWrapper" data-s="">
 .css-wkl218-SectionWrapper {
 	margin-top: 32px;
 }
@@ -2250,12 +2250,19 @@ iframe#_hjRemoteVarsFrame {
 		<div class="customer-notice-detail__content">
 			<p>${noticeVO.contents}</p>
 		</div>
-		<div>
-		<a class="customer-notice-detail__back"href="./delete?num=${noticeVO.num}">삭제</a>  
-			<a class="customer-notice-detail__back"href="./update?num=${noticeVO.num}">수정</a>
-		<a class="customer-notice-detail__back"  href="./list" type="button">목록으로
-			돌아가기</a>
-			</div>
+		<sec:authorize access="isAuthenticated()" var="result">
+			<sec:authentication property="principal" var="memberVO" />
+			<c:forEach items="${memberVO.roles}" var="role">
+				<c:if test="${role.num eq 1}">
+					<a class="customer-notice-detail__back"
+						href="./delete?num=${noticeVO.num}">삭제</a>
+					<a class="customer-notice-detail__back"
+						href="./update?num=${noticeVO.num}">수정</a>
+				</c:if>
+				
+			</c:forEach>
+		</sec:authorize>
+		<a class="customer-notice-detail__back" href="./list" type="button">목록으로 돌아가기</a>
 	</div>
 </div>
 </body>
