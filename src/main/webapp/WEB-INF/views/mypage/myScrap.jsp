@@ -160,7 +160,7 @@ margin-top:26px;
 		
 		<!-- 바디 -->
 		
-		<div class="container collection-feed">
+		<div class="container collection-feed closeMenu">
 			<main>
 				<header class="row collection-book-header">
 					<div>

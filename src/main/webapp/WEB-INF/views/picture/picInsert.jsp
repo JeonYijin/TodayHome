@@ -11,7 +11,7 @@
 
 </head>
 <body>
-	<form method="post">
+	<form method="post" enctype="multipart/form-data" id="frm">
 	<sec:authentication property="principal" var="memberVO"/>
 	<input type="hidden" value="${memberVO.memberNum}" name="memberNum">
 		<div class="css-8y5nyu-FormDiv e5zqozy1">
@@ -143,7 +143,7 @@
 										</button>
 									</div>
 									
-								<!-- img add --------------------------------------------------------------- -->
+								<!-- img add --------------------------------------------------------------- -->	
 									<div class="css-1k7ciri-CardItemRight e1peeabv0">
 										<div class="css-ryivqb-CardItemDescriptionDiv er05vzw3">
 												<div class="input-group select-input css-yk768g-CardItemDescriptionSelectInput er05vzw2">
@@ -190,6 +190,7 @@
 	
 	
 <script type="text/javascript" src="../resources/js/picInsertFileupload.js"></script> 
+
 
 
 </body>
