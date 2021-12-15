@@ -30,6 +30,7 @@ public class NoticeController {
 		
 	}
 	
+	
 	@GetMapping("select")
 	public ModelAndView noticeSelect(NoticeVO noticeVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -42,6 +43,9 @@ public class NoticeController {
 		return mv;
 		
 	}
+	
+	
+	
 	
 	@GetMapping("insert")
 	public String noticeInsert(NoticeVO noticeVO)throws Exception{
