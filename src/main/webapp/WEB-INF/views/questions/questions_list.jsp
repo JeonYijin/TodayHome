@@ -221,20 +221,5 @@
 	});
 	
 </script>
-
-
-<div>
-	<a href="./questions?pn=${pager.startNum-1}&search=${pager.search}">&lt;</a>
-	
-	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-		<a href="./questions?pn=${i}&search=${pager.search}">${i}</a>
-	</c:forEach>
-	
-	<c:if test="${not pager.lastCheck}">
-		<a href="./questions?pn=${pager.lastNum+1}&search=${pager.search}">&gt;</a>
-	</c:if>
-	<br>
-</div>
-
 </body>
 </html>
