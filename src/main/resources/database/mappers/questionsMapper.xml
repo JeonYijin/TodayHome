@@ -34,7 +34,7 @@
 			ORDER BY Q.QUESTS_NUM DESC
 		</if>
 		
-		LIMIT #{startNum}, #{perPage}
+		LIMIT #{startRow}, #{perPage}
 	</select>
 	
 	<resultMap type="QuestionsVO" id="hashtagResult_all">

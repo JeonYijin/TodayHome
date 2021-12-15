@@ -33,14 +33,7 @@
                     </div>
                 </div>
             </div>
-            
-            <script>
-            	function searchQuestions(){
-            		var search = $('[name=search]').val();
-            		location.href = '/questions?search='+search;
-            	}
-            </script>            
-           
+
         </div>
     </header>
     <div class="css-ge2qp8-FeedContent evxc8q73">
@@ -158,47 +151,89 @@
                 </c:if>
             </c:forEach>
         </div>
+        
         <div class="css-ngni79-FeedPaginatorContainer evxc8q71">
         	<ul class="list-paginator">
-        		<li><button class="list-paginator__page sm selected" type="button">1</button></li>
-        		<li><button class="list-paginator__page sm" type="button">2</button></li>
-        		<li><button class="list-paginator__page sm" type="button">3</button></li>
-        		<li><button class="list-paginator__page sm" type="button">4</button></li>
-        		<li><button class="list-paginator__page sm" type="button">5</button></li>
-        		<li><button class="list-paginator__page" type="button">6</button></li>
-        		<li><button class="list-paginator__page" type="button">7</button></li>
-        		<li><button class="list-paginator__page" type="button">8</button></li>
-        		<li><button class="list-paginator__page" type="button">9</button></li>
-        		<li><button class="list-paginator__page" type="button">10</button></li>
-        		<li><button class="list-paginator__page" type="button">11</button></li>
-        		<li><button class="list-paginator__next" type="button">
-	        			<svg width="26" height="26" viewBox="0 0 26 26" preserveAspectRatio="xMidYMid meet">
-	        				<g fill="none" fill-rule="evenodd" transform="matrix(-1 0 0 1 26 0)">
-	        					<rect width="25" height="25" x=".5" y=".5" stroke="#DCDCDC" rx="4">
-	        					</rect><g stroke="#424242" stroke-linecap="square" stroke-width="2"><path d="M14.75 8.263L10.25 13M10.25 13l4.5 4.737"></path></g>
-	        				</g>
-	        			</svg>
-	        		</button>
-	        	</li>
-	        </ul>
-	       </div>
+        		<li>
+        			<button class="list-paginator__prev" type="button">
+        				<a href="/questions?pn=${pager.startNum-1}&search=${pager.search}">
+        					<svg width="26" height="26" viewBox="0 0 26 26" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><rect width="25" height="25" x=".5" y=".5" stroke="#DCDCDC" rx="4"></rect><g stroke="#424242" stroke-linecap="square" stroke-width="2"><path d="M14.75 8.263L10.25 13M10.25 13l4.5 4.737"></path></g></g></svg>
+        				</a>
+        			</button>
+        		</li>	
+        			<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+        				<li>
+        					<button class="list-paginator__page sm" id="pn${i}" type="button">
+	        					<a href="/questions?pn=${i}&search=${pager.search}">
+	        						${i}
+	        					</a>
+        					</button>
+        				</li>
+        			</c:forEach>        	
+        		<li>
+        			<button class="list-paginator__next" type="button">
+	        			<a href="/questions?pn=${pager.lastNum+1}&search=${pager.search}">
+	        				<svg width="26" height="26" viewBox="0 0 26 26" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd" transform="matrix(-1 0 0 1 26 0)"><rect width="25" height="25" x=".5" y=".5" stroke="#DCDCDC" rx="4"></rect><g stroke="#424242" stroke-linecap="square" stroke-width="2"><path d="M14.75 8.263L10.25 13M10.25 13l4.5 4.737"></path></g></g></svg>
+	        			</a>
+        			</button>
+        		</li>
+        	</ul>
+        </div>
+        
     </div>
     </div>
 </div>
 
-<div>
-	 	<a href="./questions?pn=${pager.startNum - 1}&search=${pager.search}">&lt;</a>
+<script type="text/javascript">
 	
-	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="n">
-		<a href="./questions?pn=${n}&search=${pager.search}">${n}</a>
+	//검색 기능
+	function searchQuestions(){
+		var search = $('[name=search]').val();
+		location.href = '/questions?search='+search;
+	}
+	
+	
+	//paging number blue color : RequestParameter 값 가져와서 해당 pn 판별
+	jQuery(function ($) {
+		$.fn.getUrlParameter = function (sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            	sURLVariables = sPageURL.split('&'),
+                sParameterName,
+				i;
+			for (i=0;i<sURLVariables.length;i++) {
+				sParameterName = sURLVariables[i].split('=');
+				if(sParameterName[0] === sParam) {
+					return sParameterName[1] === undefined ? true : sParameterName[1];
+				}
+			}
+		}
+		
+		var pNum = $.fn.getUrlParameter('pn');
+        console.log('pn은 이거야 : '+pNum);
+        
+        //undefined 판별용 typeof 사용
+        if(typeof pNum != 'undefined') { 
+        	$('#pn'+pNum).attr('class', 'list-paginator__page sm selected');
+        } else if(typeof pNum == 'undefined'){
+        	$('#pn1').attr('class', 'list-paginator__page sm selected');
+        }
+   
+	});
+	
+</script>
+
+
+<div>
+	<a href="./questions?pn=${pager.startNum-1}&search=${pager.search}">&lt;</a>
+	
+	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+		<a href="./questions?pn=${i}&search=${pager.search}">${i}</a>
 	</c:forEach>
 	
 	<c:if test="${not pager.lastCheck}">
-		<a href="./questions?pn=${pager.lastNum + 1}&search=${pager.search}">&gt;</a>
+		<a href="./questions?pn=${pager.lastNum+1}&search=${pager.search}">&gt;</a>
 	</c:if>
 	<br>
-	
-	<!-- Paging Finish -->
 </div>
 
 </body>

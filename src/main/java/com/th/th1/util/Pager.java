@@ -26,15 +26,14 @@ public class Pager {
 	 * 5) curBlock을 이용해서 시작번호, 끝번호 구하기
 	------------------------- */
 	
-	private Integer perPage; // 한 페이지에 출력할 갯수
+	private Integer perPage; // 한 페이지에 출력할 글 갯수
 	private Integer pn; // 페이지번호
-	private Integer perBlock;
+	private Integer perBlock; 
 	private Integer startRow; // limit의 시작번호
-	private Integer lastRow;
-	private Long startNum;
-	private Long lastNum;
+	private Long startNum; //페이지 시작번호
+	private Long lastNum; //페이지 끝번호
 	
-	private boolean lastCheck;
+	private boolean lastCheck; //마지막 블럭check
 
 	private String reply; //글 하나당 댓글갯수(답변을 기다리는 질문용)
 	private Integer popularity; //인기순
