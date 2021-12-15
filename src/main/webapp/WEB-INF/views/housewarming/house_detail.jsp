@@ -98,7 +98,7 @@
                                         <rect width="1" height="24" x="15.83" y="7" fill="#525B61" rx=".5"></rect>
                                     </g>
                                 </svg></dt>
-                            <dd class="project-detail-metadata-overview-item__text">${houseVO.house_space} 평</dd>
+                            <dd class="project-detail-metadata-overview-item__text">${houseVO.house_space}</dd>
                         </div>
                         <div class="project-detail-metadata-overview-item">
                             <dt class="project-detail-metadata-overview-item__icon"><svg class="icon" aria-label="분야"
@@ -195,7 +195,7 @@
                                 <c:if test="${not empty houseVO.total_budget}">
 	                                <div class="project-detail-metadata-detail-item">
 	                                    <dt>예산</dt>
-	                                    <dd>${houseVO.total_budget}만원</dd>
+	                                    <dd>${houseVO.total_budget}</dd>
 	                                </div>
                                 </c:if>
                             </dl>

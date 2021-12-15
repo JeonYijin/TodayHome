@@ -23,19 +23,15 @@
 		<if test='house_kind != ""'>
 			and house_kind=#{house_kind}		
 		</if>
-		
-		<!-- 예산과 평수는 범위가 있으므로 추후에 설정(switch문 작업 따로 해야해서 지금은 귀찮음)  
-		<if test="house_space != null">
+
+		<if test='house_space != ""'>
 			and house_space=#{house_space}
 		</if>
-		 -->
-		
-		<!-- 예산과 평수는 범위가 있으므로 추후에 설정(switch문 작업 따로 해야해서 지금은 귀찮음)	
-		<if test="total_budget != null">
+	
+		<if test='total_budget != ""'>
 			and total_budget=#{total_budget}
 		</if>
-		 -->
-		
+		 		
 		<if test='family_kind != ""'>
 			and family_kind=#{family_kind}	
 		</if>
@@ -73,17 +69,13 @@
 			and house_kind=#{house_kind}		
 		</if>
 		
-		<!-- 예산과 평수는 범위가 있으므로 추후에 설정(switch문 작업 따로 해야해서 지금은 귀찮음)  
-		<if test="house_space != null">
+		<if test='house_space != ""'>
 			and house_space=#{house_space}
 		</if>
-		 -->
-		
-		<!-- 예산과 평수는 범위가 있으므로 추후에 설정(switch문 작업 따로 해야해서 지금은 귀찮음)	
-		<if test="total_budget != null">
+		 
+		<if test='total_budget != ""'>
 			and total_budget=#{total_budget}
 		</if>
-		 -->
 		
 		<if test='family_kind != ""'>
 			and family_kind=#{family_kind}	

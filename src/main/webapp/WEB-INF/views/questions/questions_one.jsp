@@ -347,6 +347,7 @@ function commentDelete(cnum){
     $.ajax({
         url : '/comment/delete/'+cnum,
         type : 'post',
+        data:{'qnum':qnum},
         success : function(data){
             if(data == 1) commentList(qnum); //댓글 삭제후 목록 출력 
         }

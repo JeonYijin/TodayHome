@@ -184,10 +184,20 @@
                                     <div class="editor-form-group__content">
                                         <div class="editor-form-group__input"><span
                                                 class="css-10hheuw-EditorFieldColumn e13w87p50">
-                                                <div class="css-naoun-InputContainer eyipm3c1"><input placeholder="평수를 입력해주세요"
-                                                        name="house_space" class="form-control" type="number"
-                                                        value=""><span hidden="hidden" class="css-vqzo03-InputSuffix eyipm3c0">평</span>
-                                                </div>
+                                                <div class="input-group select-input"><select name="house_space"
+                                                        class="form-control empty">
+                                                        <option value="">선택해주세요.</option>
+                                                        <option value="1-9평">1-9평</option>
+                                                        <option value="10평대">10평대</option>
+                                                        <option value="20평대">20평대</option>
+                                                        <option value="30평대">30평대</option>
+                                                        <option value="40평대">40평대</option>
+                                                        <option value="50평 이상">50평 이상</option>
+                                                    </select><span class="select-input__icon"><svg class="icon"
+                                                            width="10" height="10" preserveAspectRatio="xMidYMid meet"
+                                                            style="fill: currentcolor;">
+                                                            <path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
+                                                        </svg></span></div>
                                             </span></div>
                                     </div>
                                 </div>
@@ -263,15 +273,23 @@
                                 <div class="editor-form-group">
                                     <div class="editor-form-group__label">예산</div>
                                     <div class="editor-form-group__content">
-                                        <div class="editor-form-group__input">
-                                            <div class="css-pvwpix-EditorFieldRow eslktj0"><span
-                                                    width="132" class="css-11rd77j-EditorFieldColumn e13w87p50">
-                                                    <div class="css-naoun-InputContainer eyipm3c1"><input
-                                                            name="total_budget" class="form-control"
-                                                            value="" type="number" placeholder="만원 단위로 입력해주세요"><span
-                                                            class="css-vqzo03-InputSuffix eyipm3c0" hidden="hidden">만원</span></div>
-                                                </span></div>
-                                        </div>
+                                        <div class="editor-form-group__input"><span
+                                                class="css-10hheuw-EditorFieldColumn e13w87p50">
+                                                <div class="input-group select-input"><select name="total_budget"
+                                                        class="form-control empty">
+                                                        <option value="">선택해주세요.</option>
+                                                        <option value="1백만원 미만">1백만원 미만</option>
+                                                        <option value="2백만원대">2백만원대</option>
+                                                        <option value="3백만원대">3백만원대</option>
+                                                        <option value="4백만원대">4백만원대</option>
+                                                        <option value="5백만원대">5백만원대</option>
+                                                        <option value="1천만원 이상">1천만원 이상</option>
+                                                    </select><span class="select-input__icon"><svg class="icon"
+                                                            width="10" height="10" preserveAspectRatio="xMidYMid meet"
+                                                            style="fill: currentcolor;">
+                                                            <path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
+                                                        </svg></span></div>
+                                            </span></div>
                                     </div>
                                 </div>
                             </div>
