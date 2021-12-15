@@ -13,8 +13,14 @@ public interface MemberDAO {
 	//회원탈퇴
 	public int setMemberDelete(MemberVO memberVO) throws Exception;
 	
-	//닉네임 중복 확인
+	//닉네임 중복 확인 ajax
 	public Long getNicknameCheck(MemberVO memberVO) throws Exception;
+	
+	//아이디 조회
+	public MemberVO getSelectId(MemberVO memberVO) throws Exception;
+	
+	//닉네임 조회
+	public MemberVO getSelectNickname(MemberVO memberVO) throws Exception;
 
 	
 	//로그인

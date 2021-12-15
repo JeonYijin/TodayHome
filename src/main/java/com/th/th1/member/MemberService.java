@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 @Service
 public class MemberService implements UserDetailsService{
@@ -70,6 +71,34 @@ public class MemberService implements UserDetailsService{
 	public Long getNicknameCheck(MemberVO memberVO) throws Exception {
 		Long count = memberDAO.getNicknameCheck(memberVO);
 		return count;
+	}
+	
+	//검증 메서드
+	public boolean memberError(MemberVO memberVO, BindingResult bindingResult) throws Exception {
+		boolean check = false;
+		
+		check = bindingResult.hasErrors();
+		
+		//비밀번호 확인 일치 검증
+		if(!memberVO.getPw().equals(memberVO.getPwCheck())) {
+			bindingResult.rejectValue("pwCheck", "member.password.notEqual");
+			check = true;
+		}
+		
+		//아이디 중복 검증
+		memberVO = memberDAO.getSelectId(memberVO);
+		if(memberVO != null) {
+			bindingResult.rejectValue("id", "member.id.equals");
+		}
+		
+		//닉네임 중복 검증
+		memberVO = memberDAO.getSelectNickname(memberVO);
+		if(memberVO != null) {
+			bindingResult.rejectValue("nickname", "member.id.equals");
+		}
+		
+		
+		return check;
 	}
 	
 	

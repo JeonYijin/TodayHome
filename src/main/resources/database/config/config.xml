@@ -17,6 +17,8 @@
 		<typeAlias type="com.th.th1.category.ProductVO" alias="ProductVO"/>
 		<typeAlias type="com.th.th1.category.PrFilesVO" alias="PrFilesVO"/>
 		
+		<typeAlias type="com.th.th1.cart.CartVO" alias="CartVO"/>
+		
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="java.util.List" alias="List"/>
 		

@@ -17,6 +17,17 @@
 		select count(*) from member where nickname = #{nickname}
 	</select>
 	
+	<!-- 아이디 조회 -->
+	<select id="getSelectId" parameterType="MemberVO" resultType="MemberVO">
+		select * from member where id = #{id}
+	</select>
+	
+	<!-- 닉네임 조회 -->
+	<select id="getSelectNickname" parameterType="MemberVO" resultType="MemberVO">
+		select * from member where nickname = #{nickname}
+	</select>
+	
+	
 	<!-- role 세팅 -->
 	<insert id="setMemberRoleInsert" parameterType="java.util.Map">
 		insert into member_role(id, num) values(#{id}, #{num})

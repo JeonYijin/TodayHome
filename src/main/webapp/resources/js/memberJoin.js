@@ -15,7 +15,7 @@ let memberId = '';
 	$('#email-id').change(function(){
 		emailId = $(this).val(); 
 		memberId = emailId + '@' + emailDomain;
-		$("#member-id").val(memberId);
+		$(".member-id").val(memberId);
 	});
 	
 	
@@ -40,14 +40,14 @@ let memberId = '';
 			$("#email-domain-manual").change(function(){
 				emailDomain = $('#email-domain-manual').val();
 				memberId = emailId + '@' + emailDomain;
-				$("#member-id").val(memberId);
+				$(".member-id").val(memberId);
 		});
 			
 		} else {
 			$('#email-domain-manual').hide();
 			emailDomain = $(this).val();
 			memberId = emailId + '@' + emailDomain;
-			$("#member-id").val(memberId);
+			$(".member-id").val(memberId);
 		}
 		
 	});
@@ -179,7 +179,7 @@ $('.essential-nm').on({
 
 
 //회원가입 버튼
-$('#joinBtn').on('click', function(){
+/*$('#joinBtn').on('click', function(){
 	
 	
 	if($("#member-id").val() == null) {
@@ -193,3 +193,4 @@ $('#joinBtn').on('click', function(){
 	}
 	
 })
+*/

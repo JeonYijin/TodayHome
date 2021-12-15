@@ -5,16 +5,26 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
 public class MemberVO implements UserDetails {
-
+	
    private Integer memberNum;
+   @NotBlank
    private String id;
+   
+   @Min(value = 8)
    private String pw;
+   
+   @NotBlank
+   private String pwCheck;
+   @NotBlank
    private String nickname;
    //private Integer role;
    
@@ -41,7 +51,14 @@ public class MemberVO implements UserDetails {
    public void setPw(String pw) {
       this.pw = pw;
    }
-   public String getNickname() {
+   
+   public String getPwCheck() {
+	   return pwCheck;
+   }
+	public void setPwCheck(String pwCheck) {
+		this.pwCheck = pwCheck;
+	}
+	public String getNickname() {
       return nickname;
    }
    public void setNickname(String nickname) {

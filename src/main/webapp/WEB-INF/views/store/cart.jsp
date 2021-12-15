@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +32,78 @@
                         </div>
                     </div>
                     <ul class="commerce-cart__content__group-list">
+                    <!-- 장바구니 목록 -->
+                    <c:forEach items="${items}" var="item">
+                    
+	                    	<li class="commerce-cart__content__group-item">
+	                            <article class="commerce-cart__group">
+	                                <h1 class="commerce-cart__group__header">${item.pr_seller} 배송</h1>
+	                                <ul class="commerce-cart__group__item-list">
+	                                    <li class="commerce-cart__group__item">
+	                                        <article class="commerce-cart__delivery-group">
+	                                            <ul class="commerce-cart__delivery-group__product-list">
+	                                                <li class="commerce-cart__delivery-group__product-item">
+	                                                    <article class="carted-product">
+	                                                        <div class="carted-product__select">
+	                                                            <div class="_3zqA8">
+	                                                                <input type="checkbox" class="_3UImz" value="" checked="" />
+	                                                                <span class="_2mDYR">
+	                                                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="_2UftR">
+	                                                                        <path fill="currentColor" d="M6.185 10.247l7.079-7.297 1.435 1.393-8.443 8.703L1.3 8.432l1.363-1.464z"></path>
+	                                                                    </svg>
+	                                                                </span>
+	                                                            </div>
+	                                                        </div>
+	                                                        <a class="product-small-item product-small-item--clickable" href="/productions/538782/selling">
+	                                                            <div class="product-small-item__image">
+	                                                                <picture>
+	                                                                    <source
+	                                                                    	src="../upload/store/${item.files[0].fileName}"
+	                                                                        srcset="
+	                                                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=360&amp;h=360&amp;c=c&amp;webp=1 1.5x,
+	                                                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=480&amp;h=480&amp;c=c&amp;webp=1 2x,
+	                                                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=720&amp;h=720&amp;c=c&amp;webp=1 3x
+	                                                                        "
+	                                                                        type="image/webp"
+	                                                                    />
+	                                                                    <img
+	                                                                        alt=""
+	                                                                        src="../upload/store/${item.files[0].fileName}"
+	                                                                    />
+	                                                                </picture>
+	                                                            </div>
+	                                                            <div class="product-small-item__content">
+	                                                                <h1 class="product-small-item__title">${item.pr_name}</h1>
+	                                                                <p class="css-f55hds-Caption e1xep4wb0">배송비 2,500원&nbsp;|&nbsp;일반택배</p>
+	                                                            </div>
+	                                                        </a>
+	                                                        <button class="carted-product__delete" type="button" aria-label="삭제">
+	                                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">
+	                                                                <path fill-rule="nonzero" d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path>
+	                                                            </svg>
+	                                                        </button>
+	                                                      
+	                                                        <div class="carted-product__footer">
+	                                                            <span class="carted-product__footer__left">
+	                                                                <button class="carted-product__order-btn" type="button">바로구매</button>
+	                                                            </span>
+	                                                            <span class="carted-product__subtotal"><span class="carted-product__subtotal__number">${item.pr_dPrice}</span>원</span>
+	                                                        </div>
+	                                                    </article>
+	                                                </li>
+	                                            </ul>
+	                                            <footer class="commerce-cart__delivery-group__footer"><p class="commerce-cart__delivery-group__total">배송비 2,500원</p></footer>
+	                                        </article>
+	                                    </li>
+	                                </ul>
+	                            </article>
+	                        </li>
+	                        
+	                    </c:forEach>
+                    
+                    
+                    
+                    <!-- ----------------------------------------------------- -->
                         <li class="commerce-cart__content__group-item">
                             <article class="commerce-cart__group">
                                 <h1 class="commerce-cart__group__header">심플먼트 배송</h1>
@@ -64,7 +137,7 @@
                                                                     />
                                                                     <img
                                                                         alt=""
-                                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=256&amp;h=256&amp;c=c"
+                                                                        src="../upload/store/680dd3e8-44ec-45f9-8d40-cc50b9ac9612_diego_sofa.jpg"
                                                                         srcset="
                                                                             https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=360&amp;h=360&amp;c=c 1.5x,
                                                                             https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=480&amp;h=480&amp;c=c 2x,
