@@ -27,6 +27,7 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	
 	//마이페이지 이동
 	@GetMapping("mypage")
 	public ModelAndView getMypage(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
@@ -234,6 +235,7 @@ public class MemberController {
 		
 		return mv;
 	}
+
 	
 	//sns로그인시 가져올 데이터
 	@GetMapping("usePrincipal")
@@ -254,6 +256,7 @@ public class MemberController {
 	public void getmemberLoginResult() {
 		System.out.println("memberLoginResult");
 	}
+
 	
 
 	

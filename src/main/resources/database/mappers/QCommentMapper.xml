@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.th.th1.comment.QCommentDAO">
+ 
+	<select id="commentCount" parameterType="int" resultType="int">
+		select count(*) 
+		from q_comment
+		where qnum=#{qnum}
+    </select>
+    
+    <select id="commentList" parameterType="int" resultType="QCommentVO">
+        select *
+        from q_comment
+        where qnum=#{qnum}
+    </select>    
+    
+    <insert id="commentInsert" parameterType="QCommentVO">
+        insert into q_comment (cnum, qnum, contents, writer, regDate, ref, step, depth, heart)
+        values (#{cnum}, #{qnum}, #{contents}, #{writer}, default, 1, 0, 0, default)
+    </insert>
+
+    <delete id="commentDelete" parameterType="int">
+        delete from q_comment
+        where cnum=#{cnum}
+    </delete>
+    
+    <!-- 좋아요 관련 기능: 클릭시 +1, 취소시 -1, 좋아요갯수 select  -->
+
+
+ </mapper>

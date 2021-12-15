@@ -22,6 +22,7 @@ public class HomeController {
 //	}
 	
 	@GetMapping("/")
+
 	public ModelAndView getHome() throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<PictureVO> topPic = pictureService.getTopPic();
@@ -32,3 +33,4 @@ public class HomeController {
 	}
 	
 }
+

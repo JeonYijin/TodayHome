@@ -17,6 +17,7 @@
 		select count(*) from member where nickname = #{nickname}
 	</select>
 	
+
 	<!-- 회원정보 수정 - 닉네임 수정 -->
 	<update id="setMemberUpdate" parameterType="MemberVO">
 		update member set nickname = #{nickname} where memberNum=#{memberNum}
@@ -49,6 +50,7 @@
 	
 	
 	
+
 	<!-- role 세팅 -->
 	<insert id="setMemberRoleInsert" parameterType="java.util.Map">
 		insert into member_role(id, num) values(#{id}, #{num})
@@ -62,6 +64,7 @@
 			inner join role R
 			on MR.num = R.num
 			where M.id = #{username}
+
 	</select>
 	<resultMap type="MemberVO" id="getLoginResult">
 		<id column="memberNum" property="memberNum"/>
@@ -141,7 +144,19 @@
   	<select id="getMyHeartCount" parameterType="FeelingVO" resultType="Long">
   		select count(*) from feeling where memberNum = #{memberNum};
   	</select>
-  
+
+
+	<resultMap type="MemberVO" id="getLoginResult">
+		<id column="memberNum" property="memberNum"/>
+		<result column="id" property="id"/>
+		<result column="pw" property="pw"/>
+		<result column="nickname" property="nickname"/>
+		<result column="enabled" property="enabled"/>
+		<collection property="roles" javaType="List" ofType="RoleVO">
+			<result column="num" property="num"/>
+  			<result column="roleName" property="roleName"/>
+		</collection>
+	</resultMap>
   	<!-- 내가 스크랩한 사진 게시글 -->
   	<select id="getMyScrapPic" parameterType="ScrapingVO" resultMap="getMyScrap">
   		select P.post_id, PF.*, S.* from

@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration
-  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-config.dtd">
-  
-  <configuration>
-  	<typeAliases>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.th.th1.cscenter.CSCenterVO" alias="CSCenterVO" />
+		<typeAlias type="com.th.th1.questions.QuestionsVO" alias="QuestionsVO" />
+		<typeAlias type="com.th.th1.questions.HashtagVO" alias="HashtagVO"/>
+		<typeAlias type="com.th.th1.member.MemberVO" alias="MemberVO" />
+		<typeAlias type="com.th.th1.picture.PictureVO" alias="PictureVO" />
+		<typeAlias type="com.th.th1.member.RoleVO" alias="RoleVO" />
+		<typeAlias type="com.th.th1.q_reply.Q_ReplyVO" alias="Q_ReplyVO"/>
+		<typeAlias type="com.th.th1.comment.QCommentVO" alias="QCommentVO"/>
+		<typeAlias type="com.th.th1.housewarming.HouseWarmingVO" alias="HouseWarmingVO"/>
+		<typeAlias type="com.th.th1.comment.HCommentVO" alias="HCommentVO"/>
+		<typeAlias type="com.th.th1.housewarming.House_ZoayoVO" alias="House_ZoayoVO"/>
+		<typeAlias type="com.th.th1.housewarming.House_ScrapVO" alias="House_ScrapVO"/>
 		
+
 		<typeAlias type="com.th.th1.member.MemberVO" alias="MemberVO"/>
 		
 		<typeAlias type="com.th.th1.member.NotiVO" alias="NotiVO"/>
@@ -22,7 +33,11 @@
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="java.util.List" alias="List"/>
 		
+		<typeAlias type="com.th.th1.util.Pager" alias="Pager"/>
 		
   	
   	</typeAliases>
-  </configuration>
+
+
+</configuration>
+

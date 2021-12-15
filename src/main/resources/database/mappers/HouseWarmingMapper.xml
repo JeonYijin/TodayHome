@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.th.th1.housewarming.HouseWarmingDAO">
+
+	<!-- 글쓰기 -->
+	<insert id="setHouseWarming" parameterType="HouseWarmingVO">
+		INSERT INTO HOUSEWARMING 
+		VALUES (null, #{house_title}, #{house_contents}, #{house_writer}, #{house_userId},default, default, default, 
+		default, #{house_thumbnail}, default, #{house_kind}, #{house_space}, #{house_rooms}, 
+		#{family_kind}, #{working_area}, 
+		#{total_budget}, -1)
+	</insert>
+	
+	<!-- 글 갯수 가져오기 -->
+	<select id="getCountBoard" parameterType="hashmap" resultType="int">
+		SELECT COUNT(HOUSE_NUM)
+		FROM HOUSEWARMING
+		WHERE style_category>-1
+		
+		<if test='house_kind != ""'>
+			and house_kind=#{house_kind}		
+		</if>
+
+		<if test='house_space != ""'>
+			and house_space=#{house_space}
+		</if>
+	
+		<if test='total_budget != ""'>
+			and total_budget=#{total_budget}
+		</if>
+		 		
+		<if test='family_kind != ""'>
+			and family_kind=#{family_kind}	
+		</if>
+		
+		<if test='style_category != ""'>
+			and style_category=#{style_category}
+		</if>
+		
+		<if test='working_area != ""'>
+			and working_area=#{working_area}
+		</if>
+		
+		<!-- ** 정렬 ** -->
+		<if test='arrangement == "최신순"'>
+			ORDER BY house_num desc
+		</if>
+		
+		<if test='arrangement == "인기순"'>
+			ORDER BY house_zoayo desc
+		</if>
+		
+		<if test='arrangement == "과거순"'>
+			ORDER BY house_num asc
+		</if>
+		<!-- ** /정렬 ** -->
+		
+	</select>
+	
+	<!-- 글 리스트 가져오기 -->
+	<select id="getHouseList" parameterType="hashmap" resultType="HouseWarmingVO">
+		SELECT * FROM HOUSEWARMING
+		WHERE style_category>-1
+		
+		<if test='house_kind != ""'>
+			and house_kind=#{house_kind}		
+		</if>
+		
+		<if test='house_space != ""'>
+			and house_space=#{house_space}
+		</if>
+		 
+		<if test='total_budget != ""'>
+			and total_budget=#{total_budget}
+		</if>
+		
+		<if test='family_kind != ""'>
+			and family_kind=#{family_kind}	
+		</if>
+		
+		<if test='style_category != ""'>
+			and style_category=#{style_category}
+		</if>
+		
+		<if test='working_area != ""'>
+			and working_area=#{working_area}
+		</if>
+		
+		<!-- ** 정렬 ** -->
+		<if test='arrangement == "최신순"'>
+			ORDER BY house_num desc
+		</if>
+		
+		<if test='arrangement == "인기순"'>
+			ORDER BY house_zoayo desc
+		</if>
+		
+		<if test='arrangement == "과거순"'>
+			ORDER BY house_num asc
+		</if>
+		<!-- ** /정렬 ** -->
+		
+	</select>	
+	
+	<!-- 글 하나 가져오기 -->
+	<select id="getSelectOne" parameterType="HouseWarmingVO" resultType="HouseWarmingVO">
+		SELECT * FROM HOUSEWARMING
+		WHERE HOUSE_NUM=#{house_num}
+	</select>
+	
+	<!-- 글 삭제 -->
+	<delete id="setDeleteBoard" parameterType="HouseWarmingVO">
+		DELETE FROM HOUSEWARMING
+		WHERE HOUSE_WRITER=#{house_writer} and HOUSE_NUM=#{house_num}
+	</delete>
+	
+	<!-- 글 수정 -->
+	<update id="setUpdateBoard" parameterType="HouseWarmingVO">
+		UPDATE HOUSEWARMING 
+		SET HOUSE_TITLE=#{house_title}, HOUSE_CONTENTS=#{house_contents}, HOUSE_THUMBNAIL=#{house_thumbnail}, HOUSE_KIND=#{house_kind}, HOUSE_SPACE=#{house_space},
+			HOUSE_ROOMS=#{house_rooms}, FAMILY_KIND=#{family_kind}, WORKING_AREA=#{working_area}, TOTAL_BUDGET=#{total_budget}, STYLE_CATEGORY=#{style_category}
+		WHERE HOUSE_NUM=#{house_num} AND HOUSE_WRITER=#{house_writer}
+	</update>
+	
+	<!-- 조회수 +1 증가 -->
+	<update id="setHitsUp" parameterType="int">
+		UPDATE HOUSEWARMING
+		SET HOUSE_HITS=HOUSE_HITS+1
+		WHERE HOUSE_NUM=#{house_num}
+	</update>
+	
+	<!-- 댓글수 +1 update -->
+	<update id="plusReplyCount" parameterType="int">
+		UPDATE HOUSEWARMING
+		SET house_comments=house_comments+1
+		WHERE HOUSE_NUM=#{hnum}
+	</update>
+	
+	<!-- 댓글수 -1 update -->
+	<update id="minusReplyCount" parameterType="int">
+		UPDATE HOUSEWARMING
+		SET house_comments=house_comments-1
+		WHERE HOUSE_NUM=#{hnum}
+	</update>
+	
+	
+	<!-- =============================================@@@================================================ -->
+	
+	
+	<!-- ====== [house-zoayo table END] ===== -->
+	
+	<!-- House_Zoayo table Insert -->
+	<insert id="setZoayoInsert" parameterType="House_ZoayoVO">
+		INSERT INTO HOUSE_ZOAYO 
+		VALUES (null, #{house_num}, #{zoayo_id})
+	</insert>
+		
+	<!-- House_Zoayo table Delete -->
+	<delete id="setZoayoDelete" parameterType="House_ZoayoVO">
+		DELETE FROM HOUSE_ZOAYO
+		WHERE house_num=#{house_num} and zoayo_id=#{zoayo_id}
+	</delete>
+	
+	<!-- HouseWarming table Zoayo UP -->
+	<update id="houseZoayoUp" parameterType="int">
+		UPDATE HOUSEWARMING SET HOUSE_ZOAYO=HOUSE_ZOAYO+1
+		WHERE house_num=#{house_num}
+	</update>
+	
+	<!-- HouseWarming table Zoayo DOWN -->
+	<update id="houseZoayoDown" parameterType="int">
+		UPDATE HOUSEWARMING SET HOUSE_ZOAYO=HOUSE_ZOAYO-1
+		WHERE house_num=#{house_num}
+	</update>
+	
+	<!-- 해당 아이디가 좋아요 눌렀는지 여부 확인 -->
+	<select id="getZoayoInfo" parameterType="House_ZoayoVO" resultType="House_ZoayoVO">
+		SELECT * FROM HOUSE_ZOAYO
+		WHERE zoayo_id=#{zoayo_id} and house_num=#{house_num}
+	</select>
+	
+	<!-- ====== [house-zoayo table END] ===== -->
+	
+	
+	<!-- =============================================@@@================================================ -->
+	
+	
+	<!-- ====== [house-scrap table START] ===== -->
+	
+	<!-- House_Scrap table Insert -->
+	<insert id="setScrapInsert" parameterType="House_ScrapVO">
+		INSERT INTO HOUSE_SCRAP (num, scrap_id, house_num)
+		VALUES (null, #{scrap_id}, #{house_num})
+	</insert>
+	
+	<!-- House_Scrap table Delete -->
+	<delete id="setScrapDelete" parameterType="House_ScrapVO">
+		DELETE FROM HOUSE_SCRAP
+		WHERE house_num=#{house_num} and scrap_id=#{scrap_id}
+	</delete>
+	
+	<!-- HouseWarming table Scrap UP -->
+	<update id="houseScrapUp" parameterType="int">
+		UPDATE HOUSEWARMING SET HOUSE_SCRAP=HOUSE_SCRAP+1
+		WHERE house_num=#{house_num}
+	</update>
+	
+	<!-- HouseWarming table Scrap DOWN -->
+	<update id="houseScrapDown" parameterType="int">
+		UPDATE HOUSEWARMING SET HOUSE_SCRAP=HOUSE_SCRAP-1
+		WHERE house_num=#{house_num}
+	</update>
+	
+	<!-- 해당 아이디가 스크랩 눌렀는지 여부 확인 -->
+	<select id="getScrapInfo" parameterType="House_ScrapVO" resultType="House_ScrapVO">
+		SELECT * FROM HOUSE_SCRAP
+		WHERE scrap_id=#{scrap_id} and house_num=#{house_num}
+	</select>
+	
+	<!-- 한 아이디에 종속된 스크랩 게시물 List -->
+	<select id="getScraps" parameterType="House_ScrapVO" resultType="House_ScrapVO">
+		SELECT * FROM HOUSE_SCRAP
+		WHERE SCRAP_ID=#{scrap_id}
+	</select>
+	
+	<!-- ====== [house-scrap table END] ===== -->
+	
+	
+	<!-- =============================================@@@================================================ -->
+
+	
+</mapper>
