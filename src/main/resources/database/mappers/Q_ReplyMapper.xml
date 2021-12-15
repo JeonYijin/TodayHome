@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.th.th1.q_reply.Q_ReplyDAO">
+  		<!-- 댓글 쓰기 -->
+		<insert id="q_reply_write" parameterType="Q_ReplyVO">
+		    insert into q_reply
+		    values(null, #{qnum}, #{ref}, 0, 0, #{nickname}, #{id}, #{contents}, default, default)
+		</insert>
+		
+		<!-- 모댓글일경우 rnum, ref 일치하게 함 -->
+		<update id="q_reply_check" parameterType="Q_ReplyVO">
+		    update q_reply set ref=#{ref}
+		    where no != #{ref}
+		</update>
+		
+		<!-- 모댓글이 삭제된 댓글일때 그에 딸린 대댓글들이 모두삭제되면 테이블에서 완전히 삭제 -->
+		<delete id="q_reply_delete_all" parameterType="Q_ReplyVO">
+		    delete from q_reply
+		    where contents="" and ref=#{ref}
+		</delete>
+		
+		<!-- 대댓글 쓰기 -->
+		<insert id="q_rereply_write" parameterType="Q_ReplyVO">
+		    insert into q_reply
+		    values(null, #{qnum}, #{ref}, 0, #{depth}, #{nickname}, #{id}, #{contents}, default, default)
+		</insert>
+		
+		<!-- questions에 댓글수 증가 -->
+		<update id="questions_reply_up" parameterType="QuestionsVO">
+		    update questions set reply=reply+1 
+		    where quests_num=#{quests_num}
+		</update>
+		
+		<!-- 댓글 리스트 가져오기 -->
+		<select id="q_replyList" parameterType="Q_ReplyVO" resultType="Q_ReplyVO">
+		    select r.rnum, r.qnum, r.ref, r.depth, r.nickname, r.contents, date_format(regDate,'%Y-%m-%d') regDate, r.hearts , m.*
+		    from q_reply r left outer join member m
+		    on r.id = m.id
+		    where r.qnum = #{qnum}
+		    order by ref asc, step desc
+		</select>
+		
+		
+		<!-- 댓글 추가/삭제시 댓글 갯수 가져오기 -->
+		<select id="questions_reply_count" parameterType="QuestionsVO" resultType="QuestionsVO">
+		    select reply 
+		    from questions
+		    where quests_num=#{quests_num}
+		</select>
+		
+		<!-- 모댓글의 대댓글 수를 카운트 -->
+		<select id="q_count_rereply" parameterType="Q_ReplyVO" resultType="int">
+		    select count(rnum)
+		    from q_reply
+		    where rnum != #{rnum} and ref = #{rnum}
+		</select>
+		
+		<!-- 대댓글수를 카운트 -->
+		<select id="q_count_rereply_fromrereply" parameterType="Q_ReplyVO" resultType="int">
+		    select count(rnum)
+		    from q_reply
+		    where rnum != #{ref} and ref = #{ref}
+		</select>
+		
+		<!-- 모댓글 삭제 - 답글 없음 -->
+		<delete id="q_reply_delete" parameterType="Q_ReplyVO">
+		    delete from q_reply
+		    where rnum=#{rnum}
+		</delete>
+		
+		<!-- 모댓글 삭제 - 답글 있음 -->
+		<update id="q_reply_not_delete" parameterType="Q_ReplyVO">
+		    update q_reply set contents=""
+		    where rnum=#{rnum}
+		</update>
+		
+		<!-- Questions에 댓글수 감소 -->
+		<update id="questions_reply_down" parameterType="QuestionsVO">
+		    update questions set reply=reply-1
+		    where quests_num=#{quests_num}
+		</update>
+		
+		<!-- rnum 가장 큰 값 가져오기 -->
+		<select id="q_reply_max_rnum" resultType="int">
+			select max(rnum)
+			from q_reply
+		</select>
+  
+  </mapper>
