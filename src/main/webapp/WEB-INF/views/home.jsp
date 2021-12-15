@@ -83,7 +83,7 @@ margin-top:26px;
 							<a
 								class="layout-navigation-primary__menu__item layout-navigation-primary__menu__item--active layout-navigation-primary__menu__item--open"
 								href="/">커뮤니티</a><a class="layout-navigation-primary__menu__item"
-								href="/store">스토어</a>
+								href="../pr/prlist">스토어</a>
 						</nav>
 						<div class="layout-navigation-primary__right mymenuStart">
 							<div class="layout-navigation-bar-search">
@@ -106,7 +106,7 @@ margin-top:26px;
 							</button>
 		<!-- 로그인 안했을 때 헤더 -------------------------------------------------------------------------------------------------------------------------------------------------------- -->											
 							<sec:authorize access="!isAuthenticated()">
-								<a class="layout-navigation-bar-icon" title="장바구니"aria-label="장바구니" href="/cart">
+								<a class="layout-navigation-bar-icon" title="장바구니"aria-label="장바구니" href="../cart">
 									<svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linejoin="round" stroke-width="2" preserveAspectRatio="xMidYMid meet">
 											<path stroke-linecap="round" d="M4 5h18l-2.6 10.5a2 2 0 0 1-2 1.5H8.6a2 2 0 0 1-2-1.5L4 5zm4 15.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0zm7 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0z"></path>
 											<path d="M1 2h3v3"></path>
@@ -115,7 +115,7 @@ margin-top:26px;
 							<div class="layout-navigation-bar-login">
 								<a class="layout-navigation-bar-login__item" href="../member/memberLogin">로그인</a>
 								<a class="layout-navigation-bar-login__item" href="../member/memberJoin">회원가입</a>
-								<a class="layout-navigation-bar-login__item layout-navigation-bar-login__item--xl" href="/customer_center">고객센터</a>
+								<a class="layout-navigation-bar-login__item layout-navigation-bar-login__item--xl" href="../cscenter">고객센터</a>
 							</div>
 							<div class="drop-down layout-navigation-bar-upload-button">
 								<button class="layout-navigation-bar-upload-button__button  writeBtn1" type="button">글쓰기
@@ -139,7 +139,7 @@ margin-top:26px;
 									</svg>
 								</a>
 							
-								<a class="layout-navigation-bar-icon" title="장바구니" aria-label="장바구니" href="/cart">
+								<a class="layout-navigation-bar-icon" title="장바구니" aria-label="장바구니" href="../cart">
 									<svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linejoin="round" stroke-width="2" preserveAspectRatio="xMidYMid meet">
 										<path stroke-linecap="round" d="M4 5h18l-2.6 10.5a2 2 0 0 1-2 1.5H8.6a2 2 0 0 1-2-1.5L4 5zm4 15.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0zm7 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 1 1-3 0z"></path>
 										<path d="M1 2h3v3"></path>
@@ -184,7 +184,7 @@ margin-top:26px;
 							<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="/">홈</a>
 								<a class="layout-navigation-secondary__menu__item" href="../picture/picList">사진</a>
 								<a class="layout-navigation-secondary__menu__item" href="../housewarming/">집들이</a>
-								<a class="layout-navigation-secondary__menu__item" href="/contents/follow/feed">질문과답변</a>
+								<a class="layout-navigation-secondary__menu__item" href="../questions/">질문과답변</a>
 								
 						</nav>
 						<div
@@ -434,7 +434,7 @@ margin-top:26px;
 			<nav class="container shortcut">
 				<ul class="row shortcut__list">
 					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/store/?affect_type=Home&amp;affect_id=0">
+						<a class="shortcut__list__item__link" href="../pr/prlist">
 							<div class="shortcut__list__item__link__image">
 								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163146766870457158.png/512/none">
 							</div>
@@ -442,7 +442,7 @@ margin-top:26px;
 						</a>
 					</li>
 					 <li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/exhibitions/1763?affect_type=Home&amp;affect_id=0">
+						<a class="shortcut__list__item__link" href="#">
 							<div class="shortcut__list__item__link__image">
 								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-162631001897809227.png/512/none">
 							</div>
