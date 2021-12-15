@@ -205,7 +205,12 @@
 	                                			}
 	                                		},
 	                                		error:function(){
-	                                			alert('스크랩 실패');
+	                                			if(loginId == null || loginId == ''){
+	                                				alert('로그인을 해주세요.');
+	                                			} else {
+	                                				alert('스크랩 실패');	
+	                                			}
+	                                			
 	                                		}
 	                                	});
 	                                }
@@ -427,7 +432,12 @@ function scrapDeleteEvent(house_num) {
 			}
 		},
 		error:function(){
-			alert('스크랩취소 실패');
+			if(loginId == null || loginId == ''){
+				alert('로그인을 해주세요.');
+			} else {
+				alert('스크랩취소 실패');
+			}
+				
 		}
 	});
 }

@@ -38,6 +38,7 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 			System.out.println("house_kind가 null이 아니라면?:"+house_kind);
 		}
 		
+		ModelAndView mav = new ModelAndView();
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
@@ -89,36 +90,32 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 			System.out.println("principal.getName() = "+principal.getName());
 			hsVO = new House_ScrapVO();
 			hsVO.setScrap_id(principal.getName());
+			
 			scraps = houseService.getScraps(hsVO);
-/*			
-			// 가져온 scrap list를 houseWarmingVO에 삽입 --- 이건 더 생각해봐야 함(어려움)-->리스트에서 스크랩 관리하는 방법 찾아보기
-			for(int i=0;i<list.size();i++) {
-				for(int j=0;j<scraps.size();j++) {
-					if(list.get(i).getScraps().get(i).getScrap_id() == scraps.get(j).getScrap_id()) {
-						list.get(i).getScraps().set(i, scraps.get(j));
-						System.out.println("dd:: "+list.get(i).getScraps().get(j).getScrap_id());
+
+			if(scraps != null) {				
+				//scrap된 게시물
+				for(int t=0;t<scraps.size();t++) {
+					for(int y=0;y<list.size();y++) {
+						int list_num=list.get(y).getHouse_num(); //전체리스트
+						int scraps_num=scraps.get(t).getHouse_num(); //로그인한 아이디로 House_Scrap DB 조회
+						if(list_num==scraps_num) {
+							list.get(y).setScrap_id(principal.getName());
+						}
 					}
-				}								
-			} */
-		}
-		
-		//scrap된 게시물
-		for(int t=0;t<scraps.size();t++) {
-			for(int y=0;y<list.size();y++) {
-				int list_num=list.get(y).getHouse_num(); //전체리스트
-				int scraps_num=scraps.get(t).getHouse_num(); //로그인한 아이디로 House_Scrap DB 조회
-				if(list_num==scraps_num) {
-					list.get(y).setScrap_id(principal.getName());
 				}
 			}
+			
+			mav.addObject("scraps", scraps);
 		}
 		
 		
-		ModelAndView mav = new ModelAndView();
+		
+		
 		mav.setViewName("housewarming/house_list");
 		mav.addObject("countBoard", houseService.getCountBoard(map));
 		mav.addObject("list", list);
-		mav.addObject("scraps", scraps);
+		
 		//security에서 로그인 아이디 받아오기
 		if(principal != null) {
 			mav.addObject("loginId", principal.getName());
