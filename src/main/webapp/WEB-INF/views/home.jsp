@@ -183,7 +183,7 @@ margin-top:26px;
 						<nav class="layout-navigation-secondary__menu">
 							<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="/">홈</a>
 								<a class="layout-navigation-secondary__menu__item" href="../picture/picList">사진</a>
-								<a class="layout-navigation-secondary__menu__item" href="/projects?writer=self">집들이</a>
+								<a class="layout-navigation-secondary__menu__item" href="../housewarming/">집들이</a>
 								<a class="layout-navigation-secondary__menu__item" href="/contents/follow/feed">질문과답변</a>
 								
 						</nav>
@@ -1169,7 +1169,7 @@ margin-top:26px;
 					</li>
 					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="/customer_center">고객센터</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../cscenter/">고객센터</a>
 					</li>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<button class="layout-navigation-bar-user-menu__item logout" type="button">로그아웃</button>
