@@ -1,0 +1,114 @@
+/* @font-face{
+	font-family:'poor'
+	 src: url('/res/poor.ttf')
+} */
+/* body{
+	font-family:poor;
+	font-size:10px;
+} */
+thead th {
+	background-color: #fceac2;
+}
+
+/* tr:hover td { background-color: #ffe; cursor: pointer; } */
+input.form-control.w100 {
+	width: 100px;
+}
+
+input.form-control.w200 {
+	width: 200px;
+}
+
+input.form-control.w2h1 {
+	width: 200px;
+	height: 100px;
+}
+
+input.form-control.w300 {
+	width: 300px;
+}
+
+input.form-control.w400 {
+	width: 400px;
+}
+
+select.form-control.w100 {
+	width: 100px;
+}
+
+select.form-control.w200 {
+	width: 200px;
+}
+
+select.form-control.w300 {
+	width: 300px;
+}
+
+select.form-control.w400 {
+	width: 400px;
+}
+
+.mt5 {
+	margin-top: 5px;
+}
+
+.mb5 {
+	margin-bottom: 5px;
+}
+
+.mr20 {
+	margin-right: 20px;
+}
+
+.ml20 {
+	margin-left: 20px;
+}
+
+div.container {
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
+}
+
+img {
+	float: left;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+div.menu {
+	background: linear-gradient(#eee, #fff);
+	font-weight: bold;
+	padding: 12px;
+	border-radius: 8px;
+}
+
+div.menu span {
+	margin-right: 50px;
+}
+
+div.footer {
+	border-top: 1px solid #ddd;
+	padding: 30px 10px;
+}
+
+div.footer img {
+	margin-right: 20px;
+}
+
+div.footer div:nth-child(2) {
+	font: normal 9pt arial;
+	color: #666;
+	margin-top: 10px;
+}
+
+div.footer div:nth-child(3) {
+	font: normal 9pt arial;
+	color: #aaa;
+	margin-top: 10px;
+}
+
+body {
+	padding-top: 0px;
+	padding-bottom: 30px;
+}

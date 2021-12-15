@@ -2,7 +2,9 @@ package com.th.th1.member;
 
 
 
+
 import java.util.List;
+
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -27,6 +29,10 @@ public interface MemberDAO {
 	//회원정보 업데이트
 	public int setMemberUpdate(MemberVO memberVO) throws Exception;
 	
+
+	
+	
+
 	
 	//로그인
 	public MemberVO getLogin(String username) throws Exception;
@@ -71,6 +77,7 @@ public interface MemberDAO {
 	
 	
 		
+
 
 
 }

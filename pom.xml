@@ -20,8 +20,15 @@
 	<dependencies>
 	
 
+
 		
 		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+
+	
+
+	
+	
+
 
 		<dependency>
 		    <groupId>com.googlecode.json-simple</groupId>
@@ -83,6 +90,7 @@
 
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
+
 				<artifactId>spring-boot-starter-web</artifactId>
 			</dependency>
 			<dependency>
@@ -122,5 +130,6 @@
 				</plugin>
 			</plugins>
 		</build>
+
 
 </project>

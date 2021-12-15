@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.th.th1.pr.PrMapper">
+  	<select id="prList" resultType="PrVO">
+  		select * from final.pr
+  	</select>
+  	
+  	<select id="prSelect" parameterType="PrVO" resultType="PrVO">
+  		select * from final.pr where pr_number=#{pr_number}
+  	</select>
+  	
+  	<insert id="prInsert" parameterType="PrVO">
+  		insert into final.pr values(#{pr_number}, #{pr_name},#{pr_price},#{img_url})
+  	</insert>
+  	
+  
+  </mapper>

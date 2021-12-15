@@ -6,6 +6,3 @@ ${csMap}
 ${result}
 
 
-	
-	${result}
-

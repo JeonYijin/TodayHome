@@ -13,6 +13,7 @@ import com.th.th1.feeling.FeelingVO;
 import com.th.th1.feeling.ScrapingVO;
 import com.th.th1.file.PicFileUpload;
 import com.th.th1.member.MemberVO;
+import java.util.List;
 
 @Service
 public class PictureService {

@@ -1,5 +1,6 @@
 package com.th.th1.home;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.th.th1.picture.PictureService;
 import com.th.th1.picture.PictureVO;
 
+
 @Controller
 public class HomeController {
+
 
 	@Autowired
 	private PictureService pictureService;
@@ -33,4 +36,5 @@ public class HomeController {
 	}
 	
 }
+
 

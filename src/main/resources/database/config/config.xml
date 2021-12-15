@@ -34,9 +34,17 @@
 		
 		<typeAlias type="com.th.th1.util.Pager" alias="Pager"/>
 		
+		<typeAlias type="com.th.th1.category.ProductVO" alias="ProductVO"/>
+		<typeAlias type="com.th.th1.category.PrFilesVO" alias="PrFilesVO"/>
   	
   	</typeAliases>
 
 
 </configuration>
+
+
+		
+		
+		
+  	
 

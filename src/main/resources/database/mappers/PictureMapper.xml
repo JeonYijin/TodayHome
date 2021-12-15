@@ -146,6 +146,17 @@
   		</collection>
   		
   	</resultMap>
+  	<!-- 글 리스트 조회 -->
+  
+  	<select id="getPicList" resultType="PictureVO">
+  		select * from picture order by post_id desc
+  	</select>
+  
+  	<!-- 글 상세조회 -->
+  	
+  	<select id="getPicOne" parameterType="PictureVO" resultType="PictureVO">
+  		select * from picture where post_id=#{post_id}
+  	</select>
   
   	<!-- 글 조회수 업데이트 -->
   

@@ -11,7 +11,7 @@ import com.th.th1.member.MemberVO;
 @Mapper
 public interface PictureDAO {
 
-	//댓글 쓰기
+	///댓글 쓰기
 	public int setCommentInsert(PicCommentVO picCommentVO) throws Exception;
 	
 	//댓글 수정

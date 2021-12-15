@@ -15,6 +15,8 @@ import com.th.th1.feeling.FeelingVO;
 import com.th.th1.feeling.ScrapingVO;
 import com.th.th1.member.MemberVO;
 
+
+
 @Controller
 @RequestMapping("/picture/**")
 public class PictureController {
@@ -32,6 +34,7 @@ public class PictureController {
 	@PostMapping("picInsert")
 	public String setPicInsert(PictureVO pictureVO, MultipartFile[] files) throws Exception{
 		int result = pictureService.setPicInsert(pictureVO, files);
+	
 		
 		return "redirect:./picList";
 	}
@@ -64,8 +67,8 @@ public class PictureController {
 		mv.addObject("result", result);
 		return mv;
 	}
-	
-	
+
+
 	//글 삭제하기
 	@GetMapping("picDelete")
 	public String setPicDelete(PictureVO pictureVO) throws Exception{
@@ -74,38 +77,40 @@ public class PictureController {
 	}
 	
 	//글 리스트 조회하기
-	@GetMapping("picList")
-	public ModelAndView getPicList(FeelingVO feelingVO, PictureVO pictureVO) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/picture/picList");
-		List<PictureVO> pic = pictureService.getPicList(pictureVO);
-		mv.addObject("pic", pic);
+		@GetMapping("picList")
+		public ModelAndView getPicList(FeelingVO feelingVO, PictureVO pictureVO) throws Exception{
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("/picture/picList");
+			List<PictureVO> pic = pictureService.getPicList(pictureVO);
+			mv.addObject("pic", pic);
 
-		//댓글 개수를 모을 list
-		List<PicCommentVO> countList = new ArrayList<PicCommentVO>();
-		//하트 게시글 번호 모을 list
-		List<FeelingVO> feel = new ArrayList<FeelingVO>();
-		
-		
-		//각 게시글마다의 댓글 수 가져오기
-		for(PictureVO pictureVOs: pic) {
-			PicCommentVO picCommentVO = new PicCommentVO();
-			picCommentVO.setPost_id(pictureVOs.getPost_id());
-			picCommentVO = pictureService.getCommentCount(picCommentVO);
-			countList.add(picCommentVO);
+			//댓글 개수를 모을 list
+			List<PicCommentVO> countList = new ArrayList<PicCommentVO>();
+			//하트 게시글 번호 모을 list
+			List<FeelingVO> feel = new ArrayList<FeelingVO>();
+			
+			
+			//각 게시글마다의 댓글 수 가져오기
+			for(PictureVO pictureVOs: pic) {
+				PicCommentVO picCommentVO = new PicCommentVO();
+				picCommentVO.setPost_id(pictureVOs.getPost_id());
+				picCommentVO = pictureService.getCommentCount(picCommentVO);
+				countList.add(picCommentVO);
+			}
+			mv.addObject("count", countList);
+			
+			//membrenum 넣기 - 하트
+//			feel = pictureService.getHeartPost(feelingVO);
+//			mv.addObject("feel", feel);
+//			System.out.println("size:" + feel.size());
+			
+			
+			
+			
+			return mv;
 		}
-		mv.addObject("count", countList);
-		
-		//membrenum 넣기 - 하트
-//		feel = pictureService.getHeartPost(feelingVO);
-//		mv.addObject("feel", feel);
-//		System.out.println("size:" + feel.size());
 		
 		
-		
-		
-		return mv;
-	}
 	
 	//글 상세조회하기
 	@GetMapping("picOne")
@@ -231,4 +236,6 @@ public class PictureController {
 //		System.out.println("post_id:" + feel.get(1).getPost_id());
 //		return mv;
 //	}
+
+
 }

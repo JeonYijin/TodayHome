@@ -4,12 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+
+import javax.servlet.http.HttpSession;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 
 import com.th.th1.feeling.FeelingVO;
 import com.th.th1.feeling.ScrapingVO;
@@ -142,5 +148,6 @@ public class MemberService implements UserDetailsService{
 	public NotiMVO getNotiM(NotiMVO notiMVO) throws Exception{
 		return memberDAO.getNotiM(notiMVO);
 	}
+
 	
 }

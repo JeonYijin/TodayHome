@@ -1,11 +1,13 @@
 package com.th.th1.picture;
 
 import java.sql.Date;
+
 import java.util.List;
 
 import com.th.th1.feeling.FeelingVO;
 import com.th.th1.feeling.ScrapingVO;
 import com.th.th1.member.MemberVO;
+
 
 import lombok.Data;
 
@@ -21,7 +23,7 @@ public class PictureVO {
 	private String area;
 	private String post_text;
 	private Integer hit;
-	
+
 	private String kind;
 	private String search;
 	private String order;
@@ -63,4 +65,5 @@ public class PictureVO {
 	private MemberVO memberVO;
 	private List<FeelingVO> feelingVO;
 	private List<ScrapingVO> scrapingVO;
+
 }

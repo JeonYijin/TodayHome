@@ -178,4 +178,5 @@
   	<select id="getMyScrapCount" parameterType="ScrapingVO" resultType="Long">
   		select count(*) from scraping where memberNum = #{memberNum};
   	</select>
+  
   </mapper>

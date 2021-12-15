@@ -1,5 +1,6 @@
 package com.th.th1.member;
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.th.th1.feeling.FeelingVO;
 import com.th.th1.feeling.ScrapingVO;
 import com.th.th1.picture.PictureVO;
+
 import com.th.th1.sns.KakaoVO;
 
 
@@ -26,7 +28,7 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
-	
+
 	
 	//마이페이지 이동
 	@GetMapping("mypage")
@@ -236,7 +238,6 @@ public class MemberController {
 		return mv;
 	}
 
-	
 	//sns로그인시 가져올 데이터
 	@GetMapping("usePrincipal")
 	public void UserPrincipal(@AuthenticationPrincipal KakaoVO kakaoVO) throws Exception{
@@ -257,9 +258,29 @@ public class MemberController {
 		System.out.println("memberLoginResult");
 	}
 
-	
 
 	
+//	//로그인
+//	@PostMapping("memberLogin")
+//	public String getLogin(MemberVO memberVO, HttpSession session, OAuth2UserRequest auth2UserRequest ) throws Exception{
+//		
+//		System.out.println("로그인");
+//		OAuth2User oAuth2User= loginService.loadUser(auth2UserRequest);
+////		if(memberVO != null) {
+////			session.setAttribute("member", memberVO);
+////		}
+//		return "redirect:../";
+//		
+//	}
+	
+//	//로그아웃
+//	@GetMapping("memberLogout")
+//	public String getLogout(HttpSession session) throws Exception{
+//		session.invalidate();
+//		return "redirect:../";
+//	}
+	
+
 	//회원가입 폼 이동
 	@GetMapping("memberJoin")
 	public String setMemberInsert() throws Exception {

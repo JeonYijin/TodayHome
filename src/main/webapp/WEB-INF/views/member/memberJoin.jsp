@@ -37,6 +37,7 @@
 		<form action="memberJoin" method="post">
 		<!-- 아이디 -->
 		<input id="member-id" type="hidden" name="id">
+	
 		<div class="css-zmw5pi-FieldWrapperContainer euhjq6q3">
 		<label class="css-19szivi-Label euhjq6q2">이메일</label>
 		<div class="css-mdp60j-EmailFieldInputWrapper e159epbo1">
@@ -59,6 +60,8 @@
 			<option value="manual">직접입력</option>
 		</select>
 		
+		<input id="email-domain-manual" type="hidden" class="form-control" placeholder="입력해주세요" size="1" value="">
+		
 		<button class="email-input__domain__expand" aria-label="초기화" type="button" tabindex="-1">
 		<svg class="icon" width="10" height="10" style="fill:currentColor" preserveAspectRatio="xMidYMid meet">
 		<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path></svg>
@@ -72,6 +75,11 @@
 		<!-- 인증 버튼 -->
 		<div class="css-4blp8p-ButtonWrapper e159epbo0">
 		<button class="_1eWD8 _2wuTD _27do9 css-cm2z8n-AuthButton e1vl96vf0" name="emailAuth" type="button">이메일 인증하기</button>
+		<div class="message-essential-id" style="display: none;">필수입력 항목입니다.</div>
+		
+		<!-- 인증 버튼 -->
+		<div class="css-4blp8p-ButtonWrapper e159epbo0">
+		<button class="_1eWD8 _2wuTD _27do9 css-cm2z8n-AuthButton e1vl96vf0 emailAuthBtn" name="emailAuth" type="button">이메일 인증하기</button>
 		</div>
 		
 		<!-- 인증 코드 입력 창 -->
@@ -106,6 +114,12 @@
 		<!-- 비밀번호 조건 구문 -->
 		<div class="messege-condition-pw-length" style="display: none;">비밀번호는 영문, 숫자를 포함하여 8자 이상이어야 합니다.</div>
 		<div class="messege-condition-pw-blank" style="display: none;">비밀번호는 공백 없이 입력해주세요.</div>
+		<input type="password" id="password" class="_3ASDR _1qwAY essential-pw" value="" field="[object Object]" name="pw" placeholder="비밀번호">
+		<!-- 필수입력 구문 -->
+		<div class="message-essential-pw" style="display: none;"></div>
+		<!-- 비밀번호 조건 구문 -->
+		<div class="message-condition-pw-length" style="display: none;">비밀번호는 영문, 숫자를 포함하여 8자 이상이어야 합니다.</div>
+		<div class="message-condition-pw-blank" style="display: none;">비밀번호는 공백 없이 입력해주세요.</div>
 		</div>
 		
 		<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
@@ -113,6 +127,7 @@
 		<input type="password" class="_3ASDR _1qwAY pwcheck" value="" field="[object Object]" name="confirmPassword" placeholder="비밀번호 확인">
 		<!-- 비밀번호 일치 확인 구문 -->
 		<div class="messege-pwcheck" style="display: none;">비밀번호가 일치하지 않습니다.</div>
+		<input type="password" class="_3ASDR _1qwAY pwcheck ess" value="" field="[object Object]" name="confirmPassword" placeholder="비밀번호 확인">
 		</div>
 		
 		<div class="css-g2rihj-FieldWrapperContainer euhjq6q3">
@@ -120,7 +135,7 @@
 		<div class="css-1mh39t-Description euhjq6q1">다른 유저와 겹치지 않는 별명을 입력해주세요. (2~15자)</div>
 		<input class="_3ASDR _1qwAY essential-nm nickname" value="" field="[object Object]" name="nickname" placeholder="별명 (2~15자)">
 		<!-- 닉네임 중복 방지 구문 -->
-		<div class="messege-nickname-check" style="display: none;">사용 중인 별명입니다.</div>
+		<div class="message-nickname-check" style="display: none;">사용 중인 별명입니다.</div>
 		</div>
 		
 		
@@ -144,6 +159,7 @@
 				<div class="_4VN_z _3xqzr">
 					<div class="terms-checkbox">
 							<input type="checkbox" class="checkbox-agree1">
+							<input type="checkbox" class="checkbox-agree1 checks">
 					</div>
 					<div class="term-text">
 						만 14세 이상입니다.
@@ -155,6 +171,7 @@
 				<div class="_4VN_z _3xqzr">
 					<div class="terms-checkbox">
 							<input type="checkbox" class="checkbox-agree2">
+							<input type="checkbox" class="checkbox-agree2 checks">
 					</div>
 					<div class="term-text">
 						<a target="_blank" class="term-text-policy" href="./usePolicy">
@@ -168,6 +185,7 @@
 				<div class="_4VN_z _3xqzr">
 					<div class="terms-checkbox">
 							<input type="checkbox" class="checkbox-agree3">
+							<input type="checkbox" class="checkbox-agree3 checks">
 					</div>
 					<div class="term-text">
 						<a target="_blank" class="term-text-policy" href="./privacy">
@@ -180,6 +198,7 @@
 				<div class="_4VN_z _3xqzr">
 					<div class="terms-checkbox">
 							<input type="checkbox" class="checkbox-agree4">
+							<input type="checkbox" class="checkbox-agree4 checks">
 					</div>
 					<div class="term-text">
 						이벤트, 프로모션 알림 메일 및 SMS 수신
@@ -195,11 +214,15 @@
 		<button id="joinBtn" class="_3Z6oR _3AsCW _2tsrJ css-1c1st7f-ButtonWrapper e1y3odo22" type="submit">회원가입하기</button>
 		</form>
 		
+		<button id="joinBtn" class="_3Z6oR _3AsCW _2tsrJ css-1c1st7f-ButtonWrapper e1y3odo22" type="button">회원가입하기</button>
+		
+		</form>
 		
 		
 		
 		<p class="css-19aqixc-SignUpBottomMessage e1y3odo21">이미 아이디가 있으신가요?
 		<a href="/users/sign_in" class="css-53zgs0-LoginLink e1y3odo20">로그인</a>
+		<a href="/member/memberLogin" class="css-53zgs0-LoginLink e1y3odo20">로그인</a>
 		</p>
 		</div>
 	</section>
@@ -212,5 +235,6 @@
 		//		$(this).prop("checked", !check);
 			})
 		</script>		
+			
 </body>
 </html>
