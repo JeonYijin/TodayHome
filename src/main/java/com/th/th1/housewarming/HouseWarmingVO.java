@@ -37,6 +37,7 @@ public class HouseWarmingVO {
 	private String house_thumbnail; // 썸네일
 	private String house_comments; // 댓글 갯수
 	
-	private List<House_ScrapVO> scraps; //스크랩된 집들이 게시물
+	/** SCRAP용 필드 */
+	private String scrap_id; //로그인된 아이디 스크랩 정보 담는 것
 	
 }
