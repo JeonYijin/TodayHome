@@ -10,12 +10,12 @@ public class HouseWarmingVO {
 
 	/** [필수정보입력part START] */
 	private String house_kind; // 주거형태
-	private Integer house_space; // 평수(단층으로 한정하기로 했음)
+	private String house_space; // 평수(단층으로 한정하기로 했음)
 	private String house_rooms; // 방 개수
 	private String family_kind; // 가족형태
 	private String working_area; // 작업분야
 	
-	private Integer total_budget; // 예산 (maybe, 소숫점 자리까지 입력하면 반올림요청 alert ON)
+	private String total_budget; // 예산 (maybe, 소숫점 자리까지 입력하면 반올림요청 alert ON)
 	/** [필수정보입력part END] */
 	
 	private String arrangement; // 정렬 방법

@@ -60,9 +60,9 @@ public class QCommentController {
     
     @PostMapping("delete/{cnum}") //댓글 삭제  
     @ResponseBody
-    private int commentDelete(@PathVariable int cnum) throws Exception{
+    private int commentDelete(@PathVariable int cnum, @RequestParam int qnum) throws Exception{
     	
-        return commentService.commentDelete(cnum);
+        return commentService.commentDelete(cnum, qnum);
     }
     
     // 대댓글 insert

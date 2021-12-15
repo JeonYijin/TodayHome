@@ -36,9 +36,9 @@ public class QCommentService {
     }
 
     // 댓글 삭제
-    public int commentDelete(int cnum) throws Exception{
-    	int result = questionsDAO.minusReplyCount(cnum);
-    	result = commentDAO.commentDelete(cnum);
+    public int commentDelete(int cnum, int qnum) throws Exception{
+    	int result = commentDAO.commentDelete(cnum);
+    	result = questionsDAO.minusReplyCount(qnum);
     	return result;
     }
     
