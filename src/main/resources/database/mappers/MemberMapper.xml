@@ -146,17 +146,7 @@
   	</select>
 
 
-	<resultMap type="MemberVO" id="getLoginResult">
-		<id column="memberNum" property="memberNum"/>
-		<result column="id" property="id"/>
-		<result column="pw" property="pw"/>
-		<result column="nickname" property="nickname"/>
-		<result column="enabled" property="enabled"/>
-		<collection property="roles" javaType="List" ofType="RoleVO">
-			<result column="num" property="num"/>
-  			<result column="roleName" property="roleName"/>
-		</collection>
-	</resultMap>
+	
   	<!-- 내가 스크랩한 사진 게시글 -->
   	<select id="getMyScrapPic" parameterType="ScrapingVO" resultMap="getMyScrap">
   		select P.post_id, PF.*, S.* from

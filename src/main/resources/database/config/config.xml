@@ -6,9 +6,7 @@
 		<typeAlias type="com.th.th1.cscenter.CSCenterVO" alias="CSCenterVO" />
 		<typeAlias type="com.th.th1.questions.QuestionsVO" alias="QuestionsVO" />
 		<typeAlias type="com.th.th1.questions.HashtagVO" alias="HashtagVO"/>
-		<typeAlias type="com.th.th1.member.MemberVO" alias="MemberVO" />
-		<typeAlias type="com.th.th1.picture.PictureVO" alias="PictureVO" />
-		<typeAlias type="com.th.th1.member.RoleVO" alias="RoleVO" />
+		
 		<typeAlias type="com.th.th1.q_reply.Q_ReplyVO" alias="Q_ReplyVO"/>
 		<typeAlias type="com.th.th1.comment.QCommentVO" alias="QCommentVO"/>
 		<typeAlias type="com.th.th1.housewarming.HouseWarmingVO" alias="HouseWarmingVO"/>
@@ -17,7 +15,8 @@
 		<typeAlias type="com.th.th1.housewarming.House_ScrapVO" alias="House_ScrapVO"/>
 		
 
-		<typeAlias type="com.th.th1.member.MemberVO" alias="MemberVO"/>
+		
+		<typeAlias type="com.th.th1.member.MemberVO" alias="MemberVO" />
 		
 		<typeAlias type="com.th.th1.member.NotiVO" alias="NotiVO"/>
 		<typeAlias type="com.th.th1.member.NotiMVO" alias="NotiMVO"/>
