@@ -277,7 +277,7 @@
 							onclick="fnMove('4')">배송/환불</a></li>
 					</ol>
 					<div id="div1">
-						<h1 class="production-selling-section__title">상품정보</h1>
+						<h1 class="production-selling-section__title"><br></br>상품정보</h1>
 						<c:forEach items="${product.prFiles}" var="fileVO">
 							<c:if test="${fileVO.ori_type eq 2}">
 								<img class="image" src="../upload/store/${fileVO.fileName}">
