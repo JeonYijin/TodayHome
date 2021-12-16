@@ -1375,7 +1375,11 @@ margin-top:26px;
 	
 </body>
 
-
+<sec:authorize access="isAuthenticated()" var="result">
+	<sec:authentication property="principal" var="memberVO"/>
+	<input type="text" name="nickname" id="memberVO_nickname" value="${memberVO.nickname}"/>
+	<input type="text" name="id" id="memberVO_id" value="${memberVO.id}"/>
+</sec:authorize>
 
 <script type="text/javascript">
 
