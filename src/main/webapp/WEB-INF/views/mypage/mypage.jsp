@@ -314,7 +314,7 @@ margin-top:26px;
 										<h1 class="css-1yljhnc-SectionTitle e17n0xi2">집들이<span class="css-1di0gyp-SectionCount e17n0xi0">0</span></h1>
 										<div class="css-eytlr-SectionRight e17n0xi1"></div>
 									</div>
-									<a class="css-14bh7uo-UploadLink e1s15hxd1" href="/projects/write">
+									<a class="css-14bh7uo-UploadLink e1s15hxd1" href="../questions/new">
 										<svg width="16" height="16" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" class="css-p7k028-UploadPlusIcon e1s15hxd0">
 											<path fill="currentColor" d="M9 2v5h5v2H9v5H7V9H2V7h5V2h2z"></path>
 										</svg>

@@ -83,7 +83,7 @@ margin-top:26px;
 							<a
 								class="layout-navigation-primary__menu__item layout-navigation-primary__menu__item--active layout-navigation-primary__menu__item--open"
 								href="/">커뮤니티</a><a class="layout-navigation-primary__menu__item"
-								href="../pr/prlist">스토어</a>
+								href="../store/category">스토어</a>
 						</nav>
 						<div class="layout-navigation-primary__right mymenuStart">
 							<div class="layout-navigation-bar-search">
@@ -434,7 +434,7 @@ margin-top:26px;
 			<nav class="container shortcut">
 				<ul class="row shortcut__list">
 					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="../pr/prlist">
+						<a class="shortcut__list__item__link" href="../store/category">
 							<div class="shortcut__list__item__link__image">
 								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163146766870457158.png/512/none">
 							</div>
@@ -458,7 +458,7 @@ margin-top:26px;
 						</a>
 					</li>
 					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/competitions/623?affect_type=Home&amp;affect_id=0">
+						<a class="shortcut__list__item__link" href="#">
 							<div class="shortcut__list__item__link__image">
 								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163875264580793446.png/512/none">
 							</div>
@@ -466,7 +466,7 @@ margin-top:26px;
 						</a>
 					</li>
 					 <li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/experts?section=auto-matching&amp;affect_type=Home&amp;affect_id=0">
+						<a class="shortcut__list__item__link" href="#">
 							<div class="shortcut__list__item__link__image">
 								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163280526167270880.png/512/none">
 							</div>
@@ -474,7 +474,7 @@ margin-top:26px;
 						</a>
 					</li> 
 					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/commerces/today_deals?special_feed=true&amp;affect_type=Home&amp;affect_id=0">
+						<a class="shortcut__list__item__link" href="#">
 							<div class="shortcut__list__item__link__image">
 								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163724766331777405.png/512/none">
 							</div>
@@ -482,7 +482,7 @@ margin-top:26px;
 						</a>
 					</li>
 					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/events/thank-offering-2021?outbound=false&amp;click_action_type=webview&amp;affect_type=Home&amp;affect_id=0">
+						<a class="shortcut__list__item__link" href="#">
 							<div class="shortcut__list__item__link__image">
 								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163832713080146282.png/512/none">
 							</div>
@@ -490,7 +490,7 @@ margin-top:26px;
 						</a>
 					</li>
 					<li class="shortcut__list__item">
-						<a class="shortcut__list__item__link" href="/competitions/621?affect_type=Home&amp;affect_id=0">
+						<a class="shortcut__list__item__link" href="#">
 							<div class="shortcut__list__item__link__image">
 								<img class="shortcut__list__item__link__image__img" src="https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-163832758393552557.png/512/none">
 							</div>
@@ -564,14 +564,14 @@ margin-top:26px;
 					</li>
 					<div class="col-6 col-md-3 home-stories__content__menu-wrap">
 						<div class="home-stories__content__menu">
-							<a class="home-stories__content__menu__entry" href="/projects?writer=self&amp;affect_type=Home&amp;affect_id=0">
+							<a class="home-stories__content__menu__entry" href="/housewarming">
 								<div class="description">예쁜 집 구경하기</div>
 								<div class="title">
 									<span class="text">집들이</span>
 									<div class="arrow"></div>
 								</div>
 							</a>
-							<a class="home-stories__content__menu__entry" href="/projects?writer=pro&amp;affect_type=Home&amp;affect_id=0">
+							<a class="home-stories__content__menu__entry" href="#">
 								<div class="description">전문가 시공사례</div>
 								<div class="title">
 									<span class="text">전문가 집들이</span>
@@ -620,7 +620,7 @@ margin-top:26px;
 								<div class="home-category-item__title">겨울용품</div>
 							</div>
 							<div class="home-category-item-wrap">
-								<a href="/store/category?category=0&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=3"></a>
+								<a href="../store/category??pr_category=0&filter="></a>
 								<div class="home-category-item">
 									<div class="home-category-item__image-wrap">
 										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823224728615402.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823224728615402.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823224728615402.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823224728615402.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
@@ -629,7 +629,7 @@ margin-top:26px;
 								<div class="home-category-item__title">가구</div>
 							</div>
 							<div class="home-category-item-wrap">
-								<a href="/store/category?category=1&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=4"></a>
+								<a href="../store/category?pr_category=2&filter="></a>
 								<div class="home-category-item">
 									<div class="home-category-item__image-wrap">
 										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225115177697.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225115177697.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225115177697.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823225115177697.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
@@ -647,7 +647,7 @@ margin-top:26px;
 								<div class="home-category-item__title">조명</div>
 							</div>-->
 							<div class="home-category-item-wrap">
-								<a href="/store/category?category=3&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=6"></a>
+								<a href="../store/category?pr_category=5&filter="></a>
 								<div class="home-category-item">
 									<div class="home-category-item__image-wrap">
 										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226017937426.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226017937426.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226017937426.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823226017937426.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
@@ -674,7 +674,7 @@ margin-top:26px;
 								<div class="home-category-item__title">데코/취미</div>
 							</div> -->
 							<div class="home-category-item-wrap">
-								<a href="/store/category?category=11&amp;order=popular&amp;affect_type=StoreHomeCategory&amp;affect_id=9"></a>
+								<a href="../store/category?pr_category=9&filter="></a>
 								<div class="home-category-item">
 									<div class="home-category-item__image-wrap">
 										<img class="home-category-item__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823228178967968.png?gif=1&amp;w=144&amp;h=144&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823228178967968.png?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823228178967968.png?gif=1&amp;w=180&amp;h=180&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823228178967968.png?gif=1&amp;w=256&amp;h=256&amp;c=c 3x">
@@ -1302,7 +1302,7 @@ margin-top:26px;
 							<div class="navigation-upload-dropdown-content-item__subtitle">동영상 기능이 추가되었어요!</div>
 						</div>
 					</a>
-					<a class="navigation-upload-dropdown-content-item" href="#">
+					<a class="navigation-upload-dropdown-content-item" href="/housewarming/write">
 						<div class="navigation-upload-dropdown-content-item__icon">
 							<svg width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet">
 								<g fill="none" fill-rule="evenodd">

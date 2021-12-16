@@ -431,14 +431,17 @@
 									<aside class="card-item-action-list">
 									
 									<!-- 좋아요 빈 하트일때  -->								
-										
-								
-										
+										<sec:authorize access="isAuthenticated()" >
 										<button class="card-item-action-list__action like${num.index}" type="button">
 											<svg class="icon icon--stroke heartEmpty${num.index}" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path>
 											</svg>
-												<span class="count">10</span>
+											
+												<c:forEach items="${heartCount}" var="hCount">
+												<c:if test="${hCount.post_id eq pic.post_id }">
+													<span class="hCount">${hCount.count}</span>
+												</c:if>
+												</c:forEach>
 										</button>
 										
 										
@@ -446,7 +449,12 @@
 										<button class="card-item-action-list__action scrap${num.index}" type="button">
 											<svg class="icon icon--stroke emptyScrap${num.index}" aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
-											</svg><span class="count">20</span>
+											</svg>
+												<c:forEach items="${scrapCount}" var="sCount">
+												<c:if test="${sCount.post_id eq pic.post_id }">
+													<span class="sCount">${sCount.scrapCount}</span>
+												</c:if>
+												</c:forEach>
 										</button>
 									<!-- -------------------------------------------------------------------- -->	
 										
@@ -461,7 +469,44 @@
 												</c:if>
 										 </c:forEach> 
 										</a>
+										</sec:authorize>
+										 <!-- 로그인 안했을때 -->
+										<sec:authorize access="!isAuthenticated()" >
+										<button class="card-item-action-list__action" type="button">
+											<svg class="icon icon--stroke " aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+												<path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path>
+											</svg>
+											
+												<c:forEach items="${heartCount}" var="hCount">
+												<c:if test="${hCount.post_id eq pic.post_id }">
+													<span class="hCount">${hCount.count}</span>
+												</c:if>
+												</c:forEach>
+										</button>
+										<!-- ---------------------------------------------------------------- -->
+										<button class="card-item-action-list__action " type="button">
+											<svg class="icon icon--stroke " aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+												<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
+											</svg>
+												<c:forEach items="${scrapCount}" var="sCount">
+												<c:if test="${sCount.post_id eq pic.post_id }">
+													<span class="sCount">${sCount.scrapCount}</span>
+												</c:if>
+												</c:forEach>
+										</button>
+									<!-- -------------------------------------------------------------------- -->	
 										
+										<a class="card-item-action-list__action" href="#">
+											<svg class="icon" aria-label="댓글 달기" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+												<path fill="currentColor" fill-rule="nonzero" d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z"></path>
+											</svg>
+										 <c:forEach items="${count}" var="count">
+										 		<c:if test="${count.post_id eq pic.post_id}">
+												<span class="count">${count.count}</span>
+												</c:if>
+										 </c:forEach> 
+										</a>
+										</sec:authorize>  
 									</aside>
 								</div>
 								

@@ -4,6 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.th.th1.picture.PictureDAO">
 	
+	
+
+	
+	
 	<!-- 홈에 보내줄것 -->	
 	<select id="getTopPic" resultMap="topPic">
 		select P.*, M.nickname, PF.* from
@@ -261,13 +265,13 @@
   	
   	<!-- 로그인 한 사람이 하트 누른 게시글 가져오기 -->
   	<select id="getHeartPost" parameterType="FeelingVO" resultType="FeelingVO">
-  		select post_id from feeling where memberNum = #{memberNum}
+  		select * from feeling where memberNum = #{memberNum}
   	</select>
   	
   	
   	<!-- 게시글 당 하트 수 구하기 -->
   	<select id="getHeart" parameterType="FeelingVO" resultType="FeelingVO">
-  		select count(*) count from feeling where post_id = #{post_id}
+  		select count(*) count, post_id from feeling where post_id = #{post_id}
   	</select>
   	
   	
@@ -283,7 +287,7 @@
   	
   	<!-- 게시글 당 스크랩 개수 가져오기 -->
   	<select id="getScrap" parameterType="ScrapingVO" resultType="ScrapingVO">
-  		select count(*) scrapCount from scraping where post_id = #{post_id}
+  		select count(*) scrapCount, post_id from scraping where post_id = #{post_id}
   	</select>
   	
   </mapper>

@@ -78,7 +78,7 @@ public class PictureController {
 	
 	//글 리스트 조회하기
 		@GetMapping("picList")
-		public ModelAndView getPicList(FeelingVO feelingVO, PictureVO pictureVO) throws Exception{
+		public ModelAndView getPicList(FeelingVO feelingVO, PictureVO pictureVO, ScrapingVO scrapingVO) throws Exception{
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("/picture/picList");
 			List<PictureVO> pic = pictureService.getPicList(pictureVO);
@@ -86,9 +86,10 @@ public class PictureController {
 
 			//댓글 개수를 모을 list
 			List<PicCommentVO> countList = new ArrayList<PicCommentVO>();
-			//하트 게시글 번호 모을 list
+			//하트 수 번호 모을 list
 			List<FeelingVO> feel = new ArrayList<FeelingVO>();
-			
+			//스크랩 수
+			List<ScrapingVO> scrap = new ArrayList<ScrapingVO>();
 			
 			//각 게시글마다의 댓글 수 가져오기
 			for(PictureVO pictureVOs: pic) {
@@ -98,6 +99,21 @@ public class PictureController {
 				countList.add(picCommentVO);
 			}
 			mv.addObject("count", countList);
+			
+			for(PictureVO pictureVO2: pic) {
+				feelingVO.setPost_id(pictureVO2.getPost_id());
+				scrapingVO.setPost_id(pictureVO2.getPost_id());
+				feelingVO = pictureService.getHeart(feelingVO);
+				scrapingVO = pictureService.getScrap(scrapingVO);
+				feel.add(feelingVO);
+				scrap.add(scrapingVO);
+			}
+			mv.addObject("heartCount", feel);
+			mv.addObject("scrapCount", scrap);
+			
+			//feelingVO.setPost_id()
+			//feelingVO = pictureService.getHeart(feelingVO);
+			
 			
 			//membrenum 넣기 - 하트
 //			feel = pictureService.getHeartPost(feelingVO);
