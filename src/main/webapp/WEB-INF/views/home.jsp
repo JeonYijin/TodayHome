@@ -83,7 +83,7 @@ margin-top:26px;
 							<a
 								class="layout-navigation-primary__menu__item layout-navigation-primary__menu__item--active layout-navigation-primary__menu__item--open"
 								href="/">커뮤니티</a><a class="layout-navigation-primary__menu__item"
-								href="../store/category">스토어</a>
+								href="../store/category?pr_category=0">스토어</a>
 						</nav>
 						<div class="layout-navigation-primary__right mymenuStart">
 							<div class="layout-navigation-bar-search">

@@ -79,7 +79,7 @@
 									style="width: 100%;">
 									<img
 										class="production-selling-cover-image__entry__image image1"
-										src="../upload/store/${product.prFiles[0].fileName}" srcset="">
+										src="../resources/upload/store/${product.prFiles[0].fileName}" srcset="">
 									<div class="production-selling-cover-image__timer--pc"></div>
 									<div class="css-167c30c-Wrapper evlxapa2">
 										<div class="css-uny98z-Content evlxapa1"></div>
@@ -94,7 +94,7 @@
 											class="production-selling-cover-image__list__btn button1"
 											type="button" aria-label="8개 중 1번째 항목">
 
-											<img class="image" src="../upload/store/${fileVO.fileName}"
+											<img class="image" src="../resources/upload/store/${fileVO.fileName}"
 												srcset="">
 										</button></li>
 								</c:if>
@@ -245,8 +245,8 @@
 
 					<div class="production-selling-option-form__footer">
 						<button
-							class="button button--color-blue-inverted button--size-55 button--shape-4"
-							type="button" onclick="location.href='/cart'">장바구니</button>
+							class="button button--color-blue-inverted button--size-55 button--shape-4 cartBtn"
+							type="button" onclick='cartModal()'>장바구니</button>
 						<button
 							class="button button--color-blue button--size-55 button--shape-4"
 							type="button" onclick="location.href='/payment'">바로구매</button>
@@ -280,7 +280,7 @@
 						<h1 class="production-selling-section__title">상품정보</h1>
 						<c:forEach items="${product.prFiles}" var="fileVO">
 							<c:if test="${fileVO.ori_type eq 2}">
-								<img class="image" src="../upload/store/${fileVO.fileName}">
+								<img class="image" src="../resources/upload/store/${fileVO.fileName}">
 
 							</c:if>
 						</c:forEach>
@@ -354,6 +354,32 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- 장바구니 모달  -->
+	<div class="react-modal react-modal--center open open-active" style="display:none;">
+	<div class="react-modal__content-wrap">
+	<div class="react-modal__content production-selling-cart-complete-modal">
+	<h1 class="production-selling-cart-complete-modal__title">장바구니에 상품을 담았습니다</h1>
+	<a class="button button--color-blue button--size-60 button--shape-4 production-selling-cart-complete-modal__button" href="/cart">장바구니 보러가기</a>
+	<button class="button button--color-gray-7 button--size-60 button--shape-4 production-selling-cart-complete-modal__button exitModal" type="button" onclick='exitModal()'>확인</button>
+	</div></div></div>
+	<!-- //장바구니 모달 -->
+	
+	
+	<!-- 장바구니 버튼 클릭 시 모달 창 -->
+	<script>
+		function cartModal() {
+			$('.react-modal').css("display", "block");
+		}
+		
+		function exitModal() {
+			$('.react-modal').css("display", "none");
+		}
+		
+	
+	</script>
+	
+	
 	<!-- 메뉴 버튼 누를떄 해당 메뉴로 이동  -->
 	<script>
 		function fnMove(seq) {

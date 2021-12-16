@@ -584,7 +584,7 @@ margin-top:26px;
 	  		<article class="production-item" id="product-310649">
 	    		<a class="production-item__overlay" href="./page?pr_number=${product.pr_number}"></a>
 			<div class="production-item-image production-item__image">
-	 		 <img class="image" alt="" src="../upload/store/${product.prFiles[0].fileName}" srcset="">
+	 		 <img class="image" alt="" src="../resources/upload/store/${product.prFiles[0].fileName}" srcset="">
 	    		<button class="production-item-scrap-badge production-item-image__scrap-badge" type="button">
 		      		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="inactive-icon">
 		        	<defs>

@@ -46,6 +46,9 @@ public class CategoryController {
 		productVO = categoryService.getSelectPage(productVO);
 		String categoryN = categoryService.getSelectCategoryName(productVO);
 		
+		System.out.println("사진:" +productVO.getPrFiles().size());
+		System.out.println(productVO.getPrFiles().get(0).getFileName());
+		
 		mv.addObject("categoryN", categoryN);
 		mv.addObject("product", productVO);
 		mv.setViewName("store/productPage");

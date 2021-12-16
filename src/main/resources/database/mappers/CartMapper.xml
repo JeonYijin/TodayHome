@@ -12,14 +12,14 @@
 	<!-- 장바구니 목록 불러오기  -->
 	<select id="getSelectCartList" parameterType="MemberVO" resultMap="getSelectCartListResult">
 		select CT.*, PF.* from
-			(select c.cart_id, c.member_num, c.pr_number, c.amount,
-					p.pr_name, p.pr_seller, p.pr_price, p.pr_discount, pr_dPrice,
-					(p.pr_dPrice * c.amount) money
-			from cart c, pr p, member m
-			where c.member_num = m.memberNum and c.pr_number = p.pr_number and c.member_num = ${memberNum})
-		CT
-			left outer join 
-		pr_files PF
+		(select c.cart_id, c.member_num, c.pr_number, c.amount,
+				p.pr_name, p.pr_seller, p.pr_price, p.pr_discount, pr_dPrice,
+				(p.pr_dPrice * c.amount) money
+		from cart c, pr p, member m
+		where c.member_num = m.memberNum and c.pr_number = p.pr_number and c.member_num = #{memberNum})
+			CT
+				left outer join 
+			pr_files PF
 		on CT.pr_number = PF.pr_number
 	</select>
 	<resultMap type="CartVO" id="getSelectCartListResult">
