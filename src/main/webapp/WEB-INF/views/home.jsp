@@ -506,63 +506,54 @@ margin-top:26px;
 					<h2 class="col home-section__header__content">오늘의 스토리</h2>
 				</header>
 				<ul class="row home-stories__content">
+					<c:set var="hloof" value="false"></c:set>
+					<c:forEach items="${house}" var="house" varStatus="hStatus">
+						<c:if test="${not hloof }">
 					<li class="col-6 col-md-3 home-stories__content__item">
 						<article class="story-entry story-story-item">
-							<a class="story-entry-link" href="/projects/68051/detail?affect_type=Home&amp;affect_id=0">
+						<sec:authorize access="isAuthenticated()">
+						<sec:authentication property="principal" var="mem"/>
+							<a class="story-entry-link" href="../housewarming/detail?house_num=${house.house_num}&loginId=${mem.id}">
 								<div class="story-entry__image-wrap">
-									<img class="story-entry__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163713619070517802.heic?gif=1&amp;w=320&amp;h=214&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163713619070517802.heic?gif=1&amp;w=480&amp;h=320&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163713619070517802.heic?gif=1&amp;w=640&amp;h=427&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163713619070517802.heic?gif=1&amp;w=850&amp;h=567&amp;c=c 3x">
+									<img class="story-entry__image" src="../resources/upload/housewarming/${house.house_thumbnail}">
 								</div>
 								<div class="story-entry__content-wrap">
 									<div class="story-entry__content">
 										<div class="story-entry__content__category"></div>
-										<div class="story-entry__content__title">아기자기하고 따뜻함으로 가득 찬 INFP의 자취방<br></div>
+										<div class="story-entry__content__title">${house.house_title}<br></div>
 										<div class="story-entry__content__profile">
 											<img class="story-entry__content__profile__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
-											<span class="story-entry__content__profile__name">_baekyujin_</span>
+											<span class="story-entry__content__profile__name">${house.house_writer}</span>
 										</div>
 									</div>
 								</div>
 							</a>
-						</article>
-					</li>
-					<li class="col-6 col-md-3 home-stories__content__item">
-						<article class="story-entry story-story-item">
-							<a class="story-entry-link" href="/projects/68082/detail?affect_type=Home&amp;affect_id=0">
+						</sec:authorize>
+						<sec:authorize access="!isAuthenticated()">
+							<a class="story-entry-link" href="../housewarming/detail?house_num=${house.house_num}&loginId=">
 								<div class="story-entry__image-wrap">
-									<img class="story-entry__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/163843505621330826.jpg?gif=1&amp;w=320&amp;h=214&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/163843505621330826.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/163843505621330826.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/163843505621330826.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c 3x">
+									<img class="story-entry__image" src="../resources/upload/housewarming/${house.house_thumbnail}">
 								</div>
 								<div class="story-entry__content-wrap">
 									<div class="story-entry__content">
 										<div class="story-entry__content__category"></div>
-										<div class="story-entry__content__title">휴양지 리조트 같은 복층 빌라<br></div>
+										<div class="story-entry__content__title">${house.house_title}<br></div>
 										<div class="story-entry__content__profile">
-											<img class="story-entry__content__profile__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1514252843_Ehvl0eCs.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1514252843_Ehvl0eCs.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1514252843_Ehvl0eCs.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1514252843_Ehvl0eCs.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
-											<span class="story-entry__content__profile__name">미네르바의 부엉이83</span>
+											<img class="story-entry__content__profile__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158805802800106286.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
+											<span class="story-entry__content__profile__name">${house.house_writer}</span>
 										</div>
 									</div>
 								</div>
 							</a>
+						</sec:authorize>
 						</article>
 					</li>
-					<li class="col-6 col-md-3 home-stories__content__item">
-						<article class="story-entry story-story-item">
-							<a class="story-entry-link" href="/projects/69450/detail?affect_type=Home&amp;affect_id=0">
-								<div class="story-entry__image-wrap">
-									<img class="story-entry__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163731662763813851.jpg?gif=1&amp;w=320&amp;h=214&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163731662763813851.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163731662763813851.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163731662763813851.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c 3x">
-								</div>
-								<div class="story-entry__content-wrap">
-									<div class="story-entry__content">
-										<div class="story-entry__content__category"></div>
-										<div class="story-entry__content__title">크리스마스가 찾아온 홈 캠핑장<br></div>
-										<div class="story-entry__content__profile">
-											<img class="story-entry__content__profile__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1480316471_L9jT.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1480316471_L9jT.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1480316471_L9jT.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/1480316471_L9jT.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
-											<span class="story-entry__content__profile__name">byulice</span>
-										</div>
-									</div>
-								</div>
-							</a>
-						</article>
-					</li>
+					<c:if test="${hStatus.count == 3 }">
+									<c:set var="hloof" value="true"></c:set>
+								</c:if>
+					</c:if>
+					</c:forEach>
+				
 					<div class="col-6 col-md-3 home-stories__content__menu-wrap">
 						<div class="home-stories__content__menu">
 							<a class="home-stories__content__menu__entry" href="/housewarming">

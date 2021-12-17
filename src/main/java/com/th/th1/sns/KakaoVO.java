@@ -19,6 +19,13 @@ public class KakaoVO implements OAuth2User {
 	private Boolean enabled;
 	private String social;
 	private Integer memberNum;
+	private String id;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	private Map<String, Object> attributes;
 	
 	

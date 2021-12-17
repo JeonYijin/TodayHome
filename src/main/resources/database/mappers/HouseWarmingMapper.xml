@@ -5,6 +5,14 @@
 	
 <mapper namespace="com.th.th1.housewarming.HouseWarmingDAO">
 
+	<!-- 커뮤니티 홈에서 접근할 때 쓸 query -->
+   <select id="getHListForHome"  resultType="HouseWarmingVO">
+      SELECT * FROM HOUSEWARMING
+   </select>
+	
+
+
+
 	<!-- 글쓰기 -->
 	<insert id="setHouseWarming" parameterType="HouseWarmingVO">
 		INSERT INTO HOUSEWARMING 

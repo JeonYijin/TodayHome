@@ -36,11 +36,11 @@ public class HomeController {
 	
 	@GetMapping("/")
 
-	public ModelAndView getHome(ProductVO productVO, Map<String, Object> map) throws Exception{
+	public ModelAndView getHome(ProductVO productVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<PictureVO> topPic = pictureService.getTopPic();
 		List<ProductVO> product = categoryService.getSelectList1(productVO);
-		List<HouseWarmingVO> house = houseService.getHouseList(map);
+		List<HouseWarmingVO> house = houseService.getHListForHome();
 		
 		mv.addObject("house", house);
 		System.out.println("house"+house.size());

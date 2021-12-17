@@ -18,7 +18,25 @@ public class NaverVO implements OAuth2User {
 	private String phone;
 	private Boolean enabled;
 	private String social;
+	private Integer memberNum;
+	private String id;
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Integer getMemberNum() {
+		return memberNum;
+	}
+
+	public void setMemberNum(Integer memberNum) {
+		this.memberNum = memberNum;
+	}
+
 	private Map<String, Object> attributes;
 	
 
