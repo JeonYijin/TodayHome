@@ -263,10 +263,6 @@
   	</delete>
   	
   	
-  	<!-- 로그인 한 사람이 하트 누른 게시글 가져오기 -->
-  	<select id="getHeartPost" parameterType="FeelingVO" resultType="FeelingVO">
-  		select * from feeling where memberNum = #{memberNum}
-  	</select>
   	
   	
   	<!-- 게시글 당 하트 수 구하기 -->
@@ -288,6 +284,16 @@
   	<!-- 게시글 당 스크랩 개수 가져오기 -->
   	<select id="getScrap" parameterType="ScrapingVO" resultType="ScrapingVO">
   		select count(*) scrapCount, post_id from scraping where post_id = #{post_id}
+  	</select>
+
+  	<!-- 로그인 한 사람이 하트 누른 게시글 가져오기 -->
+  	<select id="getHeartPost" parameterType="FeelingVO" resultType="FeelingVO">
+  		select * from feeling where memberNum = #{memberNum}
+  	</select>
+  	
+  	<!-- 로그인 한 사람이 스크랩한 게시글 가져오기 -->
+  	<select id="getScrapPost" parameterType="ScrapingVO" resultType="ScrapingVO">
+  		select * from scraping where memberNum = #{memberNum}
   	</select>
   	
   </mapper>

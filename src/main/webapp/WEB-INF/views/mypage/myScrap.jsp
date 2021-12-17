@@ -110,7 +110,7 @@ margin-top:26px;
 							
 		<!-- 로그인 했을 때 헤더 -------------------------------------------------------------------------------------------------------------------------------------------------------- -->					
 							<sec:authorize access="isAuthenticated()">
-								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="./myScrap?memberNum=${member.memberNum }">
+								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="./myScrap?memberNum=${member.memberNum}&id=${member.id}">
 									<svg class="icon" width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 										<path fill="none" stroke-width="2" d="M3 20.967zm0 0V2.5a.5.5 0 01.5-.5h17a.5.5 0 01.5.5v18.467l-8.057-4.309a2 2 0 00-1.886 0L3 20.968z"></path>
 									</svg>
@@ -178,18 +178,18 @@ margin-top:26px;
 					<div class="sticky-child" style="position: relative;">
 						<nav class="page-navigation collection-book-nav">
 							<ul style="transform: translateX(0px);">
-								<li class="page-navigation__item">
+								<!-- <li class="page-navigation__item">
 									<a class="active" href="/users/4672761/collections" target="_self">모두 ()</a>
 								</li>
 								<li class="page-navigation__item">
 									<a class="" href="/users/4672761/collections?filter=production" target="_self">상품 (0)</a>
-								</li>
+								</li> -->
 								<li class="page-navigation__item">
-									<a class="" href="/users/4672761/collections?filter=card" target="_self">사진 (${scrapCount})</a>
+									<a class="" href="/users/4672761/collections?filter=card" target="_self">모두 (${scrapCount})</a>
 								</li>
-								<li class="page-navigation__item">
+								<!-- <li class="page-navigation__item">
 									<a class="" href="/users/4672761/collections?filter=project" target="_self">집들이 (0)</a>
-								</li>
+								</li> -->
 							</ul>
 						</nav>
 					</div>
@@ -278,7 +278,7 @@ margin-top:26px;
 		<div class="layout-footer__top">
 			<address class="layout-footer__cs">
 				<div class="layout-footer__cs__row">
-					<a class="layout-footer__cs__link" href="/customer_center">고객센터<svg
+					<a class="layout-footer__cs__link" href="../cscenter">고객센터<svg
 							class="icon" aria-hidden="true" width="1em" height="1em"
 							viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 							<path fill="currentColor" fill-rule="nonzero"
@@ -454,14 +454,14 @@ margin-top:26px;
 				<ul class="layout-navigation-bar-user-menu">
 					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${member.memberNum}">마이페이지</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${member.memberNum}&id=${member.id}">마이페이지</a>
 					</li>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<a class="layout-navigation-bar-user-menu__item" href="/user_shopping_pages/order_list">나의 쇼핑</a>
 					</li>
 					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="/customer_center">고객센터</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../cscenter">고객센터</a>
 					</li>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<button class="layout-navigation-bar-user-menu__item logout" type="button">로그아웃</button>
@@ -496,7 +496,7 @@ margin-top:26px;
 							<div class="navigation-upload-dropdown-content-item__subtitle">동영상 기능이 추가되었어요!</div>
 						</div>
 					</a>
-					<a class="navigation-upload-dropdown-content-item" href="#">
+					<a class="navigation-upload-dropdown-content-item" href="/housewarming/write">
 						<div class="navigation-upload-dropdown-content-item__icon">
 							<svg width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet">
 								<g fill="none" fill-rule="evenodd">

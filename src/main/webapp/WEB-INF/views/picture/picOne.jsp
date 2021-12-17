@@ -101,7 +101,8 @@
 							</sec:authorize>
 		<!-- 로그인 했을 때 헤더 -------------------------------------------------------------------------------------------------------------------------------------------------------- -->					
 							<sec:authorize access="isAuthenticated()">
-								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="/users/4672761/collections">
+								<sec:authentication property="principal" var="member"/>
+								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="../member/myScrap?memberNum=${member.memberNum}&id=${member.id}">
 									<svg class="icon" width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 										<path fill="none" stroke-width="2" d="M3 20.967zm0 0V2.5a.5.5 0 01.5-.5h17a.5.5 0 01.5.5v18.467l-8.057-4.309a2 2 0 00-1.886 0L3 20.968z"></path>
 									</svg>
@@ -157,8 +158,8 @@
 						<nav class="layout-navigation-secondary__menu">
 							<a class="layout-navigation-secondary__menu__item " href="/">홈</a>
 								<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="../picture/picList">사진</a>
-								<a class="layout-navigation-secondary__menu__item" href="/projects?writer=self">집들이</a>
-								<a class="layout-navigation-secondary__menu__item" href="/contents/follow/feed">질문과답변</a>
+								<a class="layout-navigation-secondary__menu__item" href="../housewarming">집들이</a>
+								<a class="layout-navigation-secondary__menu__item" href="../questions">질문과답변</a>
 								
 						</nav>
 						<div
@@ -409,6 +410,24 @@
 							<div data-sticky-enabled="false" data-sticky-disabled="false" data-sticky-always="false" data-sticky-ignore="false" data-direction="top" data-offset="81" class="sticky-container" style="position: sticky; top: 81px;">
 								<div class="sticky-child css-1moe4n7" style="position: relative; box-sizing: border-box; height: 266.203px;">
 									<div class="css-1e8bjjw-Div ew81gs70">
+									
+									<!-- 로그인한 상태에서 하트 있을때 없을 때 -->
+									<sec:authorize access="isAuthenticated()" >
+										<c:if test="${not empty heartPost}">
+										 <c:forEach items="${heartPost}" var="heartPost" varStatus="hPostStatus"> 
+											<c:if test="${heartPost.post_id eq picOne.post_id }">
+												<button class="_3Z6oR _1SCvK _2tsrJ _3aUSM css-1uts5l0-ActionButton elwkc52" id="fullHeart" type="button" aria-pressed="false" title="좋아요" aria-label="좋아요">
+													<span class="css-13w5lgd-ActionButtonIcon elwkc51">
+														<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="css-1iqsjce-ActionHeartIcon-IconSvg ek5sxnq1">
+															<path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path>
+														</svg>
+													</span>
+													<span class="css-36arso-ActionButtonCount elwkc50">${feeling.count}</span>
+												</button>
+										</c:if>
+										</c:forEach>
+										</c:if>
+																		
 										<button class="_3Z6oR _1SCvK _2tsrJ _3aUSM css-1uts5l0-ActionButton elwkc52" type="button" aria-pressed="false" title="좋아요" aria-label="좋아요">
 											<span class="css-13w5lgd-ActionButtonIcon elwkc51">
 												<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="css-esg54n-ActionHeartIcon-IconSvg ek5sxnq1">
@@ -417,7 +436,21 @@
 											</span>
 											<span class="css-36arso-ActionButtonCount elwkc50">${feeling.count}</span>
 										</button>
-										
+									<!-- 스크랩 있을 때 없을 때 -->
+										<c:if test="${not empty scrapPost}">
+										<c:forEach items="${scrapPost}" var="scrapPost" varStatus="sPostStatus">
+											<c:if test="${scrapPost.post_id eq picOne.post_id }">
+													<button class="_3Z6oR _1SCvK _2tsrJ _3aUSM css-1uts5l0-ActionButton elwkc52" id="fullScrap" type="button" aria-pressed="false" title="스크랩" aria-label="스크랩">
+														<span class="css-13w5lgd-ActionButtonIcon elwkc51">
+															<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="css-kb5lr4-ActionScrapIcon-IconSvg ek5sxnq2">
+																<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
+															</svg>
+														</span>
+														<span class="css-36arso-ActionButtonCount elwkc50">${scraping.scrapCount}</span>
+													</button>
+											</c:if>
+										</c:forEach>
+										</c:if>
 										<button class="_3Z6oR _1SCvK _2tsrJ _3aUSM css-1uts5l0-ActionButton elwkc52" type="button" aria-pressed="false" title="스크랩" aria-label="스크랩">
 											<span class="css-13w5lgd-ActionButtonIcon elwkc51">
 												<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="css-1qgnuj8-ActionScrapIcon-IconSvg ek5sxnq2">
@@ -426,7 +459,28 @@
 											</span>
 											<span class="css-36arso-ActionButtonCount elwkc50">${scraping.scrapCount}</span>
 										</button>
-										
+									</sec:authorize>
+									<sec:authorize access="!isAuthenticated()" >
+									
+										<button class="_3Z6oR _1SCvK _2tsrJ _3aUSM css-1uts5l0-ActionButton elwkc52" type="button" aria-pressed="false" title="좋아요" aria-label="좋아요">
+											<span class="css-13w5lgd-ActionButtonIcon elwkc51">
+												<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="css-esg54n-ActionHeartIcon-IconSvg ek5sxnq1">
+													<path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path>
+												</svg>
+											</span>
+											<span class="css-36arso-ActionButtonCount elwkc50">${feeling.count}</span>
+										</button>
+									
+										<button class="_3Z6oR _1SCvK _2tsrJ _3aUSM css-1uts5l0-ActionButton elwkc52" type="button" aria-pressed="false" title="스크랩" aria-label="스크랩">
+											<span class="css-13w5lgd-ActionButtonIcon elwkc51">
+												<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="css-1qgnuj8-ActionScrapIcon-IconSvg ek5sxnq2">
+													<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
+												</svg>
+											</span>
+											<span class="css-36arso-ActionButtonCount elwkc50">${scraping.scrapCount}</span>
+										</button>
+									
+									</sec:authorize>	
 										
 										<!-- 로그인한 정보가 글쓴이일때 수정 삭제 띄우기 -->
 										<c:choose>
@@ -546,7 +600,7 @@
 					<sec:authorize access="isAuthenticated()">
 					<sec:authentication property="principal" var="num"/>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${num.memberNum}">마이페이지</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${num.memberNum}&id=${num.id}">마이페이지</a>
 					</li>
 					</sec:authorize>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
@@ -554,7 +608,7 @@
 					</li>
 					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="/customer_center">고객센터</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../cscenter">고객센터</a>
 					</li>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<button class="layout-navigation-bar-user-menu__item logout" type="button">로그아웃</button>
@@ -687,7 +741,7 @@
 							<div class="navigation-upload-dropdown-content-item__subtitle">동영상 기능이 추가되었어요!</div>
 						</div>
 					</a>
-					<a class="navigation-upload-dropdown-content-item" href="#">
+					<a class="navigation-upload-dropdown-content-item" href="/housewarming/write">
 						<div class="navigation-upload-dropdown-content-item__icon">
 							<svg width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet">
 								<g fill="none" fill-rule="evenodd">
@@ -911,7 +965,7 @@ let count = $('#commentCount').val()
  
 //더보기 버튼 클릭
 $('.loginDrop').click(function(){
-	alert('내꺼')
+	//alert('내꺼')
 	$('.update').attr('style','display:block' );
 	$('.delete').attr('style','display:block' ); 
 });
@@ -967,8 +1021,17 @@ $('.deleteBtn').click(function(){
 	$('.logout').click(function(){
 		location.href="../member/memberLogout"
 	})
+
 	
-	
+let ht_exist = $('#fullHeart').length ? true: false;
+	if(ht_exist){
+	$('#fullHeart').next().hide();	
+	}
+
+let sc_exist = $('#fullScrap').length ? true: false;
+if(sc_exist){
+	$('#fullScrap').next().hide();
+}
  
 </script>
 </body>

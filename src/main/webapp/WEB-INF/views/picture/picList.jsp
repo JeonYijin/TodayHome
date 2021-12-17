@@ -146,7 +146,7 @@
 							<div class="layout-navigation-bar-login">
 								<a class="layout-navigation-bar-login__item" href="../member/memberLogin">로그인</a>
 								<a class="layout-navigation-bar-login__item" href="../member/memberJoin">회원가입</a>
-								<a class="layout-navigation-bar-login__item layout-navigation-bar-login__item--xl" href="/customer_center">고객센터</a>
+								<a class="layout-navigation-bar-login__item layout-navigation-bar-login__item--xl" href="../cscenter">고객센터</a>
 							</div>
 							<div class="drop-down layout-navigation-bar-upload-button">
 								<button class="layout-navigation-bar-upload-button__button  writeBtn1" type="button">글쓰기
@@ -158,7 +158,8 @@
 							</sec:authorize>
 		<!-- 로그인 했을 때 헤더 -------------------------------------------------------------------------------------------------------------------------------------------------------- -->					
 							<sec:authorize access="isAuthenticated()">
-								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="/users/4672761/collections">
+							<sec:authentication property="principal" var="mem"/>
+								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="../member/myScrap?memberNum=${mem.memberNum}&id=${mem.id}">
 									<svg class="icon" width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 										<path fill="none" stroke-width="2" d="M3 20.967zm0 0V2.5a.5.5 0 01.5-.5h17a.5.5 0 01.5.5v18.467l-8.057-4.309a2 2 0 00-1.886 0L3 20.968z"></path>
 									</svg>
@@ -214,8 +215,8 @@
 						<nav class="layout-navigation-secondary__menu">
 							<a class="layout-navigation-secondary__menu__item " href="/">홈</a>
 								<a class="layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active" href="../picture/picList">사진</a>
-								<a class="layout-navigation-secondary__menu__item" href="/projects?writer=self">집들이</a>
-								<a class="layout-navigation-secondary__menu__item" href="/contents/follow/feed">질문과답변</a>
+								<a class="layout-navigation-secondary__menu__item" href="../housewarming">집들이</a>
+								<a class="layout-navigation-secondary__menu__item" href="../questions">질문과답변</a>
 								
 						</nav>
 						<div
@@ -432,29 +433,72 @@
 									
 									<!-- 좋아요 빈 하트일때  -->								
 										<sec:authorize access="isAuthenticated()" >
-										<button class="card-item-action-list__action like${num.index}" type="button">
+											<!-- 로그인한 사람이 좋아요 누른 게시글이 있을 때 -->
+											<c:if test="${not empty heartPost}">
+											
+												 <c:forEach items="${heartPost}" var="heartPost" varStatus="hPostStatus"> 
+												
+														<c:if test="${heartPost.post_id eq pic.post_id }">
+															<input type="hidden" value="${heartPost.post_id}" id="post_num${hPostStatus.index}">										
+															 <button class="card-item-action-list__action card-item-action-list__action--active heartFull${hPostStatus.index}" id="ht${hPostStatus.index}" type="button">
+																<svg class="icon icon--stroke heartEmpty${num.index}" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+																	<path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path>
+																</svg>
+														
+																<%-- <c:forEach items="${heartCount}" var="hCount">
+																<c:if test="${hCount.post_id eq pic.post_id }">
+																	<span class="hCount">${hCount.count}</span>
+																</c:if>
+																</c:forEach> --%>
+															</button> 
+														</c:if>
+												
+												 </c:forEach> 
+											</c:if>	
+											
+											<!-- 좋아요한 게시글이 아닐때  -->	
+										 <button class="card-item-action-list__action like${num.index}"   type="button">
 											<svg class="icon icon--stroke heartEmpty${num.index}" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path>
 											</svg>
 											
-												<c:forEach items="${heartCount}" var="hCount">
+												<%-- <c:forEach items="${heartCount}" var="hCount">
 												<c:if test="${hCount.post_id eq pic.post_id }">
 													<span class="hCount">${hCount.count}</span>
 												</c:if>
-												</c:forEach>
+												</c:forEach> --%>
 										</button>
+										 
 										
 										
+									<c:if test="${not empty scrapPost }">
+										<c:forEach items="${scrapPost}" var="scrapPost" varStatus="sPostStatus">
+											<c:if test="${scrapPost.post_id eq pic.post_id}">
+													<input type="hidden" value="${scrapPost.post_id}" id="spost_num${sPostStatus.index}">
+												<button class="card-item-action-list__action card-item-action-list__action--active scrapFull${sPostStatus.index}" id="sc${sPostStatus.index}" type="button">
+													<svg class="icon icon--stroke emptyScrap${num.index}" aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+														<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
+													</svg>
+													<%-- <c:forEach items="${scrapCount}" var="sCount">
+													<c:if test="${sCount.post_id eq pic.post_id }">
+														<span class="sCount">${sCount.scrapCount}</span>
+													</c:if>
+													</c:forEach> --%>
+											</button>
+											</c:if>
+										</c:forEach>
+										
+									</c:if>
 									<!-- ---------------------------------------------------------------- -->
 										<button class="card-item-action-list__action scrap${num.index}" type="button">
 											<svg class="icon icon--stroke emptyScrap${num.index}" aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
 											</svg>
-												<c:forEach items="${scrapCount}" var="sCount">
+												<%-- <c:forEach items="${scrapCount}" var="sCount">
 												<c:if test="${sCount.post_id eq pic.post_id }">
 													<span class="sCount">${sCount.scrapCount}</span>
 												</c:if>
-												</c:forEach>
+												</c:forEach> --%>
 										</button>
 									<!-- -------------------------------------------------------------------- -->	
 										
@@ -477,22 +521,22 @@
 												<path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path>
 											</svg>
 											
-												<c:forEach items="${heartCount}" var="hCount">
+												<%-- <c:forEach items="${heartCount}" var="hCount">
 												<c:if test="${hCount.post_id eq pic.post_id }">
 													<span class="hCount">${hCount.count}</span>
 												</c:if>
-												</c:forEach>
+												</c:forEach> --%>
 										</button>
 										<!-- ---------------------------------------------------------------- -->
 										<button class="card-item-action-list__action " type="button">
 											<svg class="icon icon--stroke " aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 												<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
 											</svg>
-												<c:forEach items="${scrapCount}" var="sCount">
+												<%--  <c:forEach items="${scrapCount}" var="sCount">
 												<c:if test="${sCount.post_id eq pic.post_id }">
 													<span class="sCount">${sCount.scrapCount}</span>
 												</c:if>
-												</c:forEach>
+												</c:forEach>  --%>
 										</button>
 									<!-- -------------------------------------------------------------------- -->	
 										
@@ -504,7 +548,7 @@
 										 		<c:if test="${count.post_id eq pic.post_id}">
 												<span class="count">${count.count}</span>
 												</c:if>
-										 </c:forEach> 
+										 </c:forEach>  
 										</a>
 										</sec:authorize>  
 									</aside>
@@ -544,7 +588,7 @@
 					<sec:authorize access="isAuthenticated()">
 					<sec:authentication property="principal" var="num"/>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${num.memberNum}">마이페이지</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${num.memberNum}&?id=${num.id}">마이페이지</a>
 					</li>
 					</sec:authorize>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
@@ -552,7 +596,7 @@
 					</li>
 					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="/customer_center">고객센터</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../cscenter">고객센터</a>
 					</li>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<button class="layout-navigation-bar-user-menu__item logout" type="button">로그아웃</button>
@@ -685,7 +729,7 @@
 							<div class="navigation-upload-dropdown-content-item__subtitle">동영상 기능이 추가되었어요!</div>
 						</div>
 					</a>
-					<a class="navigation-upload-dropdown-content-item" href="#">
+					<a class="navigation-upload-dropdown-content-item" href="../housewarming/write">
 						<div class="navigation-upload-dropdown-content-item__icon">
 							<svg width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet">
 								<g fill="none" fill-rule="evenodd">
@@ -762,7 +806,94 @@
 <script type="text/javascript">
 //현재 로그인한 사람 번호
 let memberNum = $("#memberNum").val();
+
+//꽉찬 하트 있을땐 빈하트 지우기
+for(let i=0; i<10; i++){
+	let ht_exist = $('#ht'+i).length ? true: false;
+	//console.log(ht_exist)
+	if(ht_exist){
+		//let cla = $(this).parent().siblings('button').hasClass('card-item-action-list__action');
+		//let cla= $(this).parent().next().next().hasClass('card-item-action-list__action');
+		let cla = $('#ht'+i).attr('class');
+		let delCla = $('#ht'+i).next().attr('class');
+		console.log(delCla);
+		$('#ht'+i).next().hide();
+		
+	}
 	
+}
+//꽉찬 스크랩 있을 떈 빈스크랩 지우기
+for(let i=0; i<100; i++){
+	let sc_exist= $('#sc'+i).length ? true:false;
+	console.log(sc_exist);
+	if(sc_exist){
+		$('#sc'+i).next().hide();
+	}
+}
+
+//하트 누른거 있는지 확인
+for(let i=0; i< 10; i++){
+	$('.heartFull'+i).click(function(){
+		let heartC = $(this).attr('class');
+		let  emptyHeart = 'card-item-action-list__action like'+i+'';
+		let post_id = $('#post_num'+i).val();
+		if(heartC != emptyHeart){
+			console.log('같지않음');
+			//$(this).attr('class', 'card-item-action-list__action like'+i+'');
+			$(this).next().show();
+			$(this).remove();
+			//여기서 ajax로 하트 delete하기
+			$.ajax({
+				type:"POST",
+				url:"./heartDelete",
+				data:{
+					post_id:post_id,
+					memberNum:memberNum
+				},
+				success:function(result){
+					console.log("하트 삭제 성공")
+				},
+				error:function(error){
+					console.log(error)
+				}
+			});
+		}
+	})
+	
+}
+
+//스크랩 누른거 있다면
+for(let i=0; i<100; i++){
+	$('.scrapFull'+i).click(function(){
+		let scrapC = $(this).attr('class');
+		let emptyScrap = 'card-item-action-list__action scrap'+i+'';
+		let post_id = $('#spost_num'+i).val();
+		
+		if(scrapC != emptyScrap){
+			console.log('같지않음');
+			$(this).next().show();
+			$(this).remove();
+			
+			$.ajax({
+				type:"POST",
+				url:"./scrapDelete",
+				data:{
+					post_id:post_id,
+					memberNum:memberNum
+				},
+				success:function(result){
+					console.log("스크랩 삭제 성공");
+				},
+				error:function(error){
+					console.log(error);
+				}
+			});
+		}
+		
+	})
+	
+}
+
 	
 //하트 클릭시 액티브로 바꾸기 - 빈하트에서 -꽉찬 하트만들기
 for(let i=0; i<100; i++){

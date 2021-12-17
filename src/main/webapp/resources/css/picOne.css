@@ -495,6 +495,12 @@ element.style {
     stroke-width: 1.1px;
     transition: fill 0.1s ease 0s;
 }
+.css-1iqsjce-ActionHeartIcon-IconSvg {
+    stroke-width: 1.1px;
+    transition: fill 0.1s ease 0s;
+    fill: rgb(53, 197, 240);
+    stroke: transparent;
+}
 svg {
     width: 24;
     height: 24;
@@ -518,6 +524,12 @@ svg {
     stroke: rgb(66, 66, 66);
     stroke-width: 1.1px;
     transition: fill 0.1s ease 0s;
+}
+.css-kb5lr4-ActionScrapIcon-IconSvg {
+    stroke-width: 1.1px;
+    transition: fill 0.1s ease 0s;
+    fill: rgb(53, 197, 240);
+    stroke: transparent;
 }
 .drop-down {
     position: relative;

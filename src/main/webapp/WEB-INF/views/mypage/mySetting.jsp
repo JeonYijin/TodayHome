@@ -50,6 +50,8 @@ margin-top:26px;
 <body>
 	
 	<div class="layout">
+		<sec:authentication property="principal" var="member"/>
+	
 		<header class="layout-navigation-bar">
 			<div data-sticky-enabled="false" data-sticky-disabled="false"
 				data-sticky-always="true" data-sticky-ignore="false"
@@ -110,7 +112,7 @@ margin-top:26px;
 							
 		<!-- 로그인 했을 때 헤더 -------------------------------------------------------------------------------------------------------------------------------------------------------- -->					
 							<sec:authorize access="isAuthenticated()">
-								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="./myScrap">
+								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="./myScrap?memberNum=${member.memberNum}&id=${member.id}">
 									<svg class="icon" width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 										<path fill="none" stroke-width="2" d="M3 20.967zm0 0V2.5a.5.5 0 01.5-.5h17a.5.5 0 01.5.5v18.467l-8.057-4.309a2 2 0 00-1.886 0L3 20.968z"></path>
 									</svg>
@@ -159,13 +161,12 @@ margin-top:26px;
 		
 	<!-- 바디 -->	
 	<!-- 바디  -->
-	<sec:authentication property="principal" var="member"/>
 	
 		<div class="edit-user-info">
 			<div class="myhome-nav myhome-nav--owner">
 				<nav class="page-navigation myhome-nav__owner">
 					<ul style="transform: translateX(0px);">
-						<li class="page-navigation__item"><a class="" href="./mypage?memberNum=${member.memberNum}" target="_self">프로필</a></li>
+						<li class="page-navigation__item"><a class="" href="./mypage?memberNum=${member.memberNum}&id=${member.id}" target="_self">프로필</a></li>
 						<li class="page-navigation__item"><a class="" href="/user_shopping_pages/order_list" target="_self">나의 쇼핑</a></li>
 						<li class="page-navigation__item"><a class="" href="/production_reviews/write" target="_self">나의 리뷰</a></li>
 						<li class="page-navigation__item"><a class="active" href="./mySetting?memberNum=${member.memberNum}" target="_self">설정</a></li>
@@ -175,7 +176,7 @@ margin-top:26px;
 					<ul style="transform: translateX(0px);">
 						<li class="page-navigation__item"><a class="active" href="./mySetting?memberNum=${member.memberNum}" target="_self">회원정보수정</a></li>
 						<li class="page-navigation__item"><a class="" href="./myNoti?memberNum=${member.memberNum}">알림 설정</a></li>
-						<li class="page-navigation__item"><a class="" href="/users/4672761/edit_password" target="_self">비밀번호 변경</a></li>
+						<!-- <li class="page-navigation__item"><a class="" href="/users/4672761/edit_password" target="_self">비밀번호 변경</a></li> -->
 					</ul>
 				</nav>
 			</div>
@@ -285,7 +286,7 @@ margin-top:26px;
 		<div class="layout-footer__top">
 			<address class="layout-footer__cs">
 				<div class="layout-footer__cs__row">
-					<a class="layout-footer__cs__link" href="/customer_center">고객센터<svg
+					<a class="layout-footer__cs__link" href="../cscenter">고객센터<svg
 							class="icon" aria-hidden="true" width="1em" height="1em"
 							viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 							<path fill="currentColor" fill-rule="nonzero"
@@ -461,14 +462,14 @@ margin-top:26px;
 				<ul class="layout-navigation-bar-user-menu">
 					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${member.memberNum}">마이페이지</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${member.memberNum}&id=${member.id}">마이페이지</a>
 					</li>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<a class="layout-navigation-bar-user-menu__item" href="/user_shopping_pages/order_list">나의 쇼핑</a>
 					</li>
 					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="/customer_center">고객센터</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../cscenter">고객센터</a>
 					</li>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<button class="layout-navigation-bar-user-menu__item logout" type="button">로그아웃</button>
@@ -503,7 +504,7 @@ margin-top:26px;
 							<div class="navigation-upload-dropdown-content-item__subtitle">동영상 기능이 추가되었어요!</div>
 						</div>
 					</a>
-					<a class="navigation-upload-dropdown-content-item" href="#">
+					<a class="navigation-upload-dropdown-content-item" href="/housewarming/write">
 						<div class="navigation-upload-dropdown-content-item__icon">
 							<svg width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet">
 								<g fill="none" fill-rule="evenodd">

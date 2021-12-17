@@ -199,4 +199,10 @@ public class PictureService {
 		return pictureDAO.getScrap(scrapingVO);
 	}
 	
+	
+	//스크랩한 게시글 가져오기
+	public List<ScrapingVO> getScrapPost(ScrapingVO scrapingVO) throws Exception{
+		return pictureDAO.getScrapPost(scrapingVO);
+	}
+	
 }

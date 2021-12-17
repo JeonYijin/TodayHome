@@ -1,9 +1,11 @@
 package com.th.th1.picture;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -78,7 +80,7 @@ public class PictureController {
 	
 	//글 리스트 조회하기
 		@GetMapping("picList")
-		public ModelAndView getPicList(FeelingVO feelingVO, PictureVO pictureVO, ScrapingVO scrapingVO) throws Exception{
+		public ModelAndView getPicList(FeelingVO feelingVO, PictureVO pictureVO, ScrapingVO scrapingVO, Principal principal, @AuthenticationPrincipal MemberVO memberVO) throws Exception{
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("/picture/picList");
 			List<PictureVO> pic = pictureService.getPicList(pictureVO);
@@ -111,18 +113,24 @@ public class PictureController {
 			mv.addObject("heartCount", feel);
 			mv.addObject("scrapCount", scrap);
 			
-			//feelingVO.setPost_id()
-			//feelingVO = pictureService.getHeart(feelingVO);
-			
-			
-			//membrenum 넣기 - 하트
-//			feel = pictureService.getHeartPost(feelingVO);
-//			mv.addObject("feel", feel);
-//			System.out.println("size:" + feel.size());
-			
-			
-			
-			
+			if(principal != null) {
+				
+				//하트누른 게시글
+				List<FeelingVO> heartPost = new ArrayList<FeelingVO>();
+				FeelingVO feelingVO2 = new FeelingVO();
+				feelingVO2.setMemberNum(memberVO.getMemberNum());
+				System.out.println("멤버넘"+feelingVO2.getMemberNum());
+				heartPost = pictureService.getHeartPost(feelingVO2);
+				mv.addObject("heartPost", heartPost);
+				
+				//스크랩한 게시글
+				List<ScrapingVO> scrapPost = new ArrayList<ScrapingVO>();
+				ScrapingVO scrapingVO2 = new ScrapingVO();
+				scrapingVO2.setMemberNum(memberVO.getMemberNum());
+				scrapPost = pictureService.getScrapPost(scrapingVO2);
+				mv.addObject("scrapPost", scrapPost);
+				
+			}
 			return mv;
 		}
 		
@@ -130,7 +138,8 @@ public class PictureController {
 	
 	//글 상세조회하기
 	@GetMapping("picOne")
-	public ModelAndView getPicOne(PictureVO pictureVO, PicCommentVO picCommentVO, FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+	public ModelAndView getPicOne(PictureVO pictureVO, PicCommentVO picCommentVO, FeelingVO feelingVO, ScrapingVO scrapingVO,
+			Principal principal, @AuthenticationPrincipal MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		pictureVO = pictureService.getPicOne(pictureVO);
 		mv.setViewName("/picture/picOne");
@@ -153,6 +162,28 @@ public class PictureController {
 		scrapingVO.setPost_id(pictureVO.getPost_id());
 		scrapingVO = pictureService.getScrap(scrapingVO);
 		mv.addObject("scraping", scrapingVO);
+		
+		if(principal != null) {
+			
+			//하트누른 게시글
+			List<FeelingVO> heartPost = new ArrayList<FeelingVO>();
+			FeelingVO feelingVO2 = new FeelingVO();
+			feelingVO2.setMemberNum(memberVO.getMemberNum());
+			System.out.println("멤버넘"+feelingVO2.getMemberNum());
+			heartPost = pictureService.getHeartPost(feelingVO2);
+			mv.addObject("heartPost", heartPost);
+			
+			//스크랩한 게시글
+			List<ScrapingVO> scrapPost = new ArrayList<ScrapingVO>();
+			ScrapingVO scrapingVO2 = new ScrapingVO();
+			scrapingVO2.setMemberNum(memberVO.getMemberNum());
+			scrapPost = pictureService.getScrapPost(scrapingVO2);
+			mv.addObject("scrapPost", scrapPost);
+			
+		}
+		
+		
+		
 		return mv;
 	}
 	

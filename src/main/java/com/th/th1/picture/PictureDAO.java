@@ -59,6 +59,8 @@ public interface PictureDAO {
 	//게시글 당 스크랩
 	public ScrapingVO getScrap(ScrapingVO scrapingVO) throws Exception;
 	
+	//스크랩한 게시글 가져오기
+	public List<ScrapingVO> getScrapPost(ScrapingVO scrapingVO) throws Exception;
 	
 	
 	

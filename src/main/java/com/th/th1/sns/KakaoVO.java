@@ -18,7 +18,7 @@ public class KakaoVO implements OAuth2User {
 	private String phone;
 	private Boolean enabled;
 	private String social;
-	
+	private Integer memberNum;
 	private Map<String, Object> attributes;
 	
 	
@@ -82,6 +82,12 @@ public class KakaoVO implements OAuth2User {
 	}
 	public void setSocial(String social) {
 		this.social = social;
+	}
+	public Integer getMemberNum() {
+		return memberNum;
+	}
+	public void setMemberNum(Integer memberNum) {
+		this.memberNum = memberNum;
 	}
 	
 	

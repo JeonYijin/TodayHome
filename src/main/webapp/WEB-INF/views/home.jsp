@@ -127,7 +127,8 @@ margin-top:26px;
 							</sec:authorize>
 		<!-- 로그인 했을 때 헤더 -------------------------------------------------------------------------------------------------------------------------------------------------------- -->					
 							<sec:authorize access="isAuthenticated()">
-								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="/users/4672761/collections">
+							<sec:authentication property="principal" var="member"/>
+								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="../member/myScrap?memberNum=${member.memberNum}&id=${member.id}">
 									<svg class="icon" width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 										<path fill="none" stroke-width="2" d="M3 20.967zm0 0V2.5a.5.5 0 01.5-.5h17a.5.5 0 01.5.5v18.467l-8.057-4.309a2 2 0 00-1.886 0L3 20.968z"></path>
 									</svg>
@@ -845,80 +846,45 @@ margin-top:26px;
 				<div class="row production-rank-feed__group">
 					<div class="col production-rank-feed__list-wrap">
 						<ul class="row production-rank-feed__list">
-							<div class="col-4 production-rank-feed__item">
+						<c:set var="loof" value="false"></c:set>
+						<c:forEach items="${product}" var="product" varStatus="proStatus">
+							<c:if test="${not loof }">
+							<div class="col-4 production-rank-feed__item" id="best${proStatus.index}">
 								<div class="home-production-item">
-									<a href="/productions/111255/selling?affect_type=Home&amp;affect_id=0&amp;content_type=HomeFeedRank">
+									<a href="../store/page?pr_number=${product.pr_number}">
 										<div class="img-wrap square home-production-item__wrapper">
+										<c:forEach items="${product.prFiles }" var="prFiles" varStatus="prStatus">
+											<c:if test="${prStatus.index eq 0 }">
+											<img class="home-production-item__image" src="../upload/store/${prFiles.fileName}">
+											</c:if>
+										</c:forEach>
 											<div class="home-production-item__image"></div>
-											<div class="css-167c30c-Wrapper evlxapa2">
-												
-											</div>
+											<div class="css-167c30c-Wrapper evlxapa2"></div>
 										</div>
 										<div class="info">
-											<p class="product-name text-caption-1 line-height-normal">Q4 유로탑 롤팩 매트리스 2size</p>
+											<p class="product-name text-caption-1 line-height-normal">${product.pr_name}</p>
 											<p class="price text-caption-3">
-											<span class="discount-ratio text-blue text-body-1 bold">62%</span>
-											<strong class="selling-price text-body-1 text-black"> 269,000</strong>
+											<span class="discount-ratio text-blue text-body-1 bold">${product.pr_discount}</span>
+											<strong class="selling-price text-body-1 text-black"> ${product.pr_dPrice}</strong>
 										</p>
 										</div>
 										<div class="home-rank-icon">
-											<span>1</span>
+											<span>${proStatus.index+1}</span>
 										</div>
 									</a>
 								</div>
 							</div>
-							<div class="col-4 production-rank-feed__item">
-								<div class="home-production-item">
-									<a href="/productions/329364/selling?affect_type=Home&amp;affect_id=0&amp;content_type=HomeFeedRank">
-										<div class="img-wrap square home-production-item__wrapper">
-											<div class="home-production-item__image"></div>
-											<div class="css-167c30c-Wrapper evlxapa2">
-												
-											</div>
-										</div>
-										<div class="info">
-											<p class="product-name text-caption-1 line-height-normal">[10%쿠폰] 편안한 제주 필로우탑 본넬스프링 침대 매트리스 (싱글/슈퍼싱글/퀸/킹)</p>
-											<p class="price text-caption-3">
-												<span class="discount-ratio text-blue text-body-1 bold">59%</span>
-												<strong class="selling-price text-body-1 text-black"> 99,900</strong>
-											</p>
-										</div>
-										<div class="home-rank-icon">
-											<span>2</span>
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-4 production-rank-feed__item">
-								<div class="home-production-item">
-									<a href="/productions/755263/selling?affect_type=Home&amp;affect_id=0&amp;content_type=HomeFeedRank">
-										<div class="img-wrap square home-production-item__wrapper"><div class="home-production-item__image"></div>
-											<div class="css-167c30c-Wrapper evlxapa2">
-												<!-- <div class="css-2itshy-Content evlxapa1">
-													<picture>
-														<source type="image/webp" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=256&amp;h=256&amp;c=c&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=360&amp;h=360&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=480&amp;h=480&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=720&amp;h=720&amp;c=c&amp;webp=1 3x"><img class="css-vagntg-Image evlxapa0" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=256&amp;h=256&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=360&amp;h=360&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=480&amp;h=480&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/thumbnail_badges/163849450926711980.png?w=720&amp;h=720&amp;c=c 3x">
-													</picture>
-												</div> -->
-											</div>
-										</div>
-											<div class="info">
-												<p class="product-name text-caption-1 line-height-normal">[최대 235만원대] 워시타워 3color 세탁24kg건조17kg (화이트/실버/블랙)</p>
-													<p class="price text-caption-3">
-														<span class="discount-ratio text-blue text-body-1 bold">15%</span>
-														<strong class="selling-price text-body-1 text-black"> 2,777,000</strong>
-													</p>
-											</div>
-											<div class="home-rank-icon">
-												<span>3</span>
-											</div>
-									</a>
-								</div>
-							</div>
+							<c:if test="${proStatus.count == 3 }">
+									<c:set var="loof" value="true"></c:set>
+								</c:if>
+							</c:if>
+						</c:forEach>
+							
 						</ul>
 					</div>
 					<div class="col-12 col-md-3 home-rank__more-wrap">
 						<div class="home-rank__more-container">
-							<a class="home-rank__more" href="/commerces/ranks?type=best">
+							<a class="home-rank__more" href="../store/best">
 								<div class="home-rank__more__text">베스트셀러 더보기
 									<div class="home-rank__more__icon">
 										<svg class="home-rank__more__icon__arrow" width="40" height="40" viewBox="0 0 40 40" preserveAspectRatio="xMidYMid meet">
@@ -982,7 +948,7 @@ margin-top:26px;
 		<div class="layout-footer__top">
 			<address class="layout-footer__cs">
 				<div class="layout-footer__cs__row">
-					<a class="layout-footer__cs__link" href="/customer_center">고객센터<svg
+					<a class="layout-footer__cs__link" href="../cscenter">고객센터<svg
 							class="icon" aria-hidden="true" width="1em" height="1em"
 							viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 							<path fill="currentColor" fill-rule="nonzero"
@@ -1158,10 +1124,16 @@ margin-top:26px;
 				<ul class="layout-navigation-bar-user-menu">
 					<sec:authorize access="isAuthenticated()">
 					<sec:authentication property="principal" var="num"/>
-					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${num.memberNum}">마이페이지</a>
+					<c:if test="${num.memberNum eq null }">
+						<li class="layout-navigation-bar-user-menu__item-wrap">
+						<a class="layout-navigation-bar-user-menu__item" href="#">마이페이지</a>
 					</li>
-					</sec:authorize>
+					</c:if>
+					<c:if test="${num.memberNum ne null }">
+					<li class="layout-navigation-bar-user-menu__item-wrap">
+						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${num.memberNum}&id=${num.id}">마이페이지</a>
+					</li>
+					</c:if>
 					
 					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
@@ -1171,9 +1143,18 @@ margin-top:26px;
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<a class="layout-navigation-bar-user-menu__item" href="../cscenter/">고객센터</a>
 					</li>
+					<c:if test="${num.memberNum eq null }">
+						<li class="layout-navigation-bar-user-menu__item-wrap">
+						<a class="layout-navigation-bar-user-menu__item" herf="https://kauth.kakao.com/oauth/logout?client_id=8ac307dc44008f3766d04dba03de3f8b&logout_redirect_uri=http://localhost/member/memberLogout" type="button">로그아웃</a>
+					</li>
+					</c:if>
+					
+					<c:if test="${num.memberNum ne null }">
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<button class="layout-navigation-bar-user-menu__item logout" type="button">로그아웃</button>
 					</li>
+					</c:if>
+					</sec:authorize>
 				</ul>
 			</div>
 		</div>

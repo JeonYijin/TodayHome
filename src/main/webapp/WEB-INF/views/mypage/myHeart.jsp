@@ -50,6 +50,7 @@ margin-top:26px;
 <body>
 	
 	<div class="layout">
+	<sec:authentication property="principal" var="member"/>
 		<header class="layout-navigation-bar">
 			<div data-sticky-enabled="false" data-sticky-disabled="false"
 				data-sticky-always="true" data-sticky-ignore="false"
@@ -110,7 +111,7 @@ margin-top:26px;
 							
 		<!-- 로그인 했을 때 헤더 -------------------------------------------------------------------------------------------------------------------------------------------------------- -->					
 							<sec:authorize access="isAuthenticated()">
-								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="./myScrap">
+								<a class="layout-navigation-bar-icon layout-navigation-bar-icon--hide-mobile" title="스크랩북" aria-label="스크랩북" href="./myScrap?memberNum=${member.memberNum}&id=${member.id}">
 									<svg class="icon" width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 										<path fill="none" stroke-width="2" d="M3 20.967zm0 0V2.5a.5.5 0 01.5-.5h17a.5.5 0 01.5.5v18.467l-8.057-4.309a2 2 0 00-1.886 0L3 20.968z"></path>
 									</svg>
@@ -159,12 +160,11 @@ margin-top:26px;
 	
 	
 	<!-- 바디 -->	
-		<sec:authentication property="principal" var="member"/>
 		<div class="css-1hs06u0-LayoutContainer e1ivswjr2 closeMenu">
 			<div class="myhome-nav myhome-nav--owner">
 				<nav class="page-navigation myhome-nav__owner">
 					<ul style="transform: translateX(0px);">
-						<li class="page-navigation__item"><a class="active" href="./mypage?memberNum=${member.memberNum}" target="_self">프로필</a></li>
+						<li class="page-navigation__item"><a class="active" href="./mypage?memberNum=${member.memberNum}&id=${member.id}" target="_self">프로필</a></li>
 						<li class="page-navigation__item"><a class="" href="/user_shopping_pages/order_list" target="_self">나의 쇼핑</a></li>
 						<li class="page-navigation__item"><a class="" href="/production_reviews/write" target="_self">나의 리뷰</a></li>
 						<li class="page-navigation__item"><a class="" href="./mySetting?memberNum=${member.memberNum}" target="_self">설정</a></li>
@@ -172,12 +172,12 @@ margin-top:26px;
 				</nav>
 				<nav class="page-navigation myhome-nav__contents">
 					<ul style="transform: translateX(0px);">
-						<li class="page-navigation__item"><a class="" href="./mypage?memberNum=${member.memberNum}" target="_self">모두보기</a></li>
+						<li class="page-navigation__item"><a class="" href="./mypage?memberNum=${member.memberNum}&id=${member.id}" target="_self">모두보기</a></li>
 						<li class="page-navigation__item"><a class="" href="./myPicture?memberNum=${member.memberNum}" target="_self">사진</a></li>
-						<li class="page-navigation__item"><a class="" href="./myHome?memberNum=${member.memberNum}" target="_self">집들이</a></li>
-						<li class="page-navigation__item"><a class="" href="./myQna?memberNum=${member.memberNum}" target="_self">질문과답변</a></li>
-						<li class="page-navigation__item"><a class="" href="./myScrap?memberNum=${member.memberNum}" target="_self">스크랩북</a></li>
-						<li class="page-navigation__item"><a class="active" href="./myHeart?memberNum=${member.memberNum}" target="_self">좋아요</a></li>
+						<li class="page-navigation__item"><a class="" href="./myHome?memberNum=${member.memberNum}&id=${member.id}" target="_self">집들이</a></li>
+						<li class="page-navigation__item"><a class="" href="./myQna?memberNum=${member.memberNum}&id=${member.id}" target="_self">질문과답변</a></li>
+						<li class="page-navigation__item"><a class="" href="./myScrap?memberNum=${member.memberNum}&id=${member.id}" target="_self">스크랩북</a></li>
+						<li class="page-navigation__item"><a class="active" href="./myHeart?memberNum=${member.memberNum}&id=${member.id}" target="_self">좋아요</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -217,7 +217,7 @@ margin-top:26px;
 										<div class="css-1n6bblu-ShortcutContainer epl9oik0">
 											<div class="css-db25ax-ListDiv ekeuxnk0">
 											
-												<a class="css-64c85x-ItemLink e1q26atk3" href="./myScrap?memberNum=${member.memberNum}">
+												<a class="css-64c85x-ItemLink e1q26atk3" href="./myScrap?memberNum=${member.memberNum}&id=${member.id}">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
 														<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
 															<path fill-rule="evenodd" transform="matrix(1 0 0 -1 0 23.033)" d="M12.943 6.342a2 2 0 0 1-1.886 0L3 2.032V20.5a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5V2.033l-8.057 4.309zm-.471-.882l8.056-4.31A1 1 0 0 1 22 2.034V20.5a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 20.5V2.033a1 1 0 0 1 1.472-.882l8.056 4.31a1 1 0 0 0 .944 0z"></path>
@@ -226,7 +226,7 @@ margin-top:26px;
 													<div class="css-1ypdctb-ItemText e1q26atk1">스크랩북</div>
 													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount}</div>
 												</a>
-												<a class="css-64c85x-ItemLink e1q26atk3" href="./myHeart?memberNum=${member.memberNum}">
+												<a class="css-64c85x-ItemLink e1q26atk3" href="./myHeart?memberNum=${member.memberNum}&id=${member.id}">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
 														<svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 															<path fill="currentColor" d="M22.971 7.638c-.548-5.17-7.119-7.135-10.57-2.488a.5.5 0 0 1-.802 0C8.148.503 1.577 2.469 1.029 7.625.642 12.451 3.897 17.183 12 21.436c8.104-4.252 11.36-8.984 10.972-13.798zm.996-.093c.428 5.319-3.137 10.446-11.738 14.899a.5.5 0 0 1-.46 0C3.169 17.99-.395 12.864.034 7.532.656 1.67 7.904-.683 12 4.052 16.096-.683 23.344 1.67 23.967 7.545z"></path>
@@ -314,7 +314,7 @@ margin-top:26px;
 		<div class="layout-footer__top">
 			<address class="layout-footer__cs">
 				<div class="layout-footer__cs__row">
-					<a class="layout-footer__cs__link" href="/customer_center">고객센터<svg
+					<a class="layout-footer__cs__link" href="../cscenter">고객센터<svg
 							class="icon" aria-hidden="true" width="1em" height="1em"
 							viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 							<path fill="currentColor" fill-rule="nonzero"
@@ -490,14 +490,14 @@ margin-top:26px;
 				<ul class="layout-navigation-bar-user-menu">
 					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${member.memberNum}">마이페이지</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../member/mypage?memberNum=${member.memberNum}&id=${member.id}">마이페이지</a>
 					</li>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<a class="layout-navigation-bar-user-menu__item" href="/user_shopping_pages/order_list">나의 쇼핑</a>
 					</li>
 					
 					<li class="layout-navigation-bar-user-menu__item-wrap">
-						<a class="layout-navigation-bar-user-menu__item" href="/customer_center">고객센터</a>
+						<a class="layout-navigation-bar-user-menu__item" href="../cscenter">고객센터</a>
 					</li>
 					<li class="layout-navigation-bar-user-menu__item-wrap">
 						<button class="layout-navigation-bar-user-menu__item logout" type="button">로그아웃</button>
@@ -532,7 +532,7 @@ margin-top:26px;
 							<div class="navigation-upload-dropdown-content-item__subtitle">동영상 기능이 추가되었어요!</div>
 						</div>
 					</a>
-					<a class="navigation-upload-dropdown-content-item" href="#">
+					<a class="navigation-upload-dropdown-content-item" href="/housewarming/write">
 						<div class="navigation-upload-dropdown-content-item__icon">
 							<svg width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet">
 								<g fill="none" fill-rule="evenodd">
