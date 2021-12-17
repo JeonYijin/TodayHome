@@ -115,8 +115,8 @@
 	                                                            <span class="carted-product__footer__left">
 	                                                                <button class="carted-product__order-btn" type="button">바로구매</button>
 	                                                            </span>
-	                                                            <fmt:formatNumber type="number"maxFractionDigits="3" value="${item.pr_dPrice}" var="f_dPrice" />
-	                                                            <span class="carted-product__subtotal"><span class="carted-product__subtotal__number">${f_dPrice}</span>원</span>
+	                                                            <fmt:formatNumber type="number"maxFractionDigits="3" value="${item.pr_dPrice}"/>
+	                                                            <span class="carted-product__subtotal"><span class="carted-product__subtotal__number">${item.pr_dPrice}</span>원</span>
 	                                                        </div>
 	                                                    </article>
 	                                                </li>
