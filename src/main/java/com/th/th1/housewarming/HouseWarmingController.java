@@ -34,48 +34,35 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 								@RequestParam(value="working_area", defaultValue="") String working_area,
 								Principal principal) throws Exception {
 		
-		if(house_kind != "") {
-			System.out.println("house_kind가 null이 아니라면?:"+house_kind);
-		}
-		
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		map.put("arrangement", arrangement);
-		System.out.println("map.get(arrangement): "+map.get("arrangement"));
 		
 		if(house_kind != "") {
 			map.put("house_kind", house_kind);
-			System.out.println("map.get(house_kind): "+map.get("house_kind"));
 		}
 		if(house_space != "") {
 			map.put("house_space", house_space);
-			System.out.println("map.get(house_space): "+map.get("house_space"));
 		}
 		if(family_kind != "") {
 			map.put("family_kind", family_kind);
-			System.out.println("map.get(family_kind): "+map.get("family_kind"));
 		}
 		if(total_budget != "") {
 			map.put("total_budget", total_budget);
-			System.out.println("map.get(total_budget): "+map.get("total_budget"));
 		}
 		if(working_area != "") {
 			map.put("working_area", working_area);
-			System.out.println("map.get(family_kind): "+map.get("family_kind"));
 		}
 		if(style_category != "") {
 			map.put("style_category", style_category);
-			System.out.println("map.get(style_category): "+map.get("style_category"));
 		}
 		if(working_area != "") {
 			map.put("working_area", working_area);
-			System.out.println("map.get(working_area): "+map.get("working_area"));
 		}
 		
 		List<HouseWarmingVO> list = houseService.getHouseList(map);
-		System.out.println("list를 가져오니?:"+list);
 				
 		
 		//style_category -> 한글화 작업
@@ -85,7 +72,6 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		House_ScrapVO hsVO=null;
 		List<House_ScrapVO> scraps=null;
 		if(principal == null) {
-			System.out.println("리스트 로그인 안돼있어요~");
 		} else if(principal != null) {
 			System.out.println("principal.getName() = "+principal.getName());
 			hsVO = new House_ScrapVO();
@@ -138,7 +124,6 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		
 		//style_category -> 한글화 작업
 		list = this.styleToKorean(list);
-		System.out.println("list.get(0) : "+list.get(0).getStyleString());
 		
 		// 좋아요 관리 -----------------------------------------
 		House_ZoayoVO hzVO = null;

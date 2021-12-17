@@ -79,6 +79,14 @@ public interface HouseWarmingDAO {
 	/* 커뮤니티 홈에서 접근할 때 쓸 query */
 	public List<HouseWarmingVO> getHListForHome(String house_writer) throws Exception;
 	
+	// -------------------------------------------------------------------------
+	
+	// 스크랩 갯수 가져오기 (ajax용)
+	public int getCountZoayo(House_ZoayoVO hzVO) throws Exception;
+	
+	// 스크랩 갯수 가져오기 (ajax용)
+	public int getCountScrap(House_ScrapVO hsVO) throws Exception;
+	
 	
 	// 관리자용 -------------------------------------------------------------------------
 	

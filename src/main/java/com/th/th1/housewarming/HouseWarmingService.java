@@ -74,6 +74,7 @@ public class HouseWarmingService {
 		int result=houseDAO.setZoayoInsert(hzVO);
 		if(result==1) {
 			int result2 = houseDAO.houseZoayoUp(hzVO.getHouse_num());
+			result2 = houseDAO.getCountZoayo(hzVO);//카운트 가져오기
 		}
 		
 		return result;
@@ -83,7 +84,8 @@ public class HouseWarmingService {
 	public int setZoayoDown(House_ZoayoVO hzVO) throws Exception {
 		int result=houseDAO.setZoayoDelete(hzVO);
 		if(result==1) {
-			houseDAO.houseZoayoDown(hzVO.getHouse_num());
+			int result2 = houseDAO.houseZoayoDown(hzVO.getHouse_num());
+			result2 = houseDAO.getCountZoayo(hzVO);//카운트 가져오기
 		}
 		return result;
 	}
@@ -100,6 +102,7 @@ public class HouseWarmingService {
 		int result=houseDAO.setScrapInsert(hsVO);
 		if(result==1) {
 			int result2 = houseDAO.houseScrapUp(hsVO.getHouse_num());
+			result2 = houseDAO.getCountScrap(hsVO);//카운트 가져오기
 		}
 		
 		return result;
@@ -110,6 +113,7 @@ public class HouseWarmingService {
 		int result=houseDAO.setScrapDelete(hsVO);
 		if(result==1) {
 			houseDAO.houseScrapDown(hsVO.getHouse_num());
+			houseDAO.getCountScrap(hsVO);//카운트 가져오기
 		}
 		return result;
 	}

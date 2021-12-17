@@ -12,6 +12,11 @@
 <body>
 <div class="layout">
 
+<sec:authorize>
+	<sec:authentication property=""/>
+
+</sec:authorize>
+
 	<%@ include file="../../nav/header.jsp"%>
 
 	<div class="container">
@@ -218,7 +223,9 @@
  </div>
 
 <!-- footer 들어가야되는데 contents 중간에 껴서 이상하게 나옴. 이거 조만간 처리해야 함 -->
-
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+	<p style="color:red;">이거 보이면 영자임</p>
+</sec:authorize>
 
 <script type="text/javascript">
 	

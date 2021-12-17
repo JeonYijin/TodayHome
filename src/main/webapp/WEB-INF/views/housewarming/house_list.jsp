@@ -12,6 +12,12 @@
 <body>
 <div class="layout">
 
+<!-- 영자 판별 security tag test -->
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+	<p style="color:red;">이거 보이면 영자임</p>
+</sec:authorize>
+
+
 	<%@ include file="../nav/header.jsp"%>
 
 	<div class="container">
@@ -19,16 +25,10 @@
             <div class="project-feed__filter">
                 <div class="filter project-index__filter">
                     <div class="filter-bar">
-                        <div class="filter-bar__control-list" style="padding:5px 5px 85px 5px;">
-                            <ul class="filter-bar__control-list__left">
+                        <div class="filter-bar__control-list">
+                            <ul class="filter-bar__control-list__left" style="position:absolute;">
                                 <li class="filter-bar__control-list__item filter-bar__control-list__item--icon"><button
-                                        class="filter-bar__control-list__icon" type="button" title="필터 전체"><svg
-                                            class="icon" width="24" height="24" viewBox="0 0 24 24"
-                                            preserveAspectRatio="xMidYMid meet">
-                                            <path fill="#BDBDBD"
-                                                d="M18.284 4H5.716a.7.7 0 0 0-.61.362.668.668 0 0 0 0 .724l3.963 6.978c.353.632.97 1.348.971 2.076v6.181c.002.24-.054.388.149.558.203.17.343.118.444.095l3.29-1.257c.283-.095.321-.369.317-.676v-4.9c0-.73.338-1.445.69-2.077l3.963-6.978a.668.668 0 0 0 0-.724.7.7 0 0 0-.61-.362z">
-                                            </path>
-                                        </svg></button></li>
+                                        class="filter-bar__control-list__icon" type="button" title="필터 전체"></button></li>
                                 <li class="filter-bar__control-list__item" style="line-height: 10px;">
                                  <!-- Example single danger button -->
 									<div class="btn-group">
@@ -50,7 +50,8 @@
 										    주거형태
 										  </button>
 										  <ul class="dropdown-menu menu1">
-										    <li><a class="dropdown-item" >원룸&오피스텔</a></li>
+										    <li><a class="dropdown-item" >원룸</a></li>
+										    <li><a class="dropdown-item" >오피스텔</a></li>
 										    <li><a class="dropdown-item" >아파트</a></li>
 										    <li><a class="dropdown-item" >빌라&연립</a></li>
 										    <li><a class="dropdown-item" >단독주택</a></li>
@@ -156,14 +157,13 @@
                                 </li>
                                 <li
                                     class="filter-bar__control-list__item filter-bar__control-list__item--more filter-bar__control-list__item--more-mobile">
-                                    <div class="drop-down panel-drop-down filter-bar-control"><button
-                                            class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button filter-bar-control__button--more">더보기..</button>
+                                    
                                     </div>
                                 </li>
                             </ul>
                         </div>
+                        <br><br>
                         <ul class="filter-bar__tag-list">
-                        	
                         </ul>
                     </div>
                 </div>
@@ -229,8 +229,8 @@
                         <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
                                 href="/users/3218737?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
                                     class="project-feed__item__writer__image" alt=""
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/162972159885446809.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c"
-                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/162972159885446809.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/162972159885446809.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/162972159885446809.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x"><span
+                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1567310477_UP.jpeg?gif=1&w=36&h=36&c=c"
+                                    srcset=""><span
                                     class="project-feed__item__writer__name">${board.house_writer}</span></a></address>
                         <footer class="project-feed__item__status"><span class="entry">스크랩 ${board.house_scrap}&nbsp;</span><span
                                 class="entry">조회 ${board.house_hits}</span></footer>
@@ -253,6 +253,9 @@
  </div>
 
 <!-- footer 들어가야되는데 contents 중간에 껴서 이상하게 나옴. 이거 조만간 처리해야 함 -->
+
+
+
 
 
 

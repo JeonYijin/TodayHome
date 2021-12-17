@@ -86,7 +86,7 @@
                                     d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
                             </svg></div>
                     </button>
-                    <div class="open expanded" style="overflow: hidden;">
+                    <div class="open expanded opener1" style="overflow: hidden;">
                         <div class="editor-top-sub-section-content" role="region" id="id-1 -content"
                             aria-labelledby="id-1-header">
                             <ul class="editor-top-guide-section">
@@ -114,7 +114,7 @@
                     </div>
   
                  <form method="post" name="house-feed__form" enctype="multipart/form-data">
-                <div class="editor-top-sub-section"><button class="editor-top-sub-section-header" type="button"
+                <div class="editor-top-sub-section"><button class="editor-top-sub-section-header" style="" type="button"
                         id="id-2-header" aria-labelledby="id-2 -content" aria-expanded="true">
                         <div class="editor-top-sub-section-header__left">
                             <div class="editor-top-sub-section-header__icon"><svg class="icon" width="26" height="26"
@@ -129,18 +129,13 @@
                                         <path d="M8.27 15.2l2.48 2.47"></path>
                                     </g>
                                 </svg></div>
-                            <div class="editor-top-sub-section-header__title">필수 정보 입력</div>
+                            <div class="editor-top-sub-section-header__title" style="">필수 정보 입력</div>
                             <div class="editor-top-sub-section-header__sub-title">공간을 이해하는데 필요한 정보이니 최대한 꼼꼼하게 입력해주세요.
                             </div>
                         </div>
-                        <div class="editor-top-sub-section-header__right"><svg
-                                class="editor-top-section-expand-icon editor-top-section-expand-icon--open" width="1em"
-                                height="1em" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
-                            </svg></div>
+                        <div class="editor-top-sub-section-header__right"><svg class="editor-top-section-expand-icon" width="1em" height="1em" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" fill-rule="evenodd" d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path></svg></div>
                     </button>
-                    <div class="open expanded" style="overflow: hidden; height: 0px; display: none;">
+                    <div class="open expanded opener2" style="overflow: hidden; display:none;">
                         <div class="editor-top-sub-section-content" role="region" id="id-2 -content"
                             aria-labelledby="id-2-header">
                             <div class="editor-metadata-form">
@@ -160,7 +155,6 @@
                                                             <option value="빌라&amp;연립">빌라&amp;연립</option>
                                                             <option value="아파트">아파트</option>
                                                             <option value="단독주택">단독주택</option>
-                                                            <option value="협소주택">협소주택</option>
                                                             <option value="상업공간">상업공간</option>
                                                             <option value="사무공간">사무공간</option>
                                                             <option value="기타">기타</option>
@@ -228,12 +222,12 @@
                                                     class="css-10hheuw-EditorFieldColumn e13w87p50">
                                                     <div class="input-group select-input"><select
                                                             name="family_kind" class="form-control empty">
-                                                            <option value="" disabled="">선택해주세요.</option>
+                                                            <option value="">선택해주세요.</option>
                                                             <option value="싱글라이프">싱글라이프</option>
-                                                            <option value="신혼/부부가 사는집">신혼/부부가 사는집</option>
-                                                            <option value="자녀가 있는 집">자녀가 있는 집</option>
+                                                            <option value="신혼 부부">신혼/부부가 사는집</option>
+                                                            <option value="아기가 있는 집">아기가 있는 집</option>
+                                                            <option value="취학 자녀가 있는 집">취학 자녀가 있는 집</option>
                                                             <option value="부모님과 함께 사는 집">부모님과 함께 사는 집</option>
-                                                            <option value="룸메이트와 함께 사는 집">룸메이트와 함께 사는 집</option>
                                                             <option value="기타">기타</option>
                                                         </select><span class="select-input__icon"><svg class="icon"
                                                                 width="10" height="10"
@@ -294,12 +288,13 @@
                 </div>
             </div>
             
+            
             <!-- security -->
             <sec:authorize access="isAuthenticated()" var="result">
 		  		<sec:authentication property="principal.id" var="id"/>
 		 		<sec:authentication property="principal" var="memberVO"/>
-				id : <input type="text" name="house_userId" value="${id}" readonly/><br>
-				nickname : <input type="text" name="house_writer" value="${memberVO.nickname}" readonly/>
+				<input type="hidden" name="house_userId" value="${id}" readonly/><br>
+				<input type="hidden" name="house_writer" value="${memberVO.nickname}" readonly/>
 		  	</sec:authorize>	
             <!-- security -->
 			
@@ -313,7 +308,7 @@
            
            	<div id="hidden-man">
            		<input type="file" id="thumbnail-input" name="thumbnail" hidden="hidden"/>
-           		<img id="View" src="#" hidden="hidden"/>
+           		<img id="View" src="" hidden="hidden" style="width:720px; height:480px; object-fit:fill;"/>
            	</div>
            	
             <div class="editor-title-input">
@@ -324,28 +319,20 @@
         <div class="editor__content-wrap">
             <div class="editor-content-list">
                 <div class="editor-content-list__content editor__content">
-                    <textarea rows="5" cols="50" id="house_contents" name="house_contents"></textarea>
+                    <textarea rows="5" cols="50" id="house_contents" name="house_contents" placeholder="내용을 입력해주세요."></textarea>
 					<script>
 						var ckeditor_config = {
 							resize_enaleb : false,
 							enterMode : CKEDITOR.ENTER_BR,
 							shiftEnterMode : CKEDITOR.ENTER_P,
 							filebrowserUploadUrl : "${pageContext.request.contextPath}/ckeditor/ckUpload"
-						};
-															 
+						};					 
 							CKEDITOR.replace("house_contents", ckeditor_config);									
 					</script>
                 </div>
             </div>
         </div>
         </form>
-        <div class="editor-help-section"><button class="editor-help-section-button" type="button" title="도움말"><svg
-                    class="icon" width="28" height="28" viewBox="0 0 28 28" preserveAspectRatio="xMidYMid meet">
-                    <rect width="28" height="28" fill="#FFF" rx="10"></rect>
-                    <path fill="#828C94"
-                        d="M14.24 6.22c.56.06 1.1.15 1.65.27 1.66.47 2.64 1.8 2.77 3.56A3.24 3.24 0 0117.35 13c-.44.35-.9.66-1.35 1a2.2 2.2 0 00-1 1.95 1.24 1.24 0 01-.89 1.25 1.38 1.38 0 01-1.6-.48 1.3 1.3 0 01-.2-.65 4.32 4.32 0 011.78-3.63c.5-.38.97-.8 1.41-1.24.21-.25.34-.55.36-.87.08-.88-.49-1.45-1.4-1.51-1.1-.07-2.03.22-2.68 1.19a1.3 1.3 0 01-1.35.62c-.93-.15-1.34-.91-.95-1.79a4 4 0 011.94-1.93 6.75 6.75 0 012.82-.69zm.93 13.96c.01 1-.55 1.6-1.53 1.6s-1.63-.58-1.64-1.41c0-1.16.52-1.74 1.56-1.77.84-.03 1.72.49 1.61 1.58z">
-                    </path>
-                </svg></button></div>
     </div>
 
 <script type="text/javascript" src="../resources/js/housewarming/house_write.js"></script>    

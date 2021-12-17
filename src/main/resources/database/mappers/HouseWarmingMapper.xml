@@ -231,12 +231,28 @@
 	
 	<!-- =============================================@@@================================================ -->
 	
-	
 	<!-- 커뮤니티 홈에서 접근할 때 쓸 query -->
 	<select id="getHListForHome" parameterType="String" resultType="HouseWarmingVO">
 		SELECT * FROM HOUSEWARMING
 		WHERE HOUSE_WRITER=#{house_writer}
 	</select>
+	
+	<!-- =============================================@@@================================================ -->
+	
+	<!-- ajax용 zoayo count -->
+	<select id="getCountZoayo" parameterType="House_ZoayoVO" resultType="int">
+			SELECT COUNT(house_zoayo)
+			FROM HOUSEWARMING
+			WHERE house_num=#{house_num}
+	</select>
+	
+	<!-- ajax용 scrap count -->
+	<select id="getCountScrap" parameterType="House_ScrapVO" resultType="int">
+			SELECT COUNT(house_scrap)
+			FROM HOUSEWARMING
+			WHERE house_num=#{house_num}
+	</select>
+	
 	
 	<!-- =============================================@@@================================================ -->
 	

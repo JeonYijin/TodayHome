@@ -231,7 +231,7 @@
             
        
             
-            <div class="content-detail-content-section__sidebar">
+            <div class="content-detail-content-section__sidebar" style="top:81px;">
                 <div data-sticky-enabled="false" data-sticky-disabled="true" data-sticky-always="false"
                     data-sticky-ignore="true" data-direction="top" data-offset="0"
                     class="sticky-container content-detail-content-section__sidebar-sticky">
@@ -245,7 +245,7 @@
                                 <c:if test="${zoayo==null}">
                                 	<button onclick="zoayoEvent();" class="content-detail-sidebar-button content-detail-sidebar-button--white" aria-pressed="false" title="좋아요" type="button"><svg class="content-detail-sidebar__icon-blue icon" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path></svg><svg class="content-detail-sidebar__icon-inactive icon" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" d="M22.971 7.638c-.548-5.17-7.119-7.135-10.57-2.488a.5.5 0 0 1-.802 0C8.148.503 1.577 2.469 1.029 7.625.642 12.451 3.897 17.183 12 21.436c8.104-4.252 11.36-8.984 10.972-13.798zm.996-.093c.428 5.319-3.137 10.446-11.738 14.899a.5.5 0 0 1-.46 0C3.169 17.99-.395 12.864.034 7.532.656 1.67 7.904-.683 12 4.052 16.096-.683 23.344 1.67 23.967 7.545z"></path></svg></button>
                                 </c:if>
-                                <span class="content-detail-sidebar-counter">${houseVO.house_zoayo}</span>
+                                <span class="content-detail-sidebar-counter" id="sidebar_zoayo_count">${houseVO.house_zoayo}</span>
                                 
                                 <!-- ------------------------------------------- -->
                                 
@@ -258,7 +258,7 @@
                                 </c:if>
                                 
                                 
-                                <span class="content-detail-sidebar-counter">${houseVO.house_scrap}</span>
+                                <span class="content-detail-sidebar-counter" id="sidebar_scrap_count">${houseVO.house_scrap}</span>
                             <hr class="content-detail-sidebar-hr"><button
                                 class="content-detail-sidebar-button content-detail-sidebar-button--gray"
                                 aria-pressed="false" title="댓글" type="button"><svg class="icon" width="24" height="24"
@@ -266,7 +266,7 @@
                                     <path fill="currentColor" fill-rule="nonzero"
                                         d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z">
                                     </path>
-                                </svg></button><span class="content-detail-sidebar-counter">${houseVO.house_comments}</span>
+                                </svg></button><span class="content-detail-sidebar-counter" >${houseVO.house_comments}</span>
                        <!--     <div class="drop-down card-detail-floating__action-wrap card-detail-floating__action-share">
                                 <button class="content-detail-sidebar-button content-detail-sidebar-button--gray"
                                     aria-pressed="false" title="공유" type="button"><svg class="icon" width="24"
@@ -367,19 +367,6 @@
                            
                         </ul>
                     </section>
-                    <ul class="list-paginator">
-                        <li><button class="list-paginator__page sm selected" type="button">1</button></li>
-                        <li><button class="list-paginator__page sm" type="button">2</button></li>
-                        <li><button class="list-paginator__next" type="button"><svg width="26" height="26"
-                                    viewBox="0 0 26 26" preserveAspectRatio="xMidYMid meet">
-                                    <g fill="none" fill-rule="evenodd" transform="matrix(-1 0 0 1 26 0)">
-                                        <rect width="25" height="25" x=".5" y=".5" stroke="#DCDCDC" rx="4"></rect>
-                                        <g stroke="#424242" stroke-linecap="square" stroke-width="2">
-                                            <path d="M14.75 8.263L10.25 13M10.25 13l4.5 4.737"></path>
-                                        </g>
-                                    </g>
-                                </svg></button></li>
-                    </ul>
                 </section>
                     
                     	
@@ -402,85 +389,97 @@
     </main>
     
 <script type="text/javascript">
-
-var house_num=$('#house_num').val();
-var memberVO_id = $('#memberVO_id').val();
-
-function zoayoEvent() {
-	$. ajax({
-		url:'/housewarming/zoayoUp',
-		type:'post',
-		data:{
-			'house_num':house_num,
-			'zoayo_id':memberVO_id
-		},
-		success:function(data){
-			if(data==1){
-				location.reload();				
+	
+	var house_num=$('#house_num').val();
+	var memberVO_id = $('#memberVO_id').val();
+	
+	//좋아요 등록
+	function zoayoEvent() {
+		$. ajax({
+			url:'/housewarming/zoayoUp',
+			type:'post',
+			data:{
+				'house_num':house_num,
+				'zoayo_id':memberVO_id
+			},
+			success:function(data){
+				if(data==1){
+					location.reload();	
+				}
+			},
+			error:function(){
+				alert('좋아요 실패');
 			}
-		},
-		error:function(){
-			alert('좋아요 실패');
-		}
-	});
-}
-
-function zoayoDeleteEvent() {
-	$. ajax({
-		url:'/housewarming/zoayoDown',
-		type:'post',
-		data:{
-			'house_num':house_num,
-			'zoayo_id':memberVO_id
-		},
-		success:function(data){
-			if(data==1){
-				location.reload();				
+		});
+	}
+	
+	//좋아요 취소
+	function zoayoDeleteEvent() {
+		$. ajax({
+			url:'/housewarming/zoayoDown',
+			type:'post',
+			data:{
+				'house_num':house_num,
+				'zoayo_id':memberVO_id
+			},
+			success:function(data){
+				if(data==1){
+					location.reload();				
+				}
+			},
+			error:function(){
+				alert('좋아요취소 실패');
 			}
-		},
-		error:function(){
-			alert('좋아요취소 실패');
-		}
-	});
-}
-
-function scrapEvent() {
-	$. ajax({
-		url:'/housewarming/scrapUp',
-		type:'post',
-		data:{
-			'house_num':house_num,
-			'scrap_id':memberVO_id
-		},
-		success:function(data){
-			if(data==1){
-				location.reload();				
+		});
+	}
+	
+	//스크랩 등록
+	function scrapEvent() {
+		$. ajax({
+			url:'/housewarming/scrapUp',
+			type:'post',
+			data:{
+				'house_num':house_num,
+				'scrap_id':memberVO_id
+			},
+			success:function(data){
+				if(data==1){
+					location.reload();				
+				}
+			},
+			error:function(){
+				alert('스크랩 실패');
 			}
-		},
-		error:function(){
-			alert('스크랩 실패');
-		}
-	});
-}
-
-function scrapDeleteEvent() {
-	$. ajax({
-		url:'/housewarming/scrapDown',
-		type:'post',
-		data:{
-			'house_num':house_num,
-			'scrap_id':memberVO_id
-		},
-		success:function(data){
-			if(data==1){
-				location.reload();				
+		});
+	}
+	
+	//스크랩 취소
+	function scrapDeleteEvent() {
+		$. ajax({
+			url:'/housewarming/scrapDown',
+			type:'post',
+			data:{
+				'house_num':house_num,
+				'scrap_id':memberVO_id
+			},
+			success:function(data){
+				if(data==1){
+					location.reload();				
+				}
+			},
+			error:function(){
+				alert('스크랩취소 실패');
 			}
-		},
-		error:function(){
-			alert('스크랩취소 실패');
-		}
+		});
+			
+	}
+	
+	// 사이드바 scroll 따라다니게 하기
+	var currentPosition = parseInt($(".content-detail-content-section__sidebar").css("top")); 
+	$(window).scroll(function() { 
+		var position = $(window).scrollTop();
+		$(".content-detail-content-section__sidebar").stop().animate({"top":position+currentPosition-350+"px"},1500); 
 	});
-}
 </script>    
 <script type="text/javascript" src="../resources/js/housewarming/house_detail.js"></script>    
 </body>
