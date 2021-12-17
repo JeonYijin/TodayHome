@@ -10,6 +10,9 @@
 <title>집들이 글목록</title>
 </head>
 <body>
+<div class="layout">
+
+	<%@ include file="../nav/header.jsp"%>
 
 	<div class="container">
         <div class="project-feed">
@@ -247,6 +250,10 @@
     </sec:authorize>
     
     </div>
+ </div>
+
+<!-- footer 들어가야되는데 contents 중간에 껴서 이상하게 나옴. 이거 조만간 처리해야 함 -->
+
 
 
 <script type="text/javascript">
@@ -436,6 +443,7 @@ function scrapDeleteEvent(house_num) {
 	});
 }
 </script>    
+
 <script type="text/javascript" src="https://cdn.ravenjs.com/3.26.4/raven.js"></script>
 <script type="text/javascript" src="../resources/js/housewarming/house_list.js"></script>  
 </body>

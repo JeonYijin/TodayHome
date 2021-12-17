@@ -38,7 +38,10 @@ public class QuestionsController {
 		
 		List<QuestionsVO> list = questionsService.getQuestionsList(pager);				
 		
+		List<QuestionsVO> notices = questionsService.getNotice();
+		
 		mav.addObject("list", list);
+		mav.addObject("notice", notices);
 		mav.addObject("pager", pager);
 		mav.setViewName("questions/questions_list");
 		

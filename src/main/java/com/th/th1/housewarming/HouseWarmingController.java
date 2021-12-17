@@ -110,8 +110,6 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		}
 		
 		
-		
-		
 		mav.setViewName("housewarming/house_list");
 		mav.addObject("countBoard", houseService.getCountBoard(map));
 		mav.addObject("list", list);

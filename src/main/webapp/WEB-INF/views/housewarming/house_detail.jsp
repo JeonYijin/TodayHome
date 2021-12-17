@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>집들이 detail</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;display=swap&amp;subset=korean" rel="stylesheet">
 </head>
 <body>
 	<main class="content-detail">
@@ -164,38 +165,38 @@
                             <dl class="project-detail-metadata-detail">
                             	<c:if test="${not empty houseVO.house_kind}">
 	                                <div class="project-detail-metadata-detail-item">
-	                                    <dt>공간</dt>
-	                                    <dd>${houseVO.house_kind}</dd>
+	                                    <dt style="font-family:Noto Sans KR; ">공간</dt>
+	                                    <dd style="font-family:Noto Sans KR; ">${houseVO.house_kind}</dd>
 	                                </div>
                                 </c:if>
                                 <c:if test="${not empty houseVO.house_space}">
 	                                <div class="project-detail-metadata-detail-item">
-	                                    <dt>평수</dt>
-	                                    <dd>${houseVO.house_space} 평</dd>
+	                                    <dt style="font-family:Noto Sans KR;">평수</dt>
+	                                    <dd style="font-family:Noto Sans KR;">${houseVO.house_space}</dd>
 	                                </div>
                                 </c:if>
                                 <c:if test="${not empty houseVO.working_area}">
 	                                <div class="project-detail-metadata-detail-item">
-	                                    <dt>분야</dt>
-	                                    <dd>${houseVO.working_area}</dd>
+	                                    <dt style="font-family:Noto Sans KR;">분야</dt>
+	                                    <dd style="font-family:Noto Sans KR;">${houseVO.working_area}</dd>
 	                                </div>
                                 </c:if>
                                 <c:if test="${not empty houseVO.family_kind}">
 	                                <div class="project-detail-metadata-detail-item">
-	                                    <dt>가족형태</dt>
-	                                    <dd>${houseVO.family_kind}</dd>
+	                                    <dt style="font-family:Noto Sans KR;">가족형태</dt>
+	                                    <dd style="font-family:Noto Sans KR;">${houseVO.family_kind}</dd>
 	                                </div>
                                 </c:if>
                                 
 	                            <div class="project-detail-metadata-detail-item">
-	                                <dt>스타일</dt>
-	                                <dd>${houseVO.styleString}</dd>
+	                                <dt style="font-family:Noto Sans KR;">스타일</dt>
+	                                <dd style="font-family:Noto Sans KR;">${houseVO.styleString}</dd>
 	                            </div>
                                 
                                 <c:if test="${not empty houseVO.total_budget}">
 	                                <div class="project-detail-metadata-detail-item">
-	                                    <dt>예산</dt>
-	                                    <dd>${houseVO.total_budget}</dd>
+	                                    <dt style="font-family:Noto Sans KR;">예산</dt>
+	                                    <dd style="font-family:Noto Sans KR;">${houseVO.total_budget}</dd>
 	                                </div>
                                 </c:if>
                             </dl>
@@ -209,8 +210,10 @@
                                 </svg></button></div>
                     </div>
                 </section>
-                <div>
-                	${houseVO.house_contents}                
+                <div >
+                	<p style="font-family:Noto Sans KR; line-height:3em; font-size:16px;">
+                		${houseVO.house_contents}        
+                	</p>
                 </div>
                 <div class="bpd-view project-detail__content-bpd">
                     <p class="bpd-view-text bpd-view-p-block"></p>
@@ -223,24 +226,6 @@
                                     d="M13.16.005c2.222.003 2.677.02 3.786.071 1.277.058 2.149.261 2.912.558.789.306 1.458.716 2.125 1.383s1.077 1.336 1.383 2.125c.297.763.5 1.635.558 2.912.055 1.194.07 1.63.072 4.331v1.23c-.002 2.701-.017 3.137-.072 4.331-.058 1.277-.261 2.149-.558 2.912-.306.789-.716 1.458-1.383 2.125s-1.336 1.077-2.125 1.383c-.763.297-1.635.5-2.912.558-1.194.055-1.63.07-4.331.072h-1.23c-2.701-.002-3.137-.017-4.331-.072-1.277-.058-2.149-.261-2.912-.558-.789-.306-1.458-.716-2.125-1.383S.94 20.647.634 19.858c-.297-.763-.5-1.635-.558-2.912-.05-1.109-.068-1.564-.071-3.786v-2.32c.003-2.222.02-2.677.071-3.786.058-1.277.261-2.149.558-2.912.306-.789.716-1.458 1.383-2.125S3.353.94 4.142.634c.763-.297 1.635-.5 2.912-.558C8.163.026 8.618.008 10.84.005zm-.28 2.16h-1.76c-2.408.003-2.829.018-3.968.07-1.17.054-1.804.249-2.227.413-.56.218-.96.478-1.38.898-.42.42-.68.819-.897 1.379-.164.423-.36 1.058-.413 2.228-.052 1.138-.067 1.56-.07 3.967v1.76c.003 2.408.018 2.829.07 3.968.054 1.17.249 1.804.413 2.227.218.56.478.96.898 1.38.42.42.819.68 1.379.897.423.164 1.058.36 2.228.413 1.096.05 1.527.066 3.707.069h2.28c2.18-.003 2.611-.02 3.707-.07 1.17-.053 1.805-.248 2.228-.412.56-.218.96-.478 1.38-.898.42-.42.68-.819.897-1.379.164-.423.36-1.058.413-2.228.05-1.096.066-1.527.069-3.708v-2.278c-.003-2.181-.02-2.612-.07-3.709-.053-1.17-.248-1.804-.412-2.227-.218-.56-.478-.96-.898-1.38-.42-.42-.819-.68-1.379-.897-.423-.164-1.058-.36-2.228-.413-1.138-.052-1.56-.067-3.967-.07zM12 5.84c3.402 0 6.16 2.758 6.16 6.16s-2.758 6.16-6.16 6.16S5.84 15.402 5.84 12 8.598 5.84 12 5.84zM12 8c-2.208 0-3.999 1.79-3.999 3.999 0 2.208 1.79 3.999 3.999 3.999 2.208 0 3.999-1.79 3.999-3.999 0-2.208-1.79-3.999-3.999-3.999zm6.404-3.844c.795 0 1.44.644 1.44 1.44 0 .794-.645 1.439-1.44 1.439-.795 0-1.44-.645-1.44-1.44 0-.795.645-1.44 1.44-1.44z">
                                 </path>
                             </svg>인스타그램 구경 가기</a></div>
-                    <div class="bpd-view-button-block bpd-view-button-block--sns"><a
-                            class="bpd-view-button-block__button bpd-view-button-block__button--sns"
-                            href="https://m.blog.naver.com/muung_uny" target="_blank" rel="noreferrer noopener"><svg
-                                class="icon icon--web" width="1em" height="1em" viewBox="0 0 24 24"
-                                preserveAspectRatio="xMidYMid meet">
-                                <path fill="currentColor" fill-rule="nonzero"
-                                    d="M22 12a10 10 0 10-20 0 10 10 0 0020 0zm-7.16-.8H9.16c.22-2.62 1.2-5.11 2.84-7.17a13.27 13.27 0 012.84 7.17zm0 1.6A13.26 13.26 0 0112 19.97a13.26 13.26 0 01-2.84-7.16l5.68-.01zm-1.02 7.4a14.87 14.87 0 002.62-7.4h3.92a8.42 8.42 0 01-6.54 7.4zm6.54-9h-3.92c-.2-2.66-1.1-5.21-2.62-7.4a8.42 8.42 0 016.54 7.4zM10.18 3.8a14.88 14.88 0 00-2.62 7.4H3.64a8.42 8.42 0 016.54-7.4zm-6.54 9h3.92c.2 2.66 1.1 5.21 2.62 7.4a8.42 8.42 0 01-6.54-7.4z">
-                                </path>
-                            </svg>네이버 블로그 구경 가기</a></div>
-                    <div class="bpd-view-button-block bpd-view-button-block--sns"><a
-                            class="bpd-view-button-block__button bpd-view-button-block__button--sns"
-                            href="https://youtube.com/channel/UCxmzAijYpW8AotpKkiwH_6Q" target="_blank"
-                            rel="noreferrer noopener"><svg class="icon icon--youtube" width="1em" height="1em"
-                                viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-                                <path fill="currentColor"
-                                    d="M12.25 5c1.17 0 6.19.05 7.56.42.86.23 1.54.91 1.77 1.78.38 1.41.42 4.2.42 4.75v.19c0 .54-.04 3.34-.42 4.75-.23.87-.9 1.55-1.77 1.78-1.4.38-6.66.42-7.65.42h-.32c-.99 0-6.24-.04-7.65-.42a2.52 2.52 0 01-1.77-1.78c-.36-1.36-.41-4-.42-4.68v-.33c0-.68.06-3.32.42-4.68.23-.87.9-1.55 1.77-1.78C5.56 5.05 10.58 5 11.75 5zm-2.3 4.07v5.95l5.23-2.97-5.23-2.98z"
-                                    fill-rule="evenodd"></path>
-                            </svg>유튜브 구경 가기</a></div>
                 </div>
             </div>
             

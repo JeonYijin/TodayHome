@@ -54,10 +54,6 @@
                         <div class="editor-pc-header__right">
                             <div class="editor__save-section">
                                 <div class="drop-down editor-draft-menu">
-                                    <div class="editor-draft-menu-pc-button"><button type="button"
-                                            class="editor-draft-menu-pc-button__save" disabled=""><span
-                                                class="text-lg">임시저장</span><span class="text-md">저장</span></button>
-                                    </div>
                                 </div><button type="button" class="editor-submit-menu-pc-button"><span
                                         class="text-lg">발행신청</span><span class="text-md">발행</span></button>
                             </div>
@@ -351,19 +347,7 @@
                     </path>
                 </svg></button></div>
     </div>
-    
-    
-   <p id="test">제이쿼리 hover() 메소드 테스트입니다.</p>
-<span>마우스를 위 텍스트 위에 올려보세요!</span>
-<script>
-    $('#test').hover(function() {
-    	  $(this).css("color", "red");
-    	}, function(){
-    	  $(this).css("color", "blue");
-    	});
-    </script>
 
-    
 <script type="text/javascript" src="../resources/js/housewarming/house_write.js"></script>    
 </body>
 </html>

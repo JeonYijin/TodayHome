@@ -6,13 +6,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>커뮤니티-질문과 답변</title>
 </head>
 <body>
 
-<div>    
+<div class="layout">
+
+	<%@ include file="../nav/header.jsp"%>
+  <div>    
     <header class="css-6jmcxp-FeedHeader evxc8q77">
         <div class="css-doxr2c-FeedHeaderContent evxc8q76">
             <h1 class="css-13etbuw-FeedTitle evxc8q75">질문과 답변</h1>
@@ -40,7 +42,7 @@
         <div class="css-rej4ml-PanelDiv ehxcasx6">
             <div class="css-cc14jh-PanelSection ehxcasx5">
                 <div class="input-group select-input css-6n54vk-PanelSelectInput ehxcasx4"><select class="form-control" onchange="criteria_show();">
-                	<c:if test="${not empty pager.popularity}">
+                	<c:if test="${pager.popularity==0}">
                         <option value="0" selected>인기순</option>
                         <option value="1">최신순</option>
                     </c:if>
@@ -101,16 +103,21 @@
        			</script>
              </c:if>        
         </div>
+
+		<div>
+	        <a class="css-2acggu-ItemLink e1lj374k2" href="/questions/selectOne?quests_num=77"><span class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span
+	                    class="css-wk63b1-ItemText e1lj374k0">오늘의집 인테리어 멘토를 만나보세요🏆</span></a>
+	        <a class="css-2acggu-ItemLink e1lj374k2" href="/questions/selectOne?quests_num=80"><span class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span
+	                    class="css-wk63b1-ItemText e1lj374k0">답변 이벤트 안내 및 활동 주의사항 📢</span></a>
+	        <a class="css-2acggu-ItemLink e1lj374k2" href="/questions/selectOne?quests_num=81"><span class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span
+	                    class="css-wk63b1-ItemText e1lj374k0">빠르고 정확한 인테리어 답변을 받는 방법은?</span></a>
+
+		</div>
         
         <div class="css-1amvimq-FeedItemList evxc8q72">
-        	<c:forEach items="${list}" var="lists">
-	        	<c:if test="${lists.notice eq 1}">
-	        		<a class="css-2acggu-ItemLink e1lj374k2" href="/questions/selectOne?quests_num=${lists.quests_num}"><span class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span
-	                    class="css-wk63b1-ItemText e1lj374k0">${lists.quests_title}</span></a>
-	            </c:if>
-            </c:forEach>        
+  
             <c:forEach items="${list}" var="lists">
-	            <c:if test="${empty lists.notice}">
+            	<c:if test="${empty lists.notice}">
 	                <div class="css-1edegka-QuestionContainer e1amn78m14"><a class="css-qa3x0s-QuestionLink e1amn78m8"
 	                        href="./questions/selectOne?quests_num=${lists.quests_num}"></a>
 	                    <div class="css-av0u4k-QuestionContent e1amn78m9">
@@ -148,7 +155,7 @@
 	                        </div>
 	                    </div>
 	                </div>
-                </c:if>
+	        	</c:if>
             </c:forEach>
         </div>
         
@@ -184,6 +191,9 @@
     </div>
 </div>
 
+<!-- footer 들어가야되는데 contents 중간에 껴서 이상하게 나옴. 이거 조만간 처리해야 함 -->
+
+
 <script type="text/javascript">
 	
 	//검색 기능
@@ -210,6 +220,10 @@
 		
 		var pNum = $.fn.getUrlParameter('pn');
         console.log('pn은 이거야 : '+pNum);
+        
+        if(pNum == null){
+        	location.href='/questions?pn=1&search=';
+        }
         
         //undefined 판별용 typeof 사용
         if(typeof pNum != 'undefined') { 

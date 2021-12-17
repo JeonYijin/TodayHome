@@ -75,4 +75,26 @@ public interface HouseWarmingDAO {
 	
 	// -------------------------------------------------------------------------
 	
+	
+	/* 커뮤니티 홈에서 접근할 때 쓸 query */
+	public List<HouseWarmingVO> getHListForHome(String house_writer) throws Exception;
+	
+	
+	// 관리자용 -------------------------------------------------------------------------
+	
+	//style_category < -1인 집들이 글 List(심사 후 알맞은 스타일 배정 받고 공식 게재)
+	public List<HouseWarmingVO> getHListForScreening() throws Exception;
+	
+	//검사할 집들이글 count
+	public int getCountForScreening() throws Exception;
+	
+	//검사할 집들이글 getSelectOne
+	public HouseWarmingVO getHDetailForScreening(HouseWarmingVO houseVO) throws Exception;
+	
+	//검사결과-게재승인&스타일 부여
+	public int setScreenResult_approve(Map<String, Integer> scResult) throws Exception;
+	
+	//검사결과-게재거절&삭제
+	public int setScreenResult_refuse(Map<String, Integer> scResult) throws Exception;
+	
 }

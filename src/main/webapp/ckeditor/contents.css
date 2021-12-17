@@ -21,8 +21,9 @@ body
 
 .cke_editable
 {
-	font-size: 13px;
-	line-height: 1.6;
+	font-size: 16px;
+	line-height: 4em;
+	font-style: Segoe UI Symbol;
 
 	/* Fix for missing scrollbars with RTL texts. (#10488) */
 	word-wrap: break-word;

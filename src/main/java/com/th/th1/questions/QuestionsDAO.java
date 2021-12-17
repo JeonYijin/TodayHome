@@ -18,6 +18,9 @@ public interface QuestionsDAO {
 	/** 질문과답변 List 가져오기 */ 
 	public List<QuestionsVO> getQuestionsList(Pager pager) throws Exception;
 	
+	/** 질문과답변 공지사항 가져오기 */
+	public List<QuestionsVO> getNotice() throws Exception;	
+	
 	/* Questions 글 총갯수 가져오기 */
 	public Long getTotalCount(Pager pager) throws Exception; 
 	
