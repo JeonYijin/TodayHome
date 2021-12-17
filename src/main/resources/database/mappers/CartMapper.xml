@@ -6,25 +6,18 @@
 	<!-- 상품 장바구니로 insert  -->
 	<insert id="setInsertCart" parameterType="CartVO">
 		insert into cart values
-		(0, #{member_num}, #{pr_number}, #{amount})
+		(0, #{member_id}, #{pr_number}, 1)
 	</insert>
 	
 	<!-- 장바구니 목록 불러오기  -->
 	<select id="getSelectCartList" parameterType="MemberVO" resultMap="getSelectCartListResult">
-		select CT.*, PF.* from
-		(select c.cart_id, c.member_num, c.pr_number, c.amount,
-				p.pr_name, p.pr_seller, p.pr_price, p.pr_discount, pr_dPrice,
-				(p.pr_dPrice * c.amount) money
+		select c.cart_id, c.member_id, c.pr_number, c.amount, p.pr_name, p.pr_seller, p.pr_price, p.pr_discount, pr_dPrice,(p.pr_dPrice * c.amount) money
 		from cart c, pr p, member m
-		where c.member_num = m.memberNum and c.pr_number = p.pr_number and c.member_num = #{memberNum})
-			CT
-				left outer join 
-			pr_files PF
-		on CT.pr_number = PF.pr_number
+		where c.member_id = m.id and c.pr_number = p.pr_number and c.member_id = #{id}
 	</select>
 	<resultMap type="CartVO" id="getSelectCartListResult">
 		<id column="cart_id" property="cart_id"/>
-		<result column="member_num" property="member_num"/>
+		<result column="member_id" property="member_id"/>
 		<result column="pr_number" property="pr_number"/>
 		<result column="pr_name" property="pr_name"/>
 		<result column="pr_seller" property="pr_seller"/>
@@ -33,45 +26,87 @@
 		<result column="pr_dPrice" property="pr_dPrice"/>
 		<result column="amount" property="amount"/>
 		<result column="money" property="money"/>
-		<collection property="prFiles" javaType="List" ofType="PrFilesVO">
+		<collection property="files" javaType="List" ofType="PrFilesVO">
 			<id column="fileNum" property="fileNum"/>
 			<result column="pr_number" property="pr_number"/>
 			<result column="fileName" property="fileName"/>
 			<result column="oriName" property="oriName"/>
+			<result column="ori_type" property="ori_type"/>
 		</collection>
 	</resultMap>
 	
+	<!-- 상품 이미지 -->
+	<select id="getSelectCartFiles" parameterType="MemberVO" resultMap="getSelectCartFilesResult">
+		select CT.*, PF.* from
+		(select c.cart_id, c.member_id, c.pr_number
+		from cart c, pr p, member m
+		where c.member_id = m.id and c.pr_number = p.pr_number and c.member_id = #{id})
+			CT
+				left outer join 
+			pr_files PF
+		on CT.pr_number = PF.pr_number
+        where PF.oriType = 1 and filenum = (select min(filenum) from pr_files)
+	</select>
+	<resultMap type="CartVO" id="getSelectCartFilesResult">
+		<id column="cart_id" property="cart_id"/>
+		<result column="member_id" property="member_id"/>
+		<result column="pr_number" property="pr_number"/>
+		<result column="pr_name" property="pr_name"/>
+		<result column="pr_seller" property="pr_seller"/>
+		<result column="pr_price" property="pr_price"/>
+		<result column="pr_discount" property="pr_discount"/>
+		<result column="pr_dPrice" property="pr_dPrice"/>
+		<result column="amount" property="amount"/>
+		<result column="money" property="money"/>
+		<collection property="files" javaType="List" ofType="PrFilesVO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="pr_number" property="pr_number"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+			<result column="ori_type" property="ori_type"/>
+		</collection>
+	</resultMap>
+	
+	
+	
 	<!-- 상품 삭제 -->
 	<delete id="setDeleteCart" parameterType="CartVO">
-		delete from cart where cart_id = #{cart_id}  and member_num = #{member_num}
+		delete from cart where cart_id = #{cart_id}  and member_id = #{member_id}
 	</delete>
 	
 	<!-- 상품 수량 1개 추가 -->
 	<update id="setUpdatePlus" parameterType="CartVO">
 		update cart set amount = amount + 1 
-		where cart_id = ${cart_id} and member_num = #{member_num}
+		where cart_id = ${cart_id} and member_id = #{member_id}
 	</update>
 	
 	<!-- 상품 수량 1개 감소 -->
 	<update id="setUpdateMinus" parameterType="CartVO">
 		update cart set amount = amount - 1 
-		where cart_id = ${cart_id} and member_num = #{member_num}
+		where cart_id = ${cart_id} and member_id = #{member_id}
 	</update>
 	
+	<!-- 상품 개수 계산 -->
+	<select id="getSelectCartCount" parameterType="MemberVO" resultType="Long">
+		select count(cart_id) from cart
+		where member_id = #{id}
+	</select>
+	
+	
 	<!-- 상품금액 계산 -->
-	<select id="getSelectMoney" parameterType="CartVO" resultType="Long">
+	<select id="getSelectMoney" parameterType="MemberVO" resultType="Long">
 		select ifnull(sum(p.pr_dPrice * c.amount),0)
 		from cart c inner join pr p
         on c.pr_number = p.pr_number
-		where c.member_num = #{member_num}
+		where c.member_id = #{id}
 	</select>
 	
 	<!-- 할인금액 계산  -->
-	<select id="getSelectDiscount" parameterType="CartVO" resultType="Long">
+	<select id="getSelectDiscount" parameterType="MemberVO" resultType="Long">
 		select ifnull(sum((p.pr_price - p.pr_dPrice) * c.amount),0)
 		from cart c inner join pr p
         on c.pr_number = p.pr_number
-		where c.member_num = #{member_num}
+		where c.member_id = #{id}
 	</select>
 	
 	

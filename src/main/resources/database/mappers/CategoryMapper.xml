@@ -6,26 +6,26 @@
  
  	<select id="getSelectList" parameterType="hashmap" resultMap="getselectListResult">
       select @ROWNUM = @ROWNUM + 1 as ROWNUM, PJ.*
-            from
-               (select PD.*, PF.fileName from
-                  (select * from pr
-                                    
-                     <if test="products.pr_category != 0">
-                        where pr_category = #{products.pr_category}
-                     </if>
-                   
-                     <if test="pager.filter == 'sales'">order by  pr_rate desc</if>
-                     <if test="pager.filter == 'lowPrice'">order by  pr_dPrice asc</if>
-                     <if test="pager.filter == 'highPrice'">order by  pr_dPrice desc</if>
-                     <if test="pager.filter == 'scrap'">order by pr_scrap desc</if>
-                     <if test="pager.filter == 'newest' || pager.filter == 'null'">order by pr.pr_number desc</if>
-                  ) 
-                  as PD
-               left outer join 
-                  pr_files PF
-               on (PD.pr_number = PF.pr_number)) as PJ
-            ,(select @ROWNUM := 0) as R
-            limit #{pager.startRow}, #{pager.perPage}
+				from
+					(select PD.*, PF.fileName from
+						(select * from pr
+												
+							<if test="products.pr_category != 0">
+								where pr_category = #{products.pr_category}
+							</if>
+						 
+							<if test="pager.filter == 'sales'">order by  pr_rate desc</if>
+							<if test="pager.filter == 'lowPrice'">order by  pr_dPrice asc</if>
+							<if test="pager.filter == 'highPrice'">order by  pr_dPrice desc</if>
+							<if test="pager.filter == 'scrap'">order by pr_scrap desc</if>
+							<if test="pager.filter == 'newest' || pager.filter == 'null'">order by pr.pr_number desc</if>
+						) 
+						as PD
+					left outer join 
+						pr_files PF
+					on (PD.pr_number = PF.pr_number)) as PJ
+				,(select @ROWNUM := 0) as R
+				limit #{pager.startRow}, #{pager.perPage}
     </select>
  	<resultMap type="ProductVO" id="getselectListResult">
 		<id column="pr_number" property="pr_number"/>
@@ -108,7 +108,7 @@
 	
 	
 	
-	<select id="getSelectCount" parameterType="ProductVO" resultType="Long">
+	<select id="getSelectCount" parameterType="ProductVO" resultType="Integer">
 		select count(pr_number) from pr
 		<if test="pr_category != 0">
 			where pr_category = #{pr_category}
@@ -118,6 +118,49 @@
 	<select id="getSelectCategoryName" parameterType="ProductVO" resultType="String">
 		select category_name from pr_category where category_num = ${pr_category}
 	</select>
+	
+	<!-- ====== [category-scrap table START] ===== -->
+	
+	<!-- Category_Scrap table Insert -->
+	<insert id="setScrapInsert" parameterType="Category_ScrapVO">
+		INSERT INTO CATEGORY_SCRAP (num, scrap_id, pr_number)
+		VALUES (null, #{scrap_id}, #{pr_number})
+	</insert>
+	
+	<!-- Category_Scrap table Delete -->
+	<delete id="setScrapDelete" parameterType="Category_ScrapVO">
+		DELETE FROM CATEGORY_SCRAP
+		WHERE pr_number=#{pr_number} and scrap_id=#{scrap_id}
+	</delete>
+	
+	<!-- Pr table Scrap UP -->
+	<update id="prScrapUp" parameterType="int">
+		UPDATE PR SET PR_SCRAP=PR_SCRAP+1
+		WHERE PR_NUMBER=#{PR_NUMBER}
+	</update>
+	
+	<!-- Pr table Scrap DOWN -->
+	<update id="prScrapDown" parameterType="int">
+		UPDATE PR SET PR_SCRAP=PR_SCRAP-1
+		WHERE PR_NUMBER=#{pr_number}
+	</update>
+	
+	<!-- 해당 아이디가 스크랩 눌렀는지 여부 확인 -->
+	<select id="getScrapInfo" parameterType="Category_ScrapVO" resultType="Category_ScrapVO">
+		SELECT * FROM CATEGORY_SCRAP
+		WHERE scrap_id=#{scrap_id} and pr_number=#{pr_number}
+	</select>
+	
+	<!-- 한 아이디에 종속된 스크랩 상품 List -->
+	<select id="getScraps" parameterType="Category_ScrapVO" resultType="Category_ScrapVO">
+		SELECT * FROM CATEGORY_SCRAP
+		WHERE SCRAP_ID=#{scrap_id}
+	</select>
+	
+	<!-- ====== [category-scrap table END] ===== -->
+	
+
+	
 	
   		
   </mapper>

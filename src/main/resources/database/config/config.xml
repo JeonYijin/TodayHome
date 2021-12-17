@@ -42,7 +42,10 @@
 		
 		<typeAlias type="com.th.th1.category.ProductVO" alias="ProductVO"/>
 		<typeAlias type="com.th.th1.category.PrFilesVO" alias="PrFilesVO"/>
+		<typeAlias type="com.th.th1.category.Category_ScrapVO" alias="Category_ScrapVO"/> 
 		<typeAlias type="com.th.th1.cart.CartVO" alias="CartVO"/>
+
+		
 		
   	
   	

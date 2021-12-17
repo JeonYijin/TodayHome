@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,8 +24,8 @@
 <link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/templates-Commerce-StoreHome-StoreHomePage-2ef124c8.chunk.css">
 <link rel="stylesheet"
-	href="https://assets.ohou.se/web/dist/css/21-0e75de9b.chunk.css">
-<link rel="stylesheet"
+	href="">
+<link rel="styhttps://assets.ohou.se/web/dist/css/21-0e75de9b.chunk.csslesheet"
 	href="https://assets.ohou.se/web/dist/css/23-2ef16b9a.chunk.css">
 <link rel="stylesheet"
 	href="https://assets.ohou.se/web/dist/css/App-6e6c2f0c.chunk.css">
@@ -355,7 +354,11 @@
 		</div>
 	</div>
 	
+	
+	
 	<!-- 장바구니 모달  -->
+	<input class="prNum" type="hidden" value="${product.pr_number}">
+	
 	<div class="react-modal react-modal--center open open-active" style="display:none;">
 	<div class="react-modal__content-wrap">
 	<div class="react-modal__content production-selling-cart-complete-modal">
@@ -365,11 +368,40 @@
 	</div></div></div>
 	<!-- //장바구니 모달 -->
 	
+	<sec:authorize access="isAuthenticated()" var="result">
+       <sec:authentication property="principal" var="memberVO"/>
+      <input type="hidden" name="nickname" id="memberVO_nickname" value="${memberVO.nickname}"/>
+      <input type="hidden" name="id" id="memberVO_id" value="${memberVO.id}"/>
+    </sec:authorize>
+	
 	
 	<!-- 장바구니 버튼 클릭 시 모달 창 -->
 	<script>
+		
 		function cartModal() {
 			$('.react-modal').css("display", "block");
+			
+			
+			let member_id= $('#memberVO_id').val();
+			let pr_number = $('.prNum').val();
+			
+			alert(member_id);
+			alert(pr_number);
+
+			$.ajax({
+				type: "POST"
+				, url : "/cart/setInsertCart"
+				, data: {
+					'pr_number' : pr_number,
+					'member_id' : member_id
+					}
+				, success : function(result) {
+				}
+				,error : function(xhr, status, error){
+				}
+
+			})
+			
 		}
 		
 		function exitModal() {

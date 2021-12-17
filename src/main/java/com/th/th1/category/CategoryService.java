@@ -7,6 +7,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import com.th.th1.housewarming.House_ScrapVO;
 import com.th.th1.util.Pager;
 
 @Service
@@ -39,7 +41,7 @@ public class CategoryService {
 	}
 	
 	
-	public Long getSelectCount(ProductVO productVO) throws Exception {
+	public Integer getSelectCount(ProductVO productVO) throws Exception {
 		return categoryDAO.getSelectCount(productVO);
 	}
 	
@@ -47,6 +49,39 @@ public class CategoryService {
 		return categoryDAO.getSelectCategoryName(productVO);
 	}
 	
+	// -------------------------------------------------------------------------
+	
+	/** pr 스크랩 Up 등록 */
+	public int setScrapInsert(Category_ScrapVO csVO) throws Exception{
+		int result=categoryDAO.setScrapInsert(csVO);
+		if(result==1) {
+			int result2 = categoryDAO.prScrapUp(csVO.getPr_number());
+		}
+		
+		return result;
+	}
+		
+	/** pr 스크랩 Down 등록 */
+	public int setScrapDown(Category_ScrapVO csVO) throws Exception {
+		int result=categoryDAO.setScrapDelete(csVO);
+		if(result==1) {
+			categoryDAO.prScrapDown(csVO.getPr_number());
+		}
+		return result;
+	}
+		
+	/** 해당아이디로 해당글에 스크랩 눌렀는지 여부 판별 */
+	public Category_ScrapVO getScrapInfo(Category_ScrapVO csVO) throws Exception {
+		return categoryDAO.getScrapInfo(csVO);
+	}
+		
+	/** 한 아이디에 종속된 Scrap List */
+	public List<Category_ScrapVO> getScraps(Category_ScrapVO csVO) throws Exception {
+		return categoryDAO.getScraps(csVO);
+	}
+		
+		// -------------------------------------------------------------------------
 	
 
 }
+
