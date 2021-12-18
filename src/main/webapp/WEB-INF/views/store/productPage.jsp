@@ -145,6 +145,7 @@
 											d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path></svg>
 									<span class="count">45,480</span>
 								</button>
+								
 								<div class="drop-down">
 									<button class="production-selling-header__action__button"
 										type="button">
@@ -157,8 +158,41 @@
 								</div>
 							</div>
 						</div>
+							
 					</h1>
 					<div class="production-selling-header__content">
+						<div class="production-selling-header__info-wrap">
+							<div class="production-selling-header__promotion">
+								<div class="production-selling-header__promotion__title-wrap">
+									<span>혜택</span>
+								</div>
+								<div class="production-selling-header__promotion__content-wrap">
+									<p class="production-selling-header__promotion__entry">
+										<b>${product.pr_dPrice/1000}p</b>(WELCOME 0.1% 적립)
+									</p>
+									<p class="production-selling-header__promotion__entry">
+										
+									</p>
+								</div>
+							</div>
+							<div class="production-selling-header__delivery">
+								<div class="production-selling-header__delivery__title-wrap">
+									<span>배송</span>
+								</div>
+								<div class="production-selling-header__delivery__content-wrap">
+									<span class="production-selling-header__delivery__fee"><b>2500원</b></span><span
+										class="production-selling-header__delivery__type"><span>화물택배</span></span><span
+										class="production-selling-header__delivery__disclaimer-wrap"><span
+										class="production-selling-header__delivery__disclaimer"><svg
+												class="check-icon" width="10" height="9" fill="none"
+												preserveAspectRatio="xMidYMid meet">
+												<path d="M1 3.83l2.153 3.03a1 1 0 001.627.005L9 1"
+													stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
+													stroke-linejoin="round"></path></svg><span>제주도/도서산간 지역
+												2500원</span></span></span>
+								</div>
+							</div>
+						</div>
 						<p class="production-selling-header__review-wrap">
 							<a class="production-selling-header__review"
 								href="#production-selling-review"><span
@@ -277,7 +311,9 @@
 							onclick="fnMove('4')">배송/환불</a></li>
 					</ol>
 					<div id="div1">
-						<h1 class="production-selling-section__title"><br></br>상품정보</h1>
+						<h1 class="production-selling-section__title">
+							<br></br>상품정보
+						</h1>
 						<c:forEach items="${product.prFiles}" var="fileVO">
 							<c:if test="${fileVO.ori_type eq 2}">
 								<img class="image" src="../upload/store/${fileVO.fileName}">
