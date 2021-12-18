@@ -6,12 +6,12 @@
 	<!-- 상품 장바구니로 insert  -->
 	<insert id="setInsertCart" parameterType="CartVO">
 		insert into cart values
-		(0, #{member_id}, #{pr_number}, 1)
+		(0, #{member_id}, #{pr_number}, 1, 0)
 	</insert>
 	
 	<!-- 장바구니 목록 불러오기  -->
 	<select id="getSelectCartList" parameterType="MemberVO" resultMap="getSelectCartListResult">
-		select c.cart_id, c.member_id, c.pr_number, c.amount, p.pr_name, p.pr_seller, p.pr_price, p.pr_discount, pr_dPrice,(p.pr_dPrice * c.amount) money
+		select c.cart_id, c.member_id, c.pr_number, c.amount, c.status,  p.pr_name, p.pr_seller, p.pr_price, p.pr_discount, pr_dPrice,(p.pr_dPrice * c.amount) money
 		from cart c, pr p, member m
 		where c.member_id = m.id and c.pr_number = p.pr_number and c.member_id = #{id}
 	</select>
@@ -26,6 +26,7 @@
 		<result column="pr_dPrice" property="pr_dPrice"/>
 		<result column="amount" property="amount"/>
 		<result column="money" property="money"/>
+		<result column="status" property="status"/>
 		<collection property="files" javaType="List" ofType="PrFilesVO">
 			<id column="fileNum" property="fileNum"/>
 			<result column="pr_number" property="pr_number"/>
@@ -58,6 +59,7 @@
 		<result column="pr_dPrice" property="pr_dPrice"/>
 		<result column="amount" property="amount"/>
 		<result column="money" property="money"/>
+		<result column="status" property="status"/>
 		<collection property="files" javaType="List" ofType="PrFilesVO">
 			<id column="fileNum" property="fileNum"/>
 			<result column="pr_number" property="pr_number"/>
@@ -89,7 +91,7 @@
 	<!-- 상품 개수 계산 -->
 	<select id="getSelectCartCount" parameterType="MemberVO" resultType="Long">
 		select count(cart_id) from cart
-		where member_id = #{id}
+		where member_id = #{id} and status = 1
 	</select>
 	
 	
@@ -98,7 +100,7 @@
 		select ifnull(sum(p.pr_dPrice * c.amount),0)
 		from cart c inner join pr p
         on c.pr_number = p.pr_number
-		where c.member_id = #{id}
+		where c.member_id = #{id} and status = 1
 	</select>
 	
 	<!-- 할인금액 계산  -->
@@ -106,7 +108,7 @@
 		select ifnull(sum((p.pr_price - p.pr_dPrice) * c.amount),0)
 		from cart c inner join pr p
         on c.pr_number = p.pr_number
-		where c.member_id = #{id}
+		where c.member_id = #{id} and status = 1
 	</select>
 	
 	

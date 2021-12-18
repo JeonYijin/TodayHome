@@ -385,9 +385,6 @@
 			let member_id= $('#memberVO_id').val();
 			let pr_number = $('.prNum').val();
 			
-			alert(member_id);
-			alert(pr_number);
-
 			$.ajax({
 				type: "POST"
 				, url : "/cart/setInsertCart"

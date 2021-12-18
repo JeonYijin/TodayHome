@@ -19,6 +19,7 @@ public class CartVO {
 	private Long pr_dPrice; //상품 할인가격
 	private Long amount; //주문 수량
 	private Long money; //총 가격 = 상품 할인가격*주문 수량
+	private Long status; //장바구니 상태 : 0 = 체크 x, 1=체크 O
 	
 	private List<PrFilesVO> files; //상품 이미지
 

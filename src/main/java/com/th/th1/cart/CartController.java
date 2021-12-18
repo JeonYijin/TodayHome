@@ -24,7 +24,6 @@ public class CartController {
 	@GetMapping("/")
 	public ModelAndView getCart(@AuthenticationPrincipal MemberVO memberVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(memberVO.getId());
 		
 		List<CartVO> items = cartService.getSelectCartList(memberVO);
 		CartVO img = cartService.getSelectCartFiles(memberVO);
