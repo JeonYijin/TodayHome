@@ -2277,7 +2277,7 @@ iframe#_hjRemoteVarsFrame {
 		<div class="container">
 			<div class="virtualized-list ranking-feed__content row"
 				style="padding-top: 0px; padding-bottom: 6108px; transform: translateY(0px);">
-				<c:forEach var="product" items="${products}">
+				<c:forEach var="product" items="${products}" varStatus="status">
 					<div class="ranking-feed__item-wrap col-12 col-md-12 col-lg-3">
 						<div class="ranking-product-item__wrap" id="product-1108580">
 							<a class="ranking-product-item__link"
@@ -2285,7 +2285,7 @@ iframe#_hjRemoteVarsFrame {
 							<div class="ranking-product-item__img-wrap">
 								<div
 									class="ranking-product-item__img-wrap__number ranking-product-item__img-wrap__number__blue">
-									<span>${product.pr_number}</span>
+									<span>${status.index+1}</span>
 								</div>
 								<div class="production-item-image">
 									<div class="css-167c30c-Wrapper evlxapa2">

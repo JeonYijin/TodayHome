@@ -19,6 +19,10 @@ public class CategoryService {
 		return categoryDAO.getSelectList1(productVO);
 	}
 	
+	public List<ProductVO> getSelectList2(ProductVO productVO) throws Exception {
+		return categoryDAO.getSelectList2(productVO);
+	}
+	
 	public ProductVO getSelectPage(ProductVO productVO) throws Exception {
 		return categoryDAO.getSelectPage(productVO);
 	}

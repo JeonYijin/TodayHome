@@ -13,6 +13,7 @@ public interface CategoryDAO {
 	
 	//best 리스트
 	public List<ProductVO> getSelectList1(ProductVO productVO) throws Exception;
+	public List<ProductVO> getSelectList2(ProductVO productVO) throws Exception;
 	
 	//Select 상세 페이지 이동
 	public ProductVO getSelectPage(ProductVO productVO) throws Exception;
