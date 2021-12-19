@@ -212,11 +212,15 @@
   
   <!-- 집들이 좋아요 누른 게시글 -->
   <select id="getHzoaPost" parameterType="String" resultType="HouseWarmingVO">
-  	select * from house_zoayo where zoayo_id = #{zoayo_id}
+  	select H.* from housewarming H right join house_zoayo HZ
+  	on H.house_NUM = HZ.house_num
+  	where HZ.zoayo_id = #{zoayo_id};
   </select>
   <!-- 집들이 스크랩한 게시글 -->
   <select id="getHscrPost" parameterType="String" resultType="HouseWarmingVO" >
-  	select * from house_scrap where scrap_id = #{scrap_id}
+  	select H.* from housewarming H right join house_scrap HS
+  	on H.house_NUM = HS.house_num
+  	where HS.scrap_id = #{scrap_id};
   </select>
   
   </mapper>

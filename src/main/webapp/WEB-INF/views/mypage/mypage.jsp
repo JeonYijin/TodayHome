@@ -214,7 +214,7 @@ margin-top:26px;
 										<div class="css-1n6bblu-ShortcutContainer epl9oik0">
 											<div class="css-db25ax-ListDiv ekeuxnk0">
 											
-												<a class="css-64c85x-ItemLink e1q26atk3" href="./myScrap?memberNum=${member.memberNum}">
+												<a class="css-64c85x-ItemLink e1q26atk3" href="./myScrap?memberNum=${member.memberNum}&id=${member.id}">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
 														<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
 															<path fill-rule="evenodd" transform="matrix(1 0 0 -1 0 23.033)" d="M12.943 6.342a2 2 0 0 1-1.886 0L3 2.032V20.5a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5V2.033l-8.057 4.309zm-.471-.882l8.056-4.31A1 1 0 0 1 22 2.034V20.5a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 20.5V2.033a1 1 0 0 1 1.472-.882l8.056 4.31a1 1 0 0 0 .944 0z"></path>
@@ -223,7 +223,7 @@ margin-top:26px;
 													<div class="css-1ypdctb-ItemText e1q26atk1">스크랩북</div>
 													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount + scrCount}</div>
 												</a>
-												<a class="css-64c85x-ItemLink e1q26atk3" href="./myHeart?memberNum=${member.memberNum}">
+												<a class="css-64c85x-ItemLink e1q26atk3" href="./myHeart?memberNum=${member.memberNum}&id=${member.id}">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
 														<svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 															<path fill="currentColor" d="M22.971 7.638c-.548-5.17-7.119-7.135-10.57-2.488a.5.5 0 0 1-.802 0C8.148.503 1.577 2.469 1.029 7.625.642 12.451 3.897 17.183 12 21.436c8.104-4.252 11.36-8.984 10.972-13.798zm.996-.093c.428 5.319-3.137 10.446-11.738 14.899a.5.5 0 0 1-.46 0C3.169 17.99-.395 12.864.034 7.532.656 1.67 7.904-.683 12 4.052 16.096-.683 23.344 1.67 23.967 7.545z"></path>
