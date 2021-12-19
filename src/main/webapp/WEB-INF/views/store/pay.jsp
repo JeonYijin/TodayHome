@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,13 +75,13 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
             <div class="_254uw">
                 <div class="checkout-container _1DIXR">
                     <div class="_1F8DA">
-                        <div class="_3O4wQ">이름</div>
+                        <div class="_3O4wQ">김철수</div>
                         <div><div class="_4du--">기본배송지</div></div>
                     </div>
-                    <div class="_2yz9T">주소</div>
+                    <div class="_2yz9T">서울특별시 용산구 서빙고로 137(용산동6가)</div>
                     <div class="_3mlQK">
-                        <div class="_1HCV8">이름</div>
-                        <div class="_27nmi">전화번호</div>
+                        <div class="_1HCV8">김철수</div>
+                        <div class="_27nmi">010-0000-0000</div>
                     </div>
                     <div class="css-nj6fnr-DeliveryRequestInput e84q8kd0">
                         <div class="_3Bt8k">
@@ -106,14 +108,14 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                 <div class="checkout-container _d-EX">
                     <div class="_28sm0 lQNTs">
                         <div class="_2XyfC">이름</div>
-                        <div class="_1mu28"><input class="_3ASDR _1qwAY" name="name" maxlength="10" value="이름" /></div>
+                        <div class="_1mu28"><input class="_3ASDR _1qwAY" name="name" maxlength="10" value="김철수" /></div>
                     </div>
                     <div class="_28sm0">
                         <div class="_2XyfC">이메일</div>
                         <div class="_1mu28 _3-Bh_">
                             <div class="_1pGtv">
                                 <div class="_1a7bp jTtMl">
-                                    <div class="_2EQGD _1a7bp _1m42e"><input class="_3ASDR _1qwAY" type="email" placeholder="이메일" title="이메일 앞부분" maxlength="20" value="이메일아이디" /></div>
+                                    <div class="_2EQGD _1a7bp _1m42e"><input class="_3ASDR _1qwAY" type="email" placeholder="이메일" title="이메일 앞부분" maxlength="20" value="test" /></div>
                                     <span class="_1r4AF">@</span>
                                 </div>
                                 <div class="jTtMl _2tUrR">
@@ -164,18 +166,25 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                 </div>
             </div>
         </section>
+        
+        
         <section class="clDqQ">
             <div class="checkout-container vtJfv">
                 <div class="_2jygH">주문상품</div>
                 <div class="_3KNiw"></div>
             </div>
+            
+            
             <div class="_254uw">
                 <section class="checkout-container _3aT7b">
-                    <div class="css-115l9ix-Products egkpco120">
+                <c:forEach items="${items}" var="item">
+                
+                	<div class="css-115l9ix-Products egkpco120">
                         <div class="css-pf6rhq-HeaderContainer egkpco115">
                             <div class="css-bhirsz-HeaderContent egkpco114">
-                                <div class="css-ntkxkp-HeaderName egkpco113">주식회사리샘</div>
-                                <div class="css-1jehq3q-HeaderDelivery egkpco112"><span class="css-fa05mq-HeaderDeliveryTitle egkpco111">배송비</span>착불 35,000원</div>
+                                <div class="css-ntkxkp-HeaderName egkpco113">${item.pr_seller}</div>
+                                <div class="css-1jehq3q-HeaderDelivery egkpco112">
+                                <span class="css-fa05mq-HeaderDeliveryTitle egkpco111">배송비</span>2,500원</div>
                             </div>
                             <div class="css-551ov3-HeaderDeliveryMethod egkpco19">업체직접배달</div>
                         </div>
@@ -184,30 +193,21 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                                 <picture>
                                     <source
                                         type="image/webp"
-                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=72&amp;h=72&amp;c=c&amp;webp=1"
-                                        srcset="
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=144&amp;h=144&amp;c=c&amp;webp=1 1.5x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=144&amp;h=144&amp;c=c&amp;webp=1 2x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=256&amp;h=256&amp;c=c&amp;webp=1 3x
-                                        "
+                                        src=""
+                                        srcset=""
                                     />
                                     <img
                                         class="css-108l2f6-ItemImage egkpco17"
-                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=72&amp;h=72&amp;c=c"
+                                        src="../resources/upload/store/${img.files[0].fileName}"
                                         srcset="
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=144&amp;h=144&amp;c=c 1.5x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=144&amp;h=144&amp;c=c 2x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=256&amp;h=256&amp;c=c 3x
                                         "
                                     />
                                 </picture>
                                 <div class="css-6z5gcs-ItemContent egkpco16">
-                                    <div class="css-1hrwauf-ItemName egkpco15">캐더린 LED 통서랍 수납침대 SS/Q</div>
-                                    <ul class="css-rw1213-ItemOptions egkpco14">
-                                        <li>상품선택: 슈퍼싱글SS 프레임만 / 색상선택: 화이트</li>
-                                    </ul>
+                                    <div class="css-1hrwauf-ItemName egkpco15">${item.pr_name}</div>
                                     <div class="css-16e4gwj-ItemFooter egkpco13">
-                                        <span class="css-1r5zoy-ItemPrice egkpco12">149,000원</span>
+                                    	 <fmt:formatNumber type="number" maxFractionDigits="3" value="${item.pr_dPrice}" var="fdPrice" />
+                                        <span class="css-1r5zoy-ItemPrice egkpco12">${fdPrice}원</span>
                                         <div class="css-51f2tl-ItemDivider egkpco11"></div>
                                         <span class="css-4l5vzx-ItemCount egkpco10">1개</span>
                                     </div>
@@ -215,49 +215,10 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                             </div>
                         </div>
                     </div>
-                    <div class="css-115l9ix-Products egkpco120">
-                        <div class="css-pf6rhq-HeaderContainer egkpco115">
-                            <div class="css-bhirsz-HeaderContent egkpco114">
-                                <div class="css-ntkxkp-HeaderName egkpco113">주식회사 화인벨</div>
-                                <div class="css-1jehq3q-HeaderDelivery egkpco112"><span class="css-fa05mq-HeaderDeliveryTitle egkpco111">배송비</span>8,000원</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="css-1sbnj8x-Item egkpco18">
-                                <picture>
-                                    <source
-                                        type="image/webp"
-                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=72&amp;h=72&amp;c=c&amp;webp=1"
-                                        srcset="
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=144&amp;h=144&amp;c=c&amp;webp=1 1.5x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=144&amp;h=144&amp;c=c&amp;webp=1 2x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=256&amp;h=256&amp;c=c&amp;webp=1 3x
-                                        "
-                                    />
-                                    <img
-                                        class="css-108l2f6-ItemImage egkpco17"
-                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=72&amp;h=72&amp;c=c"
-                                        srcset="
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=144&amp;h=144&amp;c=c 1.5x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=144&amp;h=144&amp;c=c 2x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=256&amp;h=256&amp;c=c 3x
-                                        "
-                                    />
-                                </picture>
-                                <div class="css-6z5gcs-ItemContent egkpco16">
-                                    <div class="css-1hrwauf-ItemName egkpco15">리버서블 오피스 데스크 책상/테이블 600~2400mm(2colors)</div>
-                                    <ul class="css-rw1213-ItemOptions egkpco14">
-                                        <li>컬러: 화이트 / 구성/사이즈: 책상 1400</li>
-                                    </ul>
-                                    <div class="css-16e4gwj-ItemFooter egkpco13">
-                                        <span class="css-1r5zoy-ItemPrice egkpco12">77,200원</span>
-                                        <div class="css-51f2tl-ItemDivider egkpco11"></div>
-                                        <span class="css-4l5vzx-ItemCount egkpco10">1개</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </c:forEach>
+                
+                <!--//주문상품 --------------------------------- -->
+                  
                 </section>
             </div>
         </section>
@@ -533,11 +494,13 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                             <div class="_3TNPF">결제금액</div>
                             <div class="_2JEof">
                                 <div class="_34k6S">총 상품 금액</div>
-                                <div class="_25zAE ySGW6">226,200원</div>
+                                  <fmt:formatNumber type="number" maxFractionDigits="3" value="${totalMoney - dcMoney}" var="ffinalMoney" />
+                                <div class="_25zAE ySGW6">${ffinalMoney}원</div>
                             </div>
                             <div class="_2JEof">
                                 <div class="_34k6S">배송비</div>
-                                <div class="_25zAE">8,000원</div>
+                                <fmt:formatNumber type="number" maxFractionDigits="3" value="${count * 2500}" var="fshipMoney" />
+                                <div class="_25zAE">${fshipMoney}원</div>
                             </div>
                             <div class="_2JEof">
                                 <div class="_34k6S">쿠폰 사용</div>
@@ -548,9 +511,10 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                                 <div class="_25zAE">0원</div>
                             </div>
                             <div class="_1qFy7">
+                            	<fmt:formatNumber type="number" maxFractionDigits="3" value="${totalMoney - dcMoney + (count * 2500)}" var="fLastMoney" />
                                 <div class="_3hFjD">최종 결제 금액</div>
                                 <div class="_2YW1B">
-                                    <span class="_1vQx0">234,200</span>&nbsp;원
+                                    <span class="_1vQx0">${fLastMoney}</span>&nbsp;원
                                     <div class="_1-Gyq"><span class="csPTb">703 P</span>&nbsp;적립 예정</div>
                                 </div>
                             </div>
@@ -558,7 +522,7 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                         <div class="css-s2nqf9-Terms eir4d5m7">
                             <label for="checkout-agree" class="css-c28ivc-AllAgreeLabel eir4d5m6">
                                 <div class="_3zqA8 css-1146g0e-AllAgreeCheckbox eir4d5m5">
-                                    <input type="checkbox" class="_3UImz" id="checkout-agree" name="isAgree" value="" />
+                                    <input type="checkbox check-ess" class="_3UImz" id="checkout-agree" name="isAgree" value="" />
                                     <span class="_2mDYR">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="_2UftR"><path fill="currentColor" d="M6.185 10.247l7.079-7.297 1.435 1.393-8.443 8.703L1.3 8.432l1.363-1.464z"></path></svg>
                                     </span>
@@ -576,13 +540,25 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                             </div>
                         </div>
                     </div>
-                    <button class="_1eWD8 _3SroY _27do9 y-RI2" type="button">234,200원 결제하기</button>
+                    <button class="_1eWD8 _3SroY _27do9 y-RI2 button-pay" type="button">${fLastMoney}원 결제하기</button>
                 </div>
             </div>
         </div>
     </section>
 </main>
 
+<script type="text/javascript">
+$(document).ready(function(){
+    payBtn();
+});
+
+function payBtn() {
+	$(".check-ess").click(function(){
+	var check=$(".check-ess").prop("checked");
+	$(".button-pay").prop("disabled", true);
+}
+
+</script>
 
 </body>
 </html>
