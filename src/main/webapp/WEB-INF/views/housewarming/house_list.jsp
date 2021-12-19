@@ -107,7 +107,7 @@
 										  </button>
 										  <ul class="dropdown-menu menu4">
 										    <li><a class="dropdown-item">싱글라이프</a></li>
-										    <li><a class="dropdown-item">신혼 부부</a></li>
+										    <li><a class="dropdown-item">신혼/부부가 사는집</a></li>
 										    <li><a class="dropdown-item">아기가 있는 집</a></li>
 										    <li><a class="dropdown-item">취학 자녀가 있는 집</a></li>
 										    <li><a class="dropdown-item">부모님과 함께 사는 집</a></li>
