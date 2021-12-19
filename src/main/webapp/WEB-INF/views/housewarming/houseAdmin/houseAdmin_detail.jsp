@@ -10,6 +10,9 @@
 <title>집들이 detail</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;display=swap&amp;subset=korean" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
 	<main class="content-detail">
@@ -29,6 +32,7 @@
         </div>
         <div class="content-detail-content-section">
             <div class="content-detail-content-section__content">
+	        <form action="/housewarming/admin/screen_detail" method="post" id="formTag">
                 <header class="content-detail-header">
                     <div class="content-detail-header__top">
                         <p class="content-detail-header__category" style="color:red;">집들이 심사 페이지</p>
@@ -44,10 +48,32 @@
                             <div class="content-detail-header__author-date">${houseVO.regDate}</div>
                         </a>
                         <div class="content-detail-header__user-actions">
-                        	<button class="_3Z6oR _3AsCW _1BDvx content-detail-header__follow bold">심사 완료</button>
+                        	<!-- Example single danger button -->
+							<div class="btn-group">
+							  <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+							    심사하기
+							  </button>
+							  <ul class="dropdown-menu">
+							  	<li><a class="dropdown-item" href="" data-num="0" onclick="goToScreen();">0 : 모던</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="1" onclick="goToScreen();">1 : 미니멀&심플</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="2" onclick="goToScreen();">2 : 내추럴</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="3" onclick="goToScreen();">3 : 북유럽</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="4" onclick="goToScreen();">4 : 빈티지&레트로</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="5" onclick="goToScreen();">5 : 클래식&앤틱</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="6" onclick="goToScreen();">6 : 프렌치&프로방스</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="7" onclick="goToScreen();">7 : 러블리&로맨틱</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="8" onclick="goToScreen();">8 : 인더스트리얼</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="9" onclick="goToScreen();">9 : 한국&아시아</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="10" onclick="goToScreen();">10 : 유니크&믹스매치</a></li>
+							    <li><hr class="dropdown-divider"></li>
+							    <li><a class="dropdown-item" href="" style="color:red;" data-num="11">게재 불가</a></li>
+							  </ul>
+							</div>
+							<input type="number" name="style_category" id="style_category" value="" hidden="hidden"/>
                         </div>
                     </div>
                 </header>
+                </form>
                 <section class="project-detail-metadata">
                     <dl class="project-detail-metadata-overview">
                         <div class="project-detail-metadata-overview-item">
@@ -285,7 +311,18 @@
     </main>
     
 <script type="text/javascript">
+function goToScreen(event) {
+	var thisEle = event.target;
+	alert($(thisEle).attr('data-num'));
+	var style_category = $(thisEle).attr('data-num');
+	var house_num = $('#house_num').val();
+	$('#style_category').val(style_category);
+	
+	if(confirm($(thisEle).text()+'<br>정말 이대로 심사를 진행하시겠습니까?')){
+		location.href="/housewarming/admin/screen_detail?house_num"+house_num+"&style_category="+style_category;	
+	}
+}
 </script>    
-<script type="text/javascript" src="../resources/js/housewarming/house_detail.js"></script>    
+<script type="text/javascript" src="../../resources/js/housewarming/house_detail.js"></script>    
 </body>
 </html>

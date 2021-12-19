@@ -67,8 +67,7 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		
 		//style_category -> 한글화 작업
 		list = this.styleToKorean(list);		
-		
-		
+				
 		House_ScrapVO hsVO=null;
 		List<House_ScrapVO> scraps=null;
 		if(principal == null) {

@@ -75,7 +75,7 @@ public class HouseAdminController { // 집들이 글게재 심사, 관리용 adm
 		if(result == 2) {
 			session.setAttribute("screenResult", "게재 승인 완료");
 		} else if(result == 1) {
-			session.setAttribute("screenResult", "게재 거부 완료 ");
+			session.setAttribute("screenResult", "게재 거부 완료");
 		} else {
 			session.setAttribute("screenResult", "심사 실패");
 		}
