@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.th.th1.comment.QCommentDAO;
+import com.th.th1.comment.QCommentVO;
 import com.th.th1.questions.QuestionsDAO;
 
 @Service

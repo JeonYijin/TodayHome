@@ -15,7 +15,7 @@ public class HouseWarmingVO {
 	private String family_kind; // 가족형태
 	private String working_area; // 작업분야
 	
-	private String total_budget; // 예산 (maybe, 소숫점 자리까지 입력하면 반올림요청 alert ON)
+	private String total_budget; // 예산
 	/** [필수정보입력part END] */
 	
 	private String arrangement; // 정렬 방법
@@ -23,7 +23,7 @@ public class HouseWarmingVO {
 	private Integer house_num; // 집들이 글번호
 	private Integer house_hits; // 조회수
 	private Integer house_zoayo; // 좋아요수
-	private Integer house_scrap; // 스크랩수 <--- 이건 일단 나중에 넣기로 함
+	private Integer house_scrap; // 스크랩수 
 	private Timestamp regDate; // 작성일
 	
 	private Integer style_category; // 관리자가 글 게재 전 심사 후 알맞는 카테고리에 배정
@@ -37,6 +37,6 @@ public class HouseWarmingVO {
 	private String house_thumbnail; // 썸네일
 	private String house_comments; // 댓글 갯수
 	
-	private List<House_ScrapVO> scraps; //스크랩된 집들이 게시물
-	
+	/** SCRAP용 필드 */
+	private String scrap_id; //로그인된 아이디 스크랩 정보 담는 것
 }

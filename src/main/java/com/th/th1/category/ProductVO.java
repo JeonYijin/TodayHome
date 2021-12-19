@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 public class ProductVO {
-	private Long pr_number; //상품번호
+	private Integer pr_number; //상품번호
 	private String pr_name; //상품명
 	private String pr_seller; //판매자
 	private String pr_category;
@@ -19,6 +19,9 @@ public class ProductVO {
 	private String pr_address; //회사 주소
 	
 	private List<PrFilesVO> prFiles;
+	
+	//스크랩용 멤버변수
+	private String scrap_id; //스크랩 정보 담기
 	
 	
 	public String getPr_category() {

@@ -37,12 +37,12 @@ public class AdminService {
 			File file = new File(realPath);
 			
 			PrFilesVO prFilesVO = new PrFilesVO();
-			prFilesVO.setPr_number(productVO.getPr_number());
+//			prFilesVO.setPr_number(productVO.getPr_number());
 
 			String fileName = fileManager.getUseServletContext(file, multipartFile);
 			prFilesVO.setFileName(fileName);
 			prFilesVO.setOriName(multipartFile.getOriginalFilename());
-			prFilesVO.setPr_number(productVO.getPr_number());
+//			prFilesVO.setPr_number(productVO.getPr_number());
 			prFilesVO.setOri_type(1);
 
 			result = adminDAO.setInsertProductFile(prFilesVO);
@@ -58,7 +58,7 @@ public class AdminService {
 			}
 
 			PrFilesVO prFilesVO = new PrFilesVO();
-			prFilesVO.setPr_number(productVO.getPr_number());
+//			prFilesVO.setPr_number(productVO.getPr_number());
 
 			String realPath = servletContext.getRealPath("resources/upload/store");
 			File file = new File(realPath);
@@ -67,7 +67,7 @@ public class AdminService {
 			String fileName = fileManager.getUseServletContext(file, multipartFile);
 			prFilesVO.setFileName(fileName);
 			prFilesVO.setOriName(multipartFile.getOriginalFilename());
-			prFilesVO.setPr_number(productVO.getPr_number());
+//			prFilesVO.setPr_number(productVO.getPr_number());
 			prFilesVO.setOri_type(2);
 
 			result = adminDAO.setInsertProductFile(prFilesVO);

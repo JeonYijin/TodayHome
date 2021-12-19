@@ -36,6 +36,11 @@ public class QuestionsService {
 		return questionsDAO.getQuestionsList(pager);
 	}
 	
+	/* 질문과답변 공지사항 가져오기 */ 
+	public List<QuestionsVO> getNotice() throws Exception {
+		return questionsDAO.getNotice();
+	}
+	
 	/* 질문과답변 질문글 insert */ 
 	public int setQuestionInsert(QuestionsVO questionsVO, ArrayList<String> hashArr) throws Exception {
 				
