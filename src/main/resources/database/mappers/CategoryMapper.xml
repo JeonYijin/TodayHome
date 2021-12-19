@@ -106,32 +106,32 @@
 		
 	
 	
-	<select id="getSelectPage" parameterType="ProductVO" resultMap="getselectPageResult">
-      select P.*, PF.* from
-      pr P left join pr_files PF
-      on (P.pr_number = PF.pr_number)
-      where P.pr_number=#{pr_number}
-   </select>
-   <resultMap type="ProductVO" id="getselectPageResult">
-      <id column="pr_number" property="pr_number"/>
-      <result column="pr_name" property="pr_name"/>
-      <result column="pr_seller" property="pr_seller"/>
-      <result column="pr_category" property="pr_category"/>
-      <result column="pr_price" property="pr_price"/>
-      <result column="pr_discount" property="pr_discount"/>
-      <result column="pr_dPrice" property="pr_dPrice"/>
-      <result column="pr_rate" property="pr_rate"/>
-      <result column="pr_scrap" property="pr_scrap"/>
-      <result column="pr_address" property="pr_address"/>
-      
-      <collection property="prFiles" javaType="List" ofType="PrFilesVO">
-         <id column="fileNum" property="fileNum"/>
-         <result column="pr_number" property="pr_number"/>
-         <result column="fileName" property="fileName"/>
-         <result column="oriName" property="oriName"/>
-         <result column="ori_type" property="ori_type"/>
-      </collection>
-   </resultMap>
+		<select id="getSelectPage" parameterType="ProductVO" resultMap="getselectPageResult">
+		select P.*, PF.* from
+		pr P left join pr_files PF
+		on (P.pr_number = PF.pr_number)
+		where P.pr_number=#{pr_number}
+	</select>
+	<resultMap type="ProductVO" id="getselectPageResult">
+		<id column="pr_number" property="pr_number"/>
+		<result column="pr_name" property="pr_name"/>
+		<result column="pr_seller" property="pr_seller"/>
+		<result column="pr_category" property="pr_category"/>
+		<result column="pr_price" property="pr_price"/>
+		<result column="pr_discount" property="pr_discount"/>
+		<result column="pr_dPrice" property="pr_dPrice"/>
+		<result column="pr_rate" property="pr_rate"/>
+		<result column="pr_scrap" property="pr_scrap"/>
+		<result column="pr_address" property="pr_address"/>
+		
+		<collection property="prFiles" javaType="List" ofType="PrFilesVO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="pr_number" property="pr_number"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+			<result column="ori_type" property="ori_type"/>
+		</collection>
+	</resultMap>
 	
 	
 	
