@@ -555,7 +555,13 @@ $(document).ready(function(){
 function payBtn() {
 	$(".check-ess").click(function(){
 	var check=$(".check-ess").prop("checked");
-	$(".button-pay").prop("disabled", true);
+	
+		if(!check){
+			$(".button-pay").prop("disabled", true);
+		}else {
+			$(".button-pay").prop("disabled", false);
+		}
+	}
 }
 
 </script>
