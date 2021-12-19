@@ -282,7 +282,7 @@
 	</update>
 	
 	<!-- 집들이글 정식게재 거부 & 삭제 -->
-	<delete id="SetScreenResult_refuse" parameterType="hashmap">
+	<delete id="setScreenResult_refuse" parameterType="hashmap">
 		DELETE FROM HOUSEWARMING
 		WHERE HOUSE_NUM=#{house_num}
 	</delete>

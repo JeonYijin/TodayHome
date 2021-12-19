@@ -50,4 +50,5 @@ public interface QuestionsDAO {
 	/** 해시태그로 글 검색 */
 	public List<QuestionsVO> selectFromHashtag(String hashtag) throws Exception;
 	
+	
 }

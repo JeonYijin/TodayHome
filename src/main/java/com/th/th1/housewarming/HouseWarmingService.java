@@ -159,7 +159,7 @@ public class HouseWarmingService {
 	public int setScreenResult(Map<String, Integer> scResult) throws Exception {
 		int result = 0;		
 		
-		if(scResult.get("style_category") == -2) {
+		if(scResult.get("style_category") == 11) {
 			//게재거절&삭제
 			result = houseDAO.setScreenResult_refuse(scResult); //게재거부 시 1 리턴
 		} else { 

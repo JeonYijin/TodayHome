@@ -25,7 +25,7 @@
 			$('#View').removeAttr('hidden');
 			$('.editor-cover-image-input').html($('#View'));
 			$('.editor-cover-image-input').css('padding', '0px');
-			$('#hidden-man').remove();
+			$('#hidden-man').css('display', 'none');
 			reader.readAsDataURL(input.files[0]);
 		}
 	}

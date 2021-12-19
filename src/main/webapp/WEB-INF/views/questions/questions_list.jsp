@@ -102,16 +102,15 @@
        			</script>
              </c:if>        
         </div>
-
+	
 		<div>
-	        <a class="css-2acggu-ItemLink e1lj374k2" href="/questions/selectOne?quests_num=77"><span class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span
-	                    class="css-wk63b1-ItemText e1lj374k0">오늘의집 인테리어 멘토를 만나보세요🏆</span></a>
-	        <a class="css-2acggu-ItemLink e1lj374k2" href="/questions/selectOne?quests_num=80"><span class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span
-	                    class="css-wk63b1-ItemText e1lj374k0">답변 이벤트 안내 및 활동 주의사항 📢</span></a>
-	        <a class="css-2acggu-ItemLink e1lj374k2" href="/questions/selectOne?quests_num=81"><span class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span
-	                    class="css-wk63b1-ItemText e1lj374k0">빠르고 정확한 인테리어 답변을 받는 방법은?</span></a>
+			<c:forEach items="${notice}" var="notice">
+					<a class="css-2acggu-ItemLink e1lj374k2" href="/questions/selectOne?quests_num=${notice.quests_num}"><span class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span
+	                    class="css-wk63b1-ItemText e1lj374k0">${notice.quests_title}</span></a>
+				
+			</c:forEach>
 		</div>
-        
+         
         <div class="css-1amvimq-FeedItemList evxc8q72">
   
             <c:forEach items="${list}" var="lists">
@@ -220,7 +219,7 @@
         console.log('pn은 이거야 : '+pNum);
         
         if(pNum == null){
-        	location.href='/questions?pn=1&search=';
+//        	location.href='/questions?pn=1&search=';
         }
         
         //undefined 판별용 typeof 사용
