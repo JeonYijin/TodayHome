@@ -170,7 +170,7 @@ margin-top:26px;
 				<nav class="page-navigation myhome-nav__contents">
 					<ul style="transform: translateX(0px);">
 						<li class="page-navigation__item"><a class="active" href="./mypage?memberNum=${member.memberNum}&id=${member.id}" target="_self">모두보기</a></li>
-						<li class="page-navigation__item"><a class="" href="./myPicture?memberNum=${member.memberNum}" target="_self">사진</a></li>
+						<li class="page-navigation__item"><a class="" href="./myPicture?memberNum=${member.memberNum}&id=${member.id}" target="_self">사진</a></li>
 						<li class="page-navigation__item"><a class="" href="./myHome?memberNum=${member.memberNum}&id=${member.id}" target="_self">집들이</a></li>
 						<li class="page-navigation__item"><a class="" href="./myQna?memberNum=${member.memberNum}&id=${member.id}" target="_self">질문과답변</a></li>
 						<li class="page-navigation__item"><a class="" href="./myScrap?memberNum=${member.memberNum}&id=${member.id}" target="_self">스크랩북</a></li>
@@ -221,7 +221,7 @@ margin-top:26px;
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">스크랩북</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount}</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount + scrCount}</div>
 												</a>
 												<a class="css-64c85x-ItemLink e1q26atk3" href="./myHeart?memberNum=${member.memberNum}">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
@@ -230,7 +230,7 @@ margin-top:26px;
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">좋아요</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">${heartCount}</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${heartCount+zoaCount}</div>
 												</a>
 												<a class="css-64c85x-ItemLink e1q26atk3" href="#">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
@@ -293,6 +293,43 @@ margin-top:26px;
 								</section>
 							
 							</c:if>
+							
+							<c:if test="${HCount != 0 }">
+								<section class="css-1wx61sn-Section e17n0xi4">
+									<div class="css-1cfe91y-SectionHeader e17n0xi3">
+										<h1 class="css-1yljhnc-SectionTitle e17n0xi2">집들이<span class="css-1di0gyp-SectionCount e17n0xi0">${HCount}</span></h1>
+										<div class="css-eytlr-SectionRight e17n0xi1">
+											<a class="css-1nq1haa-UserDetailContentSectionRightLink e7uojt20" href="./myHome?memberNum=${member.memberNum}&id=${member.id}">전체보기</a>
+										</div>
+									</div>
+									<div class="css-70hrd3-GridListContainer e1qiovhc1">
+										<c:forEach items="${myHouse}" var="myHouse">
+										<div class="css-ryl636-GridListItem e1qiovhc0">
+											<a class="css-8z7wo6-ItemLink e1qgexi82" href="../housewarming/detail?house_num=${myHouse.house_num}&loginId=${member.id}">
+												
+													<img class="css-1j4vn88-ItemImage e1qgexi81" alt="" src="">
+											</a>
+										</div>
+										</c:forEach>
+										<!-- <div class="css-ryl636-GridListItem e1qiovhc0">
+											<div class="css-1bo34z2-Div em9kjhq0"></div>
+										</div>
+										<div class="css-ryl636-GridListItem e1qiovhc0">
+											<div class="css-1bo34z2-Div em9kjhq0"></div>
+										</div>
+										<div class="css-ryl636-GridListItem e1qiovhc0">
+											<div class="css-1bo34z2-Div em9kjhq0"></div>
+										</div> -->
+									</div>
+									<a class="_3Z6oR _1zLQC _3tx-P css-1n0buqs-UploadButton e4wcveq1" href="../picture/picInsert">
+										<svg width="16" height="16" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" class="css-p7k028-UploadPlusIcon e4wcveq0">
+											<path fill="currentColor" d="M9 2v5h5v2H9v5H7V9H2V7h5V2h2z"></path>
+										</svg>집들이 올리기
+									</a>
+								</section>
+							</c:if>
+							
+							
 							<c:if test="${picCount == 0 }">
 								 <section class="css-1wx61sn-Section e17n0xi4">
 									<div class="css-1cfe91y-SectionHeader e17n0xi3">
@@ -308,10 +345,10 @@ margin-top:26px;
 								</section> 
 							</c:if>	
 								
-								
+							<c:if test="${HCount == 0 }">
 								<section class="css-1wx61sn-Section e17n0xi4">
 									<div class="css-1cfe91y-SectionHeader e17n0xi3">
-										<h1 class="css-1yljhnc-SectionTitle e17n0xi2">집들이<span class="css-1di0gyp-SectionCount e17n0xi0">0</span></h1>
+										<h1 class="css-1yljhnc-SectionTitle e17n0xi2">집들이<span class="css-1di0gyp-SectionCount e17n0xi0">${HCount }</span></h1>
 										<div class="css-eytlr-SectionRight e17n0xi1"></div>
 									</div>
 									<a class="css-14bh7uo-UploadLink e1s15hxd1" href="../questions/new">
@@ -321,6 +358,7 @@ margin-top:26px;
 											첫 번째 집들이를 올려보세요
 									</a>
 								</section>
+							</c:if>	
 							</div>
 						</div>
 					</div>

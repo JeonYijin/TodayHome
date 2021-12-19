@@ -173,7 +173,7 @@ margin-top:26px;
 				<nav class="page-navigation myhome-nav__contents">
 					<ul style="transform: translateX(0px);">
 						<li class="page-navigation__item"><a class="" href="./mypage?memberNum=${member.memberNum}&id=${member.id}" target="_self">모두보기</a></li>
-						<li class="page-navigation__item"><a class="" href="./myPicture?memberNum=${member.memberNum}" target="_self">사진</a></li>
+						<li class="page-navigation__item"><a class="" href="./myPicture?memberNum=${member.memberNum}&id=${member.id}" target="_self">사진</a></li>
 						<li class="page-navigation__item"><a class="" href="./myHome?memberNum=${member.memberNum}&id=${member.id}" target="_self">집들이</a></li>
 						<li class="page-navigation__item"><a class="active" href="./myQna?memberNum=${member.memberNum}&id=${member.id}" target="_self">질문과답변</a></li>
 						<li class="page-navigation__item"><a class="" href="./myScrap?memberNum=${member.memberNum}&id=${member.id}" target="_self">스크랩북</a></li>
@@ -224,7 +224,7 @@ margin-top:26px;
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">스크랩북</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount}</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount +scrCount}</div>
 												</a>
 												<a class="css-64c85x-ItemLink e1q26atk3" href="./myHeart?memberNum=${member.memberNum}&id=${member.id}">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
@@ -233,7 +233,7 @@ margin-top:26px;
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">좋아요</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">${heartCount}</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${heartCount + zoaCount}</div>
 												</a>
 												<a class="css-64c85x-ItemLink e1q26atk3" href="#">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">

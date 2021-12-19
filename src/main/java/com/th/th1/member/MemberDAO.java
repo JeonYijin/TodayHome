@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.th.th1.feeling.FeelingVO;
 import com.th.th1.feeling.ScrapingVO;
+import com.th.th1.housewarming.HouseWarmingVO;
 import com.th.th1.picture.PictureVO;
 
 @Mapper
@@ -68,6 +69,25 @@ public interface MemberDAO {
 	
 	//내가 스크랩한 사진 개수
 	public Long getMyScrapCount(ScrapingVO scrapingVO) throws Exception;
+	
+	
+	//내가 쓴 집들이 게시글
+	public List<HouseWarmingVO> getHListForMypage(String house_userId) throws Exception;
+	//내가 쓴 집들이 수
+	public Long getHListCount(String id) throws Exception;
+	
+	//좋아요 누른 집들이 글 개수
+	public Long getHzoaCount(String zoayo_id) throws Exception;
+	
+	//스크랩 누른 집들이 글 개수
+	public Long getHscrCount(String scrap_id) throws Exception;
+	
+	//좋아요 누른 집들이 글
+	public List<HouseWarmingVO> getHzoaPost(String zoayo_id) throws Exception;
+	
+	//스크랩 누른 집들이 글
+	public List<HouseWarmingVO> getHscrPost (String scrap_id) throws Exception;
+	
 	
 	
 	//마이페이지 - 알림설정

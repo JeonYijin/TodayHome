@@ -172,7 +172,7 @@ margin-top:26px;
 				<nav class="page-navigation myhome-nav__contents">
 					<ul style="transform: translateX(0px);">
 						<li class="page-navigation__item"><a class="" href="./mypage?memberNum=${member.memberNum}&id=${member.id}" target="_self">모두보기</a></li>
-						<li class="page-navigation__item"><a class="active" href="./myPicture?memberNum=${member.memberNum}" target="_self">사진</a></li>
+						<li class="page-navigation__item"><a class="active" href="./myPicture?memberNum=${member.memberNum}&id=${member.id}" target="_self">사진</a></li>
 						<li class="page-navigation__item"><a class="" href="./myHome?memberNum=${member.memberNum}&id=${member.id}" target="_self">집들이</a></li>
 						<li class="page-navigation__item"><a class="" href="./myQna?memberNum=${member.memberNum}&id=${member.id}" target="_self">질문과답변</a></li>
 						<li class="page-navigation__item"><a class="" href="./myScrap?memberNum=${member.memberNum}&id=${member.id}" target="_self">스크랩북</a></li>
@@ -223,7 +223,7 @@ margin-top:26px;
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">스크랩북</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount}</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount+scrCount}</div>
 												</a>
 												<a class="css-64c85x-ItemLink e1q26atk3" href="./myHeart?memberNum=${member.memberNum}&id=${member.id}">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
@@ -232,7 +232,7 @@ margin-top:26px;
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">좋아요</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">${heartCount}</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${heartCount +zoaCount}</div>
 												</a>
 												<a class="css-64c85x-ItemLink e1q26atk3" href="#">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
@@ -284,7 +284,7 @@ margin-top:26px;
 											<div class="card-item-writer">
 												<address class="card-item-writer__content">
 													<div class="card-item-writer__header">
-														<a class="card-item-writer__link" href="../mypage?memberNum=${member.memberNum}&id=${member.id}">
+														<a class="card-item-writer__link" href="./mypage?memberNum=${member.memberNum}&id=${member.id}">
 															<img class="card-item-writer__image" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
 															<span class="card-item-writer__name">${member.nickname}</span>
 														</a>

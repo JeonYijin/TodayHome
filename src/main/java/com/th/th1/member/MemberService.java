@@ -6,7 +6,6 @@ import java.util.Map;
 
 
 
-import javax.servlet.http.HttpSession;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +19,7 @@ import org.springframework.validation.BindingResult;
 
 import com.th.th1.feeling.FeelingVO;
 import com.th.th1.feeling.ScrapingVO;
+import com.th.th1.housewarming.HouseWarmingVO;
 import com.th.th1.picture.PictureVO;
 
 @Service
@@ -122,6 +122,35 @@ public class MemberService implements UserDetailsService{
 	public Long getMyScrapCount(ScrapingVO scrapingVO) throws Exception{
 		return memberDAO.getMyScrapCount(scrapingVO);
 	}
+	
+	//내가 쓴 집들이 게시글
+	public List<HouseWarmingVO> getHListForMypage(String house_userId) throws Exception{
+		return memberDAO.getHListForMypage(house_userId);
+	}
+	
+	//내가 쓴 집들이 글 수
+	public Long getHListCount(String id) throws Exception{
+		return memberDAO.getHListCount(id);
+	}
+	
+	//내가 좋아요 누른 집들이 글 개수
+	public Long getHzoaCount(String zoayo_id) throws Exception{
+		return memberDAO.getHzoaCount(zoayo_id);
+	}
+	
+	//내가 스크랩 누른 집들이글 개수
+	public Long getHscrapCount(String scrap_id) throws Exception{
+		 return memberDAO.getHscrCount(scrap_id);
+	}
+	//좋아요 누른 집들이글
+	public List<HouseWarmingVO> getHzoaPost(String zoayo_id) throws Exception{
+		return memberDAO.getHzoaPost(zoayo_id);
+	}
+	//스크랩 누른 집들이글
+	public List<HouseWarmingVO> getHscrPost(String scrap_id) throws Exception{
+		return memberDAO.getHscrPost(scrap_id);
+	}
+	
 	
 	
 	//마이페이지 알림설정

@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.th.th1.feeling.FeelingVO;
 import com.th.th1.feeling.ScrapingVO;
+import com.th.th1.housewarming.HouseWarmingVO;
 import com.th.th1.picture.PictureVO;
 
 import com.th.th1.sns.KakaoVO;
@@ -35,7 +36,8 @@ public class MemberController {
 	
 	//마이페이지 이동
 	@GetMapping("mypage")
-	public ModelAndView getMypage(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+	public ModelAndView getMypage(PictureVO pictureVO, FeelingVO feelingVO, 
+			ScrapingVO scrapingVO, String id) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//내가 쓴 사진 게시글
 		List<PictureVO> myPic = memberService.getMyPicture(pictureVO);
@@ -44,6 +46,21 @@ public class MemberController {
 		Long picCount= memberService.getMyPicCount(pictureVO);
 		mv.addObject("picCount", picCount);
 		
+		//내가 쓴 집들이 게시글
+		List<HouseWarmingVO> myHouse= memberService.getHListForMypage(id);
+		mv.addObject("myHouse", myHouse);
+		System.out.println("myHouse" + myHouse.size());
+		//집들이 글 수
+		Long HListCount = memberService.getHListCount(id);
+		mv.addObject("HCount", HListCount);
+		
+		//집들이 좋아요 개수
+		Long zoaCount = memberService.getHzoaCount(id);
+		mv.addObject("zoaCount", zoaCount);
+		
+		//집들이 스크랩 개수
+		Long scrCount = memberService.getHscrapCount(id);
+		mv.addObject("scrCount", scrCount);
 		
 		//내가 좋아요한 개수
 		Long heartCount = memberService.getMyHeartCount(feelingVO);
@@ -59,7 +76,7 @@ public class MemberController {
 	
 	//마이페이지 - 사진 이동
 	@GetMapping("myPicture")
-	public ModelAndView getMyPicture(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+	public ModelAndView getMyPicture(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO, String id) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		//내가 쓴 사진 게시글
@@ -76,6 +93,14 @@ public class MemberController {
 		Long scrapCount = memberService.getMyScrapCount(scrapingVO);
 		mv.addObject("scrapCount", scrapCount);	
 		
+		//집들이 좋아요 개수
+		Long zoaCount = memberService.getHzoaCount(id);
+		mv.addObject("zoaCount", zoaCount);
+				
+		//집들이 스크랩 개수
+		Long scrCount = memberService.getHscrapCount(id);
+		mv.addObject("scrCount", scrCount);				
+		
 		mv.setViewName("mypage/myPicture");
 		
 		return mv;
@@ -84,7 +109,7 @@ public class MemberController {
 	
 	//마이페이지 - 좋아요 이동
 	@GetMapping("myHeart")
-	public ModelAndView getMyHeart(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+	public ModelAndView getMyHeart(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO, String id) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		//내가 좋아요한 개수
@@ -94,8 +119,17 @@ public class MemberController {
 		//내가 스크랩한 개수
 		Long scrapCount = memberService.getMyScrapCount(scrapingVO);
 		mv.addObject("scrapCount", scrapCount);
+		//집들이 좋아요 개수
+		Long zoaCount = memberService.getHzoaCount(id);
+		mv.addObject("zoaCount", zoaCount);
+						
+		//집들이 스크랩 개수
+		Long scrCount = memberService.getHscrapCount(id);
+		mv.addObject("scrCount", scrCount);					
 				
-				
+		//좋아요한 집들이 글 
+		List<HouseWarmingVO> heartHouse= memberService.getHzoaPost(id);
+		mv.addObject("heartH", heartHouse);
 		//내가 좋아요한 사진
 		List<PictureVO> heartPic = memberService.getMyHeartPic(feelingVO);
 		mv.addObject("heartPic", heartPic);
@@ -106,7 +140,7 @@ public class MemberController {
 	
 	//마이페이지 - 스크랩 이동
 	@GetMapping("myScrap")
-	public ModelAndView getMyScrap(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+	public ModelAndView getMyScrap(PictureVO pictureVO, FeelingVO feelingVO, ScrapingVO scrapingVO, String id) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//내가 좋아요한 개수
 		Long heartCount = memberService.getMyHeartCount(feelingVO);
@@ -116,7 +150,17 @@ public class MemberController {
 		Long scrapCount = memberService.getMyScrapCount(scrapingVO);
 		mv.addObject("scrapCount", scrapCount);		
 		
+		//집들이 좋아요 개수
+		Long zoaCount = memberService.getHzoaCount(id);
+		mv.addObject("zoaCount", zoaCount);
+								
+		//집들이 스크랩 개수
+		Long scrCount = memberService.getHscrapCount(id);
+		mv.addObject("scrCount", scrCount);	
 		
+		//스크랩한 집들이 글
+		List<HouseWarmingVO> scrapHouse = memberService.getHscrPost(id);
+		mv.addObject("scrapH", scrapHouse);
 		//내가 스크랩한 사진
 		List<PictureVO> scrapPic = memberService.getMyScrapPic(scrapingVO);
 		mv.addObject("scrapPic", scrapPic);
@@ -128,7 +172,7 @@ public class MemberController {
 	
 	//마이페이지 집들이 이동
 	@GetMapping("myHome")
-	public ModelAndView getmyHome(FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+	public ModelAndView getmyHome(FeelingVO feelingVO, ScrapingVO scrapingVO, String id) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//내가 좋아요한 개수
 		Long heartCount = memberService.getMyHeartCount(feelingVO);
@@ -138,12 +182,28 @@ public class MemberController {
 		Long scrapCount = memberService.getMyScrapCount(scrapingVO);
 		mv.addObject("scrapCount", scrapCount);
 		mv.setViewName("mypage/myHome");
+		
+		//집들이 좋아요 개수
+		Long zoaCount = memberService.getHzoaCount(id);
+		mv.addObject("zoaCount", zoaCount);
+										
+		//집들이 스크랩 개수
+		Long scrCount = memberService.getHscrapCount(id);
+		mv.addObject("scrCount", scrCount);	
+		
+		//내가 쓴 집들이 게시글
+		List<HouseWarmingVO> myHouse= memberService.getHListForMypage(id);
+		mv.addObject("myHouse", myHouse);
+		//System.out.println("myHouse" + myHouse.size());
+		//집들이 글 수
+		Long HListCount = memberService.getHListCount(id);
+		mv.addObject("HCount", HListCount);
 		return mv;
 	}
 	
 	//마이페이지 질문과 답변 이동
 	@GetMapping("myQna")
-	public ModelAndView getmyQna(FeelingVO feelingVO, ScrapingVO scrapingVO) throws Exception{
+	public ModelAndView getmyQna(FeelingVO feelingVO, ScrapingVO scrapingVO, String id) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("mypage/myQna");
 		//내가 좋아요한 개수
@@ -153,6 +213,15 @@ public class MemberController {
 		//내가 스크랩한 개수
 		Long scrapCount = memberService.getMyScrapCount(scrapingVO);
 		mv.addObject("scrapCount", scrapCount);		
+		
+		//집들이 좋아요 개수
+		Long zoaCount = memberService.getHzoaCount(id);
+		mv.addObject("zoaCount", zoaCount);
+												
+		//집들이 스크랩 개수
+		Long scrCount = memberService.getHscrapCount(id);
+		mv.addObject("scrCount", scrCount);	
+				
 		return mv;
 	}
 	

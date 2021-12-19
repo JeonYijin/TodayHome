@@ -185,7 +185,7 @@ margin-top:26px;
 									<a class="" href="/users/4672761/collections?filter=production" target="_self">상품 (0)</a>
 								</li> -->
 								<li class="page-navigation__item">
-									<a class="" href="/users/4672761/collections?filter=card" target="_self">모두 (${scrapCount})</a>
+									<a class="" href="/users/4672761/collections?filter=card" target="_self">모두 (${scrapCount + scrCount})</a>
 								</li>
 								<!-- <li class="page-navigation__item">
 									<a class="" href="/users/4672761/collections?filter=project" target="_self">집들이 (0)</a>
@@ -232,19 +232,21 @@ margin-top:26px;
 					    </div>
 				    </div>
 				    </c:forEach>
-				   <!--  <div class="col-6 col-md-4 col-lg-3">
+				    <c:forEach items="${scrapH}" var="scrapH">
+				     <div class="col-6 col-md-4 col-lg-3">
 					    <div class="collection__wrap">
-						    <a href="/projects/66363/detail?affect_type=UserScrapbook&amp;affect_id=4672761">
+						    <a href="../housewarming/detail?house_num=${scrapH.house_num}&loginId=${member.id}">
 							    <div class="collection collection--total">
 								    <div class="collection__image-wrap">
-								   	 <img class="collection__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163603876676993157.JPG?gif=1&amp;w=320&amp;h=320&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163603876676993157.JPG?gif=1&amp;w=480&amp;h=480&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163603876676993157.JPG?gif=1&amp;w=640&amp;h=640&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163603876676993157.JPG?gif=1&amp;w=960&amp;h=960&amp;c=c 3x">
+								   	 <img class="collection__image" src="">
 								    </div>
 							   		 <span class="collection__type">집들이</span>
 							    </div>
 						    </a>
 					    </div>
 				    </div>
-				    <div class="col-6 col-md-4 col-lg-3">
+				    </c:forEach>
+				    <!-- <div class="col-6 col-md-4 col-lg-3">
 					    <div class="collection__wrap">
 						    <a href="/productions/245825/selling?affect_type=UserScrapbook&amp;affect_id=4672761">
 							    <div class="collection collection--total">
@@ -255,7 +257,7 @@ margin-top:26px;
 							    </div>
 						    </a>
 					    </div>
-				    </div> -->
+				    </div>  -->
 		        </div>
 	        </main>
         </div>

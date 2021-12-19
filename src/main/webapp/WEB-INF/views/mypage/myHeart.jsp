@@ -173,7 +173,7 @@ margin-top:26px;
 				<nav class="page-navigation myhome-nav__contents">
 					<ul style="transform: translateX(0px);">
 						<li class="page-navigation__item"><a class="" href="./mypage?memberNum=${member.memberNum}&id=${member.id}" target="_self">모두보기</a></li>
-						<li class="page-navigation__item"><a class="" href="./myPicture?memberNum=${member.memberNum}" target="_self">사진</a></li>
+						<li class="page-navigation__item"><a class="" href="./myPicture?memberNum=${member.memberNum}$id=${member.id}" target="_self">사진</a></li>
 						<li class="page-navigation__item"><a class="" href="./myHome?memberNum=${member.memberNum}&id=${member.id}" target="_self">집들이</a></li>
 						<li class="page-navigation__item"><a class="" href="./myQna?memberNum=${member.memberNum}&id=${member.id}" target="_self">질문과답변</a></li>
 						<li class="page-navigation__item"><a class="" href="./myScrap?memberNum=${member.memberNum}&id=${member.id}" target="_self">스크랩북</a></li>
@@ -224,7 +224,7 @@ margin-top:26px;
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">스크랩북</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount}</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount + scrCount}</div>
 												</a>
 												<a class="css-64c85x-ItemLink e1q26atk3" href="./myHeart?memberNum=${member.memberNum}&id=${member.id}">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
@@ -233,7 +233,7 @@ margin-top:26px;
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">좋아요</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">${heartCount}</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${heartCount +zoaCount}</div>
 												</a>
 												<a class="css-64c85x-ItemLink e1q26atk3" href="#">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
@@ -260,7 +260,7 @@ margin-top:26px;
 							<div class="css-dui3rq-LayoutDivider e1ivswjr0"></div>
 						</div>
 					<!-- 좋아요한 게시글이 없을 때 -->
-					<c:if test="${heartCount eq 0 }">
+					<c:if test="${heartCount eq 0  && zoaCount == 0}">
 						<div class="css-1c8k8vc-Col e15wafbq0">
 							<div class="user-project-feed">
 								<div class="virtualized-list user-project-feed__content row" style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);"></div>
@@ -287,14 +287,17 @@ margin-top:26px;
 										</div>
 									</div>
 								</c:forEach>
-									<!-- <div class="col-6 col-lg-4" style="">
-									<div class="css-11syldp-FeedItem e1lm7yo60">
-									<a class="css-11kfzam-PraiseItemLink e1vfbmcc3" href="/projects/64659/detail">
-									<img class="css-m9by0t-PraiseItemImage e1vfbmcc2" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163459946548004623.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163459946548004623.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163459946548004623.jpg?gif=1&amp;w=480&amp;h=480&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/163459946548004623.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c 3x">
-									<span class="css-q81wq8-PraiseItemType e1vfbmcc1">집들이</span>
-									</a>
-									</div>
-									</div> -->
+								<c:forEach items="${heartH}" var="heartH">
+									<div class="col-6 col-lg-4" style="">
+										<div class="css-11syldp-FeedItem e1lm7yo60">
+											<a class="css-11kfzam-PraiseItemLink e1vfbmcc3" href="../../housewarming/detail?house_num=${heartH.house_num}&loginId=${member.id}">
+												<img class="css-m9by0t-PraiseItemImage e1vfbmcc2" src="">
+												<span class="css-q81wq8-PraiseItemType e1vfbmcc1">집들이</span>
+											</a>
+										</div>
+									</div> 
+									
+								</c:forEach>
 								
 								</div>
 							</div>

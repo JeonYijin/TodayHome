@@ -172,7 +172,7 @@ margin-top:26px;
 				<nav class="page-navigation myhome-nav__contents">
 					<ul style="transform: translateX(0px);">
 						<li class="page-navigation__item"><a class="" href="./mypage?memberNum=${member.memberNum}&id=${member.id}" target="_self">모두보기</a></li>
-						<li class="page-navigation__item"><a class="" href="./myPicture?memberNum=${member.memberNum}" target="_self">사진</a></li>
+						<li class="page-navigation__item"><a class="" href="./myPicture?memberNum=${member.memberNum}$id=${member.id}" target="_self">사진</a></li>
 						<li class="page-navigation__item"><a class="active" href="./myHome?memberNum=${member.memberNum}&id=${member.id}" target="_self">집들이</a></li>
 						<li class="page-navigation__item"><a class="" href="./myQna?memberNum=${member.memberNum}&id=${member.id}" target="_self">질문과답변</a></li>
 						<li class="page-navigation__item"><a class="" href="./myScrap?memberNum=${member.memberNum}&id=${member.id}" target="_self">스크랩북</a></li>
@@ -223,7 +223,7 @@ margin-top:26px;
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">스크랩북</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount}</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${scrapCount + scrCount}</div>
 												</a>
 												<a class="css-64c85x-ItemLink e1q26atk3" href="./myHeart?memberNum=${member.memberNum}&id=${member.id}">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
@@ -232,7 +232,7 @@ margin-top:26px;
 														</svg>
 													</div>
 													<div class="css-1ypdctb-ItemText e1q26atk1">좋아요</div>
-													<div class="css-aogldb-ItemCount e1q26atk0">${heartCount}</div>
+													<div class="css-aogldb-ItemCount e1q26atk0">${heartCount + zoaCount}</div>
 												</a>
 												<a class="css-64c85x-ItemLink e1q26atk3" href="#">
 													<div class="css-1emb6h4-ItemIcon e1q26atk2">
@@ -260,13 +260,77 @@ margin-top:26px;
 						<div class="css-dui3rq-LayoutDivider e1ivswjr0"></div>
 					</div>
 					<!-- 집들이 쓴 글이 없을 때 -->
+					<c:if test="${HCount == 0 }">
 						<div class="css-1c8k8vc-Col e15wafbq0">
 							<div class="user-project-feed">
 								<div class="virtualized-list user-project-feed__content row" style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);"></div>
 								<p class="user-project-feed__empty">결과가 존재하지 않습니다.</p>
 							</div>
 						</div>
+					</c:if>
 					<!-- 집들이 쓴 글이 없을 때 -->
+					
+					<c:if test="${HCount ne 0 }">
+					<!-- 집들이 쓴 글이 있을 때 -->
+					<div class="css-1c8k8vc-Col e15wafbq0">
+						<div class="user-card-feed">
+							<div class="virtualized-list user-card-feed__content row" style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
+							<c:forEach items="${myHouse}" var="myHouse" varStatus="status">
+								<div class="user-card-feed__item-wrap col-12 col-md-4" style="">
+									<div class="user-card-feed__item">
+										<article class="card-collection-item">
+											<div class="card-item-writer">
+												<address class="card-item-writer__content">
+													<div class="card-item-writer__header">
+														<a class="card-item-writer__link" href="./mypage?memberNum=${member.memberNum}&id=${member.id}">
+															<img class="card-item-writer__image" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144&amp;h=144&amp;c=c 3x">
+															<span class="card-item-writer__name">${member.nickname}</span>
+														</a>
+													</div>
+												<p class="card-item-writer__introduction"></p>
+												</address>
+											</div>
+											<div id="card-collection-item-11103723" class="card-collection-item__content">
+												<a class="card-collection-item__content__link" aria-describedby="card-collection-item-11103723" href="../picture/picOne?post_id=${myPic.post_id}"></a>
+												<div class="card-collection-item__image">
+													<div class="card-item-image">
+														<img class="image" alt="" src="">
+														<span class="card-item-image__view-count">조회수 ${myHouse.house_hit}</span>
+													</div>
+												</div>
+												</div>
+												<aside class="card-item-action-list">
+													<button class="card-item-action-list__action" type="button">
+														<svg class="icon icon--stroke" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+															<path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path>
+														</svg>
+													</button>
+													<button class="card-item-action-list__action" type="button">
+														<svg class="icon icon--stroke" aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+															<path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
+														</svg>
+													</button>
+													<a class="card-item-action-list__action" href="#">
+														<svg class="icon" aria-label="댓글 달기" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+															<path fill="currentColor" fill-rule="nonzero" d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z"></path>
+														</svg>
+													</a>
+													<div class="drop-down card-item-action-list__action-wrap card-item-action-list__action-share">
+														<button class="card-item-action-list__action" type="button">
+															<svg class="icon" aria-label="공유하기" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
+																<path d="M9.64 14.646a4.5 4.5 0 1 1 0-5.292l4.54-2.476a4.5 4.5 0 1 1 .63.795l-4.675 2.55c.235.545.365 1.146.365 1.777s-.13 1.232-.365 1.777l4.675 2.55a4.5 4.5 0 1 1-.63.795l-4.54-2.476zM18 8a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM6 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM18 23a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+															</svg>
+														</button>
+													</div>
+												</aside>
+											</div>
+										</article>
+									</div>
+				</c:forEach>	
+								</div>
+							</div>
+						</div>
+						</c:if>
 					</div>
 					
 					

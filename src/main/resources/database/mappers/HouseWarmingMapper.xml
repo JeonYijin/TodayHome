@@ -9,9 +9,6 @@
    <select id="getHListForHome"  resultType="HouseWarmingVO">
       SELECT * FROM HOUSEWARMING
    </select>
-	
-
-
 
 	<!-- 글쓰기 -->
 	<insert id="setHouseWarming" parameterType="HouseWarmingVO">

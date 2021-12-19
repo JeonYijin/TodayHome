@@ -760,7 +760,9 @@ margin-top:26px;
 					<a class="home-section__header__more home-hide-sm" href="../picture/picList">더보기</a>
 				</header>
 				<ul class="row home-cards__content">
+					<c:set var="Ploof" value="false"></c:set>
 					<c:forEach items="${topPic}" varStatus="status" var="topPic">
+					<c:if test="${not Ploof }">
 					<li class="col-6 col-md-3 home-cards__content__item">
 						<article class="story-entry story-card-item">
 							<a class="story-entry-link" href="../picture/picOne?post_id=${topPic.post_id}">
@@ -790,6 +792,10 @@ margin-top:26px;
 							<span>${status.index+1}</span>
 						</div>
 					</li>
+					<c:if test="${status.count == 8 }">
+									<c:set var="Ploof" value="true"></c:set>
+								</c:if>
+					</c:if>
 					</c:forEach>
 				</ul>
 				<div class="row home-section__more-wrap">

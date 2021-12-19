@@ -24,9 +24,9 @@ public class HouseWarmingService {
 	private FileManager fileManager;
 	
 	 /* 커뮤니티 홈에서 접근할 때 쓸 집들이 list service */
-	   public List<HouseWarmingVO> getHListForHome() throws Exception {
-	      return houseDAO.getHListForHome();
-	   };
+	 public List<HouseWarmingVO> getHListForHome() throws Exception {
+	    return houseDAO.getHListForHome();
+	 };  
 	
 	
 	// 글쓰기

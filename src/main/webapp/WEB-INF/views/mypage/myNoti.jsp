@@ -177,7 +177,7 @@ margin-top:26px;
 					<ul style="transform: translateX(0px);">
 						<li class="page-navigation__item"><a class="" href="./mySetting?memberNum=${member.memberNum}" target="_self">회원정보수정</a></li>
 						<li class="page-navigation__item"><a class="active" href="./myNoti?memberNum=${member.memberNum}" target="_self">알림 설정</a></li>
-						<li class="page-navigation__item"><a class="" href="/users/4672761/edit_password" target="_self">비밀번호 변경</a></li>
+						<!-- <li class="page-navigation__item"><a class="" href="/users/4672761/edit_password" target="_self">비밀번호 변경</a></li> -->
 					</ul>
 				</nav>
 			</div>

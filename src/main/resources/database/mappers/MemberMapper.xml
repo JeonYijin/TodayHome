@@ -189,5 +189,34 @@
   	<select id="getMyScrapCount" parameterType="ScrapingVO" resultType="Long">
   		select count(*) from scraping where memberNum = #{memberNum};
   	</select>
+  	
+  	<!-- 내가 쓴 집들이 게시글 개수 -->
+  	
+  	<select id="getHListCount" parameterType="String" resultType="Long">
+  		select count(*) from housewarming where house_userId = #{house_userId}
+  	</select>
+  	
+	<!-- 마이페이지에서 접근할 때 쓸 query -->
+   <select id="getHListForMypage" parameterType="String" resultType="HouseWarmingVO">
+      SELECT * FROM HOUSEWARMING
+      WHERE HOUSE_userId=#{house_userId}
+   </select>
+  <!-- 집들이 좋아요 개수 -->	
+  <select id="getHzoaCount" parameterType="String" resultType="Long">
+  	select count(*) from house_zoayo where zoayo_id = #{zoayo_id}
+  </select>	
+  <!-- 집들이 스크랩 개수 -->
+  <select id="getHscrCount" parameterType="String" resultType="Long">
+  	select count(*) from house_scrap where scrap_id = #{scrap_id}
+  </select>
+  
+  <!-- 집들이 좋아요 누른 게시글 -->
+  <select id="getHzoaPost" parameterType="String" resultType="HouseWarmingVO">
+  	select * from house_zoayo where zoayo_id = #{zoayo_id}
+  </select>
+  <!-- 집들이 스크랩한 게시글 -->
+  <select id="getHscrPost" parameterType="String" resultType="HouseWarmingVO" >
+  	select * from house_scrap where scrap_id = #{scrap_id}
+  </select>
   
   </mapper>

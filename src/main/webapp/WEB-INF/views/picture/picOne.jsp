@@ -328,9 +328,38 @@
 									<c:forEach items="${comment.memberVO}" var="member">
 									
 									<c:if test="${member.memberNum eq loginMember.memberNum}">
-											<%-- <c:forEach begin="1" end="${comment.depth }">
-												
-											</c:forEach> --%>
+										<c:if test="${comment.depth >= 1 }">
+											<li class="comment-feed__list__item" id="comment${status.index}" style="margin-left: 20px;">
+										<!-- 답댓글일 경우 앞에 margin 주기 -->
+											<article class="comment-feed__item self">
+												<p class="comment-feed__item__content">
+													<a href="#" class="comment-feed__item__content__author" >
+														<img class="comment-feed__item__content__author__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x">
+														<span class="comment-feed__item__content__author__name">${loginMember.nickname}</span>
+													</a>
+													<span class="comment-feed__item__content__content">${comment.comment_text}&nbsp;</span>
+												</p>
+												<footer class="comment-feed__item__footer">
+													<time class="comment-feed__item__footer__time">${comment.comment_date}</time>
+													<span class="comment-feed__item__footer__likes zero">
+														<button class="comment-feed__item__footer__likes__icon" type="button">
+															<svg class="badge" width="15" height="14" preserveAspectRatio="xMidYMid meet">
+																<path fill-rule="evenodd" class="heart" d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z"></path>
+															</svg>
+														</button>
+														<span class="comment-feed__item__footer__likes__count">0</span>
+													</span>
+													
+													<input id="comment_num${status.index}" value="${comment.comment_num}" type="hidden">
+													<button class="comment-feed__item__footer__like-btn" type="button">좋아요</button>
+													<button class="comment-feed__item__footer__reply-btn" id="replyBtn${status.index}" type="button">답글 달기</button>
+													<button class="comment-feed__item__footer__delete-btn" id="deleteBtn${status.index}" type="button">삭제</button>
+													
+												</footer>
+										</article>
+										</li>
+										</c:if>
+										<c:if test="${comment.depth == 0 }">
 										<li class="comment-feed__list__item" id="comment${status.index}">
 										<!-- 답댓글일 경우 앞에 margin 주기 -->
 											<article class="comment-feed__item self">
@@ -360,11 +389,11 @@
 												</footer>
 										</article>
 										</li>
+										</c:if>
 									</c:if>
 									<c:if test="${member.memberNum ne loginMember.memberNum}">
-											<%-- <c:forEach begin="1" end="${comment.depth }">
-												
-											</c:forEach> --%>
+											
+											<c:if test="${comment.depth >= 1 }">
 										<li class="comment-feed__list__item" id="comment${status.index}">
 											<article class="comment-feed__item">
 												<p class="comment-feed__item__content">
@@ -397,6 +426,42 @@
 											
 											</article>
 										</li>
+										</c:if>
+										<c:if test="${comment.depth == 0 }">
+										<li class="comment-feed__list__item" id="comment${status.index}" style="margin-left: 20px;">
+											<article class="comment-feed__item">
+												<p class="comment-feed__item__content">
+													<a href="/users/5990463" class="comment-feed__item__content__author">
+														<img class="comment-feed__item__content__author__image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144 3x">
+														<!-- <img class="comment-feed__item__content__author__image" alt="" src=""> -->
+															<c:if test="${member.memberNum eq comment.memberNum}">
+																<span class="comment-feed__item__content__author__name">${member.nickname}</span>
+															</c:if>
+													</a>
+													<span class="comment-feed__item__content__content">${comment.comment_text}</span>
+												</p>
+												
+												<footer class="comment-feed__item__footer">
+													<time class="comment-feed__item__footer__time">${comment.comment_date}</time>
+														<span class="comment-feed__item__footer__likes zero">
+															<button class="comment-feed__item__footer__likes__icon" type="button">
+																<svg class="badge" width="15" height="14" preserveAspectRatio="xMidYMid meet">
+																	<path fill-rule="evenodd" class="heart" d="M7 12.4c4.8-2.5 6.7-5.2 6.5-8-.3-3-4.1-4-6.1-1.4l-.4.5-.4-.5C4.6.4.8 1.5.6 4.4c-.3 2.8 1.6 5.5 6.4 8z"></path>
+																</svg>
+															</button>
+															<span class="comment-feed__item__footer__likes__count">0</span>
+														</span>
+														<input id="comment_num${status.index}" value="${comment.comment_num}" type="hidden">
+														<button  class="comment-feed__item__footer__like-btn" >좋아요</button>
+														<button class="comment-feed__item__footer__reply-btn" id="replyBtn${status.index}" >답글 달기</button>
+														<button class="comment-feed__item__footer__report-btn" id="reportBtn${status.index}" >신고</button>
+														
+												</footer>
+											
+											</article>
+										</li>
+										
+										</c:if>
 										</c:if>
 									</c:forEach>
 									</c:forEach>

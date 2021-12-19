@@ -16,7 +16,7 @@
 		inner join member M
 		on P.memberNum = M.memberNum 
 		order by hit desc
-		limit 0, 20
+		
 	</select>
 	<resultMap type="PictureVO" id="topPic">
 		<id column="post_id" property="post_id"/>

@@ -76,9 +76,6 @@ public interface HouseWarmingDAO {
 	// -------------------------------------------------------------------------
 	
 	/* 커뮤니티 홈에서 접근할 때 쓸 집들이 list dao */
-	   public List<HouseWarmingVO> getHListForHome() throws Exception;
-
-	
-	
+	public List<HouseWarmingVO> getHListForHome() throws Exception;
 	
 }
