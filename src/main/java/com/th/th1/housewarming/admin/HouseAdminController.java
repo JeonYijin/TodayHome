@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.th.th1.housewarming.HouseWarmingService;
@@ -61,6 +62,7 @@ public class HouseAdminController { // 집들이 글게재 심사, 관리용 adm
 	
 	// 스타일 카테고리 심사 결과 등록
 	@PostMapping("screen_detail")
+	@ResponseBody
 	public String setScreenHDetail(int house_num, int style_category, HttpSession session) throws Exception {
 		//서비스까지 보낸 후 --> if(style_category==-2){delete query 실행}
 		
@@ -70,17 +72,18 @@ public class HouseAdminController { // 집들이 글게재 심사, 관리용 adm
 		scResult.put("style_category", style_category);
 		
 		int result = houseService.setScreenResult(scResult);
-		
-		//심사결과 message를 session에 담기
+		System.out.println("리젘트(2-->승인, 1-->거부) : "+result);
+		String screenResult = "";
+		//심사결과 message 담기
 		if(result == 2) {
-			session.setAttribute("screenResult", "게재 승인 완료");
+			screenResult = "게재 승인 -> 게재 완료";
 		} else if(result == 1) {
-			session.setAttribute("screenResult", "게재 거부 완료");
+			screenResult = "게재 거부 -> 삭제 완료";
 		} else {
-			session.setAttribute("screenResult", "심사 실패");
+			screenResult = "그저.. 심사를 실패함";
 		}
 		
-		return "redirect:/housewarming/admin/screen_list";
+		return screenResult;
 	}
 	
 	

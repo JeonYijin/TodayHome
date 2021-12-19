@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/App-6e6c2f0c.chunk.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/7f85a56ba4.css">
 <link rel="stylesheet" type="text/css" href="https://assets.ohou.se/web/dist/css/templates-Home-HomePage-f3a55bf4.chunk.css">
+<link rel="stylesheet" type="text/css" href="https://assets.ohou.se/web/dist/css/43-062b3c9e.chunk.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">

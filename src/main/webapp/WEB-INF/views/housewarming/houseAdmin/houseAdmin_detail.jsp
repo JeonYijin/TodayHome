@@ -54,19 +54,19 @@
 							    심사하기
 							  </button>
 							  <ul class="dropdown-menu">
-							  	<li><a class="dropdown-item" href="" data-num="0" onclick="goToScreen();">0 : 모던</a></li>
-							  	<li><a class="dropdown-item" href="" data-num="1" onclick="goToScreen();">1 : 미니멀&심플</a></li>
-							  	<li><a class="dropdown-item" href="" data-num="2" onclick="goToScreen();">2 : 내추럴</a></li>
-							  	<li><a class="dropdown-item" href="" data-num="3" onclick="goToScreen();">3 : 북유럽</a></li>
-							  	<li><a class="dropdown-item" href="" data-num="4" onclick="goToScreen();">4 : 빈티지&레트로</a></li>
-							  	<li><a class="dropdown-item" href="" data-num="5" onclick="goToScreen();">5 : 클래식&앤틱</a></li>
-							  	<li><a class="dropdown-item" href="" data-num="6" onclick="goToScreen();">6 : 프렌치&프로방스</a></li>
-							  	<li><a class="dropdown-item" href="" data-num="7" onclick="goToScreen();">7 : 러블리&로맨틱</a></li>
-							  	<li><a class="dropdown-item" href="" data-num="8" onclick="goToScreen();">8 : 인더스트리얼</a></li>
-							  	<li><a class="dropdown-item" href="" data-num="9" onclick="goToScreen();">9 : 한국&아시아</a></li>
-							  	<li><a class="dropdown-item" href="" data-num="10" onclick="goToScreen();">10 : 유니크&믹스매치</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="0" onclick="goToScreen(event);">0 : 모던</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="1" onclick="goToScreen(event);">1 : 미니멀&심플</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="2" onclick="goToScreen(event);">2 : 내추럴</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="3" onclick="goToScreen(event);">3 : 북유럽</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="4" onclick="goToScreen(event);">4 : 빈티지&레트로</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="5" onclick="goToScreen(event);">5 : 클래식&앤틱</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="6" onclick="goToScreen(event);">6 : 프렌치&프로방스</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="7" onclick="goToScreen(event);">7 : 러블리&로맨틱</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="8" onclick="goToScreen(event);">8 : 인더스트리얼</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="9" onclick="goToScreen(event);">9 : 한국&아시아</a></li>
+							  	<li><a class="dropdown-item" href="" data-num="10" onclick="goToScreen(event);">10 : 유니크&믹스매치</a></li>
 							    <li><hr class="dropdown-divider"></li>
-							    <li><a class="dropdown-item" href="" style="color:red;" data-num="11">게재 불가</a></li>
+							    <li><a class="dropdown-item" href="" style="color:red;" data-num="11" onclick="goToScreen(event);">게재 불가</a></li>
 							  </ul>
 							</div>
 							<input type="number" name="style_category" id="style_category" value="" hidden="hidden"/>
@@ -313,13 +313,27 @@
 <script type="text/javascript">
 function goToScreen(event) {
 	var thisEle = event.target;
-	alert($(thisEle).attr('data-num'));
 	var style_category = $(thisEle).attr('data-num');
 	var house_num = $('#house_num').val();
 	$('#style_category').val(style_category);
 	
+	
+	
 	if(confirm($(thisEle).text()+'<br>정말 이대로 심사를 진행하시겠습니까?')){
-		location.href="/housewarming/admin/screen_detail?house_num"+house_num+"&style_category="+style_category;	
+		$.ajax({
+			url : '/housewarming/admin/screen_detail',
+			type : 'post',
+			data : {
+				'style_category':style_category,
+				'house_num':house_num
+			},
+			success: function(result) {
+				location.href='/housewarming/admin/screen_list';
+			},
+			error: function(){
+				alert('심사 ajax 전송 실패~!');
+			}
+		});
 	}
 }
 </script>    
