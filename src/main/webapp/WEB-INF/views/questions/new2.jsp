@@ -65,11 +65,7 @@
 				                                    type="checkbox" value="1" name="notice"/><span class="check-img"></span>공지 등록</label></div>
 						  					</c:if>
 						  				</c:forEach>
-		  							</sec:authorize>	
-                                    <div class="editor-draft-menu-pc-button"><button type="button"
-                                            class="editor-draft-menu-pc-button__save"><span
-                                                class="text-lg">임시저장</span><span class="text-md">저장</span></button>
-                                    </div>
+		  							</sec:authorize>
                                 </div><button type="button" class="editor-submit-menu-pc-button"><span
                                         class="text-lg" name="">올리기</span><span class="text-md">올리기</span></button>
                             </div>
@@ -133,7 +129,7 @@
 		            </div>
 		        </div>
 		        <div class="editor__content-wrap">
-		            <div class="editor-content-list">
+		            <div class="editor-content-list" style="padding-bottom:10px;">
 		                <div class="editor-content-list__content editor__content">
 		                    <div class="editor-content-block-container editor-content-block-p-container">
 		                        <textarea rows="5" cols="50" id="quests_contents" name="quests_contents"></textarea>
@@ -171,13 +167,14 @@
      <!-- The Modal -->
   	<div id="myModal" class="modal"> 
  
-      <!-- Modal content -->
-      <div class="modal-content">
-                <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 24pt;">공지</span></b></span></p>
+ 
+      <!-- Modal content --> 
+      <div class="modal-content"">
+                <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 24pt;">#해시태그</span></b></span></p>
+                <br><hr>
                 <div>
 					<div class="css-c6b9dy-ContentBody e4qt54a1">
 				        <dl class="css-drk099-GroupDl eele3ye3">
-				            <dt class="css-dp5u7g-GroupDt eele3ye2">일반</dt>
 				            <dd class="css-xdkdg4-GroupDd eele3ye1">
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
@@ -210,7 +207,7 @@
 				                    </li>
 				                </ul>
 				            </dd>
-				            <dt class="css-dp5u7g-GroupDt eele3ye2">부분 공정</dt>
+				            <hr>
 				            <dd class="css-xdkdg4-GroupDd eele3ye1">
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
@@ -319,7 +316,7 @@
 				                    </li>
 				                </ul>
 				            </dd>
-				            <dt class="css-dp5u7g-GroupDt eele3ye2">가구</dt>
+				            <hr>
 				            <dd class="css-xdkdg4-GroupDd eele3ye1">
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
@@ -372,7 +369,7 @@
 				                    </li>
 				                </ul>
 				            </dd>
-				            <dt class="css-dp5u7g-GroupDt eele3ye2">공간</dt>
+				            <hr>
 				            <dd class="css-xdkdg4-GroupDd eele3ye1">
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
@@ -393,7 +390,7 @@
 				                    </li>
 				                </ul>
 				            </dd>
-				            <dt class="css-dp5u7g-GroupDt eele3ye2">평수</dt>
+				            <hr>
 				            <dd class="css-xdkdg4-GroupDd eele3ye1">
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
@@ -422,7 +419,7 @@
 				                    </li>
 				                </ul>
 				            </dd>
-				            <dt class="css-dp5u7g-GroupDt eele3ye2">실내 공간</dt>
+				            <hr>
 				            <dd class="css-xdkdg4-GroupDd eele3ye1">
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
@@ -447,7 +444,7 @@
 				                    </li>
 				                </ul>
 				            </dd>
-				            <dt class="css-dp5u7g-GroupDt eele3ye2">기타</dt>
+				            <hr>
 				            <dd class="css-xdkdg4-GroupDd eele3ye1">
 				                <ul class="checkbox-group-input css-m7cf62-GroupCheckboxGroupInput eele3ye0">
 				                    <li>
@@ -458,7 +455,7 @@
 				            </dd>
 				        </dl>
 				    </div>                
-                
+                <br><br>
                 </div>
             <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px;" onClick="close_pop();">
                 <span class="pop_bt" style="font-size: 13pt;" >
@@ -473,7 +470,17 @@
             </div>
       </div>
     </div>
-        <!--End Modal-->
+      <!--  End Modal-->
+
+
+<script>
+	//filter toggle
+	$('.category-filter-bar-order-button').click(function(){
+		$('.modal_wrap').toggle('slow');
+	});
+</script>
+
+
 
 <script type="text/javascript">
 	$('#modalBtn').click(function(){

@@ -14,9 +14,8 @@ import com.th.th1.member.MemberDAO;
 import com.th.th1.member.MemberVO;
 
 @Component
-public class HouseInterceptor implements HandlerInterceptor {
-/**	
- * 
+public class AdminInterceptor implements HandlerInterceptor {
+
 	@Autowired
 	private MemberDAO memberDAO;
 
@@ -24,7 +23,7 @@ public class HouseInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		boolean check = false;
-		System.out.println("preHandle 지나간다~");
+		System.out.println("preHandle과 옷깃을 스치네");
 		
 		String username=null;
 		//principal에서 로그인된 정보 가져오기
@@ -33,9 +32,7 @@ public class HouseInterceptor implements HandlerInterceptor {
 		}
 		
 		//DB에서 memberVO 객체 조회
-		MemberVO memberVO = memberDAO.getLogin(username);
-		
-		
+		MemberVO memberVO = memberDAO.getLogin(username);				
 		
 		if(memberVO != null && memberVO.getRoles().get(0).getNum()==1) {
 			check=true;
@@ -45,10 +42,8 @@ public class HouseInterceptor implements HandlerInterceptor {
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
 			view.forward(request, response);
 		}
-
+		
 		return check;
-	}
+	}	
 
-*/
-	
 }

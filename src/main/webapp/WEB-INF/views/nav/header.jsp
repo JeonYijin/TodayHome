@@ -8,7 +8,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../resources/css/picList.css">
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;display=swap&amp;subset=korean" rel="stylesheet">
+<link href="
+https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;display=swap&amp;subset=korean" rel="stylesheet">
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/preamble-97ede701.chunk.css">
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/App-6e6c2f0c.chunk.css">
 <link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/templates-Home-HomePage-f3a55bf4.chunk.css">
@@ -220,9 +221,11 @@
 							
 							var pageUrl = window.location.href;
 							var urlArr = pageUrl.split('localhost:8080/');
+							var urlArr2 = urlArr.split('?');
 							var dataArr = $('.layout-navigation-secondary__menu a');
 							
 							$.each(dataArr, function(index, item){
+								console.log(urlArr[1]);
 								if($(item).attr('data-word')==urlArr[1] || $(item).attr('data-word')+'/'==urlArr[1]){
 									$(item).attr('class', 'layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active');
 								}

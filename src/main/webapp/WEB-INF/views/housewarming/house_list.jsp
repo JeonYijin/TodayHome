@@ -14,7 +14,7 @@
 
 <!-- 영자 판별 security tag test -->
 <sec:authorize access="hasRole('ROLE_ADMIN')">
-	<p style="color:red;">이거 보이면 영자임</p>
+
 </sec:authorize>
 
 

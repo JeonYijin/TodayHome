@@ -12,7 +12,6 @@
 <body>
 
 <div class="layout">
-
 	<%@ include file="../nav/header.jsp"%>
   <div>    
     <header class="css-6jmcxp-FeedHeader evxc8q77">
@@ -111,7 +110,6 @@
 	                    class="css-wk63b1-ItemText e1lj374k0">답변 이벤트 안내 및 활동 주의사항 📢</span></a>
 	        <a class="css-2acggu-ItemLink e1lj374k2" href="/questions/selectOne?quests_num=81"><span class="css-1n2c0v5-ItemBadge e1lj374k1">공지</span><span
 	                    class="css-wk63b1-ItemText e1lj374k0">빠르고 정확한 인테리어 답변을 받는 방법은?</span></a>
-
 		</div>
         
         <div class="css-1amvimq-FeedItemList evxc8q72">

@@ -75,7 +75,7 @@ public class HouseWarmingController { /** [집들이 게시판 Controller] */
 		} else if(principal != null) {
 			System.out.println("principal.getName() = "+principal.getName());
 			hsVO = new House_ScrapVO();
-			hsVO.setScrap_id(principal.getName());
+			hsVO.setScrap_id(principal.getName()); 
 			
 			scraps = houseService.getScraps(hsVO);
 
