@@ -134,11 +134,7 @@ public class HouseWarmingService {
 	}
 	
 	// -------------------------------------------------------------------------
-	
-	/* 커뮤니티 홈에서 접근할 때 쓸 query */
-	public List<HouseWarmingVO> getHListForHome(String house_writer) throws Exception {
-		return houseDAO.getHListForHome(house_writer);
-	};
+
 	
 	
 	
