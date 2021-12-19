@@ -2257,7 +2257,7 @@ iframe#_hjRemoteVarsFrame {
 </head>
 
 <body>
-<%@ include file="../store/header.jsp"%>
+
 	<form action="./list" id="frm">
 		<div class="customer-notice-list">
 			<div class="customer-notice-list__content">

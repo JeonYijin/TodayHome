@@ -1,0 +1,381 @@
+@charset "UTF-8";
+
+
+/* 주문상품 */
+._254uw {
+    overflow: hidden;
+    margin: -3px;
+    padding: 23px 3px 3px;
+    box-sizing: border-box;
+}
+
+.checkout-container {
+    width: auto;
+    max-width: none;
+    margin: 0 auto;
+    width: calc(100% - 30px);
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 1px;
+}
+
+._3aT7b {
+    padding-bottom: 24px;
+}
+
+.css-115l9ix-Products {
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid rgb(234, 235, 239);
+    margin-bottom: 16px;
+}
+
+.css-pf6rhq-HeaderContainer {
+    padding: 11px 16px 10px;
+    background-color: rgb(247, 248, 250);
+}
+
+.css-bhirsz-HeaderContent {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.css-ntkxkp-HeaderName {
+    flex: 1 0 0px;
+    font-size: 14px;
+    line-height: 19px;
+    color: rgb(66, 66, 66);
+    font-weight: bold;
+}
+
+.css-1jehq3q-HeaderDelivery {
+    flex: 1 0 0px;
+    font-size: 14px;
+    line-height: 19px;
+    color: rgb(66, 66, 66);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.css-fa05mq-HeaderDeliveryTitle {
+    color: rgb(130, 140, 148);
+    margin-right: 4px;
+}
+
+.css-551ov3-HeaderDeliveryMethod {
+    margin-top: 10px;
+    border-top: 1px solid rgb(234, 235, 239);
+    padding-top: 10px;
+    font-size: 13px;
+    line-height: 16px;
+    color: rgb(130, 140, 148);
+    text-align: center;
+}
+
+.css-1sbnj8x-Item:last-of-type {
+    border-bottom: 0px;
+}
+
+.css-1sbnj8x-Item {
+    display: flex;
+    padding: 16px;
+    box-sizing: border-box;
+   
+}
+
+.css-108l2f6-ItemImage {
+    border-radius: 4px;
+    width: 64px;
+    height: 64px;
+    margin-right: 12px;
+}
+
+.css-6z5gcs-ItemContent {
+    flex: 1 0 0px;
+}
+
+.css-1hrwauf-ItemName {
+    font-size: 15px;
+    line-height: 18px;
+    color: rgb(41, 41, 41);
+    margin-bottom: 8px;
+}
+
+.css-rw1213-ItemOptions {
+    font-size: 13px;
+    line-height: 16px;
+    color: rgb(117, 117, 117);
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.css-rw1213-ItemOptions > li {
+    position: relative;
+    padding-left: 6px;
+}
+
+.css-16e4gwj-ItemFooter {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 11px;
+}
+
+.css-1r5zoy-ItemPrice {
+    font-size: 14px;
+    line-height: 17px;
+    color: rgb(41, 41, 41);
+    font-weight: bold;
+}
+
+.css-51f2tl-ItemDivider {
+    margin: 0px 8px;
+    height: 12px;
+    border-right: 1px solid rgb(234, 235, 239);
+}
+
+.css-4l5vzx-ItemCount {
+    font-size: 13px;
+    line-height: 16px;
+    color: rgb(117, 117, 117);
+}
+
+
+
+/* 결제수단 */
+._254uw {
+    overflow: hidden;
+    margin: -3px;
+    padding: 23px 3px 3px;
+    box-sizing: border-box;
+}
+
+.checkout-container {
+    width: auto;
+    max-width: none;
+    margin: 0 auto;
+    width: calc(100% - 30px);
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 1px;
+}
+
+.css-1i2ch29-List {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid rgb(234, 235, 239);
+    border-left: 1px solid rgb(234, 235, 239);
+}
+
+.css-15gh611-PayGateItem {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    width: 12.5%;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-width: 0px 1px 1px 0px;
+    border-top-style: initial;
+    border-left-style: initial;
+    border-top-color: initial;
+    border-left-color: initial;
+    border-image: initial;
+    padding: 0px 1px 5px 0px;
+    margin: 0px;
+    border-right-style: solid;
+    border-right-color: rgb(234, 235, 239);
+    border-bottom-style: solid;
+    border-bottom-color: rgb(234, 235, 239);
+    transition: background-color 0.2s ease 0s;
+    word-break: keep-all;
+    cursor: pointer;
+}
+
+.css-11hkzlh-PayGateItem {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    width: 12.5%;
+    box-sizing: border-box;
+    text-align: center;
+    border-width: 0px 2px 2px 0px;
+    border-top-style: initial;
+    border-left-style: initial;
+    border-top-color: initial;
+    border-left-color: initial;
+    border-image: initial;
+    margin: 0px;
+    transition: background-color 0.2s ease 0s;
+    word-break: keep-all;
+    cursor: pointer;
+    padding: 0px 0px 4px;
+    background-color: rgb(239, 251, 255);
+    border-right-style: solid;
+    border-right-color: rgb(53, 197, 240);
+    border-bottom-style: solid;
+    border-bottom-color: rgb(53, 197, 240);
+}
+
+.css-k5pe93-PayGateIcon {
+    width: 60px;
+    height: 60px;
+    margin: 8px auto 4px;
+}
+
+.css-lqt56a-EventSection {
+    padding: 20px 0px;
+}
+
+.css-12jqjqp-EventContent {
+    padding: 16px 20px;
+    box-sizing: border-box;
+    background-color: rgb(247, 248, 250);
+}
+
+.css-1ceaf8b-EvnetDetail {
+    font-size: 13px;
+    line-height: 20px;
+    color: rgb(101, 110, 117);
+}
+
+/* 필수 동의 체크 */
+.css-c28ivc-AllAgreeLabel {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 12px 0px 12px 24px;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgb(0, 0, 0);
+}
+
+.css-1146g0e-AllAgreeCheckbox.css-1146g0e-AllAgreeCheckbox.css-1146g0e-AllAgreeCheckbox {
+    display: flex;
+    margin: -9px 3px -9px -9px;
+}
+
+._3zqA8 {
+    position: relative;
+    display: inline-block;
+    font-size: 0;
+    padding: 9px;
+}
+
+._3UImz {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: inherit;
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+._3UImz:checked+._2mDYR {
+    border-color: #35c5f0;
+    background-color: #35c5f0;
+    color: #fff;
+}
+
+._2UftR {
+    width: 1em;
+    height: 1em;
+}
+
+/* 개인정보 동의*/
+.css-m0eavh-Policies {
+    background-color: rgb(247, 248, 250);
+    padding: 12px 24px;
+}
+
+.css-1puxrtz-FolderButton {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 0px;
+    background-color: transparent;
+    width: 100%;
+    padding: 0px 0px 14px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgb(101, 110, 117);
+}
+
+.css-stmbw5-TermArrowIcon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease 0s;
+    fill: rgb(130, 140, 148);
+    margin-left: auto;
+}
+
+.css-m0eavh-Policies .policy-list {
+    border: 0px;
+}
+
+.css-12fjew5-PolicyMessage {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgb(101, 110, 117);
+}
+
+/*결제버튼*/
+.y-RI2 {
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 2px 6px rgb(53 197 240 / 20%);
+}
+
+._27do9 {
+    padding: 15px 10px;
+    line-height: 20px;
+    font-size: 17px;
+    min-height: 50px;
+}
+
+._3SroY {
+    background-color: #35c5f0;
+    border-color: #35c5f0;
+    color: #fff;
+}
+
+._1eWD8 {
+    user-select: none;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", "Noto Sans CJK KR", "맑은 고딕", "Malgun Gothic", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    margin: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    background: none;
+    text-decoration: none;
+    transition: color 0.1s ease 0s, background-color 0.1s ease 0s, border-color 0.1s ease 0s;
+    border-radius: 4px;
+}
+
+
+
