@@ -307,7 +307,7 @@ margin-top:26px;
 										<div class="css-ryl636-GridListItem e1qiovhc0">
 											<a class="css-8z7wo6-ItemLink e1qgexi82" href="../housewarming/detail?house_num=${myHouse.house_num}&loginId=${member.id}">
 												
-													<img class="css-1j4vn88-ItemImage e1qgexi81" alt="" src="">
+													<img class="css-1j4vn88-ItemImage e1qgexi81" alt="" src="../resources/upload/housewarming/${myHouse.house_thumbnail}">
 											</a>
 										</div>
 										</c:forEach>

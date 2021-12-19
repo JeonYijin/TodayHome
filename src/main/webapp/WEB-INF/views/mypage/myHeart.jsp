@@ -291,7 +291,7 @@ margin-top:26px;
 									<div class="col-6 col-lg-4" style="">
 										<div class="css-11syldp-FeedItem e1lm7yo60">
 											<a class="css-11kfzam-PraiseItemLink e1vfbmcc3" href="../../housewarming/detail?house_num=${heartH.house_num}&loginId=${member.id}">
-												<img class="css-m9by0t-PraiseItemImage e1vfbmcc2" src="">
+												<img class="css-m9by0t-PraiseItemImage e1vfbmcc2" src="../resources/upload/housewarming/${heartH.house_thumbnail}">
 												<span class="css-q81wq8-PraiseItemType e1vfbmcc1">집들이</span>
 											</a>
 										</div>

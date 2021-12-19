@@ -238,7 +238,7 @@ margin-top:26px;
 						    <a href="../housewarming/detail?house_num=${scrapH.house_num}&loginId=${member.id}">
 							    <div class="collection collection--total">
 								    <div class="collection__image-wrap">
-								   	 <img class="collection__image" src="">
+								   	 <img class="collection__image" src="../resources/upload/housewarming/${scrapH.house_thumbnail}">
 								    </div>
 							   		 <span class="collection__type">집들이</span>
 							    </div>
