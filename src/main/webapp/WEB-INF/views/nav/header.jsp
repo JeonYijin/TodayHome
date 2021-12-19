@@ -219,14 +219,18 @@ https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;display=swa
 						<script type="text/javascript">
 							/*url별 버튼에 파랑색 불들어오고 underline 생기도록 만들기*/
 							
+							//어떤 상황에서도 questions 불 들어오게 하는거 해결 완료
 							var pageUrl = window.location.href;
 							var urlArr = pageUrl.split('localhost:8080/');
-							var urlArr2 = urlArr.split('?');
-							var dataArr = $('.layout-navigation-secondary__menu a');
+							var urlArr2 = [];
+							if(urlArr[1].indexOf('?') > -1){
+								urlArr2 = urlArr[1].split('?');
+							}
 							
+							
+							var dataArr = $('.layout-navigation-secondary__menu a');
 							$.each(dataArr, function(index, item){
-								console.log(urlArr[1]);
-								if($(item).attr('data-word')==urlArr[1] || $(item).attr('data-word')+'/'==urlArr[1]){
+								if($(item).attr('data-word')==urlArr[1] || $(item).attr('data-word')+'/'==urlArr[1] || $(item).attr('data-word')==urlArr2[0]){
 									$(item).attr('class', 'layout-navigation-secondary__menu__item layout-navigation-secondary__menu__item--active');
 								}
 							});
