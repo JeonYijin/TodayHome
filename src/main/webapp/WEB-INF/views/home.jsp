@@ -185,6 +185,7 @@ margin-top:26px;
 								<a class="layout-navigation-secondary__menu__item" href="../picture/picList">사진</a>
 								<a class="layout-navigation-secondary__menu__item" href="../housewarming/">집들이</a>
 								<a class="layout-navigation-secondary__menu__item" href="../questions/">질문과답변</a>
+								<a class="layout-navigation-secondary__menu__item" href="../notice/list">공지사항</a>
 								
 						</nav>
 						<div
