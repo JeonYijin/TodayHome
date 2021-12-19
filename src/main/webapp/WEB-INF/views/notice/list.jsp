@@ -1,13 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <head>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;display=swap&amp;subset=korean" rel="stylesheet">
+<link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/preamble-97ede701.chunk.css">
+<link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/App-6e6c2f0c.chunk.css">
+<link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/templates-Home-HomePage-f3a55bf4.chunk.css">
+<link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/21-0e75de9b.chunk.css">
+<link rel="stylesheet" href="https://assets.ohou.se/web/dist/css/23-2ef16b9a.chunk.css">
+<style data-emotion="css 1293549-Container" data-s="">
+.css-1293549-Container{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-align-items:center;
+	-webkit-box-align:center;
+	-ms-flex-align:center;
+	align-items:center;
+}
+.css-1p6gxrd-Info{
+	font-size:10px;
+	line-height:14px;
+	color:#828c94;
+	margin-left:8px;
+}
+.css-wkl218-SectionWrapper{
+margin-top:32px;
+}
+@media (min-width: 768px){
+.css-wkl218-SectionWrapper{
+margin-top:26px;
+}
+}
+.css-167c30c-Wrapper{position:absolute;width:100%;height:100%;box-sizing:border-box;z-index:1;pointer-events:none;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport"
 	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,viewport-fit=cover">
@@ -2449,5 +2483,112 @@ iframe#_hjRemoteVarsFrame {
                              </sec:authorize>
 	</form>
 	<%@ include file="../store/footer.jsp"%>
+	<script type="text/javascript">
+
+//마이메뉴 선택하면 마이페이지/로그아웃 등 드롭다운 메뉴 보여주기
+
+	$('.myBtn').click(function(){
+		//alert('마이메뉴');
+		$('.mymenu').css('display', 'block');
+	})
+	
+// 이외의 영역을 클릭하면 사라지기	
+
+	$('.home-page').click(function(e){
+		 if(!$(e.target).hasClass('mymenu')){
+			$('.mymenu').css('display', 'none');
+		} 
+	});
+	
+// 글쓰기 선택하면 메뉴 보여주기
+	
+	$('.writeBtn1').click(function(){
+		$('.writemenu').css('display', 'block');
+	})
+
+// 이외의 영역을 클릭하면 사라지기 
+	$('.home-page').click(function(e){
+		 if(!$(e.target).hasClass('writemenu')){
+			$('.writemenu').css('display', 'none');
+		} 
+	});
+
+	$('.logout').click(function(){
+		location.href="../member/memberLogout"
+	})
+
+// 슬라이드 배너 만들기
+
+$(document).ready(function(){
+	console.log('확인')
+	$('.home-header__banner__item').not('.active').hide();
+	//3초마다 넘어가기
+ 	setInterval("next()", 4000);
+
+});
+
+//이전 슬라이드
+function prev(){
+	$('.home-header__banner__item').hide();
+	let allSlide = $('.home-header__banner__item');
+	let currentIndex = 0; 
+	
+	//반복문의로 현재 active인 div 찾기
+	$('.home-header__banner__item').each(function(index, item){
+		if($(this).hasClass("active")){
+			currentIndex = index;
+		}
+	});
+	
+	//새로 띄울 슬라이드 index
+	let newIndex = 0;
+	if(currentIndex <=0){
+		//현재 슬라이드가 0인경우 - 첫번째인 경우 마지막 슬라이드로 보내기
+		newIndex = allSlide.length-1;
+	} else{
+		//현재 슬라이드가 0이상일 경우 
+		newIndex = currentIndex-1;
+	}
+	
+	//모든 슬라이드에서 active 지우고 새로 주기
+	$('.home-header__banner__item').removeClass("active");
+	
+	//새로운 index의 슬라이드에 active 주고 보여주기
+	$('.home-header__banner__item').eq(newIndex).addClass("active");
+	$('.home-header__banner__item').eq(newIndex).show();
+	
+}
+
+
+//다음 슬라이드
+function next(){
+	$('.home-header__banner__item').hide();
+	let allSlide = $('.home-header__banner__item');
+	let currentIndex = 0;
+	
+	$('.home-header__banner__item').each(function(index, item){
+		if($(this).hasClass("active")){
+			currentIndex = index;
+		}
+	});
+	
+	let newIndex =0;
+	//만약 마지막 슬라이드라면
+	if(currentIndex >= allSlide.length-1){
+		newIndex = 0;
+	} else{
+		//아니라면 다음 슬라이드 
+		newIndex = currentIndex+1;
+	}
+	
+	$('.home-header__banner__item').removeClass("active");
+	$('.home-header__banner__item').eq(newIndex).addClass("active");
+	$('.home-header__banner__item').eq(newIndex).show();
+	
+}
+
+
+
+</script>
 </body>
 </html>
