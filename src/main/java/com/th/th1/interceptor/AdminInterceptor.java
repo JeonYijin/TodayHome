@@ -38,7 +38,7 @@ public class AdminInterceptor implements HandlerInterceptor {
 			check=true;
 		} else {
 			request.setAttribute("msg", "관리자만 접근 가능합니다");
-			request.setAttribute("url", "/housewarming");
+			request.setAttribute("url", "/");
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
 			view.forward(request, response);
 		}
