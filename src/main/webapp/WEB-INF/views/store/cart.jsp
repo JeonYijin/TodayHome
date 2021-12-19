@@ -75,6 +75,7 @@
 	                            <article class="commerce-cart__group">
 	                            	<input type="hidden" class="cartIdVal" value="${item.cart_id}">
 	                            	<input type="hidden" class="itemIndex" value="${vs.index}">
+	                            	<input type="hidden" class="amount" value="1">
 	                                <h1 class="commerce-cart__group__header">${item.pr_seller} 배송</h1>
 	                                <ul class="commerce-cart__group__item-list">
 	                                    <li class="commerce-cart__group__item">
@@ -84,7 +85,7 @@
 	                                                    <article class="carted-product">
 	                                                        <div class="carted-product__select">
 	                                                            <div class="_3zqA8">
-	                                                                <input type="checkbox" class="_3UImz checkbox-agreeOne" value="" checked="checked"/>
+	                                                                <input type="checkbox" class="_3UImz checkbox-agreeOne chbx" value="" checked="checked"/>
 	                                                                <span class="_2mDYR">
 	                                                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="_2UftR">
 	                                                                        <path fill="currentColor" d="M6.185 10.247l7.079-7.297 1.435 1.393-8.443 8.703L1.3 8.432l1.363-1.464z"></path>
@@ -97,8 +98,7 @@
 	                                                            
 	                                                            	<div class="product-small-item__image">
 	                                                                <picture>
-	                                                                   <img alt="" src="../resources/upload/store/${img.files[0].fileName}" srcset="
-                                                                        ">
+	                                                                   <img alt="" src="../resources/upload/store/${img.files[0].fileName}" srcset="">
 	                                                                </picture>
 	                                                            </div>
 	                                                            
@@ -154,27 +154,32 @@
                         <dl class="commerce-cart__summary commerce-cart__side-bar__summary">
                             <div class="commerce-cart__summary__row">
                                 <dt>총 상품금액</dt>
+                               	 <input type="hidden" class="price" checked data-desc="가격" value="${totalMoney}"/>
                                  <fmt:formatNumber type="number" maxFractionDigits="3" value="${totalMoney}" var="ftotalMoney"/>
                                 <dd><span class="number">${ftotalMoney}</span>원</dd>
                             </div>
                             <div class="commerce-cart__summary__row">
                                 <dt>총 배송비</dt>
+                                 <input type="hidden" class="delivery" checked data-desc="배송료" value="${count * 2500}"/>
                                 <fmt:formatNumber type="number" maxFractionDigits="3" value="${count * 2500}" var="fshipMoney" />
                                 <dd>+ <span class="number">${fshipMoney}</span>원</dd>
                             </div>
                             <div class="commerce-cart__summary__row">
                                 <dt>총 할인금액</dt>
+                                 <input type="hidden" class="discount" checked data-desc="할인금액" value="${dcMoney}"/>
                                  <fmt:formatNumber type="number" maxFractionDigits="3" value="${dcMoney}" var="fdcMoney" />
                                 <dd>- <span class="number">${fdcMoney}</span>원</dd>
                             </div>
                             <div class="commerce-cart__summary__row commerce-cart__summary__row--total">
                                 <dt>결제금액</dt>
+                                 <input type="hidden" class="payMoney" checked data-desc="할인금액" value="${totalMoney - dcMoney}"/>
                                  <fmt:formatNumber type="number" maxFractionDigits="3" value="${totalMoney - dcMoney}" var="ffinalMoney" />
                                 <dd><span class="number">${ffinalMoney}</span>원</dd>
                             </div>
                         </dl>
                         <div class="commerce-cart__side-bar__order">
-                        <button class="_1eWD8 _3SroY _27do9 commerce-cart__side-bar__order__btn" type="button">${count}개 상품 구매하기</button>
+                         <input type="hidden" class="amount" checked data-desc="수량" value="${count}"/>
+                        <button class="_1eWD8 _3SroY _27do9 commerce-cart__side-bar__order__btn" type="button" onclick="location.href='./payment'">${count}개 상품 구매하기</button>
                         </div>
                     </div>
                 </div>
@@ -188,7 +193,49 @@
       <input type="hidden" name="id" id="memberVO_id" value="${memberVO.id}"/>
     </sec:authorize>
 
-<script type="text/javascript">
+<script type="text/javascript"> var count;
+var price;
+var delivery;
+var discount;
+var payMoney;
+// checkbox 배열
+var cbxArr = [];
+cbxArr = $('.chbx');
+// 페이지 로딩 하자마자 실행
+$(document).ready(function(){
+    cbxTest();
+});
+// checkbox 체크여부별 총 합산 구하기
+var cbxTest= function cbxTest() {
+        var total=0;
+        var total_price=0;
+        var total_delivery=0;
+        $.each(cbxArr, function(index, item){
+            if($(item).is(':checked')==true){
+                var preCount = $(item).parents('.parent').find('.amount').val();
+                var prePrice = $(item).parents('.parent').find('.price').val();
+                var preDelivery = $(item).parents('.parent').find('.delivery').val();
+                var preDiscount = $(item).parents('.parent').find('.discount').val();
+                var prePayMoney = $(item).parents('.parent').find('.payMoney').val();
+                count = parseInt(preCount);
+                price = parseInt(prePrice);
+                delivery = parseInt(preDelivery);
+                discount = parseInt(preDiscount);
+                payMoney = parseInt(prePayMoney);
+                
+                total_price= (payMoney*count);
+                total_delivery= ;
+                total = (count*payMoney+delivery);
+                
+              
+                
+            };
+            
+        
+        });
+        
+        $('.result').html("전체상품가격="+total_price+"<br>전체배송료="+total_delivery+"<br><hr>총합산금액="+total);
+    };   */
 /* 삭제 버튼 */
 function del(sel) {
 	let cart_id = $('.cartIdVal').val();
@@ -211,9 +258,6 @@ function del(sel) {
 	
 	}) 
 }
-
-
-
 /* 모두 선택  */
  
 $('.checkbox-agreeAll').click(function selectAll() {
@@ -224,9 +268,7 @@ $('.checkbox-agreeAll').click(function selectAll() {
 	}else {
 		$('.checkbox-agreeOne').prop("checked", false);
 	}	
-
 });
-
 //모두 클릭 시 모두 선택 체크
 $('.checkbox-agreeOne').click(function(){
 	let result = true;
@@ -239,11 +281,6 @@ $('.checkbox-agreeOne').click(function(){
 	
 	$('.checkbox-agreeAll').prop("checked", result);
 });
-
-
-
-
-
 </script>
 
 

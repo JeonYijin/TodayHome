@@ -22,4 +22,20 @@ public class PaymentService {
 		return paymentDAO.setDeletePay(memberVO);
 	}
 	
+	public CartVO getSelectPayFiles(MemberVO memberVO) throws Exception {
+		return paymentDAO.getSelectPayFiles(memberVO);
+	}
+	
+	public Long getSelectPayCount(MemberVO memberVO) throws Exception {
+		return paymentDAO.getSelectPayCount(memberVO);
+	}
+	
+	public Long getSelectPayMoney(MemberVO memberVO) throws Exception {
+		return paymentDAO.getSelectPayMoney(memberVO);
+	}
+	
+	public Long getSelectPayDiscount(MemberVO memberVO) throws Exception {
+		return paymentDAO.getSelectPayDiscount(memberVO);
+	}
+	
 }

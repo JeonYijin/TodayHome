@@ -8,9 +8,42 @@
 	<select id="getSelectPayList" parameterType="MemberVO" resultMap="getSelectPayListResult">
 		select c.cart_id, c.member_id, c.pr_number, c.amount, c.status,  p.pr_name, p.pr_seller, p.pr_price, p.pr_discount, pr_dPrice,(p.pr_dPrice * c.amount) money
 		from cart c, pr p, member m
-		where c.member_id = m.id and c.pr_number = p.pr_number and c.member_id = #{id} and c.status = 1
+		where c.member_id = m.id and c.pr_number = p.pr_number and c.member_id = #{id} 
 	</select>
   		<resultMap type="CartVO" id="getSelectPayListResult">
+		<id column="cart_id" property="cart_id"/>
+		<result column="member_id" property="member_id"/>
+		<result column="pr_number" property="pr_number"/>
+		<result column="pr_name" property="pr_name"/>
+		<result column="pr_seller" property="pr_seller"/>
+		<result column="pr_price" property="pr_price"/>
+		<result column="pr_discount" property="pr_discount"/>
+		<result column="pr_dPrice" property="pr_dPrice"/>
+		<result column="amount" property="amount"/>
+		<result column="money" property="money"/>
+		<result column="status" property="status"/>
+		<collection property="files" javaType="List" ofType="PrFilesVO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="pr_number" property="pr_number"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+			<result column="ori_type" property="ori_type"/>
+		</collection>
+	</resultMap>
+	
+	<!-- 결제목록 사진 -->
+	<select id="getSelectPayFiles" parameterType="MemberVO" resultMap="getSelectPayFilesResult">
+		select CT.*, PF.* from
+		(select c.cart_id, c.member_id, c.pr_number
+		from cart c, pr p, member m
+		where c.member_id = m.id and c.pr_number = p.pr_number and c.member_id = #{id})
+			CT
+				left outer join 
+			pr_files PF
+		on CT.pr_number = PF.pr_number
+        where PF.oriType = 1 and filenum = (select min(filenum) from pr_files)
+	</select>
+	<resultMap type="CartVO" id="getSelectPayFilesResult">
 		<id column="cart_id" property="cart_id"/>
 		<result column="member_id" property="member_id"/>
 		<result column="pr_number" property="pr_number"/>
@@ -34,8 +67,30 @@
 	<!-- 결제하기 (장바구니에서 삭제) -->
 	<delete id="setDeletePay" parameterType="MemberVO">
 		delete from cart 
-		where cart_id = #{id} and status = 1
+		where cart_id = #{id} 
 	</delete>
+	
+	<!-- 상품금액 계산 -->
+	<select id="getSelectPayMoney" parameterType="MemberVO" resultType="Long">
+		select ifnull(sum(p.pr_dPrice * c.amount),0)
+		from cart c inner join pr p
+        on c.pr_number = p.pr_number
+		where c.member_id = #{id} 
+	</select>
+	
+	<!-- 할인금액 계산  -->
+	<select id="getSelectPayDiscount" parameterType="MemberVO" resultType="Long">
+		select ifnull(sum((p.pr_price - p.pr_dPrice) * c.amount),0)
+		from cart c inner join pr p
+        on c.pr_number = p.pr_number
+		where c.member_id = #{id}
+	</select>
+	
+		<!-- 상품 개수 계산 -->
+	<select id="getSelectPayCount" parameterType="MemberVO" resultType="Long">
+		select count(cart_id) from cart
+		where member_id = #{id}
+	</select>
   	
   	
   </mapper>

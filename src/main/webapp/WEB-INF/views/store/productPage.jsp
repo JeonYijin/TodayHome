@@ -277,8 +277,8 @@
 
 					<div class="production-selling-option-form__footer">
 						<button
-							class="button button--color-blue-inverted button--size-55 button--shape-4"
-							type="button" onclick="location.href='/cart'">장바구니</button>
+							class="button button--color-blue-inverted button--size-55 button--shape-4 cartBtn"
+							type="button" onclick='cartModal()'>장바구니</button>
 						<button
 							class="button button--color-blue button--size-55 button--shape-4"
 							type="button" onclick="location.href='/payment'">바로구매</button>
@@ -422,6 +422,59 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- 장바구니 모달  -->
+	<input class="prNum" type="hidden" value="${product.pr_number}">
+	
+	<div class="react-modal react-modal--center open open-active" style="display:none;">
+	<div class="react-modal__content-wrap">
+	<div class="react-modal__content production-selling-cart-complete-modal">
+	<h1 class="production-selling-cart-complete-modal__title">장바구니에 상품을 담았습니다</h1>
+	<a class="button button--color-blue button--size-60 button--shape-4 production-selling-cart-complete-modal__button" href="/cart">장바구니 보러가기</a>
+	<button class="button button--color-gray-7 button--size-60 button--shape-4 production-selling-cart-complete-modal__button exitModal" type="button" onclick='exitModal()'>확인</button>
+	</div></div></div>
+	<!-- //장바구니 모달 -->
+	
+	<sec:authorize access="isAuthenticated()" var="result">
+       <sec:authentication property="principal" var="memberVO"/>
+      <input type="hidden" name="nickname" id="memberVO_nickname" value="${memberVO.nickname}"/>
+      <input type="hidden" name="id" id="memberVO_id" value="${memberVO.id}"/>
+    </sec:authorize>
+	
+	
+	<!-- 장바구니 버튼 클릭 시 모달 창 -->
+	<script>
+		
+		function cartModal() {
+			$('.react-modal').css("display", "block");
+			
+			
+			let member_id= $('#memberVO_id').val();
+			let pr_number = $('.prNum').val();
+			
+			$.ajax({
+				type: "POST"
+				, url : "/cart/setInsertCart"
+				, data: {
+					'pr_number' : pr_number,
+					'member_id' : member_id
+					}
+				, success : function(result) {
+				}
+				,error : function(xhr, status, error){
+				}
+			})
+			
+		}
+		
+		function exitModal() {
+			$('.react-modal').css("display", "none");
+		}
+		
+	
+	</script>
+	
+	
 	<!-- 메뉴 버튼 누를떄 해당 메뉴로 이동  -->
 	<script>
 		function fnMove(seq) {

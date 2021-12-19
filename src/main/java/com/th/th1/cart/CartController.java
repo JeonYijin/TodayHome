@@ -31,6 +31,8 @@ public class CartController {
 		Long totalMoney = cartService.getSelectMoney(memberVO); //총 할인 전 금액
 		Long dcMoney = cartService.getSelectDiscount(memberVO); //총 할인 금액
 		
+		System.out.println("img : " + img);
+		
 		mv.addObject("items",items);
 		mv.addObject("img", img);
 		mv.addObject("count", count);
