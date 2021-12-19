@@ -125,5 +125,21 @@ public class Pager {
 		return filter;
 	}
 	
+	//질문과답변 불 안들어오는거 해결-->(search가 null이라서 그럼)
+	public String getSearch() {
+		if(this.search==null) {
+			this.search="";
+		}
+		return search;
+	}
+	
+/*	
+	public Integer getStartRow() {
+		if(this.startRow == null) {
+			this.startRow=1;
+		}
+		return startRow;
+	}
+*/	
 	
 }
