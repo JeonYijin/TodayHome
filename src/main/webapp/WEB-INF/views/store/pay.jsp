@@ -548,16 +548,16 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
 </main>
 
 <script type="text/javascript">
-$(function(){
+$(document).ready(function(){
+    payBtn();
+});
 
+function payBtn() {
 	$(".check-ess").click(function(){
 	var check=$(".check-ess").prop("checked");
-			// prop 를 사용하여 checkbox의 속성에 접근
-			
-	check = $(".button-pay").disabled;	
+	$(".button-pay").prop("disabled", true);
+}
 
-
-	});
 </script>
 
 </body>
