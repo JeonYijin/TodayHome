@@ -23,6 +23,10 @@ public class CartService {
 		return cartDAO.getSelectCartList(memberVO);
 	}
 	
+	public CartVO getSelectCartFiles(MemberVO memberVO) throws Exception {
+		return cartDAO.getSelectCartFiles(memberVO);
+	}
+	
 	public int setDeleteCart(CartVO cartVO) throws Exception {
 		return cartDAO.setDeleteCart(cartVO);
 	}
@@ -35,12 +39,16 @@ public class CartService {
 		return cartDAO.setUpdateMinus(cartVO);
 	}
 	
-	public Long getSelectMoney(CartVO cartVO) throws Exception {
-		return cartDAO.getSelectMoney(cartVO);
+	public Long getSelectCartCount(MemberVO memberVO) throws Exception {
+		return cartDAO.getSelectCartCount(memberVO);
 	}
 	
-	public Long getSelectDiscount(CartVO cartVO) throws Exception {
-		return cartDAO.getSelectDiscount(cartVO);
+	public Long getSelectMoney(MemberVO memberVO) throws Exception {
+		return cartDAO.getSelectMoney(memberVO);
+	}
+	
+	public Long getSelectDiscount(MemberVO memberVO) throws Exception {
+		return cartDAO.getSelectDiscount(memberVO);
 	}
 	
 }
