@@ -48,7 +48,6 @@
 </head>
 <body>
 
-	<%@ include file="../store/header.jsp"%>
 	<div class="production-selling-overview container">
 		<nav
 			class="commerce-category-breadcrumb-wrap production-selling-overview__category">
@@ -145,7 +144,7 @@
 											d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path></svg>
 									<span class="count">45,480</span>
 								</button>
-								
+
 								<div class="drop-down">
 									<button class="production-selling-header__action__button"
 										type="button">
@@ -158,7 +157,7 @@
 								</div>
 							</div>
 						</div>
-							
+
 					</h1>
 					<div class="production-selling-header__content">
 						<div class="production-selling-header__info-wrap">
@@ -170,9 +169,7 @@
 									<p class="production-selling-header__promotion__entry">
 										<b>${product.pr_dPrice/1000}p</b>(WELCOME 0.1% 적립)
 									</p>
-									<p class="production-selling-header__promotion__entry">
-										
-									</p>
+									<p class="production-selling-header__promotion__entry"></p>
 								</div>
 							</div>
 							<div class="production-selling-header__delivery">
@@ -301,11 +298,8 @@
 						<li><a
 							class="production-selling-navigation__item production-selling-navigation__item--active"
 							button onclick="fnMove('1')">상품정보</a></li>
-						<li><a class="production-selling-navigation__item"
-							href="#production-selling-review">리뷰<span
-								class="production-selling-navigation__item__count"></span></a></li>
-						<li><a class="production-selling-navigation__item"
-							href="#production-selling-question">문의<span
+						<li><a class="production-selling-navigation__item" button
+							onclick="fnMove('3')">문의<span
 								class="production-selling-navigation__item__count"></span></a></li>
 						<li><a class="production-selling-navigation__item" button
 							onclick="fnMove('4')">배송/환불</a></li>
@@ -321,6 +315,41 @@
 							</c:if>
 						</c:forEach>
 					</div>
+
+
+					<div id="div3">
+						<section class="production-selling-section">
+							<header class="production-selling-section__header">
+								<h1 class="production-selling-section__title">
+									문의 <span class="count">7,058</span>
+								</h1>
+								<div class="production-selling-section__right">
+									<button>문의하기</button>
+								</div>
+							</header>
+							<div class="production-question-feed">
+								<div class="production-question-feed__list">
+									<article class="production-question-feed__item"
+										data-qna-id="5019055">
+										<header class="production-question-feed__item__header">
+											구매 | 상품 | <span class="unanswered">미답변</span>
+										</header>
+										<p class="production-question-feed__item__author">seon****
+											| 2021년 12월 19일 08시 36분</p>
+										<div class="production-question-feed__item__question">
+											<span class="production-question-feed__item__badge">Q&nbsp;</span>
+											<p class="production-question-feed__item__content">
+												<span
+													class="production-question-feed__item__content__option-name">SS
+													슈퍼싱글<br>
+												</span>슈퍼싱글 매트리스 두 개를 구매했는데 배송 와서 보니까 각각 박스 크기와 박스 속 내용물의 포장 크기가
+												다릅니다. 왜 그런거죠?
+											</p>
+										</div>
+									</article>
+						</section>
+					</div>
+
 
 					<div id="div4">
 						<table class="production-selling-table">
@@ -386,6 +415,8 @@
 							</div>
 						</section>
 					</div>
+
+
 				</nav>
 			</div>
 		</div>
