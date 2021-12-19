@@ -22,8 +22,8 @@ public class PaymentService {
 		return paymentDAO.setDeletePay(memberVO);
 	}
 	
-	public CartVO getSelectPayFiles(MemberVO memberVO) throws Exception {
-		return paymentDAO.getSelectPayFiles(memberVO);
+	public CartVO getSelectPayFiles(CartVO cartVO) throws Exception {
+		return paymentDAO.getSelectPayFiles(cartVO);
 	}
 	
 	public Long getSelectPayCount(MemberVO memberVO) throws Exception {

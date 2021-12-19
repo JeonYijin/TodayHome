@@ -22,42 +22,34 @@
 
      ​
 
-<style data-emotion="css 1293549-Container" data-s="">
-    .css-1293549-Container {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-    }
-
-    .css-1p6gxrd-Info {
-        font-size: 10px;
-        line-height: 14px;
-        color: #828c94;
-        margin-left: 8px;
-    }
-
-    .css-wkl218-SectionWrapper {
-        margin-top: 32px;
-    }
-
-    @media (min-width: 768px) {
-        .css-wkl218-SectionWrapper {
-            margin-top: 26px;
-        }
-    }
-
-    .css-167c30c-Wrapper {
+<style>
+    .modal_wrap {
         position: absolute;
-        width: 100%;
-        height: 100%;
+        top: -50%;
+        left: 64%;
+        width: 380px;
+        height: 100px;
+        margin-top: -200px;
+        margin-left: -80px;
+        line-height: 15px;
+        cursor: pointer;
+    }
+
+      .popout--cross-dir-22 {
+        width: 400px;
+        height: 5px;
+        background: #fff;
+        border-radius: 10px;
+        position: relative;
+        top: 50%;
+        left: 100%;
+        margin-top: -900px;
+        margin-left: -55px;
+        text-align: center;
         box-sizing: border-box;
-        z-index: 1;
-        pointer-events: none;
+        padding: 0px 0;
+        line-height: 23px;
+        cursor: pointer;
     }
 </style>
 

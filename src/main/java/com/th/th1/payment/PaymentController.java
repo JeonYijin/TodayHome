@@ -21,11 +21,11 @@ public class PaymentController {
 	private PaymentService paymentService;
 		
 	@GetMapping("payment")
-	public ModelAndView getPayment(@AuthenticationPrincipal MemberVO memberVO) throws Exception {
+	public ModelAndView getPayment(@AuthenticationPrincipal MemberVO memberVO, CartVO cartVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
 		List<CartVO> items = paymentService.getSelectPayList(memberVO);
-		CartVO img = paymentService.getSelectPayFiles(memberVO);
+		CartVO img = paymentService.getSelectPayFiles(cartVO);
 		Long count = paymentService.getSelectPayCount(memberVO); //상픔 개수
 		Long totalMoney = paymentService.getSelectPayMoney(memberVO); //총 할인 전 금액
 		Long dcMoney = paymentService.getSelectPayDiscount(memberVO); //총 할인 금액

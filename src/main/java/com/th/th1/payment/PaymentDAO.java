@@ -18,7 +18,7 @@ public interface PaymentDAO {
 		public int setDeletePay(MemberVO memberVO) throws Exception;
 		
 		//결제 이미지
-		public CartVO getSelectPayFiles(MemberVO memberVO) throws Exception;
+		public CartVO getSelectPayFiles(CartVO cartVO) throws Exception;
 		
 		//상품 개수 계산
 		public Long getSelectPayCount(MemberVO memberVO) throws Exception;

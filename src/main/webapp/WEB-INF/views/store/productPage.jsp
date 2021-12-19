@@ -448,7 +448,7 @@
 		function cartModal() {
 			$('.react-modal').css("display", "block");
 			
-			
+			let thumbnail = '${product.prFiles[0].fileName}';
 			let member_id= $('#memberVO_id').val();
 			let pr_number = $('.prNum').val();
 			
@@ -457,7 +457,8 @@
 				, url : "/cart/setInsertCart"
 				, data: {
 					'pr_number' : pr_number,
-					'member_id' : member_id
+					'member_id' : member_id,
+					'thumbnail' : thumbnail
 					}
 				, success : function(result) {
 				}

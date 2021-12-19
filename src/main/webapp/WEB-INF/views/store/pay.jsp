@@ -540,7 +540,7 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                             </div>
                         </div>
                     </div>
-                    <button class="_1eWD8 _3SroY _27do9 y-RI2 button-pay" type="button">${fLastMoney}원 결제하기</button>
+                    <button class="_1eWD8 _3SroY _27do9 y-RI2 button-pay" type="button" onclick="location.href='./payment'">${fLastMoney}원 결제하기</button>
                 </div>
             </div>
         </div>

@@ -6,12 +6,15 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.th.th1.interceptor.AdminInterceptor;
+import com.th.th1.interceptor.MemberInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
 	
 	@Autowired
 	private AdminInterceptor adminInterceptor;
+	@Autowired
+	private MemberInterceptor memberInterceptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -23,6 +26,11 @@ public class InterceptorConfig implements WebMvcConfigurer {
 			.addPathPatterns("/admin/**")
 		//3. interceptor를 제외할 url 적용
 			;
+		
+		registry.addInterceptor(memberInterceptor)
+			.addPathPatterns("/cart")
+			.addPathPatterns("/payment");
+		
 	}
 			
 }

@@ -6,7 +6,7 @@
 	<!-- 상품 장바구니로 insert  -->
 	<insert id="setInsertCart" parameterType="CartVO">
 		insert into cart values
-		(0, #{member_id}, #{pr_number}, 1, 0)
+		(0, #{member_id}, #{pr_number}, 1, 0, #{thumbnail})
 	</insert>
 	
 	<!-- 장바구니 목록 불러오기  -->
