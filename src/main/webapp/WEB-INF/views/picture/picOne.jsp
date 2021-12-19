@@ -394,7 +394,7 @@
 									<c:if test="${member.memberNum ne loginMember.memberNum}">
 											
 											<c:if test="${comment.depth >= 1 }">
-										<li class="comment-feed__list__item" id="comment${status.index}">
+										<li class="comment-feed__list__item" id="comment${status.index}" style="margin-left: 20px;">
 											<article class="comment-feed__item">
 												<p class="comment-feed__item__content">
 													<a href="/users/5990463" class="comment-feed__item__content__author">
@@ -428,7 +428,7 @@
 										</li>
 										</c:if>
 										<c:if test="${comment.depth == 0 }">
-										<li class="comment-feed__list__item" id="comment${status.index}" style="margin-left: 20px;">
+										<li class="comment-feed__list__item" id="comment${status.index}">
 											<article class="comment-feed__item">
 												<p class="comment-feed__item__content">
 													<a href="/users/5990463" class="comment-feed__item__content__author">
