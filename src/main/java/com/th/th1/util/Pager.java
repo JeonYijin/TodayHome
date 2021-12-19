@@ -49,7 +49,8 @@ public class Pager {
 //
 //	private String reply; //글 하나당 댓글갯수(답변을 기다리는 질문용)
 	private String filter; //카테고리 필터
-	
+	private String filter_toJSP; // JSP로 갈 filter
+
 	
 	
 	/* ----계산---- */
@@ -114,6 +115,15 @@ public class Pager {
 		return perBlock;
 	}
 	
+	//////////////
+	
+	//필터 getter
+	public String getFilter() {
+		if(this.filter == "" || this.filter == null) {
+			this.filter = "newest";
+		}
+		return filter;
+	}
+	
 	
 }
-
