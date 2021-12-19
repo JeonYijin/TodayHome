@@ -235,6 +235,60 @@
 	
 	
 	<!-- =============================================@@@================================================ -->
-
 	
+	<!-- 커뮤니티 홈에서 접근할 때 쓸 query -->
+	<select id="getHListForHome" parameterType="String" resultType="HouseWarmingVO">
+		SELECT * FROM HOUSEWARMING
+		WHERE HOUSE_WRITER=#{house_writer}
+	</select>
+	
+	<!-- =============================================@@@================================================ -->
+	
+	<!-- ajax용 zoayo count -->
+	<select id="getCountZoayo" parameterType="House_ZoayoVO" resultType="int">
+			SELECT COUNT(house_zoayo)
+			FROM HOUSEWARMING
+			WHERE house_num=#{house_num}
+	</select>
+	
+	<!-- ajax용 scrap count -->
+	<select id="getCountScrap" parameterType="House_ScrapVO" resultType="int">
+			SELECT COUNT(house_scrap)
+			FROM HOUSEWARMING
+			WHERE house_num=#{house_num}
+	</select>
+	
+	
+	<!-- =============================================@@@================================================ -->
+	
+	<!-- 집들이 글 게재 전 관리자 심사용 getList-->
+	<select id="getHListForScreening" resultType="HouseWarmingVO">
+		SELECT * FROM HOUSEWARMING	
+		WHERE (style_category &lt; 0)		
+	</select>
+	
+	<!-- 집들이 글 게재 전 관리자 심사용 getCount-->
+	<select id="getCountForScreening" resultType="int">
+		SELECT COUNT(HOUSE_NUM) FROM HOUSEWARMING	
+		WHERE (style_category &lt; 0)		
+	</select>
+	
+	<!-- 집들이글 한개 페이지 심사 getSelectOne -->
+	<select id="getHDetailForScreening" parameterType="HouseWarmingVO" resultType="HouseWarmingVO">
+		SELECT * FROM HOUSEWARMING
+		WHERE HOUSE_NUM=#{house_num}
+	</select>
+	
+	<!-- 집들이글 정식게재 승인 & STYLE CATEGORY 부여 -->
+	<update id="setScreenResult_approve" parameterType="hashmap">
+		UPDATE HOUSEWARMING SET STYLE_CATEGORY=#{style_category}
+		WHERE HOUSE_NUM=#{house_num}
+	</update>
+	
+	<!-- 집들이글 정식게재 거부 & 삭제 -->
+	<delete id="SetScreenResult_refuse" parameterType="hashmap">
+		DELETE FROM HOUSEWARMING
+		WHERE HOUSE_NUM=#{house_num}
+	</delete>
+
 </mapper>

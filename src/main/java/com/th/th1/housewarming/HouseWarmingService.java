@@ -79,6 +79,7 @@ public class HouseWarmingService {
 		int result=houseDAO.setZoayoInsert(hzVO);
 		if(result==1) {
 			int result2 = houseDAO.houseZoayoUp(hzVO.getHouse_num());
+			result2 = houseDAO.getCountZoayo(hzVO);//카운트 가져오기
 		}
 		
 		return result;
@@ -88,7 +89,8 @@ public class HouseWarmingService {
 	public int setZoayoDown(House_ZoayoVO hzVO) throws Exception {
 		int result=houseDAO.setZoayoDelete(hzVO);
 		if(result==1) {
-			houseDAO.houseZoayoDown(hzVO.getHouse_num());
+			int result2 = houseDAO.houseZoayoDown(hzVO.getHouse_num());
+			result2 = houseDAO.getCountZoayo(hzVO);//카운트 가져오기
 		}
 		return result;
 	}
@@ -105,6 +107,7 @@ public class HouseWarmingService {
 		int result=houseDAO.setScrapInsert(hsVO);
 		if(result==1) {
 			int result2 = houseDAO.houseScrapUp(hsVO.getHouse_num());
+			result2 = houseDAO.getCountScrap(hsVO);//카운트 가져오기
 		}
 		
 		return result;
@@ -115,6 +118,7 @@ public class HouseWarmingService {
 		int result=houseDAO.setScrapDelete(hsVO);
 		if(result==1) {
 			houseDAO.houseScrapDown(hsVO.getHouse_num());
+			houseDAO.getCountScrap(hsVO);//카운트 가져오기
 		}
 		return result;
 	}
@@ -131,8 +135,44 @@ public class HouseWarmingService {
 	
 	// -------------------------------------------------------------------------
 	
+	/* 커뮤니티 홈에서 접근할 때 쓸 query */
+	public List<HouseWarmingVO> getHListForHome(String house_writer) throws Exception {
+		return houseDAO.getHListForHome(house_writer);
+	};
 	
 	
-
+	
+	// 관리자용 -------------------------------------------------------------------------
+	
+	//style_category < -1인 집들이글 List(심사 후 알맞은 스타일 배정 받고 공식 게재)
+	public List<HouseWarmingVO> getHListForScreening() throws Exception {
+		return houseDAO.getHListForScreening();
+	};
+	
+	//검사할 집들이글 count
+	public int getCountForScreening() throws Exception {
+		return houseDAO.getCountForScreening();
+	};
+	
+	//검사할 집들이글 getSelectOne
+	public HouseWarmingVO getHDetailForScreening(HouseWarmingVO houseVO) throws Exception {
+		return houseDAO.getHDetailForScreening(houseVO);
+	}
+	
+	//검사 결과처리
+	public int setScreenResult(Map<String, Integer> scResult) throws Exception {
+		int result = 0;		
+		
+		if(scResult.get("style_category") == -2) {
+			//게재거절&삭제
+			result = houseDAO.setScreenResult_refuse(scResult); //게재거부 시 1 리턴
+		} else { 
+			//게재승인&스타일부여
+			result = houseDAO.setScreenResult_approve(scResult);
+			result = result+1; //게재승인 시 2 리턴
+		}
+		
+		return result;
+	}
 	
 }

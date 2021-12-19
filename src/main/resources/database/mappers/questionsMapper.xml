@@ -10,8 +10,9 @@
 		SELECT Q.*, QH.*
 		FROM QUESTIONS Q left join QUESTIONS_HASHTAG QH
 		ON (Q.QUESTS_NUM=QH.QUESTS_NUM)
+		where Q.NOTICE != 1
 		<if test="search != null">
-			where 
+			and
 				quests_nickname 
 					like CONCAT('%', #{search}, '%') or 
 				
@@ -23,7 +24,7 @@
 		</if>
 		
 		<if test='reply=="not_yet"'>
-			where reply=0
+			and reply=0
 		</if>
 		
 		<if test='popularity==0'>
@@ -55,6 +56,11 @@
 			<result column="hashtag_name" property="hashtag_name"/>
 		</collection>
 	</resultMap>
+
+	<select id="getNotice" resultType="QuestionsVO">
+		SELECT * FROM QUESTIONS
+		WHERE NOTICE=1
+	</select>
 
 
 	<!-- 질문과답변 insert -->

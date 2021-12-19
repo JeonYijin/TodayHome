@@ -1353,8 +1353,6 @@ margin-top:26px;
 	
 </body>
 
-
-
 <script type="text/javascript">
 
 //마이메뉴 선택하면 마이페이지/로그아웃 등 드롭다운 메뉴 보여주기
