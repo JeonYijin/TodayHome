@@ -75,13 +75,13 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
             <div class="_254uw">
                 <div class="checkout-container _1DIXR">
                     <div class="_1F8DA">
-                        <div class="_3O4wQ">이름</div>
+                        <div class="_3O4wQ">김철수</div>
                         <div><div class="_4du--">기본배송지</div></div>
                     </div>
-                    <div class="_2yz9T">주소</div>
+                    <div class="_2yz9T">서울특별시 용산구 서빙고로 137(용산동6가)</div>
                     <div class="_3mlQK">
-                        <div class="_1HCV8">이름</div>
-                        <div class="_27nmi">전화번호</div>
+                        <div class="_1HCV8">김철수</div>
+                        <div class="_27nmi">010-0000-0000</div>
                     </div>
                     <div class="css-nj6fnr-DeliveryRequestInput e84q8kd0">
                         <div class="_3Bt8k">
@@ -108,14 +108,14 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                 <div class="checkout-container _d-EX">
                     <div class="_28sm0 lQNTs">
                         <div class="_2XyfC">이름</div>
-                        <div class="_1mu28"><input class="_3ASDR _1qwAY" name="name" maxlength="10" value="이름" /></div>
+                        <div class="_1mu28"><input class="_3ASDR _1qwAY" name="name" maxlength="10" value="김철수" /></div>
                     </div>
                     <div class="_28sm0">
                         <div class="_2XyfC">이메일</div>
                         <div class="_1mu28 _3-Bh_">
                             <div class="_1pGtv">
                                 <div class="_1a7bp jTtMl">
-                                    <div class="_2EQGD _1a7bp _1m42e"><input class="_3ASDR _1qwAY" type="email" placeholder="이메일" title="이메일 앞부분" maxlength="20" value="이메일아이디" /></div>
+                                    <div class="_2EQGD _1a7bp _1m42e"><input class="_3ASDR _1qwAY" type="email" placeholder="이메일" title="이메일 앞부분" maxlength="20" value="test" /></div>
                                     <span class="_1r4AF">@</span>
                                 </div>
                                 <div class="jTtMl _2tUrR">
@@ -183,7 +183,8 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                         <div class="css-pf6rhq-HeaderContainer egkpco115">
                             <div class="css-bhirsz-HeaderContent egkpco114">
                                 <div class="css-ntkxkp-HeaderName egkpco113">${item.pr_seller}</div>
-                                <div class="css-1jehq3q-HeaderDelivery egkpco112"><span class="css-fa05mq-HeaderDeliveryTitle egkpco111">배송비</span>착불 35,000원</div>
+                                <div class="css-1jehq3q-HeaderDelivery egkpco112">
+                                <span class="css-fa05mq-HeaderDeliveryTitle egkpco111">배송비</span>2,500원</div>
                             </div>
                             <div class="css-551ov3-HeaderDeliveryMethod egkpco19">업체직접배달</div>
                         </div>
@@ -521,7 +522,7 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                         <div class="css-s2nqf9-Terms eir4d5m7">
                             <label for="checkout-agree" class="css-c28ivc-AllAgreeLabel eir4d5m6">
                                 <div class="_3zqA8 css-1146g0e-AllAgreeCheckbox eir4d5m5">
-                                    <input type="checkbox" class="_3UImz" id="checkout-agree" name="isAgree" value="" />
+                                    <input type="checkbox check-ess" class="_3UImz" id="checkout-agree" name="isAgree" value="" />
                                     <span class="_2mDYR">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="_2UftR"><path fill="currentColor" d="M6.185 10.247l7.079-7.297 1.435 1.393-8.443 8.703L1.3 8.432l1.363-1.464z"></path></svg>
                                     </span>
@@ -539,13 +540,25 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                             </div>
                         </div>
                     </div>
-                    <button class="_1eWD8 _3SroY _27do9 y-RI2" type="button">234,200원 결제하기</button>
+                    <button class="_1eWD8 _3SroY _27do9 y-RI2 button-pay" type="button">${fLastMoney}원 결제하기</button>
                 </div>
             </div>
         </div>
     </section>
 </main>
 
+<script type="text/javascript">
+$(function(){
+
+	$(".check-ess").click(function(){
+	var check=$(".check-ess").prop("checked");
+			// prop 를 사용하여 checkbox의 속성에 접근
+			
+	check = $(".button-pay").disabled;	
+
+
+	});
+</script>
 
 </body>
 </html>
