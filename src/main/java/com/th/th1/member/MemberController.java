@@ -161,7 +161,7 @@ public class MemberController {
 		//스크랩한 집들이 글
 		List<HouseWarmingVO> scrapHouse = memberService.getHscrPost(id);
 		mv.addObject("scrapH", scrapHouse);
-		System.out.println("썸네일: " + scrapHouse.get(0).getHouse_thumbnail());
+		/* System.out.println("썸네일: " + scrapHouse.get(0).getHouse_thumbnail()); */
 		//내가 스크랩한 사진
 		List<PictureVO> scrapPic = memberService.getMyScrapPic(scrapingVO);
 		mv.addObject("scrapPic", scrapPic);
