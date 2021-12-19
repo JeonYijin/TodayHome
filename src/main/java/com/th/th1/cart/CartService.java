@@ -51,4 +51,12 @@ public class CartService {
 		return cartDAO.getSelectDiscount(memberVO);
 	}
 	
+	public int setStatusTo1(CartVO cartVO) throws Exception {
+		return cartDAO.setStatusTo1(cartVO);
+	}
+	
+	public int setStatusTo0(CartVO cartVO) throws Exception {
+		return cartDAO.setStatusTo0(cartVO);
+	}
+	
 }

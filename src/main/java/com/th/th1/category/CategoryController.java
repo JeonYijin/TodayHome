@@ -127,19 +127,6 @@ public class CategoryController {
 		return mv;
 	}
 	
-	@GetMapping("bestbest")
-	public ModelAndView getSelectList2(ProductVO productVO) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		List<ProductVO> ar2 = categoryService.getSelectList2(productVO);
-		System.out.println("size :"+ ar2.size());
-		Integer count = categoryService.getSelectCount(productVO);
-		String categoryN = categoryService.getSelectCategoryName(productVO);
-		mv.addObject("categoryN", categoryN);
-		mv.addObject("products", ar2);
-		mv.setViewName("store/bestbest");
-		
-		return mv;
-	}
 	
 	
 	//영문 filter를 한글 filter로 변환해주는 메소드

@@ -37,4 +37,10 @@ public interface CartDAO {
 	//할인금액 계산
 	public Long getSelectDiscount(MemberVO memberVO) throws Exception;
 	
+	//status 1로 변경
+	public int setStatusTo1(CartVO cartVO) throws Exception;
+	
+	//status 0로 변경
+	public int setStatusTo0(CartVO cartVO) throws Exception;
+	
 }

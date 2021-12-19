@@ -58,5 +58,18 @@ public class CartController {
 		return result;
 	}
 	
+	@PostMapping("setStatusTo1")
+	public int setStatusTo1(CartVO cartVO) throws Exception {
+		int result = cartService.setStatusTo1(cartVO);
+		return result;
+	}
+	
+	@PostMapping("setStatusTo0")
+	public int setStatusTo0(CartVO cartVO) throws Exception {
+		int result = cartService.setStatusTo0(cartVO);
+		return result;
+	}
+	
+	
 	
 }

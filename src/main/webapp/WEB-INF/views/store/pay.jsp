@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -164,17 +166,23 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                 </div>
             </div>
         </section>
+        
+        
         <section class="clDqQ">
             <div class="checkout-container vtJfv">
                 <div class="_2jygH">주문상품</div>
                 <div class="_3KNiw"></div>
             </div>
+            
+            
             <div class="_254uw">
                 <section class="checkout-container _3aT7b">
-                    <div class="css-115l9ix-Products egkpco120">
+                <c:forEach items="${items}" var="item">
+                
+                	<div class="css-115l9ix-Products egkpco120">
                         <div class="css-pf6rhq-HeaderContainer egkpco115">
                             <div class="css-bhirsz-HeaderContent egkpco114">
-                                <div class="css-ntkxkp-HeaderName egkpco113">주식회사리샘</div>
+                                <div class="css-ntkxkp-HeaderName egkpco113">${item.pr_seller}</div>
                                 <div class="css-1jehq3q-HeaderDelivery egkpco112"><span class="css-fa05mq-HeaderDeliveryTitle egkpco111">배송비</span>착불 35,000원</div>
                             </div>
                             <div class="css-551ov3-HeaderDeliveryMethod egkpco19">업체직접배달</div>
@@ -184,30 +192,21 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                                 <picture>
                                     <source
                                         type="image/webp"
-                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=72&amp;h=72&amp;c=c&amp;webp=1"
-                                        srcset="
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=144&amp;h=144&amp;c=c&amp;webp=1 1.5x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=144&amp;h=144&amp;c=c&amp;webp=1 2x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=256&amp;h=256&amp;c=c&amp;webp=1 3x
-                                        "
+                                        src=""
+                                        srcset=""
                                     />
                                     <img
                                         class="css-108l2f6-ItemImage egkpco17"
-                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=72&amp;h=72&amp;c=c"
+                                        src="../resources/upload/store/${img.files[0].fileName}"
                                         srcset="
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=144&amp;h=144&amp;c=c 1.5x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=144&amp;h=144&amp;c=c 2x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162676121775574674.jpg?w=256&amp;h=256&amp;c=c 3x
                                         "
                                     />
                                 </picture>
                                 <div class="css-6z5gcs-ItemContent egkpco16">
-                                    <div class="css-1hrwauf-ItemName egkpco15">캐더린 LED 통서랍 수납침대 SS/Q</div>
-                                    <ul class="css-rw1213-ItemOptions egkpco14">
-                                        <li>상품선택: 슈퍼싱글SS 프레임만 / 색상선택: 화이트</li>
-                                    </ul>
+                                    <div class="css-1hrwauf-ItemName egkpco15">${item.pr_name}</div>
                                     <div class="css-16e4gwj-ItemFooter egkpco13">
-                                        <span class="css-1r5zoy-ItemPrice egkpco12">149,000원</span>
+                                    	 <fmt:formatNumber type="number" maxFractionDigits="3" value="${item.pr_dPrice}" var="fdPrice" />
+                                        <span class="css-1r5zoy-ItemPrice egkpco12">${fdPrice}원</span>
                                         <div class="css-51f2tl-ItemDivider egkpco11"></div>
                                         <span class="css-4l5vzx-ItemCount egkpco10">1개</span>
                                     </div>
@@ -215,49 +214,10 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                             </div>
                         </div>
                     </div>
-                    <div class="css-115l9ix-Products egkpco120">
-                        <div class="css-pf6rhq-HeaderContainer egkpco115">
-                            <div class="css-bhirsz-HeaderContent egkpco114">
-                                <div class="css-ntkxkp-HeaderName egkpco113">주식회사 화인벨</div>
-                                <div class="css-1jehq3q-HeaderDelivery egkpco112"><span class="css-fa05mq-HeaderDeliveryTitle egkpco111">배송비</span>8,000원</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="css-1sbnj8x-Item egkpco18">
-                                <picture>
-                                    <source
-                                        type="image/webp"
-                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=72&amp;h=72&amp;c=c&amp;webp=1"
-                                        srcset="
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=144&amp;h=144&amp;c=c&amp;webp=1 1.5x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=144&amp;h=144&amp;c=c&amp;webp=1 2x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=256&amp;h=256&amp;c=c&amp;webp=1 3x
-                                        "
-                                    />
-                                    <img
-                                        class="css-108l2f6-ItemImage egkpco17"
-                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=72&amp;h=72&amp;c=c"
-                                        srcset="
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=144&amp;h=144&amp;c=c 1.5x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=144&amp;h=144&amp;c=c 2x,
-                                            https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160386868728370588.jpg?w=256&amp;h=256&amp;c=c 3x
-                                        "
-                                    />
-                                </picture>
-                                <div class="css-6z5gcs-ItemContent egkpco16">
-                                    <div class="css-1hrwauf-ItemName egkpco15">리버서블 오피스 데스크 책상/테이블 600~2400mm(2colors)</div>
-                                    <ul class="css-rw1213-ItemOptions egkpco14">
-                                        <li>컬러: 화이트 / 구성/사이즈: 책상 1400</li>
-                                    </ul>
-                                    <div class="css-16e4gwj-ItemFooter egkpco13">
-                                        <span class="css-1r5zoy-ItemPrice egkpco12">77,200원</span>
-                                        <div class="css-51f2tl-ItemDivider egkpco11"></div>
-                                        <span class="css-4l5vzx-ItemCount egkpco10">1개</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </c:forEach>
+                
+                <!--//주문상품 --------------------------------- -->
+                  
                 </section>
             </div>
         </section>
@@ -533,11 +493,13 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                             <div class="_3TNPF">결제금액</div>
                             <div class="_2JEof">
                                 <div class="_34k6S">총 상품 금액</div>
-                                <div class="_25zAE ySGW6">226,200원</div>
+                                  <fmt:formatNumber type="number" maxFractionDigits="3" value="${totalMoney - dcMoney}" var="ffinalMoney" />
+                                <div class="_25zAE ySGW6">${ffinalMoney}원</div>
                             </div>
                             <div class="_2JEof">
                                 <div class="_34k6S">배송비</div>
-                                <div class="_25zAE">8,000원</div>
+                                <fmt:formatNumber type="number" maxFractionDigits="3" value="${count * 2500}" var="fshipMoney" />
+                                <div class="_25zAE">${fshipMoney}원</div>
                             </div>
                             <div class="_2JEof">
                                 <div class="_34k6S">쿠폰 사용</div>
@@ -548,9 +510,10 @@ body.imp-payment-progress > :not(.imp-dialog) {display: none}
                                 <div class="_25zAE">0원</div>
                             </div>
                             <div class="_1qFy7">
+                            	<fmt:formatNumber type="number" maxFractionDigits="3" value="${totalMoney - dcMoney + (count * 2500)}" var="fLastMoney" />
                                 <div class="_3hFjD">최종 결제 금액</div>
                                 <div class="_2YW1B">
-                                    <span class="_1vQx0">234,200</span>&nbsp;원
+                                    <span class="_1vQx0">${fLastMoney}</span>&nbsp;원
                                     <div class="_1-Gyq"><span class="csPTb">703 P</span>&nbsp;적립 예정</div>
                                 </div>
                             </div>

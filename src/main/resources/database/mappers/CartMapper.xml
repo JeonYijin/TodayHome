@@ -91,7 +91,7 @@
 	<!-- 상품 개수 계산 -->
 	<select id="getSelectCartCount" parameterType="MemberVO" resultType="Long">
 		select count(cart_id) from cart
-		where member_id = #{id} and status = 1
+		where member_id = #{id}
 	</select>
 	
 	
@@ -100,7 +100,7 @@
 		select ifnull(sum(p.pr_dPrice * c.amount),0)
 		from cart c inner join pr p
         on c.pr_number = p.pr_number
-		where c.member_id = #{id} and status = 1
+		where c.member_id = #{id} 
 	</select>
 	
 	<!-- 할인금액 계산  -->
@@ -108,8 +108,19 @@
 		select ifnull(sum((p.pr_price - p.pr_dPrice) * c.amount),0)
 		from cart c inner join pr p
         on c.pr_number = p.pr_number
-		where c.member_id = #{id} and status = 1
+		where c.member_id = #{id}
 	</select>
+	
+	<!-- status 1로 변경 -->
+	<update id="setStatusTo1" parameterType="CartVO">
+		update cart set status = 1 where cart_id = #{cart_id}
+	</update>
+	
+	<!-- status 0로 변경 -->
+	<update id="setStatusTo0" parameterType="CartVO">
+		update cart set status = 0 where cart_id = #{cart_id}
+	</update>
+	
 	
 	
   
