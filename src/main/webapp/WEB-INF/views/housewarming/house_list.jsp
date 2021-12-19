@@ -251,6 +251,35 @@
     
     </div>
  </div>
+ 
+ 		<sec:authorize access="hasRole('ADMIN')">
+	 		<div class="content-detail-content-section__sidebar" style="top:81px;">
+	                <div data-sticky-enabled="false" data-sticky-disabled="true" data-sticky-always="false"
+	                    data-sticky-ignore="true" data-direction="top" data-offset="0"
+	                    class="sticky-container content-detail-content-section__sidebar-sticky">
+	                    <div class="sticky-child content-detail-content-section__sidebar-inner"
+	                        style="position: relative; box-sizing: border-box;">
+	                        <div class="content-detail-sidebar">
+	                       		<div class="drop-down card-detail-floating__action-wrap card-detail-floating__action-share">
+	                                <button class="content-detail-sidebar-button content-detail-sidebar-button--gray"
+	                                    aria-pressed="false" title="게재_심사_운영자용" type="button"><svg class="icon" width="24"
+	                                        height="24" viewBox="0 0 24 24" fill="currentColor"
+	                                        preserveAspectRatio="xMidYMid meet">
+	                                        <path
+	                                            d="M9.64 14.646a4.5 4.5 0 1 1 0-5.292l4.54-2.476a4.5 4.5 0 1 1 .63.795l-4.675 2.55c.235.545.365 1.146.365 1.777s-.13 1.232-.365 1.777l4.675 2.55a4.5 4.5 0 1 1-.63.795l-4.54-2.476zM18 8a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM6 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM18 23a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z">
+	                                        </path>
+	                                    </svg></button></div><span class="content-detail-sidebar-counter" style="color:skyblue;">게재 심사</span> 
+	                       	<script>
+	                       		$('.content-detail-sidebar-button--gray').click(function(){
+	                       			location.href='/housewarming/admin/screen_list';
+	                       		});
+	                       	</script>
+	                       
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+       </sec:authorize>     
 
 <!-- footer 들어가야되는데 contents 중간에 껴서 이상하게 나옴. 이거 조만간 처리해야 함 -->
 
@@ -445,6 +474,13 @@ function scrapDeleteEvent(house_num) {
 		}
 	});
 }
+
+//사이드바 scroll 따라다니게 하기
+var currentPosition = parseInt($(".content-detail-content-section__sidebar").css("top")); 
+$(window).scroll(function() { 
+	var position = $(window).scrollTop();
+	$(".content-detail-content-section__sidebar").stop().animate({"top":position+currentPosition+300+"px"},1500); 
+});
 </script>    
 
 <script type="text/javascript" src="https://cdn.ravenjs.com/3.26.4/raven.js"></script>
