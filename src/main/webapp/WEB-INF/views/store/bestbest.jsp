@@ -2261,7 +2261,7 @@ iframe#_hjRemoteVarsFrame {
     
 </head>
 <body>
-<%@ include file="../store/header.jsp"%>
+<%@ include file="../nav_store/header.jsp" %>
 	<div class="ranking-feed">
 		<ol class="ranking-type-filter ranking-type-filter__bg">
 			<a href="/store/best"><li

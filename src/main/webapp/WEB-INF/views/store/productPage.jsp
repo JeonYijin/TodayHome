@@ -47,7 +47,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
-
+<%@ include file="../nav_store/header.jsp" %>
 	<div class="production-selling-overview container">
 		<nav
 			class="commerce-category-breadcrumb-wrap production-selling-overview__category">
