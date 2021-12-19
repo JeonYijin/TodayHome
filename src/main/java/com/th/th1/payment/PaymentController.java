@@ -25,9 +25,19 @@ public class PaymentController {
 		ModelAndView mv = new ModelAndView();
 		
 		List<CartVO> items = paymentService.getSelectPayList(memberVO);
+		CartVO img = paymentService.getSelectPayFiles(memberVO);
+		Long count = paymentService.getSelectPayCount(memberVO); //상픔 개수
+		Long totalMoney = paymentService.getSelectPayMoney(memberVO); //총 할인 전 금액
+		Long dcMoney = paymentService.getSelectPayDiscount(memberVO); //총 할인 금액
+		
+		System.out.println("img : "+ img);
+		System.out.println("MemberVO : " + memberVO.getId());
 		
 		mv.addObject("items", items);
-		
+		mv.addObject("img", img);
+		mv.addObject("count", count);
+		mv.addObject("totalMoney", totalMoney);
+		mv.addObject("dcMoney", dcMoney);
 		mv.setViewName("store/pay");
 		
 		//return "payment/payment";
