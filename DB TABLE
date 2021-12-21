@@ -1,0 +1,310 @@
+스토어 DB
+
+<상품 테이블>
+CREATE TABLE `pr` (
+  `pr_number` int NOT NULL AUTO_INCREMENT,
+  `pr_name` varchar(255) NOT NULL,
+  `pr_seller` varchar(255) NOT NULL,
+  `pr_category` int NOT NULL,
+  `pr_price` int NOT NULL,
+  `pr_discount` int NOT NULL,
+  `pr_dPrice` int NOT NULL,
+  `pr_rate` int NOT NULL,
+  `pr_scrap` int NOT NULL,
+  `pr_address` varchar(255) NOT NULL,
+  PRIMARY KEY (`pr_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+<상품 파일 테이블>
+CREATE TABLE `pr_files` (
+  `filenum` int NOT NULL AUTO_INCREMENT,
+  `pr_number` int NOT NULL,
+  `fileName` varchar(255) NOT NULL,
+  `oriName` varchar(255) NOT NULL,
+  `ori_type` int NOT NULL,
+  PRIMARY KEY (`filenum`),
+  KEY `prnum_fk_idx` (`pr_number`),
+  CONSTRAINT `prnum_fk` FOREIGN KEY (`pr_number`) REFERENCES `pr` (`pr_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+<상품 카테고리 테이블>
+CREATE TABLE `pr_category` (
+  `category_num` int NOT NULL,
+  `category_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`category_num`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+<카테고리 게시판 스크랩>
+CREATE TABLE `user02`.`category_scrap` (
+  `num` INT NOT NULL AUTO_INCREMENT,
+  `scrap_id` VARCHAR(255) NOT NULL,
+  `pr_number` DOUBLE NOT NULL,
+  PRIMARY KEY (`num`));
+  
+  <장바구니 테이블>
+  CREATE TABLE `cart` (
+  `cart_id` int NOT NULL AUTO_INCREMENT,
+  `member_id` varchar(255) NOT NULL,
+  `pr_number` int NOT NULL,
+  `amount` int NOT NULL,
+  `status` int NOT NULL,
+  PRIMARY KEY (`cart_id`),
+  KEY `CT_productNum_FK_idx` (`pr_number`),
+  CONSTRAINT `CT_productNum_FK` FOREIGN KEY (`pr_number`) REFERENCES `pr` (`pr_number`)
+)
+
+<공지사항 테이블>
+CREATE TABLE `notice` (
+  `num` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `regDate` date DEFAULT NULL,
+  `contents` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`num`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+<고객센터 테이블>
+CREATE TABLE `user02`.`cscenter` (
+  `num` INT NOT NULL AUTO_INCREMENT,
+  `category` VARCHAR(255) NOT NULL,
+  `question` LONGTEXT NOT NULL,
+  `answer` LONGTEXT NOT NULL,
+  PRIMARY KEY (`num`));
+
+<회원 테이블>
+CREATE TABLE `member` (
+  `memberNum` int NOT NULL AUTO_INCREMENT,
+  `id` varchar(255) NOT NULL,
+  `pw` varchar(255) NOT NULL,
+  `nickname` varchar(255) NOT NULL,
+  `enabled` bit(1) NOT NULL,
+  PRIMARY KEY (`memberNum`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+<회원-role 테이블>
+CREATE TABLE `member_role` (
+  `id` varchar(255) DEFAULT NULL,
+  `num` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+<role 테이블>
+CREATE TABLE `role` (
+  `num` int NOT NULL AUTO_INCREMENT,
+  `roleName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`num`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+insert into role values(null, 'ROLE_ADMIN');
+insert into role values(null, 'ROLE_MEMBER');
+
+<사진 게시판>
+
+CREATE TABLE `picture` (
+  `post_id` int NOT NULL AUTO_INCREMENT,
+  `memberNum` int NOT NULL,
+  `post_date` date NOT NULL,
+  `pyeongsu` varchar(255) DEFAULT NULL,
+  `housetype` varchar(255) DEFAULT NULL,
+  `style` varchar(255) DEFAULT NULL,
+  `area` varchar(255) NOT NULL,
+  `hit` int DEFAULT NULL,
+  `post_text` longtext,
+  PRIMARY KEY (`post_id`),
+  KEY `mem_num_fk_idx` (`memberNum`),
+  CONSTRAINT `mem_num_fk` FOREIGN KEY (`memberNum`) REFERENCES `member` (`memberNum`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+<사진 게시판 첨부파일>
+CREATE TABLE `picture` (
+  `post_id` int NOT NULL AUTO_INCREMENT,
+  `memberNum` int NOT NULL,
+  `post_date` date NOT NULL,
+  `pyeongsu` varchar(255) DEFAULT NULL,
+  `housetype` varchar(255) DEFAULT NULL,
+  `style` varchar(255) DEFAULT NULL,
+  `area` varchar(255) NOT NULL,
+  `hit` int DEFAULT NULL,
+  `post_text` longtext,
+  PRIMARY KEY (`post_id`),
+  KEY `mem_num_fk_idx` (`memberNum`),
+  CONSTRAINT `mem_num_fk` FOREIGN KEY (`memberNum`) REFERENCES `member` (`memberNum`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+<사진 게시판 댓글 테이블>
+CREATE TABLE `picture` (
+  `post_id` int NOT NULL AUTO_INCREMENT,
+  `memberNum` int NOT NULL,
+  `post_date` date NOT NULL,
+  `pyeongsu` varchar(255) DEFAULT NULL,
+  `housetype` varchar(255) DEFAULT NULL,
+  `style` varchar(255) DEFAULT NULL,
+  `area` varchar(255) NOT NULL,
+  `hit` int DEFAULT NULL,
+  `post_text` longtext,
+  PRIMARY KEY (`post_id`),
+  KEY `mem_num_fk_idx` (`memberNum`),
+  CONSTRAINT `mem_num_fk` FOREIGN KEY (`memberNum`) REFERENCES `member` (`memberNum`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+<사진 게시판 - 좋아요/스크랩 테이블>
+좋아요
+CREATE TABLE `feeling` (
+  `heart` int NOT NULL AUTO_INCREMENT,
+  `post_id` int NOT NULL,
+  `memberNum` int NOT NULL,
+  PRIMARY KEY (`heart`),
+  KEY `post_number_fk_idx` (`post_id`),
+  KEY `member_number_fk_idx` (`memberNum`),
+  CONSTRAINT `member_number_fk` FOREIGN KEY (`memberNum`) REFERENCES `member` (`memberNum`) ON DELETE CASCADE,
+  CONSTRAINT `post_number_fk` FOREIGN KEY (`post_id`) REFERENCES `picture` (`post_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+스크랩
+CREATE TABLE `scraping` (
+  `scrap` int NOT NULL AUTO_INCREMENT,
+  `post_id` int DEFAULT NULL,
+  `memberNum` int DEFAULT NULL,
+  PRIMARY KEY (`scrap`),
+  KEY `post_sc_fk_idx` (`post_id`),
+  KEY `member_sc_fk_idx` (`memberNum`),
+  CONSTRAINT `member_sc_fk` FOREIGN KEY (`memberNum`) REFERENCES `member` (`memberNum`) ON DELETE CASCADE,
+  CONSTRAINT `post_sc_fk` FOREIGN KEY (`post_id`) REFERENCES `picture` (`post_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+<마이페이지 알림설정 테이블>
+이메일 설정
+CREATE TABLE `noti` (
+  `noti_email` int DEFAULT NULL,
+  `memberNum` int DEFAULT NULL,
+  KEY `noti_member_fk_idx` (`memberNum`),
+  CONSTRAINT `noti_member_fk` FOREIGN KEY (`memberNum`) REFERENCES `member` (`memberNum`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+문자 메시지 설정
+CREATE TABLE `notim` (
+  `noti_msg` int NOT NULL,
+  `memberNum` int DEFAULT NULL,
+  KEY `notim_member_fk_idx` (`memberNum`),
+  CONSTRAINT `notim_member_fk` FOREIGN KEY (`memberNum`) REFERENCES `member` (`memberNum`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+<집들이 게시판 테이블>
+CREATE TABLE `housewarming` (
+  `house_num` int NOT NULL AUTO_INCREMENT,
+  `house_title` varchar(255) NOT NULL,
+  `house_contents` longtext NOT NULL,
+  `house_writer` varchar(255) NOT NULL,
+  `house_userId` varchar(255) NOT NULL,
+  `house_comments` int DEFAULT '0',
+  `house_hits` int DEFAULT '0',
+  `house_zoayo` int DEFAULT '0',
+  `house_scrap` int DEFAULT '0',
+  `house_thumbnail` varchar(255) NOT NULL,
+  `regDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `house_kind` varchar(255) NOT NULL,
+  `house_space` varchar(255) NOT NULL,
+  `house_rooms` varchar(255) DEFAULT NULL,
+  `family_kind` varchar(255) NOT NULL,
+  `working_area` varchar(255) NOT NULL,
+  `total_budget` varchar(255) DEFAULT NULL,
+  `style_category` int DEFAULT NULL,
+  PRIMARY KEY (`house_num`),
+  KEY `HW_UID_FK_idx` (`house_userId`),
+  CONSTRAINT `HW_UID_FK` FOREIGN KEY (`house_userId`) REFERENCES `member` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+<집들이 게시판 댓글 테이블>
+CREATE TABLE `h_comment` (
+  `cnum` int NOT NULL AUTO_INCREMENT,
+  `hnum` int NOT NULL,
+  `contents` longtext NOT NULL,
+  `writer` varchar(255) NOT NULL,
+  `regDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ref` int DEFAULT NULL,
+  `step` int DEFAULT NULL,
+  `depth` int DEFAULT NULL,
+  `heart` int DEFAULT '0',
+  PRIMARY KEY (`cnum`),
+  KEY `HCOM_HNUM_FK_idx` (`hnum`),
+  CONSTRAINT `HCOM_HNUM_FK` FOREIGN KEY (`hnum`) REFERENCES `housewarming` (`house_num`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+<집들이 게시판 해시태그 테이블>
+CREATE TABLE `hashtag` (
+  `hashtag_num` int NOT NULL AUTO_INCREMENT,
+  `hashtag_name` varchar(255) DEFAULT NULL,
+  `hashtag_category` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`hashtag_num`)
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+<집들이 게시판 좋아요/스크랩 테이블>
+
+좋아요
+CREATE TABLE `house_zoayo` (
+  `num` int NOT NULL AUTO_INCREMENT,
+  `house_num` int NOT NULL,
+  `zoayo_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`num`),
+  KEY `HZ_ID_FK_idx` (`zoayo_id`),
+  KEY `HZ_HNUM_FK_idx` (`house_num`),
+  CONSTRAINT `HZ_HNUM_FK` FOREIGN KEY (`house_num`) REFERENCES `housewarming` (`house_num`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `HZ_ID_FK` FOREIGN KEY (`zoayo_id`) REFERENCES `member` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `house_scrap` (
+  `num` int NOT NULL AUTO_INCREMENT,
+  `scrap_id` varchar(255) NOT NULL,
+  `house_num` int NOT NULL,
+  PRIMARY KEY (`num`),
+  KEY `HS_SID_FK_idx` (`scrap_id`),
+  KEY `HS_HNUM_FK_idx` (`house_num`),
+  CONSTRAINT `HS_HNUM_FK` FOREIGN KEY (`house_num`) REFERENCES `housewarming` (`house_num`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `HS_SID_FK` FOREIGN KEY (`scrap_id`) REFERENCES `member` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+<질문과 답변 테이블>
+CREATE TABLE `questions` (
+  `quests_num` int NOT NULL AUTO_INCREMENT,
+  `quests_id` varchar(255) NOT NULL,
+  `quests_nickname` varchar(255) DEFAULT NULL,
+  `quests_title` varchar(255) DEFAULT NULL,
+  `quests_contents` longtext,
+  `list_contents` longtext,
+  `hits` int DEFAULT '0',
+  `regDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `reply` int DEFAULT '0',
+  `thumbnail` varchar(255) DEFAULT NULL,
+  `notice` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`quests_num`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+<질문과 답변 해시태그 테이블>
+CREATE TABLE `questions_hashtag` (
+  `num` int NOT NULL AUTO_INCREMENT,
+  `quests_num` int DEFAULT NULL,
+  `hashtag_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`num`),
+  KEY `QH_QNUM_FK_idx` (`quests_num`),
+  KEY `QH_HNUM_FK_idx` (`hashtag_name`),
+  CONSTRAINT `QH_QNUM_FK` FOREIGN KEY (`quests_num`) REFERENCES `questions` (`quests_num`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+<질문과 답변 답변 테이블>
+CREATE TABLE `q_comment` (
+  `cnum` int NOT NULL AUTO_INCREMENT,
+  `qnum` int NOT NULL,
+  `contents` longtext NOT NULL,
+  `writer` varchar(255) NOT NULL,
+  `regdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ref` int NOT NULL,
+  `step` int NOT NULL,
+  `depth` int NOT NULL,
+  `heart` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`cnum`),
+  KEY `QCOM_QNUM_FK_idx` (`qnum`),
+  CONSTRAINT `QCOM_QNUM_FK` FOREIGN KEY (`qnum`) REFERENCES `questions` (`quests_num`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
