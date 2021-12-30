@@ -193,7 +193,8 @@
       <input type="hidden" name="id" id="memberVO_id" value="${memberVO.id}"/>
     </sec:authorize>
 
-<script type="text/javascript"> var count;
+<script type="text/javascript"> 
+var count;
 var price;
 var delivery;
 var discount;
@@ -204,12 +205,12 @@ var cbxArr = [];
 cbxArr = $('.chbx');
 
 // 페이지 로딩 하자마자 실행
-$(document).ready(function(){
+//$(document).ready(function(){
+//});
     cbxTest();
-});
 
 // checkbox 체크여부별 총 합산 구하기
-var cbxTest= function cbxTest() {
+function cbxTest() {
         var total=0;
         var total_price=0;
         var total_delivery=0;
@@ -229,7 +230,7 @@ var cbxTest= function cbxTest() {
                 payMoney = parseInt(prePayMoney);
                 
                 total_price= (payMoney*count);
-                total_delivery= ;
+                total_delivery= 0;
 
                 total = (count*payMoney+delivery);
                 
@@ -241,12 +242,15 @@ var cbxTest= function cbxTest() {
         });
         
         $('.result').html("전체상품가격="+total_price+"<br>전체배송료="+total_delivery+"<br><hr>총합산금액="+total);
-    };   */
+    };  
 
 /* 삭제 버튼 */
 function del(sel) {
 	let cart_id = $('.cartIdVal').val();
 	let member_id= $('#memberVO_id').val();
+	
+	
+	alert('삭제 버튼');
 	
  	$.ajax({
 		type : "POST",

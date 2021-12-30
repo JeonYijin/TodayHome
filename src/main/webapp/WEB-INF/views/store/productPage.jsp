@@ -393,6 +393,7 @@
 					'member_id' : member_id
 					}
 				, success : function(result) {
+					
 				}
 				,error : function(xhr, status, error){
 				}

@@ -43,6 +43,7 @@ public class CartController {
 	
 	//장바구니 insert
 	@PostMapping("setInsertCart")
+	@ResponseBody
 	public int setInsertCart(CartVO cartVO) throws Exception {
 		int result = cartService.setInsertCart(cartVO);
 		
