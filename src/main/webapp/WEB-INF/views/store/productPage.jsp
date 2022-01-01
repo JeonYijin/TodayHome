@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,7 +80,7 @@
 									style="width: 100%;">
 									<img
 										class="production-selling-cover-image__entry__image image1"
-										src="../upload/store/${product.prFiles[0].fileName}" srcset="">
+										src="../resources/upload/store/${product.prFiles[0].fileName}" srcset="">
 									<div class="production-selling-cover-image__timer--pc"></div>
 									<div class="css-167c30c-Wrapper evlxapa2">
 										<div class="css-uny98z-Content evlxapa1"></div>
@@ -178,7 +179,7 @@
 									<span>배송</span>
 								</div>
 								<div class="production-selling-header__delivery__content-wrap">
-									<span class="production-selling-header__delivery__fee"><b>2500원</b></span><span
+									<span class="production-selling-header__delivery__fee"><b>2,500원</b></span><span
 										class="production-selling-header__delivery__type"><span>화물택배</span></span><span
 										class="production-selling-header__delivery__disclaimer-wrap"><span
 										class="production-selling-header__delivery__disclaimer"><svg
@@ -187,7 +188,7 @@
 												<path d="M1 3.83l2.153 3.03a1 1 0 001.627.005L9 1"
 													stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"
 													stroke-linejoin="round"></path></svg><span>제주도/도서산간 지역
-												2500원</span></span></span>
+												2,500원</span></span></span>
 								</div>
 							</div>
 						</div>
@@ -252,16 +253,18 @@
 										리뷰</span></span></a>
 						</p>
 						<div class="production-selling-header__price">
-							<span class="production-selling-header__price__price-wrap"><span
-								class="production-selling-header__price__discount"><span
-									class="number">${product.pr_discount}</span><span
-									class="percent">%</span></span> <del
-									class="production-selling-header__price__original">
-									<span class="number">${product.pr_price}</span><span
-										class="won">원</span>
-								</del><span class="production-selling-header__price__separator"></span><span
-								class="production-selling-header__price__price"><span
-									class="number">${product.pr_dPrice}</span><span class="won">원</span>
+							<span class="production-selling-header__price__price-wrap">
+							<span class="production-selling-header__price__discount">
+							<span class="number">${product.pr_discount}</span>
+							<span class="percent">%</span></span> 
+							<del class="production-selling-header__price__original">
+									<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.pr_price}" var="fPrice"></fmt:formatNumber>
+									<span class="number">${fPrice}</span>
+									<span class="won">원</span>
+								</del><span class="production-selling-header__price__separator"></span>
+								<span class="production-selling-header__price__price">
+								<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.pr_dPrice}" var="fdPrice"></fmt:formatNumber>
+								<span class="number">${fdPrice}</span><span class="won">원</span>
 						</div>
 					</div>
 
@@ -278,7 +281,7 @@
 					<div class="production-selling-option-form__footer">
 						<button
 							class="button button--color-blue-inverted button--size-55 button--shape-4"
-							type="button" onclick="location.href='/cart'">장바구니</button>
+							type="button" onclick='cartModal()'>장바구니</button>
 						<button
 							class="button button--color-blue button--size-55 button--shape-4"
 							type="button" onclick="location.href='/payment'">바로구매</button>
@@ -422,6 +425,60 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- 장바구니 모달  -->
+	<input class="prNum" type="hidden" value="${product.pr_number}">
+	
+	<div class="react-modal react-modal--center open open-active" style="display:none;">
+	<div class="react-modal__content-wrap">
+	<div class="react-modal__content production-selling-cart-complete-modal">
+	<h1 class="production-selling-cart-complete-modal__title">장바구니에 상품을 담았습니다</h1>
+	<a class="button button--color-blue button--size-60 button--shape-4 production-selling-cart-complete-modal__button" href="/cart">장바구니 보러가기</a>
+	<button class="button button--color-gray-7 button--size-60 button--shape-4 production-selling-cart-complete-modal__button exitModal" type="button" onclick='exitModal()'>확인</button>
+	</div></div></div>
+	<!-- //장바구니 모달 -->
+	
+	<sec:authorize access="isAuthenticated()" var="result">
+       <sec:authentication property="principal" var="memberVO"/>
+      <input type="hidden" name="nickname" id="memberVO_nickname" value="${memberVO.nickname}"/>
+      <input type="hidden" name="id" id="memberVO_id" value="${memberVO.id}"/>
+    </sec:authorize>
+	
+	
+	<!-- 장바구니 버튼 클릭 시 모달 창 -->
+	<script>
+		
+		function cartModal() {
+			$('.react-modal').css("display", "block");
+			
+			let thumbnail = '${product.prFiles[0].fileName}';
+			let member_id= $('#memberVO_id').val();
+			let pr_number = $('.prNum').val();
+			
+			$.ajax({
+				type: "POST"
+				, url : "/cart/setInsertCart"
+				, data: {
+					'pr_number' : pr_number,
+					'member_id' : member_id,
+					'thumbnail' : thumbnail
+					}
+				, success : function(result) {
+				}
+				,error : function(xhr, status, error){
+				}
+			})
+			
+		}
+		
+		function exitModal() {
+			$('.react-modal').css("display", "none");
+		}
+		
+	
+	</script>
+	
+	
 	<!-- 메뉴 버튼 누를떄 해당 메뉴로 이동  -->
 	<script>
 		function fnMove(seq) {
