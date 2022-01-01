@@ -22,14 +22,16 @@ public class CartController {
 	private CartService cartService;
 	
 	@GetMapping("/")
-	public ModelAndView getCart(@AuthenticationPrincipal MemberVO memberVO) throws Exception {
+	public ModelAndView getCart(@AuthenticationPrincipal MemberVO memberVO, CartVO cartVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
 		List<CartVO> items = cartService.getSelectCartList(memberVO);
-		CartVO img = cartService.getSelectCartFiles(memberVO);
+		String img = cartService.getSelectCartFiles(cartVO);
 		Long count = cartService.getSelectCartCount(memberVO); //상픔 개수
 		Long totalMoney = cartService.getSelectMoney(memberVO); //총 할인 전 금액
 		Long dcMoney = cartService.getSelectDiscount(memberVO); //총 할인 금액
+		
+		System.out.println(img);
 		
 		mv.addObject("items",items);
 		mv.addObject("img", img);
@@ -43,6 +45,7 @@ public class CartController {
 	
 	//장바구니 insert
 	@PostMapping("setInsertCart")
+	@ResponseBody
 	public int setInsertCart(CartVO cartVO) throws Exception {
 		int result = cartService.setInsertCart(cartVO);
 		

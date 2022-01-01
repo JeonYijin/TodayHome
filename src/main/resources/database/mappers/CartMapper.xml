@@ -37,38 +37,14 @@
 	</resultMap>
 	
 	<!-- 상품 이미지 -->
-	<select id="getSelectCartFiles" parameterType="MemberVO" resultMap="getSelectCartFilesResult">
-		select CT.*, PF.* from
-		(select c.cart_id, c.member_id, c.pr_number
-		from cart c, pr p, member m
-		where c.member_id = m.id and c.pr_number = p.pr_number and c.member_id = #{id})
-			CT
-				left outer join 
-			pr_files PF
-		on CT.pr_number = PF.pr_number
-        where PF.oriType = 1 and filenum = (select min(filenum) from pr_files)
+	<select id="getSelectCartFiles" parameterType="CartVO" resultType="String">
+		select fileName from 
+		cart c 
+			left outer join
+		pr_files pf
+	    on c.pr_number = pf.pr_number
+		where c.pr_number = #{pr_number} and filenum = (select min(filenum) from pr_files where pr_number = #{pr_number})
 	</select>
-	<resultMap type="CartVO" id="getSelectCartFilesResult">
-		<id column="cart_id" property="cart_id"/>
-		<result column="member_id" property="member_id"/>
-		<result column="pr_number" property="pr_number"/>
-		<result column="pr_name" property="pr_name"/>
-		<result column="pr_seller" property="pr_seller"/>
-		<result column="pr_price" property="pr_price"/>
-		<result column="pr_discount" property="pr_discount"/>
-		<result column="pr_dPrice" property="pr_dPrice"/>
-		<result column="amount" property="amount"/>
-		<result column="money" property="money"/>
-		<result column="status" property="status"/>
-		<collection property="files" javaType="List" ofType="PrFilesVO">
-			<id column="fileNum" property="fileNum"/>
-			<result column="pr_number" property="pr_number"/>
-			<result column="fileName" property="fileName"/>
-			<result column="oriName" property="oriName"/>
-			<result column="ori_type" property="ori_type"/>
-		</collection>
-	</resultMap>
-	
 	
 	
 	<!-- 상품 삭제 -->

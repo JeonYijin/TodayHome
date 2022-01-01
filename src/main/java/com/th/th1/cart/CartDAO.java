@@ -17,7 +17,7 @@ public interface CartDAO {
 	public List<CartVO> getSelectCartList(MemberVO memberVO) throws Exception;
 	
 	//장바구니 이미지
-	public CartVO getSelectCartFiles(MemberVO memberVO) throws Exception;
+	public String getSelectCartFiles(CartVO cartVO) throws Exception;
 	
 	//상품 삭제
 	public int setDeleteCart(CartVO cartVO) throws Exception;

@@ -97,8 +97,7 @@
 	                                                            
 	                                                            	<div class="product-small-item__image">
 	                                                                <picture>
-	                                                                   <img alt="" src="../resources/upload/store/${img.files[0].fileName}" srcset="
-                                                                        ">
+	                                                                   <img alt="" src="../resources/upload/store/${img}" srcset="">
 	                                                                </picture>
 	                                                            </div>
 	                                                            
