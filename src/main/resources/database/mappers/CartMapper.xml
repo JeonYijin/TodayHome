@@ -11,9 +11,12 @@
 	
 	<!-- 장바구니 목록 불러오기  -->
 	<select id="getSelectCartList" parameterType="MemberVO" resultMap="getSelectCartListResult">
-		select c.cart_id, c.member_id, c.pr_number, c.amount, c.status,  p.pr_name, p.pr_seller, p.pr_price, p.pr_discount, pr_dPrice,(p.pr_dPrice * c.amount) money
-		from cart c, pr p, member m
-		where c.member_id = m.id and c.pr_number = p.pr_number and c.member_id = #{id}
+		select c.cart_id, c.member_id, c.pr_number, c.amount, c.status, pf.fileName, p.pr_name, p.pr_seller, p.pr_price, p.pr_discount, pr_dPrice
+		from cart c inner join pr_files pf
+		on (c.pr_number=pf.pr_number)
+		inner join pr p
+		on (c.pr_number=p.pr_number)
+		where member_id= #{id}
 	</select>
 	<resultMap type="CartVO" id="getSelectCartListResult">
 		<id column="cart_id" property="cart_id"/>
@@ -37,7 +40,7 @@
 	</resultMap>
 	
 	<!-- 상품 이미지 -->
-	<select id="getSelectCartFiles" parameterType="CartVO" resultType="String">
+	<select id="getSelectCartFiles" parameterType="CartVO" resultType="CartVO">
 		select fileName from 
 		cart c 
 			left outer join

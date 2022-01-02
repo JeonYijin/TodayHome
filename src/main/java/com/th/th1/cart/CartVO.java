@@ -22,6 +22,8 @@ public class CartVO {
 	private Long status; //장바구니 상태 : 0 = 체크 x, 1=체크 O
 	
 	private List<PrFilesVO> files; //상품 이미지
+	
+	private String fileName; //임시 파일네임
 
 
 }

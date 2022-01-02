@@ -22,19 +22,17 @@ public class CartController {
 	private CartService cartService;
 	
 	@GetMapping("/")
-	public ModelAndView getCart(@AuthenticationPrincipal MemberVO memberVO, CartVO cartVO) throws Exception {
+	public ModelAndView getCart(@AuthenticationPrincipal MemberVO memberVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
+		System.out.println("cartVO:");
 		List<CartVO> items = cartService.getSelectCartList(memberVO);
-		String img = cartService.getSelectCartFiles(cartVO);
 		Long count = cartService.getSelectCartCount(memberVO); //상픔 개수
 		Long totalMoney = cartService.getSelectMoney(memberVO); //총 할인 전 금액
 		Long dcMoney = cartService.getSelectDiscount(memberVO); //총 할인 금액
 		
-		System.out.println(img);
 		
 		mv.addObject("items",items);
-		mv.addObject("img", img);
 		mv.addObject("count", count);
 		mv.addObject("totalMoney", totalMoney);
 		mv.addObject("dcMoney", dcMoney);

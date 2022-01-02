@@ -23,7 +23,7 @@ public class CartService {
 		return cartDAO.getSelectCartList(memberVO);
 	}
 	
-	public String getSelectCartFiles(CartVO cartVO) throws Exception {
+	public CartVO getSelectCartFiles(CartVO cartVO) throws Exception {
 		return cartDAO.getSelectCartFiles(cartVO);
 	}
 	
